@@ -1,0 +1,139 @@
+* インストールと設定
+xFrameworkPXを利用する際には、最新版のPHPを使うことを推奨します。重要なセキュリティ修正が行われ、パフォーマンスも改善されているためです。現在、xFrameworkPXは、''PHP 5.1.6''以降のバージョンをサポートしています。ただし、いくつかのライブラリは最新版のPHPで無い場合、制限事項が存在します。
+また、xFrameworkPX開発時にユニットテストも作成しているため、これらをユーザーが実行することも可能です。実行するには ''PHPUnit 3.4.1''以降が必要です。
+
+
+* 開発環境構築
+サイト開発において、開発者は本番環境ではなく、開発環境を準備して開発を進める手法を推奨します。ここでは、Windows環境に開発環境を構築する手順を示します。Linux/Macなど他のOS上での開発環境を行う場合は、部分的に読み替えてください。
+
+** XAMPPの入手
+
+[[http://www.apachefriends.org/]]から、XAMPPをダウンロードします。各OSのXAMPPが用意されていますが、ここではWindows用のXAMPPをダウンロードします。
+ ダウンロードしたインストーラーをダブルクリックし，インストールを開始します。
+
+
+** 設定ファイルの修正
+
+XAMPPをインストールしただけではxFrameworkPXは使用できません。以下の通りに設定ファイルを修正してください。
+
+まず、いくつかの機能を有効にするため、設定ファイル('''%XAMPPPATH%\apache\conf\httpd.conf''')を修正します。
+
+
+*** mod_rewriteの有効化
+
+'''修正前'''
+{{{
+#LoadModule rewrite_module modules/mod_rewrite.so
+}}}
+
+'''修正後'''
+{{{
+LoadModule rewrite_module modules/mod_rewrite.so
+}}}
+
+XAMPPのバージョンによっては、初期状態でmod_rewriteが有効になっている場合があります。その場合は、特に修正する必要はありません。
+
+
+
+** mod_userdirの有効化
+
+'''修正前'''
+{{{
+#LoadModule userdir_module modules/mod_userdir.so
+}}}
+
+'''修正後'''
+{{{
+LoadModule userdir_module modules/mod_userdir.so
+}}}
+
+ユーザーディレクトリを有効にします。これは必須の修正ではありませんが、ローカルでの開発を行う際複数のプロジェクトをユーザーディレクトリで管理する手法を推奨します。
+
+
+** .htaccessの有効化
+AllowOverrideをAllに設定します。
+'''修正前'''
+{{{
+AllowOverride None
+}}}
+
+'''修正後'''
+{{{
+AllowOverride All
+}}}
+
+
+次に、ユーザーディレクトリ設定用ファイル('''%XAMPPPATH%\apache\conf\extra\httpd-userdir.conf''')を修正してユーザディレクトリの設定を行います。この設定を行うことでローカルに複数のドキュメントルートを設置することが容易になります。
+
+{{{
+<IfModule userdir_module>
+    #
+    # UserDir: The name of the directory that is appended onto a user's home
+    # directory if a ~user request is received.  Note that you must also set
+    # the default access control for these directories, as in the example below.
+    #
+    UserDir "&color(#FF0000){C:/UserDir/*/public_html};"
+
+    #
+    # Control access to UserDir directories.  The following is an example
+    # for a site where these directories are restricted to read-only.
+    #
+    <Directory "C:/UserDir/*/public_html">
+        Options Indexes FollowSymLinks Includes ExecCGI
+        AllowOverride All
+        Order allow,deny
+        Allow from all
+    </Directory>
+</IfModule>
+
+}}}
+
+C:\UserDirというディレクトリを作成して、その下に任意の名前のユーザディレクトリを作成できる設定例です。
+
+以上で、XAMPPの設定は完了しました。既にApacheを起動している場合は、Apacheを再起動してください。
+
+
+
+* xFrameworkPXのダウンロード
+
+xFrameworkPXのオフィシャルサイト([[http://www.xframeworkpx.com]])からxFrameworkPXの最新版をダウンロードします。xFrameworkPXはZIPファイル形式、またはtar.gz形式で提供されていますので、適当な場所に展開してください。解凍したディレクトリの内容をドキュメントルートに設置します。
+
+
+* xFrameworkPXの構成
+
+xFrameworkPXのディレクトリ構成は下記の通りです。
+
+|~behaviors|開発者が作成したビヘイビアクラスを格納するディレクトリ|
+|~cache|キャッシュ保存用ディレクトリ|
+|~configs|設定ファイルを格納するディレクトリ|
+|~console|コンソールモード起動用|
+|~controllers|スーパーアクションコントローラー、グローバルアクションコントローラー、コンソールコントローラーを格納するディレクトリ|
+|~layouts|レイアウト定義ファイルを格納するディレクトリ|
+|~library|ライブラリディレクトリ|
+|~locales|ロケールを格納するディレクトリ|
+|~logs|ログファイルが格納されるディレクトリ|
+|~modules|開発者が作成したモジュールを格納するディレクトリ|
+|~public_html|ドキュメントルート|
+|~templates|テンプレートを格納するディレクトリ|
+
+以上が、xFrameworkPXのディレクトリ構成です。
+
+* xFrameworkPXをドキュメントルートに設置する
+
+ここでは'''px'''というユーザディレクトリを作成し、そこにxFrameworkPXを配置する例で説明します。
+
+** ユーザディレクトリの作成
+'''C:\UserDir'''下に'''px'''という名前のディレクトリを作成します。'''C:\UserDir'''が存在しない場合は作成してください。
+
+** xFrameworkPXの配置
+展開したxFrameworkPXの内容を'''C:\UserDir\px'''下に移動します。
+
+** 初期設定
+C:\UserDir\px\public_html下にある.htaccessを編集します。
+
+{{{
+RewriteBase /~px/
+}}}
+
+RewriteBaseを自分のアクセスするURLに対応させてください。以上でxFrameworkPXのドキュメントルートへの配置が完了しました。
+ブラウザで'''http://localhost/~px/'''へアクセスして、設置が完了していることを確認してください。

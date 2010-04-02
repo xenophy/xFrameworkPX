@@ -1,0 +1,37 @@
+<!--{strip}-->
+<div class="px-verify">
+
+    <h2 class="ttlform">
+        完了
+    </h2>
+
+    <div class="px-wrap">
+
+        <div class="px-body colspace">
+
+            <!-- borderbox -->
+            <div class="borderbox">
+
+                <p class="cmove">
+                    <img src="<!--{$relpath}-->resources/images/px/tick.gif" alt="完了" width="16" height="16" class="mid" />
+                    完了しました。
+                </p>
+
+            </div>
+            <!-- /borderbox -->
+
+            <form method="get" action="./">
+                <p class="cmove">
+                    <input type="submit" value="一覧へ戻る" class="bluebtn" />
+                </p>
+                <!--{* リファラー *}-->
+                <input type="hidden" name="<!--{$refererName}-->" value="<!--{$px_ref|escape}-->" />
+                <!--{* /リファラー *}-->
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+<!--{/strip}-->

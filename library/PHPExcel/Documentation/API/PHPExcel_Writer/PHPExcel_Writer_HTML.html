@@ -1,0 +1,1712 @@
+<html>
+<head>
+<title>Docs For Class PHPExcel_Writer_HTML</title>
+<link rel="stylesheet" type="text/css" href="../media/style.css">
+</head>
+<body>
+
+<table border="0" cellspacing="0" cellpadding="0" height="48" width="100%">
+  <tr>
+    <td class="header_top">PHPExcel_Writer</td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+  <tr>
+    <td class="header_menu">
+        
+                                                                                                                                                                                                                                                                                                                                                                                        
+                                                                      		  [ <a href="../classtrees_PHPExcel_Writer.html" class="menu">class tree: PHPExcel_Writer</a> ]
+		  [ <a href="../elementindex_PHPExcel_Writer.html" class="menu">index: PHPExcel_Writer</a> ]
+		  	    [ <a href="../elementindex.html" class="menu">all elements</a> ]
+    </td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+</table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="200" class="menu">
+	<div id="todolist">
+			<p><a href="../todolist.html">Todo List</a></p>
+	</div>
+      <b>Packages:</b><br />
+              <a href="../li_default.html">default</a><br />
+              <a href="../li_com-tecnick-tcpdf.html">com-tecnick-tcpdf</a><br />
+              <a href="../li_JAMA.html">JAMA</a><br />
+              <a href="../li_Math_Stats.html">Math_Stats</a><br />
+              <a href="../li_PHPExcel.html">PHPExcel</a><br />
+              <a href="../li_PHPExcel_Calculation.html">PHPExcel_Calculation</a><br />
+              <a href="../li_PHPExcel_Cell.html">PHPExcel_Cell</a><br />
+              <a href="../li_PHPExcel_Reader.html">PHPExcel_Reader</a><br />
+              <a href="../li_PHPExcel_Reader_Excel5.html">PHPExcel_Reader_Excel5</a><br />
+              <a href="../li_PHPExcel_RichText.html">PHPExcel_RichText</a><br />
+              <a href="../li_PHPExcel_Shared.html">PHPExcel_Shared</a><br />
+              <a href="../li_PHPExcel_Shared_Best_Fit.html">PHPExcel_Shared_Best_Fit</a><br />
+              <a href="../li_PHPExcel_Shared_Escher.html">PHPExcel_Shared_Escher</a><br />
+              <a href="../li_PHPExcel_Shared_OLE.html">PHPExcel_Shared_OLE</a><br />
+              <a href="../li_PHPExcel_Style.html">PHPExcel_Style</a><br />
+              <a href="../li_PHPExcel_Worksheet.html">PHPExcel_Worksheet</a><br />
+              <a href="../li_PHPExcel_Worksheet_Drawing.html">PHPExcel_Worksheet_Drawing</a><br />
+              <a href="../li_PHPExcel_Writer.html">PHPExcel_Writer</a><br />
+              <a href="../li_PHPExcel_Writer_Excel5.html">PHPExcel_Writer_Excel5</a><br />
+              <a href="../li_PHPExcel_Writer_Excel2007.html">PHPExcel_Writer_Excel2007</a><br />
+            <br /><br />
+                        <b>Files:</b><br />
+      	  <div class="package">
+			<a href="../PHPExcel_Writer/_PHPExcel---Writer---CSV.php.html">		CSV.php
+		</a><br>
+			<a href="../PHPExcel_Writer/_PHPExcel---Writer---HTML.php.html">		HTML.php
+		</a><br>
+			<a href="../PHPExcel_Writer/_PHPExcel---Writer---IWriter.php.html">		IWriter.php
+		</a><br>
+			<a href="../PHPExcel_Writer/_PHPExcel---Writer---PDF.php.html">		PDF.php
+		</a><br>
+			<a href="../PHPExcel_Writer/_PHPExcel---Writer---Serialized.php.html">		Serialized.php
+		</a><br>
+	  </div><br />
+      
+            <b>Interfaces:</b><br />
+        <div class="package">
+		    		<a href="../PHPExcel_Writer/PHPExcel_Writer_IWriter.html">PHPExcel_Writer_IWriter</a><br />
+	  </div>
+      
+            <b>Classes:</b><br />
+        <div class="package">
+		    		<a href="../PHPExcel_Writer/PHPExcel_Writer_CSV.html">PHPExcel_Writer_CSV</a><br />
+	    		<a href="../PHPExcel_Writer/PHPExcel_Writer_HTML.html">PHPExcel_Writer_HTML</a><br />
+	    		<a href="../PHPExcel_Writer/PHPExcel_Writer_PDF.html">PHPExcel_Writer_PDF</a><br />
+	    		<a href="../PHPExcel_Writer/PHPExcel_Writer_Serialized.html">PHPExcel_Writer_Serialized</a><br />
+	  </div>
+                </td>
+    <td>
+      <table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+
+<h1>Class: PHPExcel_Writer_HTML</h1>
+Source Location: /PHPExcel/Writer/HTML.php<br /><br />
+
+
+<table width="100%" border="0">
+<tr><td valign="top">
+
+<h3><a href="#class_details">Class Overview</a></h3>
+<pre></pre><br />
+<div class="description">PHPExcel_Writer_HTML</div><br /><br />
+<h4>Author(s):</h4>
+<ul>
+        </ul>
+
+
+
+
+      
+  
+
+<h4>Copyright:</h4>
+<ul>
+  <li>Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)</li>
+</ul>
+                <p class="implements">
+            Implements interfaces:
+            <ul>
+                <li><a href="../PHPExcel_Writer/PHPExcel_Writer_IWriter.html">PHPExcel_Writer_IWriter</a></li>            </ul>
+        </p>
+        
+</td>
+
+<td valign="top">
+<h3><a href="#class_vars">Variables</a></h3>
+<ul>
+    <li><a href="../PHPExcel_Writer/PHPExcel_Writer_HTML.html#var$_columnWidths">$_columnWidths</a></li>
+    <li><a href="../PHPExcel_Writer/PHPExcel_Writer_HTML.html#var$_cssStyles">$_cssStyles</a></li>
+    <li><a href="../PHPExcel_Writer/PHPExcel_Writer_HTML.html#var$_defaultFont">$_defaultFont</a></li>
+    <li><a href="../PHPExcel_Writer/PHPExcel_Writer_HTML.html#var$_imagesRoot">$_imagesRoot</a></li>
+    <li><a href="../PHPExcel_Writer/PHPExcel_Writer_HTML.html#var$_isBaseCell">$_isBaseCell</a></li>
+    <li><a href="../PHPExcel_Writer/PHPExcel_Writer_HTML.html#var$_isPdf">$_isPdf</a></li>
+    <li><a href="../PHPExcel_Writer/PHPExcel_Writer_HTML.html#var$_isSpannedCell">$_isSpannedCell</a></li>
+    <li><a href="../PHPExcel_Writer/PHPExcel_Writer_HTML.html#var$_isSpannedRow">$_isSpannedRow</a></li>
+    <li><a href="../PHPExcel_Writer/PHPExcel_Writer_HTML.html#var$_phpExcel">$_phpExcel</a></li>
+    <li><a href="../PHPExcel_Writer/PHPExcel_Writer_HTML.html#var$_preCalculateFormulas">$_preCalculateFormulas</a></li>
+    <li><a href="../PHPExcel_Writer/PHPExcel_Writer_HTML.html#var$_sheetIndex">$_sheetIndex</a></li>
+    <li><a href="../PHPExcel_Writer/PHPExcel_Writer_HTML.html#var$_spansAreCalculated">$_spansAreCalculated</a></li>
+    <li><a href="../PHPExcel_Writer/PHPExcel_Writer_HTML.html#var$_useInlineCss">$_useInlineCss</a></li>
+  </ul>
+</td>
+
+
+<td valign="top">
+<h3><a href="#class_methods">Methods</a></h3>
+<ul>
+    <li><a href="../PHPExcel_Writer/PHPExcel_Writer_HTML.html#method__construct">__construct</a></li>
+    <li><a href="../PHPExcel_Writer/PHPExcel_Writer_HTML.html#methodbuildCSS">buildCSS</a></li>
+    <li><a href="../PHPExcel_Writer/PHPExcel_Writer_HTML.html#methodformatColor">formatColor</a></li>
+    <li><a href="../PHPExcel_Writer/PHPExcel_Writer_HTML.html#methodgenerateHTMLFooter">generateHTMLFooter</a></li>
+    <li><a href="../PHPExcel_Writer/PHPExcel_Writer_HTML.html#methodgenerateHTMLHeader">generateHTMLHeader</a></li>
+    <li><a href="../PHPExcel_Writer/PHPExcel_Writer_HTML.html#methodgenerateSheetData">generateSheetData</a></li>
+    <li><a href="../PHPExcel_Writer/PHPExcel_Writer_HTML.html#methodgenerateStyles">generateStyles</a></li>
+    <li><a href="../PHPExcel_Writer/PHPExcel_Writer_HTML.html#methodgetImagesRoot">getImagesRoot</a></li>
+    <li><a href="../PHPExcel_Writer/PHPExcel_Writer_HTML.html#methodgetPreCalculateFormulas">getPreCalculateFormulas</a></li>
+    <li><a href="../PHPExcel_Writer/PHPExcel_Writer_HTML.html#methodgetSheetIndex">getSheetIndex</a></li>
+    <li><a href="../PHPExcel_Writer/PHPExcel_Writer_HTML.html#methodgetUseInlineCss">getUseInlineCss</a></li>
+    <li><a href="../PHPExcel_Writer/PHPExcel_Writer_HTML.html#methodsave">save</a></li>
+    <li><a href="../PHPExcel_Writer/PHPExcel_Writer_HTML.html#methodsetImagesRoot">setImagesRoot</a></li>
+    <li><a href="../PHPExcel_Writer/PHPExcel_Writer_HTML.html#methodsetPreCalculateFormulas">setPreCalculateFormulas</a></li>
+    <li><a href="../PHPExcel_Writer/PHPExcel_Writer_HTML.html#methodsetSheetIndex">setSheetIndex</a></li>
+    <li><a href="../PHPExcel_Writer/PHPExcel_Writer_HTML.html#methodsetUseInlineCss">setUseInlineCss</a></li>
+    <li><a href="../PHPExcel_Writer/PHPExcel_Writer_HTML.html#methodwriteAllSheets">writeAllSheets</a></li>
+    <li><a href="../PHPExcel_Writer/PHPExcel_Writer_HTML.html#method_assembleCSS">_assembleCSS</a></li>
+    <li><a href="../PHPExcel_Writer/PHPExcel_Writer_HTML.html#method_calculateSpans">_calculateSpans</a></li>
+    <li><a href="../PHPExcel_Writer/PHPExcel_Writer_HTML.html#method_convertNbsp">_convertNbsp</a></li>
+    <li><a href="../PHPExcel_Writer/PHPExcel_Writer_HTML.html#method_createCSSStyle">_createCSSStyle</a></li>
+    <li><a href="../PHPExcel_Writer/PHPExcel_Writer_HTML.html#method_createCSSStyleAlignment">_createCSSStyleAlignment</a></li>
+    <li><a href="../PHPExcel_Writer/PHPExcel_Writer_HTML.html#method_createCSSStyleBorder">_createCSSStyleBorder</a></li>
+    <li><a href="../PHPExcel_Writer/PHPExcel_Writer_HTML.html#method_createCSSStyleBorders">_createCSSStyleBorders</a></li>
+    <li><a href="../PHPExcel_Writer/PHPExcel_Writer_HTML.html#method_createCSSStyleFill">_createCSSStyleFill</a></li>
+    <li><a href="../PHPExcel_Writer/PHPExcel_Writer_HTML.html#method_createCSSStyleFont">_createCSSStyleFont</a></li>
+    <li><a href="../PHPExcel_Writer/PHPExcel_Writer_HTML.html#method_generateRow">_generateRow</a></li>
+    <li><a href="../PHPExcel_Writer/PHPExcel_Writer_HTML.html#method_generateTableFooter">_generateTableFooter</a></li>
+    <li><a href="../PHPExcel_Writer/PHPExcel_Writer_HTML.html#method_generateTableHeader">_generateTableHeader</a></li>
+    <li><a href="../PHPExcel_Writer/PHPExcel_Writer_HTML.html#method_mapBorderStyle">_mapBorderStyle</a></li>
+    <li><a href="../PHPExcel_Writer/PHPExcel_Writer_HTML.html#method_mapHAlign">_mapHAlign</a></li>
+    <li><a href="../PHPExcel_Writer/PHPExcel_Writer_HTML.html#method_mapVAlign">_mapVAlign</a></li>
+    <li><a href="../PHPExcel_Writer/PHPExcel_Writer_HTML.html#method_writeImageTagInCell">_writeImageTagInCell</a></li>
+  </ul>
+</td>
+
+</tr></table>
+<hr />
+
+<table width="100%" border="0"><tr>
+
+
+<td valign="top">
+<h3>Child classes:</h3>
+<div class="tags">
+<dl>
+<dt><a href="../PHPExcel_Writer/PHPExcel_Writer_PDF.html">PHPExcel_Writer_PDF</a></dt>
+	<dd>PHPExcel_Writer_PDF</dd>
+</dl>
+</div>
+</td>
+
+
+
+
+</tr></table>
+<hr />
+
+<a name="class_details"></a>
+<h3>Class Details</h3>
+<div class="tags">
+[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterHTML.php.html#a63">63</a>]<br />
+PHPExcel_Writer_HTML<br /><br /><p>PHPExcel_Writer_HTML</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)</td>
+  </tr>
+</table>
+</div>
+</div><br /><br />
+<div class="top">[ <a href="#top">Top</a> ]</div><br />
+
+<hr />
+<a name="class_vars"></a>
+<h3>Class Variables</h3>
+<div class="tags">
+	<a name="var$_columnWidths"></a>
+	<p></p>
+	<h4>$_columnWidths = <span class="value">&nbsp;null</span></h4>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterHTML.php.html#a111">111</a>]</p>
+  Array of column widths in points<br /><br /><p>Array of column widths in points</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>array</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$_cssStyles"></a>
+	<p></p>
+	<h4>$_cssStyles = <span class="value">&nbsp;null</span></h4>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterHTML.php.html#a104">104</a>]</p>
+  Array of CSS styles<br /><br /><p>Array of CSS styles</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>array</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$_defaultFont"></a>
+	<p></p>
+	<h4>$_defaultFont = <span class="value"></span></h4>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterHTML.php.html#a118">118</a>]</p>
+  Default font<br /><br /><p>Default font</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td><a href="../PHPExcel_Style/PHPExcel_Style_Font.html">PHPExcel_Style_Font</a></td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$_imagesRoot"></a>
+	<p></p>
+	<h4>$_imagesRoot = <span class="value">&nbsp;'.'</span></h4>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterHTML.php.html#a90">90</a>]</p>
+  Images root<br /><br /><p>Images root</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>string</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$_isBaseCell"></a>
+	<p></p>
+	<h4>$_isBaseCell = <span class="value"></span></h4>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterHTML.php.html#a139">139</a>]</p>
+  Excel cells that are upper-left corner in a cell merge<br /><br /><p>Excel cells that are upper-left corner in a cell merge</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>array</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$_isPdf"></a>
+	<p></p>
+	<h4>$_isPdf = <span class="value">&nbsp;false</span></h4>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterHTML.php.html#a153">153</a>]</p>
+  Is the current writer creating PDF?<br /><br /><p>Is the current writer creating PDF?</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>boolean</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$_isSpannedCell"></a>
+	<p></p>
+	<h4>$_isSpannedCell = <span class="value"></span></h4>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterHTML.php.html#a132">132</a>]</p>
+  Excel cells that should not be written as HTML cells<br /><br /><p>Excel cells that should not be written as HTML cells</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>array</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$_isSpannedRow"></a>
+	<p></p>
+	<h4>$_isSpannedRow = <span class="value"></span></h4>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterHTML.php.html#a146">146</a>]</p>
+  Excel rows that should not be written as HTML rows<br /><br /><p>Excel rows that should not be written as HTML rows</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>array</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$_phpExcel"></a>
+	<p></p>
+	<h4>$_phpExcel = <span class="value"></span></h4>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterHTML.php.html#a69">69</a>]</p>
+  PHPExcel object<br /><br /><p>PHPExcel object</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td><a href="../PHPExcel/PHPExcel.html">PHPExcel</a></td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$_preCalculateFormulas"></a>
+	<p></p>
+	<h4>$_preCalculateFormulas = <span class="value">&nbsp;true</span></h4>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterHTML.php.html#a83">83</a>]</p>
+  Pre-calculate formulas<br /><br /><p>Pre-calculate formulas</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>boolean</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$_sheetIndex"></a>
+	<p></p>
+	<h4>$_sheetIndex = <span class="value"></span></h4>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterHTML.php.html#a76">76</a>]</p>
+  Sheet index to write<br /><br /><p>Sheet index to write</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>int</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$_spansAreCalculated"></a>
+	<p></p>
+	<h4>$_spansAreCalculated = <span class="value"></span></h4>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterHTML.php.html#a125">125</a>]</p>
+  Flag whether spans have been calculated<br /><br /><p>Flag whether spans have been calculated</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>boolean</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$_useInlineCss"></a>
+	<p></p>
+	<h4>$_useInlineCss = <span class="value">&nbsp;false</span></h4>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterHTML.php.html#a97">97</a>]</p>
+  Use inline CSS?<br /><br /><p>Use inline CSS?</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>boolean</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+</div><br />
+
+<hr />
+<a name="class_methods"></a>
+<h3>Class Methods</h3>
+<div class="tags">
+
+  <hr />
+	<a name="method__construct"></a>
+	<h3>constructor __construct <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterHTML.php.html#a160">160</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>PHPExcel_Writer_HTML __construct(
+
+$phpExcel)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Create a new PHPExcel_Writer_HTML<br /><br /><p>Create a new PHPExcel_Writer_HTML</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	<p>Overridden in child classes as:<br />
+		<dl>
+	<dt><a href="../PHPExcel_Writer/PHPExcel_Writer_PDF.html#method__construct">PHPExcel_Writer_PDF::__construct()</a></dt>
+		<dd>Create a new PHPExcel_Writer_PDF</dd>
+	</dl>
+	</p>
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type"><a href="../PHPExcel/PHPExcel.html">PHPExcel</a>&nbsp;&nbsp;</td>
+        <td><b>$phpExcel</b>&nbsp;&nbsp;</td>
+        <td>PHPExcel object</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodbuildCSS"></a>
+	<h3>method buildCSS <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterHTML.php.html#a488">488</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>array buildCSS(
+[boolean
+$generateSurroundingHTML = true])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Build CSS styles<br /><br /><p>Build CSS styles</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>throws:</b>&nbsp;&nbsp;</td><td>Exception</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">boolean&nbsp;&nbsp;</td>
+        <td><b>$generateSurroundingHTML</b>&nbsp;&nbsp;</td>
+        <td>Generate surrounding HTML style? (html { })</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodformatColor"></a>
+	<h3>method formatColor <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterHTML.php.html#a1146">1146</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>string formatColor(
+string
+$pValue, string
+$pFormat)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Add color to formatted string as inline style<br /><br /><p>Add color to formatted string as inline style</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$pValue</b>&nbsp;&nbsp;</td>
+        <td>Plain formatted value without color</td>
+      </tr>
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$pFormat</b>&nbsp;&nbsp;</td>
+        <td>Format code</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodgenerateHTMLFooter"></a>
+	<h3>method generateHTMLFooter <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterHTML.php.html#a765">765</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void generateHTMLFooter(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Generate HTML footer<br /><br /><p>Generate HTML footer</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodgenerateHTMLHeader"></a>
+	<h3>method generateHTMLHeader <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterHTML.php.html#a286">286</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>string generateHTMLHeader(
+[boolean
+$pIncludeStyles = false])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Generate HTML header<br /><br /><p>Generate HTML header</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>throws:</b>&nbsp;&nbsp;</td><td>Exception</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">boolean&nbsp;&nbsp;</td>
+        <td><b>$pIncludeStyles</b>&nbsp;&nbsp;</td>
+        <td>Include styles?</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodgenerateSheetData"></a>
+	<h3>method generateSheetData <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterHTML.php.html#a317">317</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>string generateSheetData(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Generate sheet data<br /><br /><p>Generate sheet data</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>throws:</b>&nbsp;&nbsp;</td><td>Exception</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodgenerateStyles"></a>
+	<h3>method generateStyles <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterHTML.php.html#a447">447</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>string generateStyles(
+[boolean
+$generateSurroundingHTML = true])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Generate CSS styles<br /><br /><p>Generate CSS styles</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>throws:</b>&nbsp;&nbsp;</td><td>Exception</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">boolean&nbsp;&nbsp;</td>
+        <td><b>$generateSurroundingHTML</b>&nbsp;&nbsp;</td>
+        <td>Generate surrounding HTML tags? (&lt;style&gt; and &lt;/style&gt;)</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodgetImagesRoot"></a>
+	<h3>method getImagesRoot <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterHTML.php.html#a1082">1082</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>string getImagesRoot(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Get images root<br /><br /><p>Get images root</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodgetPreCalculateFormulas"></a>
+	<h3>method getPreCalculateFormulas <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterHTML.php.html#a1062">1062</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>boolean getPreCalculateFormulas(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Get Pre-Calculate Formulas<br /><br /><p>Get Pre-Calculate Formulas</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodgetSheetIndex"></a>
+	<h3>method getSheetIndex <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterHTML.php.html#a257">257</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>int getSheetIndex(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Get sheet index<br /><br /><p>Get sheet index</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodgetUseInlineCss"></a>
+	<h3>method getUseInlineCss <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterHTML.php.html#a1102">1102</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>boolean getUseInlineCss(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Get use inline CSS?<br /><br /><p>Get use inline CSS?</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodsave"></a>
+	<h3>method save <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterHTML.php.html#a178">178</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void save(
+[
+$pFilename = null], string
+$pFileName)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Save PHPExcel to file<br /><br /><p>Save PHPExcel to file</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>throws:</b>&nbsp;&nbsp;</td><td>Exception</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	<p>Overridden in child classes as:<br />
+		<dl>
+	<dt><a href="../PHPExcel_Writer/PHPExcel_Writer_PDF.html#methodsave">PHPExcel_Writer_PDF::save()</a></dt>
+		<dd>Save PHPExcel to file</dd>
+	</dl>
+	</p>
+			<hr class="separator" />
+		<div class="notes">Implementation of:</div>
+			<dl>
+			<dt><a href="../PHPExcel_Writer/PHPExcel_Writer_IWriter.html#methodsave">PHPExcel_Writer_IWriter::save()</a></dt>
+						<dd>Save PHPExcel to file</dd>
+					</dl>
+		
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$pFileName</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$pFilename</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodsetImagesRoot"></a>
+	<h3>method setImagesRoot <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterHTML.php.html#a1092">1092</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code><a href="../PHPExcel_Writer/PHPExcel_Writer_HTML.html">PHPExcel_Writer_HTML</a> setImagesRoot(
+[string
+$pValue = '.'])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Set images root<br /><br /><p>Set images root</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$pValue</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodsetPreCalculateFormulas"></a>
+	<h3>method setPreCalculateFormulas <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterHTML.php.html#a1072">1072</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code><a href="../PHPExcel_Writer/PHPExcel_Writer_HTML.html">PHPExcel_Writer_HTML</a> setPreCalculateFormulas(
+[boolean
+$pValue = true])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Set Pre-Calculate Formulas<br /><br /><p>Set Pre-Calculate Formulas</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">boolean&nbsp;&nbsp;</td>
+        <td><b>$pValue</b>&nbsp;&nbsp;</td>
+        <td>Pre-Calculate Formulas?</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodsetSheetIndex"></a>
+	<h3>method setSheetIndex <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterHTML.php.html#a267">267</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code><a href="../PHPExcel_Writer/PHPExcel_Writer_HTML.html">PHPExcel_Writer_HTML</a> setSheetIndex(
+[int
+$pValue = 0])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Set sheet index<br /><br /><p>Set sheet index</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">int&nbsp;&nbsp;</td>
+        <td><b>$pValue</b>&nbsp;&nbsp;</td>
+        <td>Sheet index</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodsetUseInlineCss"></a>
+	<h3>method setUseInlineCss <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterHTML.php.html#a1112">1112</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code><a href="../PHPExcel_Writer/PHPExcel_Writer_HTML.html">PHPExcel_Writer_HTML</a> setUseInlineCss(
+[boolean
+$pValue = false])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Set use inline CSS?<br /><br /><p>Set use inline CSS?</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">boolean&nbsp;&nbsp;</td>
+        <td><b>$pValue</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodwriteAllSheets"></a>
+	<h3>method writeAllSheets <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterHTML.php.html#a275">275</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void writeAllSheets(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Write all sheets (resets sheetIndex to NULL)<br /><br /><p>Write all sheets (resets sheetIndex to NULL)</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="method_assembleCSS"></a>
+	<h3>method _assembleCSS <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterHTML.php.html#a1046">1046</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>string _assembleCSS(
+[array
+$pValue = array()])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Takes array where of CSS properties / values and converts to CSS string<br /><br /><p>Takes array where of CSS properties / values and converts to CSS string</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">array&nbsp;&nbsp;</td>
+        <td><b>$pValue</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="method_calculateSpans"></a>
+	<h3>method _calculateSpans <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterHTML.php.html#a1173">1173</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void _calculateSpans(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Calculate information about HTML colspan and rowspan which is not always the same as Excel's<br /><br /><p>Calculate information about HTML colspan and rowspan which is not always the same as Excel's</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="method_convertNbsp"></a>
+	<h3>method _convertNbsp <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterHTML.php.html#a1124">1124</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>string _convertNbsp(
+[string
+$pValue = ''])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Converts a string so that spaces occuring at beginning of each new line are replaced by &amp;nbsp;<br /><br /><p>Converts a string so that spaces occuring at beginning of each new line are replaced by &amp;nbsp; Example: &quot;  Hello\n to the world&quot; is converted to &quot;&amp;nbsp;&amp;nbsp;Hello\n&amp;nbsp;to the world&quot;</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$pValue</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="method_createCSSStyle"></a>
+	<h3>method _createCSSStyle <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterHTML.php.html#a637">637</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>array _createCSSStyle(
+
+$pStyle)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Create CSS style<br /><br /><p>Create CSS style</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type"><a href="../PHPExcel_Style/PHPExcel_Style.html">PHPExcel_Style</a>&nbsp;&nbsp;</td>
+        <td><b>$pStyle</b>&nbsp;&nbsp;</td>
+        <td>PHPExcel_Style</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="method_createCSSStyleAlignment"></a>
+	<h3>method _createCSSStyleAlignment <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterHTML.php.html#a659">659</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>array _createCSSStyleAlignment(
+
+$pStyle)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Create CSS style (PHPExcel_Style_Alignment)<br /><br /><p>Create CSS style (PHPExcel_Style_Alignment)</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type"><a href="../PHPExcel_Style/PHPExcel_Style_Alignment.html">PHPExcel_Style_Alignment</a>&nbsp;&nbsp;</td>
+        <td><b>$pStyle</b>&nbsp;&nbsp;</td>
+        <td>PHPExcel_Style_Alignment</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="method_createCSSStyleBorder"></a>
+	<h3>method _createCSSStyleBorder <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterHTML.php.html#a732">732</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>string _createCSSStyleBorder(
+
+$pStyle)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Create CSS style (PHPExcel_Style_Border)<br /><br /><p>Create CSS style (PHPExcel_Style_Border)</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type"><a href="../PHPExcel_Style/PHPExcel_Style_Border.html">PHPExcel_Style_Border</a>&nbsp;&nbsp;</td>
+        <td><b>$pStyle</b>&nbsp;&nbsp;</td>
+        <td>PHPExcel_Style_Border</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="method_createCSSStyleBorders"></a>
+	<h3>method _createCSSStyleBorders <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterHTML.php.html#a712">712</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>array _createCSSStyleBorders(
+
+$pStyle)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Create CSS style (PHPExcel_Style_Borders)<br /><br /><p>Create CSS style (PHPExcel_Style_Borders)</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type"><a href="../PHPExcel_Style/PHPExcel_Style_Borders.html">PHPExcel_Style_Borders</a>&nbsp;&nbsp;</td>
+        <td><b>$pStyle</b>&nbsp;&nbsp;</td>
+        <td>PHPExcel_Style_Borders</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="method_createCSSStyleFill"></a>
+	<h3>method _createCSSStyleFill <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterHTML.php.html#a749">749</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>array _createCSSStyleFill(
+
+$pStyle)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Create CSS style (PHPExcel_Style_Fill)<br /><br /><p>Create CSS style (PHPExcel_Style_Fill)</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type"><a href="../PHPExcel_Style/PHPExcel_Style_Fill.html">PHPExcel_Style_Fill</a>&nbsp;&nbsp;</td>
+        <td><b>$pStyle</b>&nbsp;&nbsp;</td>
+        <td>PHPExcel_Style_Fill</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="method_createCSSStyleFont"></a>
+	<h3>method _createCSSStyleFont <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterHTML.php.html#a679">679</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>array _createCSSStyleFont(
+
+$pStyle)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Create CSS style (PHPExcel_Style_Font)<br /><br /><p>Create CSS style (PHPExcel_Style_Font)</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type"><a href="../PHPExcel_Style/PHPExcel_Style_Font.html">PHPExcel_Style_Font</a>&nbsp;&nbsp;</td>
+        <td><b>$pStyle</b>&nbsp;&nbsp;</td>
+        <td>PHPExcel_Style_Font</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="method_generateRow"></a>
+	<h3>method _generateRow <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterHTML.php.html#a837">837</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>string _generateRow(
+
+$pSheet, [array
+$pValues = null], [int
+$pRow = 0])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Generate row<br /><br /><p>Generate row</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>throws:</b>&nbsp;&nbsp;</td><td>Exception</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type"><a href="../PHPExcel_Worksheet/PHPExcel_Worksheet.html">PHPExcel_Worksheet</a>&nbsp;&nbsp;</td>
+        <td><b>$pSheet</b>&nbsp;&nbsp;</td>
+        <td>PHPExcel_Worksheet</td>
+      </tr>
+          <tr>
+        <td class="type">array&nbsp;&nbsp;</td>
+        <td><b>$pValues</b>&nbsp;&nbsp;</td>
+        <td>Array containing cells in a row</td>
+      </tr>
+          <tr>
+        <td class="type">int&nbsp;&nbsp;</td>
+        <td><b>$pRow</b>&nbsp;&nbsp;</td>
+        <td>Row number</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="method_generateTableFooter"></a>
+	<h3>method _generateTableFooter <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterHTML.php.html#a819">819</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void _generateTableFooter(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Generate table footer<br /><br /><p>Generate table footer</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>throws:</b>&nbsp;&nbsp;</td><td>Exception</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="method_generateTableHeader"></a>
+	<h3>method _generateTableHeader <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterHTML.php.html#a782">782</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>string _generateTableHeader(
+<a href="../PHPExcel_Worksheet/PHPExcel_Worksheet.html">PHPExcel_Worksheet</a>
+$pSheet)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Generate table header<br /><br /><p>Generate table header</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>throws:</b>&nbsp;&nbsp;</td><td>Exception</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type"><a href="../PHPExcel_Worksheet/PHPExcel_Worksheet.html">PHPExcel_Worksheet</a>&nbsp;&nbsp;</td>
+        <td><b>$pSheet</b>&nbsp;&nbsp;</td>
+        <td>The worksheet for the table we are writing</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="method_mapBorderStyle"></a>
+	<h3>method _mapBorderStyle <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterHTML.php.html#a241">241</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void _mapBorderStyle(
+
+$borderStyle)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Map border style<br /><br /><p>Map border style</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$borderStyle</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="method_mapHAlign"></a>
+	<h3>method _mapHAlign <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterHTML.php.html#a227">227</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>string|false _mapHAlign(
+
+$hAlign)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Map HAlign<br /><br /><p>Map HAlign</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$hAlign</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="method_mapVAlign"></a>
+	<h3>method _mapVAlign <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterHTML.php.html#a212">212</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void _mapVAlign(
+
+$vAlign)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Map VAlign<br /><br /><p>Map VAlign</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$vAlign</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="method_writeImageTagInCell"></a>
+	<h3>method _writeImageTagInCell <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterHTML.php.html#a404">404</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>string _writeImageTagInCell(
+
+$pSheet, string
+$coordinates)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Generate image tag in cell<br /><br /><p>Generate image tag in cell</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>throws:</b>&nbsp;&nbsp;</td><td>Exception</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type"><a href="../PHPExcel_Worksheet/PHPExcel_Worksheet.html">PHPExcel_Worksheet</a>&nbsp;&nbsp;</td>
+        <td><b>$pSheet</b>&nbsp;&nbsp;</td>
+        <td>PHPExcel_Worksheet</td>
+      </tr>
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$coordinates</b>&nbsp;&nbsp;</td>
+        <td>Cell coordinates</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+</div><br />
+
+
+        <div class="credit">
+		    <hr />
+		    Documentation generated on Mon, 02 Nov 2009 08:42:32 +0100 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.1</a>
+	      </div>
+      </td></tr></table>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>

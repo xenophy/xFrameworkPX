@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<px>
+    <logger>
+        <loglevel>TRACE</loglevel>
+
+        <channel>
+            <default>false</default>
+            <firePHP>false</firePHP>
+            <mail>false</mail>
+        </channel>
+
+        <loggers>
+            <default>
+                <logger>
+                    <name>xFrameworkPX_Log_LogFile</name>
+                    <path>/Log/LogFile.php</path>
+                    <params>
+                        <filename>TestLog.log</filename>
+                        <quota>
+                            <date>yes</date>
+                            <size></size>
+                            <limit></limit>
+                        </quota>
+                    </params>
+                </logger>
+            </default>
+
+            <firePHP>
+                <logger>
+                    <name>xFrameworkPX_Log_LogFirePHP</name>
+                    <path>/library/xFrameworkPX/Log/LogFirePHP.php</path>
+                </logger>
+            </firePHP>
+
+            <mail>
+                <logger>
+                    <name>xFrameworkPX_Log_LogMail</name>
+                    <path>/library/xFrameworkPX/Log/LogMail.php</path>
+
+                    <params>
+                        <subject>Test Log Mail</subject>
+                        <from>xFrameworkPX@xenophy.com</from>
+                        <to>
+                            <addr>xxxxx@xenophy.com</addr>
+                        </to>
+                    </params>
+                </logger>
+            </mail>
+        </loggers>
+    </logger>
+</px>

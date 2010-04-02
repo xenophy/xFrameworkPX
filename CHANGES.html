@@ -1,0 +1,90 @@
+<html>
+<head>
+    <title>xFrameworkPX Release Notes for 3.5.0 Beta</title>
+    <style>
+        * {
+            font-family: 'helvetica', tahoma, verdana, sans-serif;
+            font-size: 12px;
+        }
+        body { padding: 20px; }
+        h1 { font-size: 18px; color:#1a5c9a; }
+        h2 { font-size: 16px; color:#0464bb; }
+        h3 { font-size: 14px; }
+        li { padding: 2px 0; }
+        code { font-style: oblique; }
+        p { color: #555555; }
+    </style>
+</head>
+
+<body>
+
+<h1>xFrameworkPX Release Notes for 3.5.0 Release Candidate</h1>
+
+<p>
+    Release Date: 2009/02/15<br/>
+    Current Version: 3.5.0 Release Candidate(rev xxx) <br/>
+    Previous Version: 3.5.0 Beta (rev 1331)</p>
+
+<h2>Overview</h2>
+<ul>
+    <li>xFrameworkPX Debug Tools 1.0.2
+        <ul>
+            <li>セッションタブの追加</li>
+            <li>クッキータブの追加</li>
+            <li>コンテンツにより表示されないバグ修正</li>
+        </ul>
+    </li>
+    <li>xFrameworkPX 3.5 Documentation
+        <ul>
+            <li>ダイレクトリンク機能実装</li>
+            <li>ローディングCSS修正</li>
+            <li>コンテンツ追加＆修正</li>
+        </ul>
+    </li>
+</ul>
+
+<h2>Change Log</h2>
+<ul>
+    <li><strong>ディスパッチャー</strong>
+        <ul>
+            <li>正規化されたURLで無い場合は、正規化してリダイレクトするようになりました。</li>
+            <li>パスの末尾が/でない場合で404エラーになる場合は、/を付加してリダイレクトするようになりました。</li>
+        </ul>
+    </li>
+    <li><strong>コントローラー</strong>
+        <ul>
+            <li>xFrameworkPX_Mail
+                <ul>
+                    <li>引数に渡す値をxFrameworkPX_Util_MixedCollection以外に配列でも指定できるようになりました。</li>
+                </ul>
+            </li>
+            <li>xFrameworkPX_Controller_Action
+                <ul>
+                    <li>RapidDriveのmodule指定を行わない場合、モジュール指定されている一番最初のモジュールが自動的に利用されるようになりました。</li>
+                </ul>
+            </li>
+            <li>xFrameworkPX_Controller_Component_RapidDrive
+                <ul>
+                    <li>detailモード時、<em>listquery</em>をユーザーデータとして自動的に登録するようになりました。<br>
+                    このパラメータは、詳細画面表示時に渡される検索文字列とページャー番号を含んでいます。<br>
+                    list画面へ戻る際のリンクに使用します。</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li><strong>モデル</strong></li>
+    <li><strong>ビュー</strong></li>
+    <li><strong>ビルトインバリデーション</strong></li>
+    <li><strong>バグ情報</strong></li>
+    <ul>
+        <li>xFrameworkPX_Wiki</li>
+        <ul>
+            <li>
+            <strong>FIX000003</strong>&nbsp;&nbsp;underlineクラスが存在しない場合、下線が表示されないバグを修正。
+            下線出力時&lt;span class=&quot;underline&quot;&gt;&lt;/span&gt;を&lt;u&gt;&lt;/u&gt;に変更しました。             </li>
+        </ul>
+    </ul>
+    <li><strong>その他</strong></li>
+    </ul>
+</body>
+</html>

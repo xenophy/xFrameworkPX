@@ -1,0 +1,188 @@
+* 取得数を制限する
+
+[[複数の内部結合(INNER JOIN)>#tutorial_54.hasOne4>internal]]で行った処理に、取得数制限を加えます。
+
+&img(./resources/images/tutorial/hasOne8.png){取得数を制限する};
+
+
+このチュートリアルでは、次の操作を行います。
+
++ モジュール作成
++ アクション作成
++ テンプレート作成
++ 動作確認
+
+* 01.モジュール作成
+
+モジュールディレクトリ下に、'''''uriage.php'''''を作成します。
+
+** uriage.php
+{{{
+<?php
+
+class uriage extends xFrameworkPX_Model
+{
+    public $hasOne = array(
+        'tbl_customer',
+        'tbl_meisai' => array(
+            'foreignKey' => 'id'
+        )
+    );
+
+    public function test()
+    {
+        return $this->get('all',array(
+            'fields' => array(
+                'tbl_uriage.id as id',
+                'tbl_uriage.date as date',
+                'tbl_uriage.customer_id as customer_id',
+                'tbl_customer.id as customer_id_org',
+                'tbl_customer.name as customer_name',
+                'tbl_meisai.id as meisai_id_org',
+                'tbl_meisai.seq as meisai_seq',
+                'tbl_meisai.item_id as item_id',
+                'tbl_meisai.count as count',
+            ),
+            'order' => array(
+                'tbl_uriage.id',
+                'tbl_meisai.seq'
+            ),
+            'limit' => 4,
+            'page' => 1
+        ));
+    }
+}
+
+}}}
+
+limitに取得数を、pageに取得ページ番号を設定します。pageは0から始まる数値です。
+上記の例では、1ページ4件とし、2ページ目のデータを取得しています。
+
+※チュートリアル用に'''''modules/Docs/Tutorial/Model/Association/hasOne8/'''''に同一のコードがあります。
+
+
+* 02.アクションクラスファイル作成
+Webルートに、'''''.hasOne8.php'''''を作成します。
+
+{{{
+<?php
+
+class hasOne8 extends xFrameworkPX_Controller_Action
+{
+
+    public $modules = array(
+        'uriage',
+    );
+
+    public function execute() {
+
+        // テストした結果（配列）を格納
+        $this->set('test', $this->uriage->test());
+
+    }
+
+}
+}}}
+
+※チュートリアル用に'''''bindtransfer/docs/tutorial/model/association/'''''に同一のコードがあります。
+
+* 03.テンプレート作成
+アクションクラスファイルと同じ位置に、'''''hasOne8.html'''''を作成します。
+
+{{{
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-script-Type" content="text/javascript" />
+    <meta http-equiv="content-style-type" content="text/css" />
+    <title>取得数を制限する</title>
+</head>
+<body>
+
+    <h1>取得数を制限する</h1>
+
+    <table border="1">
+    <tr>
+        <th>売上No</th>
+        <th>日付</th>
+        <th>売上表.顧客CD</th>
+        <th>顧客表.顧客CD</th>
+        <th>顧客名</th>
+        <th>明細No</th>
+        <th>明細連番</th>
+        <th>商品ID</th>
+        <th>個数</th>
+    </tr>
+    <!--{foreach from=$test item=item key=key}-->
+    <tr>
+        <td><!--{$item.id}--></td>
+        <td><!--{$item.date}--></td>
+        <td><!--{$item.customer_id}--></td>
+        <td><!--{$item.customer_id_org}--></td>
+        <td><!--{$item.customer_name}--></td>
+        <td><!--{$item.meisai_id_org}--></td>
+        <td><!--{$item.meisai_seq}--></td>
+        <td><!--{$item.item_id}--></td>
+        <td><!--{$item.count}--></td>
+    </tr>
+    <!--{/foreach}-->
+    </table>
+
+</body>
+</html>
+}}}
+
+
+※チュートリアル用に'''''bindtransfer/docs/tutorial/model/association/'''''に同一のコードがあります。
+
+
+* 動作確認
+作成したアクションにブラウザからアクセスして、動作を確認してください。
+
+このアソシエーション設定により実行されるSQLは下記の通りです。
+
+{{{
+SELECT
+    tbl_uriage.id AS id,
+    tbl_uriage.date AS date,
+    tbl_uriage.customer_id AS customer_id,
+    tbl_customer.id AS customer_id_org,
+    tbl_customer.name AS customer_name,
+    tbl_meisai.id AS meisai_id_org,
+    tbl_meisai.seq AS meisai_seq,
+    tbl_meisai.item_id AS item_id,
+    tbl_meisai.count AS count
+FROM
+    tbl_uriage
+INNER JOIN
+    tbl_customer
+ON
+        tbl_uriage.customer_id = tbl_customer.id
+INNER JOIN
+    tbl_meisai
+ON
+        tbl_uriage.id = tbl_meisai.id
+ORDER BY
+    tbl_uriage.id,
+    tbl_meisai.seq
+LIMIT 4, 4
+}}}
+
+また、期待される結果は次の通りです。
+|~売上No|~日付|~売上表.顧客CD|~顧客表.顧客CD|~顧客名|~明細No|~明細連番|~商品ID|~個数|
+|2|2001-05-27 00:00:00|101|101|二島商店|2|2|40|3|
+|3|2001-05-27 00:00:00|103|103|大阪物産|3|1|30|8|
+|3|2001-05-27 00:00:00|103|103|大阪物産|3|2|40|30|
+|3|2001-05-27 00:00:00|103|103|大阪物産|3|3|50|12|
+
+* サンプル実行
+
+下記のボタンから、ここまでのサンプルを実行することができます。
+
+[[&img(./resources/images/demo.gif){サンプル画像};>./tutorial/association/hasOne8.html>external]]
+
+** サンプル格納位置
+
+'''bindtransfer/docs/tutorial/model/association/'''

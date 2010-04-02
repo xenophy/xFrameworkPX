@@ -1,0 +1,196 @@
+* 1対多の結合をする(2)
+
+hasManyでtbl_itemとtbl_meisaiを結合します。
+hasManyは、1対多の結合を行うために使用します。ここでは、「1」がtbl_item、「多」がtbl_meisaiにあたります。
+さらに、belongsToと違い、結果を多重配列で取得することができます。
+
+&img(./resources/images/tutorial/hasMany1.png){1対多の結合をする};
+
+
+このチュートリアルでは、次の操作を行います。
+
++ モジュール作成
++ アクション作成
++ テンプレート作成
++ 動作確認
+
+
+* 01.モジュール作成
+
+モジュールディレクトリ下に、'''''item.php'''''を作成します。
+
+** item.php
+{{{
+<?php
+
+class item extends xFrameworkPX_Model
+{
+    public $hasMany = array(
+        'tbl_meisai' => array(
+            'order' => array(
+                'tbl_meisai.id'
+            )
+        )
+    );
+
+    public function test()
+    {
+        return $this->get(
+            'all',
+            array(
+                'order' => array(
+                    'tbl_item.id'
+                )
+            )
+        );
+    }
+
+}
+
+}}}
+
+※チュートリアル用に'''''modules/Docs/Tutorial/Model/Association/hasMany1/'''''に同一のコードがあります。
+
+
+
+
+* 02.アクションクラスファイル作成
+Webルートに、'''''.hasMany1.php'''''を作成します。
+
+{{{
+<?php
+
+class hasMany1 extends xFrameworkPX_Controller_Action
+{
+
+    public $modules = array(
+        'item'
+    );
+
+    public function execute() {
+
+        // テストした結果（配列）を格納
+        $this->set('test', $this->item->test());
+
+    }
+
+}
+
+}}}
+
+※チュートリアル用に'''''bindtransfer/docs/tutorial/model/association/'''''に同一のコードがあります。
+
+
+* 03.テンプレート作成
+アクションクラスファイルと同じ位置に、'''''hasMany1.html'''''を作成します。
+
+{{{
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-script-Type" content="text/javascript" />
+    <meta http-equiv="content-style-type" content="text/css" />
+    <title>1対多の結合をする(2)</title>
+</head>
+<body>
+
+    <h1>1対多の結合をする(2)</h1>
+
+    <table border="1">
+    <tr>
+        <th>商品ID</th>
+        <th>商品名</th>
+        <th>価格</th>
+        <th>明細</th>
+    </tr>
+    <!--{foreach from=$test item=item key=key}-->
+    <tr>
+        <td><!--{$item.tbl_item.id}--></td>
+        <td><!--{$item.tbl_item.name}--></td>
+        <td><!--{$item.tbl_item.price}--></td>
+        <td>
+            <table border="1">
+            <tr>
+                <th>明細ID</th>
+                <th>明細SEQ</th>
+                <th>個数</th>
+            </tr>
+            <!--{foreach from=$item.tbl_meisai item=meisai key=mkey}-->
+            <tr>
+                <td><!--{$meisai.id}--></td>
+                <td><!--{$meisai.seq}--></td>
+                <td><!--{$meisai.count}--></td>
+            </tr>
+            <!--{/foreach}-->
+            </table>
+        </td>
+    </tr>
+    <!--{/foreach}-->
+    </table>
+
+</body>
+</html>
+}}}
+
+
+※チュートリアル用に'''''bindtransfer/docs/tutorial/model/association/'''''に同一のコードがあります。
+
+
+* 動作確認
+作成したアクションにブラウザからアクセスして、動作を確認してください。
+
+このアソシエーション設定により実行されるSQLは下記の通りです。
+
+{{{
+SELECT
+    tbl_item.id,
+    tbl_item.name,
+    tbl_item.price
+FROM
+    tbl_item
+ORDER BY
+    tbl_item.id
+}}}
+
+{{{
+SELECT
+    *
+FROM
+    tbl_meisai
+WHERE
+        tbl_meisai.item_id IN ( 10,20,30,40,50,60 )
+ORDER BY
+    tbl_meisai.id
+}}}
+
+
+また、期待される結果は次の通りです。
+|~商品ID|~商品名|~価格|~明細ID|~明細SEQ|~個数|
+|10|鉛筆|30|1|1|10|
+|^|^|^|5|1|17|
+|20|消しゴム|50|2|1|15|
+|^|^|^|4|1|9|
+|^|^|^|5|2|5|
+|30|シャープペン|250|1|2|7|
+|^|^|^|3|1|8|
+|40|ボールペン|150|2|2|3|
+|^|^|^|3|2|30|
+|^|^|^|4|2|21|
+|50|色鉛筆|700|3|3|12|
+|60|ノート|100|1|3|25|
+|^|^|^|3|4|50|
+
+
+
+* サンプル実行
+
+下記のボタンから、ここまでのサンプルを実行することができます。
+
+[[&img(./resources/images/demo.gif){サンプル画像};>./tutorial/association/hasMany1.html>external]]
+
+** サンプル格納位置
+
+'''bindtransfer/docs/tutorial/model/association/'''
+

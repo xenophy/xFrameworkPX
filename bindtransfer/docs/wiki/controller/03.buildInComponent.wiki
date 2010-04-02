@@ -1,0 +1,99 @@
+* ビルトインコンポーネントの使用方法
+
+xFrameworkPXが標準で提供しているコンポーネントについての使い方を説明します。
+
+&br;
+
+* Mailコンポーネント
+
+MailコンポーネントはxFrameworkPXからメールを送信するためのコンポーネントです。このコンポーネントのバインド名は「''Mail''」になっています。
+
+Mailコンポーネントには以下のメソッドがあります。
+
+|~メソッド名|~戻り値|~引数|~説明|
+|send|なし|送信メール用設定オブジェクト|メールを送信するメソッド。引数に渡す設定用オブジェクトで送信するメールの設定を行います。|
+
+'''send'''メソッドで引数に指定するメールの設定オブジェクトには以下の項目を連想配列として設定します。
+
+|~設定項目|~値（初期値）|~説明|
+|to|string or array|送信先メールアドレス（必須入力）|
+|from|string or array|送信元メールアドレス（必須入力）|
+|subject|string（無題）|件名|
+|mailer|string（PHP/Mail）|ヘッダのメーラー情報の設定|
+|body|string（空文字）|メール本文|
+|files|array|添付ファイル|
+|cc|string or array|CC 送信先メールアドレス|
+|bcc|string or array|BCC 送信先メールアドレス|
+
+Mailコンポーネントのメソッドを使ってメール送信を行うときの記述例を示します。
+
+{{{
+class example extends xFrameworkPX_Controller_Action
+{
+
+    public function execute()
+    {
+        $conf = $this->mix(array(
+            'to' => '宛先<to@xxxxx.com>',
+            'from' => '差出人<from@xxxxx.com>',
+            'subject' => 'サンプルメール',
+            'mailer' => 'PHP/Mail',
+            'body' => 'サンプルメール本文',
+            'files' => array(
+                array('name' => 'sample1.txt', 'path' => '/samples/text/'),
+                '/samples/text/sample2.txt'
+            ),
+            'cc' => array('cc1@xxxxx.com', 'cc2@xxxxx.com'),
+            'bcc' => 'bcc@xxxxx.com'
+        ));
+        $this->Mail->sent($conf);
+    }
+}
+}}}
+
+&br;
+
+* PhpSessionコンポーネント
+
+PhpSessionコンポーネントはPHPによるセッション機能を利用するためのコンポーネントです。このコンポーネントのバインド名は「''Session''」になっています。
+
+PhpSessionには以下のメソッドがあります。
+
+|~メソッド名|~戻り値|~引数|~説明|
+|read|mixed セッションに書き込まれた値|キー名|セッションに保持されている値を読み込みます。&br;あらかじめセッションに書き込まれているキー名を引数に指定し値を読み込みます。|
+|readall|array セッション値配列|なし|セッションに保持されている値を全て読み込みます。|
+|write|なし|キー名, セッションに書き込む値|セッションにキーを渡して値を書き込みます。このキーはPHPの$_SESSION[ 'キー名' ]に相当します。&br;一度書き込まれたパラメータはdestroyメソッドやremoveメソッド、clearメソッドを呼び出すまで保持されます。|
+|remove|mixed 削除されたセッション値&br;(存在しない場合はnull)|キー名|セッションから引数で指定したキー名の値を削除し、その値を戻り値として返します。|
+|clear|なし|なし|セッションに保持されている全ての値を消去します。|
+|destroy|なし|なし|セッション自体を消滅させます。このメソッドのみではメモリ内の$_SESSION変数は残り続けてしまうので、&br;値も含めて全てを破棄したい場合は、clearの後にdestroyを使用してください。&br;またxFrameworkPXでは、アクションが走る度に内部でPHPのsession_start()に相当する動作を行っているので&br;注意が必要です。|
+|sessionHandlerOpen|bool(true固定)|セッションデータ保存パス, セッションの名前|セッションを開始します。セッションデータ保存パス、セッションの名前を指定しファイルセッションを開始します。|
+|sessionHandlerClose|bool(true固定)|なし|ファイルセッションを終了します。このメソッドのみではセッションファイルは削除されません。&br;sessionHandlerOpenメソッドをコールした後に使用してください。|
+|sessionHandlerClean|bool true:成功 false:失敗|セッション生存時間|ファイルセッションの有効期限を引数に指定し、その時間経過するとセッションが破棄されます。&br;このメソッドのみではセッションファイルは削除されません。&br;sessionHandlerOpenメソッドをコールした後に使用してください。|
+|sessionHandlerRead|シリアライズ化された文字列|セッションID|あらかじめ書き込まれているセッションIDを引数に指定しセッションファイルからセッション値を読み込みます。&br;sessionHandlerOpenメソッドをコールした後に使用してください。|
+|sessionHandlerDestroy|bool(true固定)|セッションID|セッションを消滅させます。セッションの書き込み先であるセッションファイルを削除します。&br;sessionHandlerOpenメソッドをコールした後に使用してください。|
+
+これらのPhpSessionコンポーネントのメソッドを呼び出すときの記述例を示します。
+
+{{{
+class example extends xFrameworkPX_Controller_Action
+{
+
+    public function execute()
+    {
+        // セッションへの書き込み
+        $this->Session->write('id', 'user01');
+
+        // セッションに登録してあるデータの取得
+        $userId = $this->Session->read('id');
+
+        // セッションに登録してあるデータの削除
+        $this->Session->remove('id');
+    }
+}
+}}}
+&br;
+
+* RapidDriveコンポーネント
+
+RapidDriveコンポーネントはRapidDriveの使用設定を有効にすることで読み込まれるコンポーネントで、RapidDriveの動作を制御するための機能を提供しています。
+RapidDriveの詳細については次の「RapidDrive」の項目を参照してください。

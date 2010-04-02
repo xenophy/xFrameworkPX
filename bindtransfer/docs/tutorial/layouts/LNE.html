@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-script-Type" content="text/javascript" />
+    <meta http-equiv="content-style-type" content="text/css" />
+    <link href="resources/css/px.structure.css" rel="stylesheet" type="text/css" />
+    <link href="resources/css/px.visual.css" rel="stylesheet" type="text/css" />
+    <title>LNE | xFrameworkPX Layout Sample</title>
+    <style type="text/css">
+        .px-liquid .px-north {
+          height: 100px;
+          background-color: #F9F7ED;
+        }
+
+        .px-liquid .px-west {
+          height: 500px;
+          background-color: #CDEB8B;
+        }
+
+        .px-liquid .px-center {
+          height: 500px;
+          background-color: #EEEEEE;
+        }
+
+        .px-liquid .px-east {
+          height: 500px;
+          background-color: #C3D9FF;
+        }
+
+        .px-liquid .px-south {
+          padding: 0 0 100px 0;
+          background-color: #FFFF88;
+        }
+    </style>
+</head>
+<body class="px-body px-liquid px-lne pxdebug-disable">
+
+    <!-- px-ct -->
+    <div class="px-ct">
+
+        <!-- px-north -->
+        <div class="px-north">
+
+            <div class="px-bwrap">
+
+                <div class="px-body">
+
+                    北
+
+                </div>
+
+            </div>
+
+        </div>
+        <!-- /px-north -->
+
+        <!-- px-column-mask -->
+        <div class="px-column-mask px-liquid-east-ct">
+
+            <!-- px-east-ct -->
+            <div class="px-east-ct">
+
+                <!-- px-liquid-east-wrap -->
+                <div class="px-liquid-east-wrap">
+
+                    <!-- px-west -->
+                    <div class="px-west">
+
+                        <div class="px-bwrap">
+
+                            <div class="px-body">
+
+                                西
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <!-- /px-west -->
+
+                </div>
+                <!-- /px-liquid-east-wrap -->
+
+               <!-- px-east -->
+                <div class="px-east">
+
+                    <div class="px-bwrap">
+
+                        <div class="px-body">
+
+                            東
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- /px-east -->
+
+            </div>
+            <!-- /px-east-ct -->
+
+        </div>
+        <!-- /px-column-mask -->
+
+    </div>
+    <!-- /px-ct -->
+
+</body>
+</html>

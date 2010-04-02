@@ -1,0 +1,113 @@
+* テーブルとリンクしたモジュール作成
+
+次のチュートリアルでは、データベース操作・ビジネスロジックの実装を行うためのモジュールを作成します。
+このモジュールは、xFrameworkPXのモジュールとして最も一般的なテーブルとリンクしたモジュールになります。
+このチュートリアルでは、テーブルに対する操作は行いません、テーブルとリンクしたモジュールの作成までを行います。
+
+このチュートリアルでは、次の操作を行います。
+
++ アプリケーションディレクトリにHTMLを設置する
++ アプリケーションディレクトリにコントローラーを設置する
++ モジュールリンク用にテーブルを作成する
++ モジュールディレクトリにモジュールを設置する
++ 仮想スクリーンの動作を確認する
++ サンプル実行
+
+
+* アプリケーションディレクトリにHTMLを設置する
+
+webapp下に、次のindex.htmlを設置します。
+保存する文字コードは、''UTF-8''、改行コードは''LF''です。
+
+{{{
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-script-Type" content="text/javascript" />
+    <meta http-equiv="content-style-type" content="text/css" />
+    <title>テーブルとリンクしたモジュール作成</title>
+</head>
+<body>
+    <h1>テーブルとリンクしたモジュール作成</h1>
+</body>
+</html>
+}}}
+
+
+* アプリケーションディレクトリにコントローラーを設置する
+
+webapp下に、次の.index.phpを設置します。
+保存する文字コードは、''UTF-8''、改行コードは''LF''です。
+
+{{{
+<?php
+
+class index extends xFrameworkPX_Controller_Action
+{
+    public $modules = array('sample');
+
+    public function execute()
+    {
+
+    }
+}
+}}}
+
+$modulesプロパティに、配列で利用したいモジュールクラス名を記述します。
+ここでは、以下で作成する''sample''モジュールを指定します。
+
+* モジュールリンク用にテーブルを作成する
+
+接続先データベースはMySQLを使用します。
+デフォルトでは、ローカルホストのデータベースに接続する設定になっており、''myapp''というデータベースに接続するようになっています。
+環境に合わせて変更、またはデータベースを作成してください。
+また、以降のサンプルでトランザクションを使用するため、テーブルの形式をInnoDBにしてください。
+
+{{{
+SET FOREIGN_KEY_CHECKS=0;
+DROP TABLE IF EXISTS `tbl_sample`;
+CREATE TABLE `tbl_sample` (
+  `id` bigint(20) NOT NULL DEFAULT '0',
+  `title` varchar(255) DEFAULT NULL,
+  `note` text,
+  `modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+}}}
+
+
+* モジュールディレクトリにモジュールを設置する
+
+modules下に、次のsample.phpを設置します。
+ポイントは、''tbl_sample''というテーブル名の''tbl_''を除いた名前(''sample'')のクラス名でモジュールクラスを作成するという点です。
+
+{{{
+<?php
+
+class sample extends xFrameworkPX_Model
+{
+}
+}}}
+
+
+
+
+* 仮想スクリーンの動作を確認する
+
+ブラウザで'''''http://yourdomain/index.html'''''にアクセスします。
+仮想スクリーンが表示され、これといった変化はありません。
+しかし、設置したモジュールを通して、データベースへアクセスする準備は整いました。
+以後のチュートリアルでは、ここで作成したsampleモジュールを使用していきます。
+
+
+* サンプル実行
+
+下記のボタンから、ここまでのサンプルを実行することができます。
+
+[[&img(./resources/images/demo.gif){サンプル画像};>./tutorial/model/table/>external]]
+
+** サンプル格納位置
+
+'''bindtransfer/docs/tutorial/basic/html'''

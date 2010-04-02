@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-script-Type" content="text/javascript" />
+    <meta http-equiv="content-style-type" content="text/css" />
+    <title>1対多の結合をする(1)</title>
+</head>
+<body>
+
+    <h1>1対多の結合をする(1)</h1>
+
+    <table border="1">
+    <tr>
+        <th>明細No</th>
+        <th>商品名</th>
+        <th>価格</th>
+        <th>個数</th>
+        <th>明細連番</th>
+    </tr>
+    <!--{foreach from=$test item=item key=key}-->
+    <tr>
+        <td><!--{$item.id}--></td>
+        <td><!--{$item.name}--></td>
+        <td><!--{$item.price}--></td>
+        <td><!--{$item.count}--></td>
+        <td><!--{$item.seq}--></td>
+    </tr>
+    <!--{/foreach}-->
+    </table>
+
+</body>
+</html>

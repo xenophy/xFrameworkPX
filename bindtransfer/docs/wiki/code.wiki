@@ -1,0 +1,484 @@
+* コーディング規約
+
+* インデント
+
+~
+空白 4 つのインデントを使用します。 タブは使いません。 これにより、diff や patch、CVS history や annotations の際に問題が発生するのを避けることができます。
+Emacs を使用する場合、indent-tabs-mode を nil に設定する必要があります。 Emacs を設定するモードフックの例を次に示します (PHP ファイルを編集する際に これがコールされるようにする必要があります)。
+
+{{{
+(defun php-mode-hook ()
+  (setq tab-width 4
+        c-basic-offset 4
+        c-hanging-comment-ender-p nil
+    indent-tabs-mode
+    (not
+     (and (string-match "/\\(PEAR\\|pear\\)/" (buffer-file-name))
+          (string-match "\.php$" (buffer-file-name))))))
+}}}
+
+次に、同様なことを行う Vim ルールを示します。
+
+{{{
+set expandtab
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
+}}}
+
+およそ半角 75文字ごとに改行して、可読性を確保することを勧めます。
+
+&br;
+
+
+* 制御構造
+
+~
+制御構造には、if, for, while, switch 等があります。最も複雑な制御構造である if 文の例を示します。
+
+{{{
+<?php
+if ((condition1) || (condition2)) {
+    action1;
+} elseif ((condition3) && (condition4)) {
+    action2;
+} else {
+    defaultaction;
+}
+?>
+}}}
+
+制御構造では、関数コールと区別するために、制御キーワードと開きカッコの間に空白を1つ置きます。
+構文的に省略可能な場合でも、波カッコを使用することを推奨します。波カッコを付けることにより可読性が向上し、新しく行を追加した際に論理的なエラーが紛れこむ可能性が減少します。
+switch 文の場合は次のようにします。
+
+{{{
+<?php
+switch (condition) {
+case 1:
+    action1;
+    break; 
+case 2:
+    action2;
+    break;
+default:
+    defaultaction;
+    break;
+}
+?>
+}}}
+
+&br;
+
+
+* 関数定義
+
+~
+関数宣言は、以下のような "[[K&R スタイル>http://ja.wikipedia.org/wiki/%E5%AD%97%E4%B8%8B%E3%81%92%E3%82%B9%E3%82%BF%E3%82%A4%E3%83%AB#K.26R.E3.81.AE.E3.82.B9.E3.82.BF.E3.82.A4.E3.83.AB>external]]"にしたがいます。
+
+{{{
+<?php
+function fooFunction($arg1, $arg2 = '')
+{
+    if (condition) {
+        statement;
+    }
+    return $val;
+}
+?>
+}}}
+
+デフォルト値を有する引数は、引数リストの終わりに置きます。
+適切でない場合を除き、関数は、意味のある値を返すようにします。
+やや長い例を示します。
+{{{
+<?php
+function connect(&$dsn, $persistent = false)
+{
+    if (is_array($dsn)) {
+        $dsninfo = &$dsn;
+    } else {
+        $dsninfo = DB::parseDSN($dsn);
+    }
+    if (!$dsninfo || !$dsninfo['phptype']) {
+        return $this->raiseError();
+    }
+    return true;
+}
+?>
+}}}
+
+* コメント
+
+~
+インラインのコメントブロック (docblocks) を必ず表記します。
+xFrameworkPXに対するコメントブロックの表記方法については、[[サンプルファイル>#sample_file]]および[[ヘッダコメントブロック>#header_comment]]の項目を参照してください。
+詳細な情報は、[[http://www.phpdoc.org/>http://www.phpdoc.org/>external]]にあります。
+インラインドキュメント以外のコメントを書くことも推奨します。一般的な目安として、コードのある部分を見て「言葉だけで説明したくないな」と思うような場合には、処理内容を忘れてしまう前にコメントを追加する必要があります。
+C 言語形式 (/* */) と標準 C++ コメント (//) のどちらも使用可能です。Perl/shell 形式のコメント (#) は使用するべきではありません。
+
+&br;
+
+
+* コードの読み込み
+
+~
+クラスファイルを無条件で読み込む場合は、 require_once() を使用します。
+クラスファイルを条件付きで読み込む場合（たとえば、factory メソッド）は、include_once() を使用します。
+こうすることで、クラスファイルが 確実に 1 度だけ読み込まれます。これらは、ファイルリストを共有しており、 混用について心配する必要はありません。require_once() で読み込まれたファイルは、 include_once() により再度読み込まれることはありません。
+
+{{{Note:   include_once() および require_once() は命令であり、関数ではありません。 読み込むファイル名の前後にカッコは付けません。}}}
+
+&br;
+
+
+* PHPコードタグ
+
+~
+PHP コードを区分するためには、短縮型の <? ?> ではなく、 かならず <?php ?> を使用してください。オペレーティングシステムや設定が異なる情况で PHP コードを読み込む際の最も互換性の高い方法でもあります。
+
+&br;
+
+
+* ヘッダコメントブロック&aname(header_comment){};
+
+~
+すべてのソースコードには、 各ファイルの先頭に "ページレベル" のコメントブロックを、 各クラスの直前に "クラスレベル" のコメントブロックを記述します。
+それらの例を示します。
+
+{{{
+<?php
+
+/* vim: set expandtab tabstop=4 shiftwidth=4 softtabstop=4: */
+
+/**
+ * Short description for file
+ *
+ * Long description for file (if any)...
+ *
+ * PHP versions 4 and 5
+ *
+ * LICENSE: This source file is subject to version 3.0 of the PHP license
+ * that is available through the world-wide-web at the following URI:
+ * http://www.php.net/license/3_0.txt.  If you did not receive a copy of
+ * the PHP License and are unable to obtain it through the web, please
+ * send a note to license@php.net so we can mail you a copy immediately.
+ *
+ * @category   CategoryName
+ * @package    PackageName
+ * @author     Original Author <author@example.com>
+ * @author     Another Author <another@example.com>
+ * @copyright  1997-2005 The PHP Group
+ * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
+ * @version    CVS: <?php
+$
+?> Id:$
+ * @link       http://pear.php.net/package/PackageName
+ * @see        NetOther, Net_Sample::Net_Sample()
+ * @since      File available since Release 1.2.0
+ * @deprecated File deprecated in Release 2.0.0
+ */
+
+/*
+* Place includes, constant defines and $_GLOBAL settings here.
+* Make sure they have appropriate docblocks to avoid phpDocumentor
+* construing they are documented by the page-level docblock.
+*/
+
+/**
+ * Short description for class
+ *
+ * Long description for class (if any)...
+ *
+ * @category   CategoryName
+ * @package    PackageName
+ * @author     Original Author <author@example.com>
+ * @author     Another Author <another@example.com>
+ * @copyright  1997-2005 The PHP Group
+ * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
+ * @version    Release: @package_version@
+ * @link       http://pear.php.net/package/PackageName
+ * @see        NetOther, Net_Sample::Net_Sample()
+ * @since      Class available since Release 1.2.0
+ * @deprecated Class deprecated in Release 2.0.0
+ */
+class Foo_Bar
+{
+}
+
+?>
+}}}
+
+** 内容を変更する必要のある必須タグ
+
+-~Short Descriptions
+コメントブロックすべてに、Short descriptions （短い説明文）を記述します。 要素の名前ではなく、簡潔な文章で記します。
+良い説明文の書き方については、 サンプルファイル を参照してください。
+-~PHP Versions
+PHP のバージョンについては、ページレベルのコメントブロックに 次のいずれかを記します。
+
+{{{
+* PHP version 4
+* PHP version 5
+* PHP versions 4 and 5
+}}}
+
+-~@license
+xFrameworkPX はMITライセンスです。
+ページレベルもしくはクラスレベルのコメントブロックに記述します。
+
+{{{* @license   http://www.opensource.org/licenses/mit-license.html  MIT License}}}
+
+-~@link
+ページレベル、クラスレベルどちらにも使用できます。もちろん、"PackageName?" は自分のパッケージ名に置き換えます。
+このタグを使うことで、生成されたドキュメントが自分のパッケージにリンクすることができるようになります。
+具体的なURLはxFrameworkPXサイトのAPIが完成した場合に、リンク先を提示します。
+{{{* @link      http://pear.php.net/package/PackageName}}}
+
+-~@author
+ソースファイルの作者リストに、コード提供者の名前を追加するべきかどうか を定義する明確な規則はありません。一般的には、 "相当な" 部分（10%から20%のコード変更を意味します）の変更を 行った場合に、作者に加えるようです。関数のリライトや新たなロジックの提供の場合には、例外もありえます。
+簡単なコードの整理やバグ修正は、作者リストに 新たに人を追加するまでの理由にはなりません。
+
+-~@since
+ファイルやクラスがパッケージの初リリースの後で加えられた場合このタグを使用します。初リリースに際しては使用しません。
+-~@deprecated
+ファイルやクラスがもはや使われなくなっているが、 互換性のため残されている場合にこのタグを使用します。
+
+** 任意タグ
+
+-~@copyright
+コピーライトは自由に記述してください。 形式としては、年は西暦 4 桁で、複数年にわたる場合は ハイフンを用いて始まりの年と終わりの年を結びます。 著作権者は、個人でも複数人でも会社名でも PHP Group 等でもかまいません。
+例を示します。
+{{{* Copyright (c) 2006-2010 Xenophy.CO.,LTD All rights Reserved.}}}
+
+-~ライセンスの概要
+PHP ライセンスを使用する場合は、上記に示した概要文を使ってください。 他のライセンスを使用する場合は、PHP ライセンスの概要文を削除し、 使用するライセンスに対応するものに置き換えます。 ただし、記述は簡潔にとどめ、また LICENSE: という テキストを前につけます。
+-~@see
+ユーザにパッケージのドキュメントの他のセクションを参照してもらう場合に @see タグを用います。複数の参照項目を記述する場合には、@see タグを複数書くのではなくカンマで区切って記述します。
+
+&br;
+
+
+* URLの例
+
+~
+URL や電子メールアドレスの例を示す場合には、example.com もしくは example.org, example.netを使用します。詳細は、[[RFC 2606>http://www.faqs.org/rfcs/rfc2606>external]]を参照してください。
+
+&br;
+
+
+* 命名規約
+
+&br;
+
+** グローバル変数および関数
+パッケージでグローバル変数を定義する場合は、変数名の先頭はアンダースコアで始め、その後にパッケージ名を続けてさらにもうひとつアンダースコアをつけます。たとえば、PEAR パッケージでは $_PEAR_destructor_object_list という名前のグローバル変数を使用しています。
+グローバル関数の名前は "studly caps" 形式 ("bumpy case" あるいは "camel caps" と呼ばれることもあります) で決めます。 さらに、パッケージ名を先頭につけることで パッケージ間での名前の競合を回避します。 (先頭のパッケージ名の部分に続く) 最初の文字は小文字とし、 その後は単語の先頭の文字のみを大文字とします。たとえばこのようになります。
+
+&br;
+
+** クラス
+
+{{{XML_RPC_serializeData()}}}
+
+クラスには、内容が理解できるような名前を指定するべきです。 略語の使用は可能なかぎり避けます。クラス名は常に大文字で始めるべきです。 xFrameworkPXのクラス階層はクラス名にも反映され、各階層レベルはアンダースコアで区切られます。
+良いクラス名の例を以下に示します。
+
+{{{
+Log Net_Finger
+HTML_Upload_Error
+}}}
+
+&br;
+
+** クラス変数およびメソッド
+
+クラス変数 (プロパティ) およびメソッドの名前は "studly caps" 形式 ("bumpy case" あるいは "camel caps" と呼ばれることもあります) で決めます。
+以下に例を示します (これらは"public"メンバーです)。
+
+{{{
+$counter
+connect()
+getData()
+buildSomeWidget()
+}}}
+
+プライベートなクラスメンバ （それが宣言されたクラスの内部からだけの使用を意図したクラスメンバ。 PHP は、プライベート名前空間をまだサポートしていません。）は、 アンダースコア 1 つを前に付けます。
+例を示します。
+
+{{{
+$_status
+_sort()
+_initTree()
+}}}
+
+{{{Note: 次の内容はPHP5に適用されます。}}}
+
+プロテクテッドなクラスメンバ（すなわち、それが宣言されたクラス内、およびそのサブクラス内でだけ使用できるクラスメンバ）にも、前にアンダースコアをひとつ付けます。
+例を示します。
+
+{{{
+protected $_somevar
+protected function _initTree()
+}}}
+
+&br;
+
+** 定数
+
+定数は、すべて大文字で記述し、単語の区切りにはアンダースコアを 使用するべきです。使用されるクラス／パッケージを大文字で表した名前を 定数の接頭辞として付加してください。たとえば次のようになります。
+
+{{{
+DB_DATASOURCENAME
+SERVICES_AMAZON_S3_LICENSEKEY
+}}}
+
+{{{Note: true, falseおよびnullは例外ですべて小文字で記述します。}}}
+
+&br;
+
+
+* ファイルフォーマット
+
+&br;
+-アスキーテキストで保存しなければならない。
+-文字エンコードは ISO-8859-1 を使用しなければならない。
+-~Unix フォーマットでなければならない。
+"Unix フォーマット" とは、以下の 2 点を意味しています。
+++~各行は、 ラインフィード（改行: LF）で終える。 ラインフィードは、10進数で 10、 8進数で 012、16進数で 0A と表示されます。 Mac のようにキャリッジリターン (行頭復帰: CR )で終えたり、 Windows のようにキャリッジリターンとラインフィードの組 (CRLF )で終えたりしてはいけません。
+++PHP 終了タグ (?> ) の後には ラインフィードを 1 つ 置くべきです。 つまり、ファイルの最後にカーソルを移動させると、 PHP 終了タグの 1 つ 下の行に カーソルがあるようにすべきと言うことです。
+
+&br;
+
+
+* E_STRICT互換のコード
+
+~
+コードはすべてE_STRICT互換にしなければなりません。つまり、PHP のエラー報告レベルをE_ALL | E_STRICTにした場合に警告やエラーが一切発生しないようにしなければならないということです。
+
+&br;
+
+
+* エラー処理の指針
+
+~
+ここでは、PHP 5 や 6 向けに開発する際のエラー処理の方法について説明します。PHP 5.0 で登場したZend Engine 2の「例外」をエラー処理に使用します。
+
+&br;
+
+** エラーの定義
+~
+エラーとはプログラムが予期せぬおかしな状態に陥り、 復旧不可能な事態のことです。ここでいう「復旧」の範囲はメソッドレベルとします。
+また、復旧が不完全な状態は「復旧している」とみなします。
+
+~
+''単純なエラーの例''
+
+{{{
+<?php
+/*
+ * 指定したデータベースに接続します
+ *
+ * @throws Example_Datasource_Exception 指定した DSN で接続できない場合
+ *
+ */
+function connectDB($dsn)
+{
+    $this->db =& DB::connect($dsn);
+    if (DB::isError($this->db)) {
+        throw new Example_Datasource_Exception(
+                "$dsn に接続できません:" . $this->db->getMessage()
+        );
+    }
+}
+?>
+}}}
+
+この例ではメソッドの目的は指定した DSN に接続することです。 ここでできることは PEAR DB に処理を依頼することだけなので、 もし DB からエラーを返された場合は何もせず例外を発生させます。
+
+&br;
+
+''復旧作業つきのエラー処理''
+
+{{{
+<?php
+/*
+ * いくつかの候補の中から、接続可能なデータベースに接続します
+ *
+ * @throws Example_Datasource_Exception
+ * 設定されたデータベースのどれにも接続できなかった場合
+ *
+ * @throws Example_Config_Exception
+ * データベースの設定が見つからなかった場合
+ */ 
+
+function connect(Config $conf)
+{
+    $dsns =& $conf->searchPath(array('config', 'db'));
+    if ($dsns === FALSE) throw new Example_Config_Exception(
+        'config/db セクションが設定されていません。'
+    ); 
+
+    $dsns =& $dsns->toArray();
+
+    foreach($dsns as $dsn) {
+        try {
+            $this->connectDB($dsn);
+            return;
+        } catch (Example_Datasource_Exception e) {
+            // 何らかの警告/ログ出力コードにより、
+            // そのデータベースに接続できなかったことを記録します
+        }
+    }
+    throw new Example_Datasource_Exception(
+        'どのデータベースにも接続できません'
+    );
+}
+?>
+}}}
+
+この例では例外を捕捉してそこから復旧させています。低レベルの connectDB() メソッドはデータベースへの接続が失敗した際にエラーをスローすることしかできません。 しかし、その上位に位置する connect() では設定済みデータベースのいずれかひとつに接続できればよいことを知っています。 エラーからは復旧可能なので、このレベルでの例外は無視され上位にはスローされません。
+
+&br;
+
+''不完全な復旧''
+
+{{{
+<?php
+/*
+ * loadConfig は、渡された設定内容をパースします。設定が無効な場合は
+ * デフォルトの内容を設定します
+ *
+ */
+function loadConfig(Config $conf)
+{
+    try {
+        $this->config = $conf->parse();
+    } catch (Config_Parse_Exception e) {
+        // 警告やログ出力のコードをここに書き、
+        // 不完全な復旧を行います
+        $this->config = $this->defaultConfig;
+    }
+}
+?>
+}}}
+
+この復旧には副作用があるので完全ではありません。 しかし、プログラムの実行はそのまま続けられます。 例外は処理されたとみなされるので再度スローしてはいけません。 先の例と同様、例外を黙らせた際にはログ出力や警告を行うべきでしょう。
+
+&br;
+
+
+* サンプルファイル&aname(sample_file){};
+
+&br;
+
+
+* PHP_CodeSniffer
+
+&br;
+
+** インストール
+{{{pear install PHP_CodeSniffer}}}
+
+** 使い方
+{{{phpcs -v hello1.php}}}

@@ -1,0 +1,132 @@
+* ビヘイビアによるモジュール拡張
+
+[[バリデーション(6)>#tutorial_02.Model_25.validation6>internal]]にて既にビヘイビアの設定を行いましたが、ここではビヘイビアの基本的な設定の仕方を学びます。
+ビヘイビアとは、モジュールを拡張するための仕組みです。
+バリデーション同様、モジュールに対して共通・再利用性のある拡張を行う場合に利用します。
+
+ビヘイビアの作成は、非常に簡単です。
+ビヘイビアディレクトリ（behaviors）以下に、xFrameworkPX_Model_Behaviorを継承したクラスを作成し、モジュールに設定を行うだけです。
+
+モジュールから、ビヘイビアのメソッドを呼び出すには、次の命名規則に従ってメソッドを実装します。
+
+''bind(大文字から始まるメソッド名)''
+
+例）bindGetTestData
+
+呼び出し時は、bindを取り除き、大文字から始まるメソッド名を小文字にして呼び出します。
+
+{{{
+$this->getTestData();
+}}}
+
+
+
+このチュートリアルでは、次の操作を行います。
+
++ アプリケーションディレクトリにHTMLを設置する
++ アプリケーションディレクトリにコントローラーを設置する
++ モジュールディレクトリにモジュールを設置する
++ ビヘイビアディレクトリにモジュールを設置する
++ 仮想スクリーンの動作を確認する
++ サンプル実行
+
+* アプリケーションディレクトリにHTMLを設置する
+
+webapp下に、次のindex.htmlを設置します。
+保存する文字コードは、''UTF-8''、改行コードは''LF''です。
+
+{{{
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-script-Type" content="text/javascript" />
+    <meta http-equiv="content-style-type" content="text/css" />
+    <title>ビヘイビアによるモジュール拡張</title>
+</head>
+<body>
+    <h1>ビヘイビアによるモジュール拡張</h1>
+
+    <p><!--{$data}--></p>
+
+</body>
+</html>
+}}}
+
+
+* アプリケーションディレクトリにコントローラーを設置する
+
+webapp下に、次の.index.phpを設置します。
+保存する文字コードは、''UTF-8''、改行コードは''LF''です。
+
+{{{
+<?php
+
+class index extends xFrameworkPX_Controller_Action
+{
+    public $modules = array('sample');
+
+    public function execute()
+    {
+        $this->set(
+            'data',
+            $this->sample->getData()
+        );
+
+    }
+}
+}}}
+
+
+* モジュールディレクトリにモジュールを設置する
+
+modules下に、次のsample.phpを設置します。
+
+{{{
+<?php
+
+class sample extends xFrameworkPX_Model
+{
+    public $behaviors = array('behavior');
+
+    public function getData()
+    {
+        return $this->getTestData();
+    }
+}
+}}}
+
+* ビヘイビアディレクトリにモジュールを設置する
+
+behaviors下に、次のbehavior.phpを設置します。
+
+{{{
+<?php
+
+class behavior extends xFrameworkPX_Model_Behavior
+{
+    public function bindGetTestData()
+    {
+        return 'テストデータです。';
+    }
+}
+}}}
+
+* 仮想スクリーンの動作を確認する
+
+ブラウザで'''''http://yourdomain/index.html'''''にアクセスします。
+
+
+* サンプル実行
+
+下記のボタンから、ここまでのサンプルを実行することができます。
+
+[[&img(./resources/images/demo.gif){サンプル画像};>./tutorial/behavior/basic/index.html>external]]
+
+** サンプル格納位置
+
+'''bindtransfer/docs/tutorial/model/association/'''
+
+
+

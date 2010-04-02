@@ -1,0 +1,146 @@
+<!--{include file="../templates/head.html" name="article"}-->
+<!--{strip}-->
+<body class="px-body px-liquid px-lns">
+
+    <!--{* px-ct *}-->
+    <div class="px-ct">
+
+        <!--{* px-north *}-->
+        <div class="px-north">
+
+            <div class="px-bwrap">
+
+                <div class="px-body">
+
+                    <h1>
+                        <a href="<!--{$relpath}-->">
+                            <span>xFrameworkPX Application Examples</span>
+                        </a>
+                    </h1>
+
+                    <div class="globalnavi">
+                        <ul>
+                            <li>
+                                <a href="../">
+                                    Home
+                                </a>
+                            </li>
+                            <li class="last">
+                                Article
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+        <!--{* /px-north *}-->
+
+        <!-- px-center -->
+        <div class="px-center">
+
+            <div class="px-bwrap">
+
+                <div class="px-body colspace">
+
+                    <div class="searcharea clear_fix">
+
+                        <div class="formleft">
+                            <form method="get" action="#">
+
+                                <input type="text" name="search" value="<!--{$search}-->" class="txt" />
+
+                                <button type="submit" class="searchbtn">
+                                    <span class="magnifier alpha">検索</span>
+                                </button>
+
+                            </form>
+                        </div>
+
+                        <div class="btnright">
+                            <form method="get" action="./add/">
+                                <input type="submit" value="新規追加" class="bluebtn" />
+                            </form>
+                        </div>
+
+                    </div>
+
+                    <!--{if count( $list ) > 0}-->
+                        <table border="0" cellspacing="0" cellpadding="0" class="tablelayout" summary="記事リスト">
+                            <col width="20%" />
+                            <col width="60%" />
+                            <col width="20%" />
+                            <tr>
+                                <th>
+                                    タイトル
+                                </th>
+                                <th>
+                                    メッセージ
+                                </th>
+                                <th>
+                                    更新日
+                                </th>
+                            </tr>
+                            <!--{foreach from=$list item=item key=key}-->
+                            <tr>
+                                <td>
+                                    <a href="./edit/?id=<!--{$item.id}-->">
+                                        <!--{$item.title|escape}-->
+                                    </a>
+                                </td>
+                                <td>
+                                    <!--{$item.message|escape}-->
+                                </td>
+                                <td>
+                                    <!--{$item.modified|escape|default:"-"}-->
+                                </td>
+                            </tr>
+                            <!--{/foreach}-->
+                        </table>
+
+                        <!-- ページャー -->
+                        <!--{include file="../templates/pager.html"}-->
+                        <!-- /ページャー -->
+
+                    <!--{else}-->
+
+                        <div class="borderbox">
+
+                            <p class="cmove">
+                                記事がありません。
+                            </p>
+
+                        </div>
+
+                    <!--{/if}-->
+
+                </div>
+
+            </div>
+
+        </div>
+        <!-- /px-center -->
+
+        <!--{* px-south *}-->
+        <div class="px-south">
+
+            <div class="px-bwrap">
+
+                <div class="px-body">
+
+
+                </div>
+
+            </div>
+
+        </div>
+        <!--{* /px-south *}-->
+
+    </div>
+    <!-- /px-ct -->
+
+</body>
+</html>
+<!--{/strip}-->

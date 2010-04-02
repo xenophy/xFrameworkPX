@@ -1,0 +1,25 @@
+/*
+ * header.css
+ * Copyright (c) 2006-2010 Xenophy.CO.,LTD All rights Reserved.
+ * http://www.xenophy.com
+ */
+
+#docs-header-el {
+  position: relative;
+  padding: 10px 5px 10px 10px;
+  background: url(../images/header_bg.png) repeat-x;
+}
+
+#docs-header-el a {
+  background: url(../images/logo.png) no-repeat;
+  font-size: 14px;
+  padding: 2px 0 2px 24px;
+}
+
+#docs-header-el a:link,
+#docs-header-el a:visited,
+#docs-header-el a:active {
+  color: #0f3a6f;
+  font-weight: bold;
+  text-decoration:none;
+}

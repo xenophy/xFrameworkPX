@@ -1,0 +1,59 @@
+<!--{strip}-->
+<div class="px-verify">
+
+    <div class="px-wrap">
+
+        <div class="px-body">
+
+            <form method="post" action="<!--{$nextaction}-->.html" class="contri">
+
+                <ul class="veri">
+
+                <!--{foreach from=$label item=label key=key }-->
+                    <!--{if ($format.$key)}-->
+                    <li>
+                        <!--{if $format.$key.mode eq 'select' || $format.$key.mode eq 'radio'}-->
+                        <span class="ttl"><!--{$label}-->：</span>
+                        <!--{foreach from=$format.$key.data key=selectKey item=selectItem}-->
+                            <!--{if $selectItem.code eq $outdata.$key}-->
+                            <!--{$selectItem.name}-->
+                            <!--{/if}-->
+                        <!--{/foreach}-->
+
+                        <!--{elseif $format.$key.mode eq 'date'}-->
+                    <li>
+                        <span class="verittl"><!--{$label}-->：</span>
+                            <!--{foreach from=$outdata.$key key=dateKey item=dateItem}-->
+                                <!--{$dateItem}--><!--{$format.$key.data.$dateKey}-->
+                            <!--{/foreach}-->
+                    </li>
+                        <!--{/if}-->
+                    </li>
+                    <!--{elseif ( isset( $outdata.$key ) )}-->
+                    <li>
+                        <span class="verittl"><!--{$label}-->：</span><!--{$outdata.$key|escape|nl2br}-->
+                    </li>
+                    <!--{/if}-->
+                <!--{/foreach}-->
+                </ul>
+
+                <input type="submit" value="登録" class="bluebtn" />
+
+                <!--{* リファラー *}-->
+                <input type="hidden" name="<!--{$refererName}-->" value="<!--{$px_ref|escape}-->" />
+                <!--{* /リファラー *}-->
+            </form>
+
+            <form method="post" action="<!--{$refereraction}-->.html">
+                <!--{* リファラー *}-->
+                <input type="hidden" name="<!--{$refererName}-->" value="<!--{$px_ref|escape}-->" />
+                <!--{* /リファラー *}-->
+                <button type="submit" class="bluebtn">戻る</button>
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+<!--{/strip}-->

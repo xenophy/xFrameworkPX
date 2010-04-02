@@ -1,0 +1,238 @@
+* xFrameworkPXの処理フロー
+
+ディスパッチャーから処理がはじまり、仮想スクリーンが表示されるまでの処理フローを説明します。
+主な流れは下図のようになります。
+
+&img(./resources/images/docs/flow.png){xFrameworkPXの処理フロー};
+
+
+* ディスパッチャー
+ディスパッチャーは、前項目で説明した通り、xFrameworkPXの処理開始位置になります。
+
+
+
+
+* ファイル転送
+
+ファイル転送（FileTransfer）とは、Webルートに存在するファイルを、ドキュメントルートに転送する仕組みです。もちろん、ドキュメントルートにファイルが存在していれば、そちらが優先的に転送されます。ファイル転送は、画像やCSS、スクリプトファイルなどをWebルートに配置した時、ドキュメントルートに存在するかのように振る舞います。また、単純にファイルを転送するだけでなく、'''''If-Modified-Since'''''にも対応してるため、ブラウザキャッシュも行われます。
+
+** 定義方法
+
+ファイル転送を行うための設定は、filetransfer.pxmlに転送するMIME Typeを設定します。''<filetransfer>''タグ内にある、''<mimetypes>''タグに次のように設定します。
+
+{{{
+<mimetype>
+    <ext>拡張子</ext>
+    <mime>MIME Type</mime>
+</mimetype>
+}}}
+
+xFrameworkPXは、初期状態で下記の拡張子を転送するように設定されています。
+
+|~ファイル拡張子|~MIME Type|~説明|
+|dwg|application/acad|AutoCAD|
+|arj|application/arj|compressed archive|
+|asd|application/astound|Astound|
+|asn|application/astound|Astound|
+|css|text/css|Cascading Style Sheet|
+|ccad|application/clariscad|ClarisCAD|
+|drw|application/drafting|MATRA Prelude drafting|
+|dxf|application/dxf|DXF (AutoCAD)|
+|ico|image/vnd.microsoft.icon|Favicon|
+|unv|application/i-deas|SDRC I-DEAS|
+|iges|application/iges|IGES graphics format|
+|iges|application/iges|IGES graphics format|
+|jar|application/java-archive|Java archive|
+|hqx|application/mac-binhex40| Macintosh binary BinHex 4.0|
+|mdb|application/msaccess|Microsoft Access|
+|xla|application/msexcel|Microsoft Excel|
+|xls|application/msexcel|Microsoft Excel|
+|xlt|application/msexcel|Microsoft Excel|
+|xlw|application/msexcel|Microsoft Excel|
+|pot|application/mspowerpoint|Microsoft PowerPoint|
+|pps|application/mspowerpoint|Microsoft PowerPoint|
+|ppt|application/mspowerpoint|Microsoft PowerPoint|
+|mpp|application/msproject|Microsoft Project|
+|doc|application/msword|Microsoft Word|
+|word|application/msword|Microsoft Word|
+|w6w|application/msword|Microsoft Word|
+|wri|application/mswrite|Microsoft Write|
+|bin|application/octet-stream|uninterpreted binary|
+|oda|application/oda|ODA|
+|pdf|application/pdf|Adobe Acrobat|
+|ai|application/postscript|PostScript|
+|eps|application/postscript|PostScript|
+|ps|application/postscript|PostScript|
+|part|application/pro_eng|PTC Pro/ENGINEER|
+|part|application/pro_eng|PTC Pro/ENGINEER|
+|rtf|application/rtf|Rich Text Format|
+|set|application/set|SET (French CAD)|
+|stl|application/sla|stereolithography|
+|sol|application/solids|MATRA Prelude Solids|
+|st|application/STEP|ISO-10303 STEP data|
+|step|application/STEP|ISO-10303 STEP data|
+|stp|application/STEP|ISO-10303 STEP data|
+|vda|application/vda|VDA-FS Surface data|
+|bcpio|application/x-bcpio|binary CPIO|
+|cpio|application/x-cpio|POSIX CPIO|
+|csh|application/x-csh|C-shell script|
+|dcr|application/x-director|Macromedia Director|
+|dir|application/x-director|Macromedia Director|
+|dxr|application/x-director|Macromedia Director|
+|dvi|application/x-dvi|TeX DVI|
+|dwf|application/x-dwf|AutoCAD|
+|gtar|application/x-gtar|GNU tar|
+|gz|application/x-gzip|GNU ZIP|
+|gzip|application/x-gzip|GNU ZIP|
+|hdf|application/x-hdf|NCSA HDF Data File|
+|js|application/x-javascript|JavaScript|
+|latex|application/x-latex|LaTeX source|
+|bin|application/x-macbinary|Macintosh compressed|
+|mid|application/x-midi|MIDI|
+|mif|application/x-mif|FrameMaker MIF|
+|cdf|application/x-netcdf|Unidata netCDF|
+|nc|application/x-netcdf|Unidata netCDF|
+|sh|application/x-sh|Bourne shell script|
+|shar|application/x-shar|shell archive|
+|swf|application/x-shockwave-flash|Macromedia Shockwave|
+|sit|application/x-stuffit|StuffIt archive|
+|sv4cpio|application/x-sv4cpio|SVR4 CPIO|
+|sv4crc|application/x-sv4crc|SVR4 CPIO with CRC|
+|tar|application/x-tar|4.3BSD tar format|
+|tcl|application/x-tcl|TCL script|
+|tex|application/x-tex|TeX source|
+|texi|application/x-texinfo|Texinfo (Emacs)|
+|texinfo|application/x-texinfo|Texinfo (Emacs)|
+|roff|application/x-troff|Troff|
+|t|application/x-troff|Troff|
+|tr|application/x-troff|Troff|
+|man|application/x-troff-man|Troff with MAN macros|
+|me|application/x-troff-me|Troff with ME macros|
+|ms|application/x-troff-ms|Troff with MS macros|
+|ustar|application/x-ustar|POSIX tar format|
+|src|application/x-wais-source|WAIS source|
+|hlp|application/x-winhelp|Microsoft Windows help|
+|zip|application/zip|ZIP archive|
+|au|audio/basic|BASIC audio (u-law)|
+|snd|audio/basic|BASIC audio (u-law)|
+|mid|audio/midi|MIDI|
+|midi|audio/midi|MIDI|
+|aif|audio/x-aiff|AIFF audio|
+|aifc|audio/x-aiff|AIFF audio|
+|aiff|audio/x-aiff|AIFF audio|
+|mp3|audio/x-mpeg|MPEG audio|
+|ra|audio/x-pn-realaudio|RealAudio|
+|ram|audio/x-pn-realaudio|RealAudio|
+|rpm|audio/x-pn-realaudio-plugin|RealAudio plug-in|
+|voc|audio/x-voice|Voice|
+|wav|audio/x-wav|Microsoft Windows WAVE audio|
+|bmp|image/bmp|Bitmap|
+|gif|image/gif|GIF image|
+|ief|image/ief|Image Exchange Format|
+|jpe|image/jpeg|JPEG image|
+|jpeg|image/jpeg|JPEG image|
+|jpg|image/jpeg|JPEG image|
+|pict|image/pict|Macintosh PICT|
+|png|image/png|Portable Network Graphic|
+|tif|image/tiff|TIFF image|
+|tiff|image/tiff|TIFF image|
+|ras|image/x-cmu-raster|CMU raster|
+|pnm|image/x-portable-anymap|PBM Anymap format|
+|pbm|image/x-portable-bitmap|PBM Bitmap format|
+|pgm|image/x-portable-graymap|PBM Graymap format|
+|ppm|image/x-portable-pixmap|PBM Pixmap format|
+|rgb|image/x-rgb|RGB image|
+|xbm|image/x-xbitmap|X Bitmap|
+|xpm|image/x-xpixmap|X Pixmap|
+|xwd|image/x-xwindowdump|X Window System dump|
+|gzip|multipart/x-gzip|GNU ZIP archive|
+|zip|multipart/x-zip|PKZIP archive|
+|htm|text/html|HTML|
+|C|text/plain|plain text|
+|cc|text/plain|plain text|
+|h|text/plain|plain text|
+|txt|text/plain|plain text|
+|rtx|text/richtext|MIME Richtext|
+|tsv|text/tab-separated-values|text with tabs|
+|etx|text/x-setext|Structurally Enhanced Text|
+|sgm|text/x-sgml|SGML|
+|sgml|text/x-sgml|SGML|
+|mpe|video/mpeg|MPEG video|
+|mpeg|video/mpeg|MPEG video|
+|mpg|video/mpeg|MPEG video|
+|avi|video/msvideo|Microsoft Windows video|
+|mov|video/quicktime|QuickTime video|
+|qt|video/quicktime|QuickTime video|
+|vdo|video/vdo|VDO streaming video|
+|viv|video/vivo|VIVO streaming video|
+|vivo|video/vivo|VIVO streaming video|
+|movie|video/x-sgi-movie|SGI Movieplayer format|
+|ice|x-conference/x-cooltalk|CoolTalk|
+|svr|x-world/x-svr|Virtual reality|
+|wrl|x-world/x-vrml|VRML Worlds|
+|vrt|x-world/x-vrt|Virtual reality|
+|rdf|text/xml|Resource Description Framework|
+|xml|text/xml| Extensible Markup Language|
+|json|text/plane|JavaScript Object Notation|
+|docm|application/vnd.ms-word.document.macroEnabled.12|Microsoft Word 2007|
+|docx|application/vnd.openxmlformats-officedocument.wordprocessingml.document|Microsoft Word 2007|
+|dotm|application/vnd.ms-word.template.macroEnabled.12|Microsoft Word 2007|
+|dotx|application/vnd.openxmlformats-officedocument.wordprocessingml.template|Microsoft Word 2007|
+|potm|application/vnd.ms-powerpoint.template.macroEnabled.12|Microsoft PowerPoint 2007|
+|potx|application/vnd.openxmlformats-officedocument.presentationml.template|Microsoft PowerPoint 2007|
+|ppam|application/vnd.ms-powerpoint.addin.macroEnabled.12|Microsoft PowerPoint 2007|
+|ppsm|application/vnd.ms-powerpoint.slideshow.macroEnabled.12|Microsoft PowerPoint 2007|
+|ppsx|application/vnd.openxmlformats-officedocument.presentationml.slideshow|Microsoft PowerPoint 2007|
+|pptm|application/vnd.ms-powerpoint.presentation.macroEnabled.12|Microsoft PowerPoint 2007|
+|pptx|application/vnd.openxmlformats-officedocument.presentationml.presentation|Microsoft PowerPoint 2007|
+|xlam|application/vnd.ms-excel.addin.macroEnabled.12|Microsoft Excel 2007|
+|xlsb|application/vnd.ms-excel.sheet.binary.macroEnabled.12|Microsoft Excel 2007|
+|xlsm|application/vnd.ms-excel.sheet.macroEnabled.12|Microsoft Excel 2007|
+|xlsx|application/vnd.openxmlformats-officedocument.spreadsheetml.sheet|Microsoft Excel 2007|
+|xltm|application/vnd.ms-excel.template.macroEnabled.12|Microsoft Excel 2007|
+|xltx|application/vnd.openxmlformats-officedocument.spreadsheetml.template|Microsoft Excel 2007|
+
+
+
+* バインド転送
+通常Webルート(webapp)ディレクトリに配置しxFrameworkPXの仮想コンテンツを稼働させるわけですが、特定のURL以降をバインド転送ディレクトリ以下のディレクトリにマッピングする仕組みをバインド転送（BindTransfer）といいます。この、''xFrameworkPX 3.5 Documentation''もバインド転送で配置されたコンテンツです。
+
+** 定義方法１
+
+バインド転送を行うための設定は、filetransfer.pxmlに転送するパスや拡張子を設定します。''<filetransfer>''タグ内にある、''<binds>''タグに次のように設定します。
+この設定は、指定したバインド転送ディレクトリの拡張子が許可されたファイルのみを転送する方法です。
+
+{{{
+<bind>
+    <target>xFrameworkPX</target>
+    <exts>
+        <ext>js</ext>
+        <ext>swf</ext>
+        <ext>css</ext>
+        <ext>gif</ext>
+        <ext>png</ext>
+        <ext>jpg</ext>
+    </exts>
+</bind>
+}}}
+
+** 定義方法２
+
+定義方法１では、指定したバインド転送ディレクトリの拡張子が許可されたファイルのみを転送する設定でした。ファイルが転送されるだけで、Webルートのようにコントローラーを実行することはできません。次の定義方法は、コントローラーを動作させる完全なWebルートエイリアスを定義します。
+
+{{{
+<bind>
+    <target>docs</target>
+    <emulation>true</emulation>
+</bind>
+}}}
+
+xFrameworkPXのインストールが完了した状態では、次のディレクトリがバインド転送設定されています。必要に応じて、設定を切り替えてください。
+
+|~ターゲット|~転送種別|
+|extjs|ファイル転送|
+|xFrameworkPX|ファイル転送|
+|prettify|ファイル転送|
+|docs|Webルートエイリアス|
+
+

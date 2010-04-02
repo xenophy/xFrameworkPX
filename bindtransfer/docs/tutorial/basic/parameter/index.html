@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-script-Type" content="text/javascript" />
+    <meta http-equiv="content-style-type" content="text/css" />
+    <title>パラメータの取得</title>
+</head>
+<body class="pxdebug-disable">
+    <h1>パラメータの取得</h1>
+
+    <h2>GET値</h2>
+    <p>testvalue = <!--{$get1}--></p>
+    <p><a href="./?get1=TestData">GETにテストデータを設定してアクセスする</a></p>
+
+    <h2>POST値</h2>
+    <p>post1 = <!--{$post1}--></p>
+    <form action="./" method="post">
+        <input type="text" name="post1" value="POSTテストデータ" />
+        <input type="submit" value="送信" />
+    </form>
+
+    <h2>Cookie値</h2>
+    <p><a href="./?cookieclear=true">Cookie削除する</a></p>
+    <p><a href="./?setcookie=CookieTestData">Cookieに値を設定する</a></p>
+    <p>cookie1 = <!--{$cookie1}--></p>
+
+    <h2>セッション値</h2>
+    <p><a href="./?sessionclear=true">セッション削除する</a></p>
+    <p><a href="./?setsession=SessionTestData">セッションに値を設定する</a></p>
+    <p>session1 = <!--{$session1}--></p>
+
+</body>
+</html>

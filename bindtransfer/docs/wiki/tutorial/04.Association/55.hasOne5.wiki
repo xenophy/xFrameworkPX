@@ -1,0 +1,158 @@
+* 検索条件を指定してレコードを取得する(1)
+
+hasOneでtbl_uriageとtbl_customerを内部結合し、条件を指定してレコードを取得します。
+
+&img(./resources/images/tutorial/hasOne5.png){検索条件を指定してレコードを取得する(1)};
+
+
+このチュートリアルでは、次の操作を行います。
+
++ モジュール作成
++ アクション作成
++ テンプレート作成
++ 動作確認
+
+
+* 01.モジュール作成
+
+モジュールディレクトリ下に、'''''uriage.php'''''を作成します。
+
+** uriage.php
+{{{
+<?php
+
+class uriage extends xFrameworkPX_Model
+{
+    public $hasOne = 'tbl_customer';
+
+    public function test()
+    {
+        return $this->get('all',array(
+            'fields' => array(
+                'tbl_uriage.id as id',
+                'tbl_uriage.date as date',
+                'tbl_uriage.customer_id as customer_id',
+                'tbl_customer.id as customer_id_org',
+                'tbl_customer.name as customer_name',
+            ),
+            'conditions' => array(
+                'tbl_customer.id' => 105,
+                'OR',
+                'tbl_customer.name' => '姫路商事'
+            )
+        ));
+    }
+}
+
+}}}
+
+※チュートリアル用に'''''modules/Docs/Tutorial/Model/Association/hasOne5/'''''に同一のコードがあります。
+
+
+* 02.アクションクラスファイル作成
+Webルートに、'''''.hasOne5.php'''''を作成します。
+
+{{{
+<?php
+
+class hasOne5 extends xFrameworkPX_Controller_Action
+{
+
+    public $modules = array(
+        'uriage',
+    );
+
+    public function execute() {
+
+        // テストした結果（配列）を格納
+        $this->set('test', $this->uriage->test());
+
+    }
+
+}
+}}}
+
+※チュートリアル用に'''''bindtransfer/docs/tutorial/model/association/'''''に同一のコードがあります。
+
+* 03.テンプレート作成
+アクションクラスファイルと同じ位置に、'''''hasOne5.html'''''を作成します。
+
+{{{
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-script-Type" content="text/javascript" />
+    <meta http-equiv="content-style-type" content="text/css" />
+    <title>検索条件を指定してレコードを取得する(1)</title>
+</head>
+<body>
+
+    <h1>検索条件を指定してレコードを取得する(1)</h1>
+
+    <table border="1">
+    <tr>
+        <th>売上No</th>
+        <th>日付</th>
+        <th>売上表.顧客CD</th>
+        <th>顧客表.顧客CD</th>
+        <th>顧客名</th>
+    </tr>
+    <!--{foreach from=$test item=item key=key}-->
+    <tr>
+        <td><!--{$item.id}--></td>
+        <td><!--{$item.date}--></td>
+        <td><!--{$item.customer_id}--></td>
+        <td><!--{$item.customer_id_org}--></td>
+        <td><!--{$item.customer_name}--></td>
+    </tr>
+    <!--{/foreach}-->
+    </table>
+
+</body>
+</html>
+}}}
+
+
+※チュートリアル用に'''''bindtransfer/docs/tutorial/model/association/'''''に同一のコードがあります。
+
+
+* 動作確認
+作成したアクションにブラウザからアクセスして、動作を確認してください。
+
+このアソシエーション設定により実行されるSQLは下記の通りです。
+
+{{{
+SELECT
+    tbl_uriage.id AS id,
+    tbl_uriage.date AS DATE,
+    tbl_uriage.customer_id AS customer_id,
+    tbl_customer.id AS customer_id_org,
+    tbl_customer.name AS customer_name
+FROM
+    tbl_uriage
+    INNER JOIN
+    tbl_customer ON
+    tbl_uriage.customer_id = tbl_customer.id
+WHERE
+    'tbl_customer.id' => 105,
+    'OR',
+    'tbl_customer.name' => '姫路商事'
+}}}
+
+また、期待される結果は次の通りです。
+|~売上No|~日付|~売上表.顧客CD|~顧客表.顧客CD|~顧客名|
+|1|2001-05-27 00:00:00|105|105|福岡商事|
+|4|2001-06-27 00:00:00|102|102|姫路商事|
+
+
+* サンプル実行
+
+下記のボタンから、ここまでのサンプルを実行することができます。
+
+[[&img(./resources/images/demo.gif){サンプル画像};>./tutorial/association/hasOne5.html>external]]
+
+** サンプル格納位置
+
+'''bindtransfer/docs/tutorial/model/association/'''

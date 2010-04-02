@@ -1,0 +1,119 @@
+* バリデーション(7)
+
+validationメソッドを使ったバリデーションの方法を学びます。
+formタグのname属性に、モジュール名をつけた配列で指定することで、直接validationメソッドで利用できる形になります。
+
+
+このチュートリアルでは、次の操作を行います。
+
++ アプリケーションディレクトリにHTMLを設置する
++ アプリケーションディレクトリにコントローラーを設置する
++ モジュールディレクトリにモジュールを設置する
++ 仮想スクリーンの動作を確認する
++ サンプル実行
+
+* アプリケーションディレクトリにHTMLを設置する
+
+webapp下に、次のindex.htmlを設置します。
+保存する文字コードは、''UTF-8''、改行コードは''LF''です。
+
+{{{
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-script-Type" content="text/javascript" />
+    <meta http-equiv="content-style-type" content="text/css" />
+    <title>バリデーション(7)</title>
+</head>
+<body>
+
+    <h1>バリデーション(7)</h1>
+
+    <form action="" method="post">
+
+        <!--{foreach from=$errData item=item}-->
+        <p style="color:red;"><!--{$item}--></p>
+        <!--{/foreach}-->
+        <input type="text" name="sample[data]" />('abc'チェック)<br />
+        <br />
+
+        <input type="submit" value="チェック" />
+        <input type="hidden" name="type" value="notempty" />
+    </form>
+
+</body>
+</html>
+}}}
+
+
+* アプリケーションディレクトリにコントローラーを設置する
+
+webapp下に、次の.index.phpを設置します。
+保存する文字コードは、''UTF-8''、改行コードは''LF''です。
+
+{{{
+<?php
+
+class index extends xFrameworkPX_Controller_Action
+{
+    public $modules = array('sample');
+
+    public function execute()
+    {
+        if (isset($this->post->type)) {
+
+            $validError = $this->sample->validation($this->post);
+
+            if (isset($validError->data)) {
+                $this->set('errData', $validError->data->messages);
+            }
+        }
+
+    }
+}
+}}}
+
+
+* モジュールディレクトリにモジュールを設置する
+
+modules下に、次のsample.phpを設置します。
+
+{{{
+<?php
+
+class sample extends xFrameworkPX_Model
+{
+    public $validators = array(
+        'data' => array(
+            array(
+                'rule' => 'validateTest',
+                'message' => 'abcを入力してください。',
+            ),
+        ),
+    );
+
+    public function validateTest($target)
+    {
+        return ($target === 'abc');
+    }
+}
+}}}
+
+
+* 仮想スクリーンの動作を確認する
+
+ブラウザで'''''http://yourdomain/index.html'''''にアクセスします。
+
+
+* サンプル実行
+
+下記のボタンから、ここまでのサンプルを実行することができます。
+
+[[&img(./resources/images/demo.gif){サンプル画像};>./tutorial/model/validation7/index.html>external]]
+
+** サンプル格納位置
+
+'''bindtransfer/docs/tutorial/model/association/'''
+

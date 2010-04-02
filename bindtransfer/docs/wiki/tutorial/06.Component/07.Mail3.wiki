@@ -1,0 +1,91 @@
+* メール送信(3)
+
+
+ここでは、添付ファイル付きのメール送信を行う方法を学びます。
+
+
+このチュートリアルでは、次の操作を行います。
+
++ アプリケーションディレクトリにHTMLを設置する
++ アプリケーションディレクトリにコントローラーを設置する
++ 仮想スクリーンの動作を確認する
++ サンプル実行
+
+* アプリケーションディレクトリにHTMLを設置する
+
+webapp下に、次のindex.htmlを設置します。
+保存する文字コードは、''UTF-8''、改行コードは''LF''です。
+
+{{{
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-script-Type" content="text/javascript" />
+    <meta http-equiv="content-style-type" content="text/css" />
+    <title>メール送信(3)</title>
+</head>
+<body>
+    <h1>メール送信(3)</h1>
+
+    <form action="" method="post">
+        送信先：<input type="text" name="addr" /><br />
+        <input type="submit" value="送信" />
+    </form>
+
+</body>
+</html>
+}}}
+
+
+* アプリケーションディレクトリにコントローラーを設置する
+
+webapp下に、次の.index.phpを設置します。
+保存する文字コードは、''UTF-8''、改行コードは''LF''です。
+
+{{{
+<?php
+
+class index extends xFrameworkPX_Controller_Action
+{
+    public function execute()
+    {
+        if (isset($this->post->addr)) {
+
+            $this->Mail->send(
+                array(
+                    'to' => $this->post->addr,
+                    'from' => 'info@xframeworkpx.com',
+                    'subject' => 'テストメール',
+                    'body' => 'テストメールです。',
+                    'files' => array(
+                        array(
+                            'name' => 'テストPDF.pdf',
+                            'path' => dirname(__FILE__) . DS . 'TestPDF.pdf'
+                        )
+                    )
+                )
+            );
+        }
+    }
+}
+}}}
+
+
+* 仮想スクリーンの動作を確認する
+
+ブラウザで'''''http://yourdomain/index.html'''''にアクセスします。
+
+
+* サンプル実行
+
+下記のボタンから、ここまでのサンプルを実行することができます。
+
+[[&img(./resources/images/demo.gif){サンプル画像};>./tutorial/component/mail3/index.html>external]]
+
+** サンプル格納位置
+
+'''bindtransfer/docs/tutorial/model/association/'''
+
+

@@ -1,0 +1,99 @@
+* セッションの基本操作(4)
+
+ここでは、すべてのセッション削除を学びます。
+いくつかのセッションを登録し、すべて削除します。
+
+このチュートリアルでは、次の操作を行います。
+
++ アプリケーションディレクトリにHTMLを設置する
++ アプリケーションディレクトリにコントローラーを設置する
++ 仮想スクリーンの動作を確認する
++ サンプル実行
+
+* アプリケーションディレクトリにHTMLを設置する
+
+webapp下に、次のindex.htmlを設置します。
+保存する文字コードは、''UTF-8''、改行コードは''LF''です。
+
+{{{
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-script-Type" content="text/javascript" />
+    <meta http-equiv="content-style-type" content="text/css" />
+    <title>セッションの基本操作(4)</title>
+</head>
+<body>
+    <h1>セッションの基本操作(4)</h1>
+
+    <h2>セッション値</h2>
+    <!--{foreach from=$smarty.session item=item key=key}-->
+    <p><!--{$key}-->　:　<!--{$item}--></p>
+    <!--{/foreach}-->
+
+    <form action="" method="post">
+        セッション名：<input type="text" name="name" /><br />
+        値：<input type="text" name="value" /><br />
+        <input type="submit" value="設定" />
+    </form>
+
+    <form action="" method="post">
+        <input type="hidden" name="exec" value="true" />
+        <input type="submit" value="すべてのセッション値を削除" />
+    </form>
+
+
+</body>
+</html>
+}}}
+
+
+* アプリケーションディレクトリにコントローラーを設置する
+
+webapp下に、次の.index.phpを設置します。
+保存する文字コードは、''UTF-8''、改行コードは''LF''です。
+
+{{{
+<?php
+
+class index extends xFrameworkPX_Controller_Action
+{
+    public function execute()
+    {
+        if (
+            isset($this->post->name) &&
+            isset($this->post->value)
+        ) {
+
+            $this->Session->write(
+                $this->post->name,
+                $this->post->value
+            );
+
+        } else if(isset($this->post->exec)) {
+
+            $this->Session->clear();
+
+        }
+    }
+}
+}}}
+
+
+* 仮想スクリーンの動作を確認する
+
+ブラウザで'''''http://yourdomain/index.html'''''にアクセスします。
+
+
+* サンプル実行
+
+下記のボタンから、ここまでのサンプルを実行することができます。
+
+[[&img(./resources/images/demo.gif){サンプル画像};>./tutorial/component/session4/index.html>external]]
+
+** サンプル格納位置
+
+'''bindtransfer/docs/tutorial/model/association/'''
+

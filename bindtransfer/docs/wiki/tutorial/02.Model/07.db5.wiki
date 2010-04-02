@@ -1,0 +1,141 @@
+* 基本的なデータベース操作(5)
+
+ここでは、''$this->delete''メソッドを使用したレコード削除を学びます。
+[[基本的なデータベース操作(1)>#tutorial_02.Model_03.db1>internal]]で作成したテーブルに対してレコード削除を行います。
+
+このチュートリアルでは、次の操作を行います。
+
++ アプリケーションディレクトリにHTMLを設置する
++ アプリケーションディレクトリにコントローラーを設置する
++ モジュールディレクトリにモジュールを設置する
++ 仮想スクリーンの動作を確認する
++ サンプル実行
+
+
+* アプリケーションディレクトリにHTMLを設置する
+
+webapp下に、次のindex.htmlを設置します。
+保存する文字コードは、''UTF-8''、改行コードは''LF''です。
+
+{{{
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-script-Type" content="text/javascript" />
+    <meta http-equiv="content-style-type" content="text/css" />
+    <title>基本的なデータベース操作(5)</title>
+</head>
+<body>
+    <h1>基本的なデータベース操作(5)</h1>
+
+    <h2>id=1のデータを削除します。</h2>
+    <form action="./" method="post">
+
+        <input type="submit" name="submit" value="削除" />
+
+    </form>
+
+    <hr />
+
+    <table border="1">
+    <tr>
+        <th>id</th>
+        <th>title</th>
+        <th>note</th>
+        <th>modified</th>
+    </tr>
+    <!--{foreach from=$alldata item=item key=key}-->
+    <tr>
+        <td><!--{$item.id}--></td>
+        <td><!--{$item.title}--></td>
+        <td><!--{$item.note}--></td>
+        <td><!--{$item.modified}--></td>
+    </tr>
+    <!--{/foreach}-->
+    </table>
+
+</body>
+</html>
+}}}
+
+
+* アプリケーションディレクトリにコントローラーを設置する
+
+webapp下に、次の.index.phpを設置します。
+保存する文字コードは、''UTF-8''、改行コードは''LF''です。
+
+{{{
+<?php
+
+class index extends xFrameworkPX_Controller_Action
+{
+    public $modules = array('sample');
+
+    public function execute()
+    {
+        $this->sample->deleteData();
+
+        $this->set(
+            'alldata',
+            $this->sample->getDataAll()
+        );
+    }
+}
+}}}
+
+
+* モジュールディレクトリにモジュールを設置する
+
+modules下に、次のsample.phpを設置します。
+
+{{{
+<?php
+
+class sample extends xFrameworkPX_Model
+{
+    public function deleteData()
+    {
+        $this->delete(
+            array(
+                'bind' => array(
+                    'id' => 1,
+                ),
+                'where' => array(
+                    'id = :id'
+                )
+            )
+        );
+    }
+
+    public function getDataAll()
+    {
+        return $this->rowAll(
+            array(
+                'query' => 'SELECT * FROM ' . $this->getTableName()
+            )
+        );
+    }
+}
+
+}}}
+
+
+* 仮想スクリーンの動作を確認する
+
+ブラウザで'''''http://yourdomain/index.html'''''にアクセスします。
+
+
+* サンプル実行
+
+下記のボタンから、ここまでのサンプルを実行することができます。
+
+[[&img(./resources/images/demo.gif){サンプル画像};>./tutorial/model/db5/>external]]
+
+** サンプル格納位置
+
+'''bindtransfer/docs/tutorial/basic/html'''
+
+
+

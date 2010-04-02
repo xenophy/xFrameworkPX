@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<phpunit>
+    <filter>
+        <blacklist>
+            <directory>./</directory>
+
+            <file>../../../library/xFrameworkPX/Util/Observable.php</file>
+            <file>../../../library/xFrameworkPX/Util/MixedCollection.php</file>
+            <file>../../../library/xFrameworkPX/Object.php</file>
+        </blacklist>
+    </filter>
+</phpunit>

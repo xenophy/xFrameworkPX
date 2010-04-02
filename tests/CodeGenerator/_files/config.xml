@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<phpunit>
+    <filter>
+        <blacklist>
+            <file>AllTests.php</file>
+            <file>PhpTest.php</file>
+
+            <file>./Php/AllTests.php</file>
+            <file>./Php/ClassDocTest.php</file>
+            <file>./Php/ClassTest.php</file>
+            <file>./Php/FileDocTest.php</file>
+            <file>./Php/FileTest.php</file>
+            <file>./Php/MethodDocTest.php</file>
+            <file>./Php/MethodTest.php</file>
+            <file>./Php/ParamsTest.php</file>
+            <file>./Php/PropsDocTest.php</file>
+            <file>./Php/PropsTest.php</file>
+            <file>./Php/_files/Test.php</file>
+
+            <file>../../library/xFrameworkPX/Exception.php</file>
+            <file>../../library/xFrameworkPX/Util/MixedCollection.php</file>
+        </blacklist>
+    </filter>
+</phpunit>

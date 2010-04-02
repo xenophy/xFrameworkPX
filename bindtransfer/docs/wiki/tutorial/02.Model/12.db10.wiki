@@ -1,0 +1,124 @@
+* O/R mapping(3)
+
+ここでは、SQLを記述することなくレコードの削除をする方法を学びます。
+
+このチュートリアルでは、次の操作を行います。
+
++ アプリケーションディレクトリにHTMLを設置する
++ アプリケーションディレクトリにコントローラーを設置する
++ モジュールディレクトリにモジュールを設置する
++ 仮想スクリーンの動作を確認する
++ サンプル実行
+
+* アプリケーションディレクトリにHTMLを設置する
+
+webapp下に、次のindex.htmlを設置します。
+保存する文字コードは、''UTF-8''、改行コードは''LF''です。
+
+{{{
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-script-Type" content="text/javascript" />
+    <meta http-equiv="content-style-type" content="text/css" />
+    <title>O/R mapping(3)</title>
+</head>
+<body>
+    <h1>O/R mapping(3)</h1>
+
+    <form action="" method="post">
+        id:<input type="text" name="id" /><br />
+        <input type="submit" value="削除" />
+    </form>
+
+    <hr />
+
+    <table border="1">
+    <tr>
+        <th>id</th>
+        <th>title</th>
+        <th>note</th>
+        <th>modified</th>
+    </tr>
+    <!--{foreach from=$alldata item=item key=key}-->
+    <tr>
+        <td><!--{$item.id}--></td>
+        <td><!--{$item.title}--></td>
+        <td><!--{$item.note}--></td>
+        <td><!--{$item.modified}--></td>
+    </tr>
+    <!--{/foreach}-->
+    </table>
+
+
+</body>
+</html>
+}}}
+
+
+* アプリケーションディレクトリにコントローラーを設置する
+
+webapp下に、次の.index.phpを設置します。
+保存する文字コードは、''UTF-8''、改行コードは''LF''です。
+
+{{{
+<?php
+
+class index extends xFrameworkPX_Controller_Action
+{
+    public $modules = array('sample');
+
+    public function execute()
+    {
+        if (isset($this->post->id)) {
+            $this->sample->removeData($this->post->id);
+        }
+
+        $this->set(
+            'alldata',
+            $this->sample->getDataAll()
+        );
+    }
+}
+}}}
+
+* モジュールディレクトリにモジュールを設置する
+
+modules下に、次のsample.phpを設置します。
+
+{{{
+<?php
+
+class sample extends xFrameworkPX_Model
+{
+    public function getDataAll()
+    {
+        return $this->get('all');
+    }
+
+    public function removeData($id)
+    {
+        $this->remove(array($id));
+    }
+}
+}}}
+
+removeメソッドに配列で、削除を行うプライマリキーを設定します。
+
+* 仮想スクリーンの動作を確認する
+
+ブラウザで'''''http://yourdomain/index.html'''''にアクセスします。
+
+
+* サンプル実行
+
+下記のボタンから、ここまでのサンプルを実行することができます。
+
+[[&img(./resources/images/demo.gif){サンプル画像};>./tutorial/model/db10/>external]]
+
+** サンプル格納位置
+
+'''bindtransfer/docs/tutorial/basic/html'''
+

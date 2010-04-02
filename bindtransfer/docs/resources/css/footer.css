@@ -1,0 +1,15 @@
+/*
+ * footer.css
+ * Copyright (c) 2006-2009 Xenophy.CO.,LTD All rights Reserved.
+ * http://www.xenophy.com
+ */
+
+#Docs-footer address {
+  text-align: right;
+  font-size: 12px;
+  padding: 0 5px 5px 5px;
+}
+
+#Docs-footer .x-panel-body {
+  background-color:transparent !important;
+}

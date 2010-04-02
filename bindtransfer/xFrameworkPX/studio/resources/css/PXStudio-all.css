@@ -1,0 +1,65 @@
+
+.pxstudio-icon-logo {
+  background-image: url(../images/logo.gif) !important;
+}
+
+#PXSTUDIO_EMPTY_PANEL .x-panel-body {
+  background-color: #676767;
+  background-image: url(../images/emptybg.gif) !important;
+  background-repeat: repeat-x;
+}
+
+.pxstudio-navi-vscreen {
+  background-image: url(../images/application_view_tile.png) !important;
+}
+
+.pxstudio-navi-vscreen-add {
+  background-image: url(../images/application_view_tile_add.png) !important;
+}
+
+.pxstudio-navi-vscreen-cut {
+  background-image: url(../images/cut.png) !important;
+}
+
+.pxstudio-navi-vscreen-paste {
+  background-image: url(../images/paste_plain.png) !important;
+}
+
+.pxstudio-navi-vscreen-copy {
+  background-image: url(../images/page_copy.png) !important;
+}
+
+.pxstudio-navi-vscreen-remove {
+  background-image: url(../images/cross.png) !important;
+}
+
+.pxstudio-navi-vscreen-rename {
+  background-image: url(../images/pencil.png) !important;
+}
+
+.pxstudio-navi-vscreen-edit {
+  background-image: url(../images/application_edit.png) !important;
+}
+
+
+.pxstudio-navi-vscreen-nocon {
+  background-image: url(../images/application.png) !important;
+}
+
+.pxstudio-navi-file {
+  background-image: url(../images/folder.png) !important;
+}
+
+.pxstudio-navi-file-con {
+  background-image: url(../images/page_code.png) !important;
+}
+
+.pxstudio-navi-file-html {
+  background-image: url(../images/layout_content.png) !important;
+}
+
+.pxstudio-navi-file-pxml {
+  background-image: url(../images/page_gear.png) !important;
+}
+
+

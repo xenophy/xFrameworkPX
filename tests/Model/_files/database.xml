@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<database>
+    <connection name="default">
+        <!-- Charset -->
+        <charset>UTF8</charset>
+        <!-- /Charset -->
+
+        <!-- Adapter -->
+        <adapter>mysql</adapter>
+        <!-- /Adapter -->
+
+        <!-- Driver -->
+        <driver>mysql</driver>
+        <!-- /Driver -->
+
+        <!-- Host -->
+        <host>localhost</host>
+        <!-- /Host -->
+
+        <!-- User -->
+        <user>root</user>
+        <!-- /User -->
+
+        <!-- Password -->
+        <password></password>
+        <!-- /Password -->
+
+        <!-- Database -->
+        <database>myapp</database>
+        <!-- /Database -->
+
+        <!-- Prefix -->
+        <prefix></prefix>
+        <!-- /Prefix -->
+
+        <!-- Port -->
+        <port></port>
+        <!-- /Port -->
+
+        <!-- Socket -->
+        <socket></socket>
+        <!-- /Socket -->
+
+        <!-- table -->
+        <table>tbl_article_test</table>
+        <!-- /table -->
+    </connection>
+
+</database>
+
+
+

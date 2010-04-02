@@ -1,0 +1,61 @@
+<!--{strip}-->
+<div class="px-list">
+
+    <div class="px-wrap">
+
+        <div class="px-body">
+
+            <!--{if count( $list ) > 0}-->
+            <table border="0" cellspacing="0" cellpadding="0"<!--{if $listsummary}--> summary="<!--{$listsummary}-->"<!--{/if}--> class="tablelayout">
+                <!--{* テーブルヘッダー *}-->
+                <tr>
+
+                    <!--{foreach from=$outheader item=item}-->
+                    <th>
+                        <!--{$item|escape}-->
+                    </th>
+                    <!--{/foreach}-->
+
+                </tr>
+
+                <!--{* /テーブルヘッダー *}-->
+
+                <!--{foreach from=$outlist item=fields key=id}-->
+                <tr>
+
+                    <!--{foreach from=$fields item=item key=key}-->
+                    <td>
+                        <!--{*$keyでclass指定*}-->
+
+                        <a href="<!--{$nextaction}-->.html?<!--{$idkey}-->=<!--{$id}-->">
+                        <!--{$item|escape}-->
+                        </a>
+
+                    </td>
+                    <!--{/foreach}-->
+
+                </tr>
+                <!--{/foreach}-->
+
+            </table>
+
+            <!--{* ページャー *}-->
+            <!--{include file="../templates/RapidDrive/pager.html"}-->
+            <!--{* /ページャー *}-->
+
+            <!--{else}-->
+
+            <div class="px-nolist">
+
+                <p><!--{$listnomessage}--></p>
+
+            </div>
+
+            <!--{/if}-->
+
+        </div>
+
+    </div>
+
+</div>
+<!--{/strip}-->

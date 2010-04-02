@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<phpunit>
+    <filter>
+        <blacklist>
+            <file>AllTests.php</file>
+            <file>ClassDocTest.php</file>
+            <file>ClassTest.php</file>
+            <file>FileDocTest.php</file>
+            <file>FileTest.php</file>
+            <file>MethodDocTest.php</file>
+            <file>MethodTest.php</file>
+            <file>ParamsTest.php</file>
+            <file>PropsDocTest.php</file>
+            <file>PropsTest.php</file>
+            <file>./_files/Test.php</file>
+
+            <file>../../../library/xFrameworkPX/Exception.php</file>
+            <file>../../../library/xFrameworkPX/Util/MixedCollection.php</file>
+        </blacklist>
+    </filter>
+</phpunit>

@@ -1,0 +1,76 @@
+* ブラウザ判定
+
+Viewには、自動的にブラウザを判別するためのユーザーデータが設定されます。
+
+
+|~変数名|~説明|
+|isOpera|使用ブラウザがOperaである場合、trueが設定されます。|
+|isChrome|使用ブラウザがGoogle Chromeである場合、trueが設定されます。|
+|isWebKit|ブラウザでWebKitを使用している場合、trueが設定されます。|
+|isSafari|使用ブラウザがSafariである場合、trueが設定されます。|
+|isSafari2|使用ブラウザがSafari2.xである場合、trueが設定されます。|
+|isSafari3|使用ブラウザがSafari3.xである場合、trueが設定されます。|
+|isSafari4|使用ブラウザがSafari4.xである場合、trueが設定されます。|
+|isIE|使用ブラウザがInternet Explorerである場合、trueが設定されます。|
+|isIE7|使用ブラウザがInternet Explorer7.xである場合、trueが設定されます。|
+|isIE8|使用ブラウザがInternet Explorer8.xである場合、trueが設定されます。|
+|isIE6|使用ブラウザがInternet Explorer6.xである場合、trueが設定されます。|
+|isGecko|ブラウザのレンダリングエンジンがGeckoで場合、trueが設定されます。(Mozilla、Firefoxなど)|
+|isGecko2|ブラウザのレンダリングエンジンがGeckoでバージョンが1.9より古い場合、trueが設定されます。(Firefox 2.xなど)|
+|isGecko3|ブラウザのレンダリングエンジンがGeckoでバージョンが1.9か、それより新しい場合、trueが設定されます。(Firefox 3.xなど)|
+
+
+このチュートリアルでは、次の操作を行います。
+
++ アプリケーションディレクトリにHTMLを設置する
++ 仮想スクリーンの動作を確認する
++ サンプル実行
+
+* アプリケーションディレクトリにHTMLを設置する
+
+webapp下に、次のindex.htmlを設置します。
+保存する文字コードは、''UTF-8''、改行コードは''LF''です。
+
+{{{
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-script-Type" content="text/javascript" />
+    <meta http-equiv="content-style-type" content="text/css" />
+    <title>ブラウザ判定</title>
+</head>
+<body>
+    <h1>ブラウザ判定</h1>
+
+    <!--{if $isGecko}-->
+    <h2>このブラウザは、FireFoxです。</h2>
+    <!--{else}-->
+    <h2>このブラウザは、FireFoxではありません。</h2>
+    <!--{/if}-->
+
+</body>
+</html>
+}}}
+
+
+
+
+* 仮想スクリーンの動作を確認する
+
+ブラウザで'''''http://yourdomain/index.html'''''にアクセスします。
+
+
+* サンプル実行
+
+下記のボタンから、ここまでのサンプルを実行することができます。
+
+[[&img(./resources/images/demo.gif){サンプル画像};>./tutorial/view/browser/index.html>external]]
+
+** サンプル格納位置
+
+'''bindtransfer/docs/tutorial/model/association/'''
+
+
+

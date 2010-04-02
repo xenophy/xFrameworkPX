@@ -1,0 +1,35 @@
+/*
+ * welcome.css
+ * Copyright (c) 2006-2009 Xenophy.CO.,LTD All rights Reserved.
+ * http://www.xenophy.com
+ */
+
+#welcome {
+}
+
+#welcome h3 {
+  font-size: 24px;
+  font-weight: normal;
+  color: #0f3a6f;
+  margin: 40px 0 20px 0;
+}
+
+#welcome .date {
+  font-style: italic;
+}
+
+#welcome .info {
+  margin: 30px 0 30px 0;
+  background-color: #bde5f8;
+  border: solid 1px #00529b;
+  color: #00529b;
+  font-weight: bold;
+  padding: 20px;
+
+}
+
+#welcome address {
+  margin: 120px 0 0 0;
+  border-top: 1px solid #474747;
+  text-align: right;
+}

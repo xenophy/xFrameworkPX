@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<phpunit>
+    <filter>
+        <blacklist>
+
+            <!-- xFrameworkPX_CodeGenerator -->
+            <directory>./CodeGenerator</directory>
+
+            <!-- xFrameworkPX_Config -->
+            <directory>./Config</directory>
+
+            <!-- xFrameworkPX_Controller -->
+            <directory>./Controller</directory>
+
+            <!-- xFrameworkPX_Model -->
+            <directory>./Model</directory>
+
+            <!-- xFrameworkPX_Util -->
+            <directory>./Util</directory>
+
+            <!-- xFrameworkPX_Validation -->
+            <directory>./Validation</directory>
+
+            <!-- xFrameworkPX_View -->
+            <directory>./View</directory>
+
+            <!-- xFrameworkPX -->
+            <file>./_files/Config_extends.php</file>
+            <file>./AllTests.php</file>
+            <file>./CodeGeneratorTest.php</file>
+            <file>./ConfigTest.php</file>
+            <file>./ControllerTest.php</file>
+            <file>./DispatcherTest.php</file>
+            <file>./ExceptionTest.php</file>
+            <file>./extenderTest.php</file>
+            <file>./ModelTest.php</file>
+            <file>./ObjectTest.php</file>
+            <file>./VersionTest.php</file>
+            <file>./YamlTest.php</file>
+
+            <file>../library/Smarty/Smarty.class.php</file>
+        </blacklist>
+    </filter>
+</phpunit>

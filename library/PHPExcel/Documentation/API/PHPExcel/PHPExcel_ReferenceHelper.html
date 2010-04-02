@@ -1,0 +1,648 @@
+<html>
+<head>
+<title>Docs For Class PHPExcel_ReferenceHelper</title>
+<link rel="stylesheet" type="text/css" href="../media/style.css">
+</head>
+<body>
+
+<table border="0" cellspacing="0" cellpadding="0" height="48" width="100%">
+  <tr>
+    <td class="header_top">PHPExcel</td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+  <tr>
+    <td class="header_menu">
+        
+                                                                                                                    
+                                                                                                                                                                                                                                                                                                                                          		  [ <a href="../classtrees_PHPExcel.html" class="menu">class tree: PHPExcel</a> ]
+		  [ <a href="../elementindex_PHPExcel.html" class="menu">index: PHPExcel</a> ]
+		  	    [ <a href="../elementindex.html" class="menu">all elements</a> ]
+    </td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+</table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="200" class="menu">
+	<div id="todolist">
+			<p><a href="../todolist.html">Todo List</a></p>
+	</div>
+      <b>Packages:</b><br />
+              <a href="../li_default.html">default</a><br />
+              <a href="../li_com-tecnick-tcpdf.html">com-tecnick-tcpdf</a><br />
+              <a href="../li_JAMA.html">JAMA</a><br />
+              <a href="../li_Math_Stats.html">Math_Stats</a><br />
+              <a href="../li_PHPExcel.html">PHPExcel</a><br />
+              <a href="../li_PHPExcel_Calculation.html">PHPExcel_Calculation</a><br />
+              <a href="../li_PHPExcel_Cell.html">PHPExcel_Cell</a><br />
+              <a href="../li_PHPExcel_Reader.html">PHPExcel_Reader</a><br />
+              <a href="../li_PHPExcel_Reader_Excel5.html">PHPExcel_Reader_Excel5</a><br />
+              <a href="../li_PHPExcel_RichText.html">PHPExcel_RichText</a><br />
+              <a href="../li_PHPExcel_Shared.html">PHPExcel_Shared</a><br />
+              <a href="../li_PHPExcel_Shared_Best_Fit.html">PHPExcel_Shared_Best_Fit</a><br />
+              <a href="../li_PHPExcel_Shared_Escher.html">PHPExcel_Shared_Escher</a><br />
+              <a href="../li_PHPExcel_Shared_OLE.html">PHPExcel_Shared_OLE</a><br />
+              <a href="../li_PHPExcel_Style.html">PHPExcel_Style</a><br />
+              <a href="../li_PHPExcel_Worksheet.html">PHPExcel_Worksheet</a><br />
+              <a href="../li_PHPExcel_Worksheet_Drawing.html">PHPExcel_Worksheet_Drawing</a><br />
+              <a href="../li_PHPExcel_Writer.html">PHPExcel_Writer</a><br />
+              <a href="../li_PHPExcel_Writer_Excel5.html">PHPExcel_Writer_Excel5</a><br />
+              <a href="../li_PHPExcel_Writer_Excel2007.html">PHPExcel_Writer_Excel2007</a><br />
+            <br /><br />
+                        <b>Files:</b><br />
+      	  <div class="package">
+			<a href="../PHPExcel/_PHPExcel---Comment.php.html">		Comment.php
+		</a><br>
+			<a href="../PHPExcel/_PHPExcel---DocumentProperties.php.html">		DocumentProperties.php
+		</a><br>
+			<a href="../PHPExcel/_PHPExcel---DocumentSecurity.php.html">		DocumentSecurity.php
+		</a><br>
+			<a href="../PHPExcel/_PHPExcel---HashTable.php.html">		HashTable.php
+		</a><br>
+			<a href="../PHPExcel/_PHPExcel---IComparable.php.html">		IComparable.php
+		</a><br>
+			<a href="../PHPExcel/_PHPExcel---IOFactory.php.html">		IOFactory.php
+		</a><br>
+			<a href="../PHPExcel/_PHPExcel---NamedRange.php.html">		NamedRange.php
+		</a><br>
+			<a href="../PHPExcel/_PHPExcel.php.html">		PHPExcel.php
+		</a><br>
+			<a href="../PHPExcel/_PHPExcel---ReferenceHelper.php.html">		ReferenceHelper.php
+		</a><br>
+			<a href="../PHPExcel/_PHPExcel---WorksheetIterator.php.html">		WorksheetIterator.php
+		</a><br>
+	  </div><br />
+      
+            <b>Interfaces:</b><br />
+        <div class="package">
+		    		<a href="../PHPExcel/PHPExcel_IComparable.html">PHPExcel_IComparable</a><br />
+	  </div>
+      
+            <b>Classes:</b><br />
+        <div class="package">
+		    		<a href="../PHPExcel/PHPExcel.html">PHPExcel</a><br />
+	    		<a href="../PHPExcel/PHPExcel_Comment.html">PHPExcel_Comment</a><br />
+	    		<a href="../PHPExcel/PHPExcel_DocumentProperties.html">PHPExcel_DocumentProperties</a><br />
+	    		<a href="../PHPExcel/PHPExcel_DocumentSecurity.html">PHPExcel_DocumentSecurity</a><br />
+	    		<a href="../PHPExcel/PHPExcel_HashTable.html">PHPExcel_HashTable</a><br />
+	    		<a href="../PHPExcel/PHPExcel_IOFactory.html">PHPExcel_IOFactory</a><br />
+	    		<a href="../PHPExcel/PHPExcel_NamedRange.html">PHPExcel_NamedRange</a><br />
+	    		<a href="../PHPExcel/PHPExcel_ReferenceHelper.html">PHPExcel_ReferenceHelper</a><br />
+	    		<a href="../PHPExcel/PHPExcel_WorksheetIterator.html">PHPExcel_WorksheetIterator</a><br />
+	  </div>
+                </td>
+    <td>
+      <table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+
+<h1>Class: PHPExcel_ReferenceHelper</h1>
+Source Location: /PHPExcel/ReferenceHelper.php<br /><br />
+
+
+<table width="100%" border="0">
+<tr><td valign="top">
+
+<h3><a href="#class_details">Class Overview</a></h3>
+<pre></pre><br />
+<div class="description">PHPExcel_ReferenceHelper (Singleton)</div><br /><br />
+<h4>Author(s):</h4>
+<ul>
+        </ul>
+
+
+
+
+      
+  
+
+<h4>Copyright:</h4>
+<ul>
+  <li>Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)</li>
+</ul>
+        
+</td>
+
+<td valign="top">
+<h3><a href="#class_vars">Variables</a></h3>
+<ul>
+    <li><a href="../PHPExcel/PHPExcel_ReferenceHelper.html#var$_instance">$_instance</a></li>
+  </ul>
+</td>
+
+
+<td valign="top">
+<h3><a href="#class_methods">Methods</a></h3>
+<ul>
+    <li><a href="../PHPExcel/PHPExcel_ReferenceHelper.html#method__construct">__construct</a></li>
+    <li><a href="../PHPExcel/PHPExcel_ReferenceHelper.html#methodgetInstance">getInstance</a></li>
+    <li><a href="../PHPExcel/PHPExcel_ReferenceHelper.html#methodinsertNewBefore">insertNewBefore</a></li>
+    <li><a href="../PHPExcel/PHPExcel_ReferenceHelper.html#methodupdateCellReference">updateCellReference</a></li>
+    <li><a href="../PHPExcel/PHPExcel_ReferenceHelper.html#methodupdateFormulaReferences">updateFormulaReferences</a></li>
+    <li><a href="../PHPExcel/PHPExcel_ReferenceHelper.html#methodupdateNamedFormulas">updateNamedFormulas</a></li>
+    <li><a href="../PHPExcel/PHPExcel_ReferenceHelper.html#method_updateCellRange">_updateCellRange</a></li>
+    <li><a href="../PHPExcel/PHPExcel_ReferenceHelper.html#method_updateSingleCellReference">_updateSingleCellReference</a></li>
+    <li><a href="../PHPExcel/PHPExcel_ReferenceHelper.html#method__clone">__clone</a></li>
+  </ul>
+</td>
+
+</tr></table>
+<hr />
+
+<table width="100%" border="0"><tr>
+
+
+
+
+
+
+</tr></table>
+<hr />
+
+<a name="class_details"></a>
+<h3>Class Details</h3>
+<div class="tags">
+[line <a href="../__filesource/fsource_PHPExcel__PHPExcelReferenceHelper.php.html#a66">66</a>]<br />
+PHPExcel_ReferenceHelper (Singleton)<br /><br /><p>PHPExcel_ReferenceHelper (Singleton)</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)</td>
+  </tr>
+</table>
+</div>
+</div><br /><br />
+<div class="top">[ <a href="#top">Top</a> ]</div><br />
+
+<hr />
+<a name="class_vars"></a>
+<h3>Class Variables</h3>
+<div class="tags">
+	<a name="var$_instance"></a>
+	<p></p>
+	<h4>static $_instance = <span class="value"></span></h4>
+	<p>[line <a href="../__filesource/fsource_PHPExcel__PHPExcelReferenceHelper.php.html#a73">73</a>]</p>
+  Instance of this class<br /><br /><p>Instance of this class</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td><a href="../PHPExcel/PHPExcel_ReferenceHelper.html">PHPExcel_ReferenceHelper</a></td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+</div><br />
+
+<hr />
+<a name="class_methods"></a>
+<h3>Class Methods</h3>
+<div class="tags">
+  <hr />
+	<a name="methodgetInstance"></a>
+	<h3>static method getInstance <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel__PHPExcelReferenceHelper.php.html#a80">80</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>static <a href="../PHPExcel/PHPExcel_ReferenceHelper.html">PHPExcel_ReferenceHelper</a> getInstance(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Get an instance of this class<br /><br /><p>Get an instance of this class</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+
+  <hr />
+	<a name="method__construct"></a>
+	<h3>constructor __construct <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel__PHPExcelReferenceHelper.php.html#a91">91</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>PHPExcel_ReferenceHelper __construct(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Create a new PHPExcel_ReferenceHelper<br /><br /><p>Create a new PHPExcel_ReferenceHelper</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodinsertNewBefore"></a>
+	<h3>method insertNewBefore <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel__PHPExcelReferenceHelper.php.html#a102">102</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void insertNewBefore(
+[int
+$pBefore = 'A1'], [int
+$pNumCols = 0], [int
+$pNumRows = 0], [
+$pSheet = null])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Insert a new column, updating all possible related data<br /><br /><p>Insert a new column, updating all possible related data</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>throws:</b>&nbsp;&nbsp;</td><td>Exception</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">int&nbsp;&nbsp;</td>
+        <td><b>$pBefore</b>&nbsp;&nbsp;</td>
+        <td>Insert before this one</td>
+      </tr>
+          <tr>
+        <td class="type">int&nbsp;&nbsp;</td>
+        <td><b>$pNumCols</b>&nbsp;&nbsp;</td>
+        <td>Number of columns to insert</td>
+      </tr>
+          <tr>
+        <td class="type">int&nbsp;&nbsp;</td>
+        <td><b>$pNumRows</b>&nbsp;&nbsp;</td>
+        <td>Number of rows to insert</td>
+      </tr>
+          <tr>
+        <td class="type"><a href="../PHPExcel_Worksheet/PHPExcel_Worksheet.html">PHPExcel_Worksheet</a>&nbsp;&nbsp;</td>
+        <td><b>$pSheet</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodupdateCellReference"></a>
+	<h3>method updateCellReference <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel__PHPExcelReferenceHelper.php.html#a434">434</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>string updateCellReference(
+[string
+$pCellRange = 'A1'], [int
+$pBefore = 'A1'], [int
+$pNumCols = 0], [int
+$pNumRows = 0])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Update cell reference<br /><br /><p>Update cell reference</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>return:</b>&nbsp;&nbsp;</td><td>Updated cell range</td>
+  </tr>
+  <tr>
+    <td><b>throws:</b>&nbsp;&nbsp;</td><td>Exception</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$pCellRange</b>&nbsp;&nbsp;</td>
+        <td>Cell range</td>
+      </tr>
+          <tr>
+        <td class="type">int&nbsp;&nbsp;</td>
+        <td><b>$pBefore</b>&nbsp;&nbsp;</td>
+        <td>Insert before this one</td>
+      </tr>
+          <tr>
+        <td class="type">int&nbsp;&nbsp;</td>
+        <td><b>$pNumCols</b>&nbsp;&nbsp;</td>
+        <td>Number of columns to increment</td>
+      </tr>
+          <tr>
+        <td class="type">int&nbsp;&nbsp;</td>
+        <td><b>$pNumRows</b>&nbsp;&nbsp;</td>
+        <td>Number of rows to increment</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodupdateFormulaReferences"></a>
+	<h3>method updateFormulaReferences <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel__PHPExcelReferenceHelper.php.html#a379">379</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>string updateFormulaReferences(
+[string
+$pFormula = ''], [int
+$pBefore = 'A1'], [int
+$pNumCols = 0], [int
+$pNumRows = 0])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Update references within formulas<br /><br /><p>Update references within formulas</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>return:</b>&nbsp;&nbsp;</td><td>Updated formula</td>
+  </tr>
+  <tr>
+    <td><b>throws:</b>&nbsp;&nbsp;</td><td>Exception</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$pFormula</b>&nbsp;&nbsp;</td>
+        <td>Formula to update</td>
+      </tr>
+          <tr>
+        <td class="type">int&nbsp;&nbsp;</td>
+        <td><b>$pBefore</b>&nbsp;&nbsp;</td>
+        <td>Insert before this one</td>
+      </tr>
+          <tr>
+        <td class="type">int&nbsp;&nbsp;</td>
+        <td><b>$pNumCols</b>&nbsp;&nbsp;</td>
+        <td>Number of columns to insert</td>
+      </tr>
+          <tr>
+        <td class="type">int&nbsp;&nbsp;</td>
+        <td><b>$pNumRows</b>&nbsp;&nbsp;</td>
+        <td>Number of rows to insert</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodupdateNamedFormulas"></a>
+	<h3>method updateNamedFormulas <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel__PHPExcelReferenceHelper.php.html#a458">458</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void updateNamedFormulas(
+<a href="../PHPExcel/PHPExcel.html">PHPExcel</a>
+$pPhpExcel, [string
+$oldName = ''], [string
+$newName = ''])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Update named formulas (i.<br /><br /><p>Update named formulas (i.e. containing worksheet references / named ranges)</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type"><a href="../PHPExcel/PHPExcel.html">PHPExcel</a>&nbsp;&nbsp;</td>
+        <td><b>$pPhpExcel</b>&nbsp;&nbsp;</td>
+        <td>Object to update</td>
+      </tr>
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$oldName</b>&nbsp;&nbsp;</td>
+        <td>Old name (name to replace)</td>
+      </tr>
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$newName</b>&nbsp;&nbsp;</td>
+        <td>New name</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="method_updateCellRange"></a>
+	<h3>method _updateCellRange <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel__PHPExcelReferenceHelper.php.html#a483">483</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>string _updateCellRange(
+[string
+$pCellRange = 'A1:A1'], [int
+$pBefore = 'A1'], [int
+$pNumCols = 0], [int
+$pNumRows = 0])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Update cell range<br /><br /><p>Update cell range</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>return:</b>&nbsp;&nbsp;</td><td>Updated cell range</td>
+  </tr>
+  <tr>
+    <td><b>throws:</b>&nbsp;&nbsp;</td><td>Exception</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$pCellRange</b>&nbsp;&nbsp;</td>
+        <td>Cell range</td>
+      </tr>
+          <tr>
+        <td class="type">int&nbsp;&nbsp;</td>
+        <td><b>$pBefore</b>&nbsp;&nbsp;</td>
+        <td>Insert before this one</td>
+      </tr>
+          <tr>
+        <td class="type">int&nbsp;&nbsp;</td>
+        <td><b>$pNumCols</b>&nbsp;&nbsp;</td>
+        <td>Number of columns to increment</td>
+      </tr>
+          <tr>
+        <td class="type">int&nbsp;&nbsp;</td>
+        <td><b>$pNumRows</b>&nbsp;&nbsp;</td>
+        <td>Number of rows to increment</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="method_updateSingleCellReference"></a>
+	<h3>method _updateSingleCellReference <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel__PHPExcelReferenceHelper.php.html#a510">510</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>string _updateSingleCellReference(
+[string
+$pCellReference = 'A1'], [int
+$pBefore = 'A1'], [int
+$pNumCols = 0], [int
+$pNumRows = 0])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Update single cell reference<br /><br /><p>Update single cell reference</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>return:</b>&nbsp;&nbsp;</td><td>Updated cell reference</td>
+  </tr>
+  <tr>
+    <td><b>throws:</b>&nbsp;&nbsp;</td><td>Exception</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$pCellReference</b>&nbsp;&nbsp;</td>
+        <td>Single cell reference</td>
+      </tr>
+          <tr>
+        <td class="type">int&nbsp;&nbsp;</td>
+        <td><b>$pBefore</b>&nbsp;&nbsp;</td>
+        <td>Insert before this one</td>
+      </tr>
+          <tr>
+        <td class="type">int&nbsp;&nbsp;</td>
+        <td><b>$pNumCols</b>&nbsp;&nbsp;</td>
+        <td>Number of columns to increment</td>
+      </tr>
+          <tr>
+        <td class="type">int&nbsp;&nbsp;</td>
+        <td><b>$pNumRows</b>&nbsp;&nbsp;</td>
+        <td>Number of rows to increment</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="method__clone"></a>
+	<h3>method __clone <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel__PHPExcelReferenceHelper.php.html#a559">559</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void __clone(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		__clone implementation.<br /><br /><p>__clone implementation. Cloning should not be allowed in a Singleton!</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>throws:</b>&nbsp;&nbsp;</td><td>Exception</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+</div><br />
+
+
+        <div class="credit">
+		    <hr />
+		    Documentation generated on Mon, 02 Nov 2009 08:44:25 +0100 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.1</a>
+	      </div>
+      </td></tr></table>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>

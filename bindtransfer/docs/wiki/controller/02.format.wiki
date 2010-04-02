@@ -1,0 +1,181 @@
+* 記述方法
+
+コントローラーを作成するときの記述方法を順を追って説明していきます。
+
+&br;
+
+* 新規コントローラーの作成
+
+まずアクションコントローラークラスは必ずxFrameworkPX_Controller_Actionクラスを継承して作られます。
+このときのコントローラーのクラス名はアクション名と同じか、またはアクション名に接尾辞「''Action''」をつけたものにします。
+
+次に、開発者は作られたコントローラークラスに対してアクションの各設定をしていきます。
+:使用モジュール定義用配列の設定|アクションコントローラーで使用するモジュール((モジュールについては「モジュール(モデル)」の項目を参照してください。))を配列で設定します。
+:使用コンポーネント定義用配列の設定|アクションコントローラーで使用するコンポーネントを配列で設定します。
+:executeメソッドの実装|アクションで行うメイン処理の制御は親クラスにあるexecuteメソッドをオーバーライドして記述します。
+:tearDownメソッドの実装|親クラスにあるtearDownメソッドをオーバーライドして処理の制御を記述すると、アクションの一番最後にその処理を実行することができます。
+
+{{{
+/**
+ * 接尾辞のないアクションコントローラークラスの宣言
+ */
+class example extends xFrameworkPX_Controller_Action
+{
+}
+
+/**
+ * 接尾辞のあるアクションコントローラークラスの宣言
+ */
+class exampleAction extends xFrameworkPX_Controller_Action
+{
+}
+}}}
+
+両方とも同じexampleアクション用のコントローラークラスの宣言になります。
+
+&br;
+
+
+* 使用モジュールの定義
+
+コントローラーで使用するモジュールの定義はコントローラーに'''modules'''という配列のプロパティを定義して行います。
+この配列の形式には使用するモジュールのクラス名をキーにして、そのモジュールを生成するときに必要な設定パラメータの配列を要素にしたものと、モジュールのクラス名を要素にしたものの二つがあります。
+
+{{{
+class example extends xFrameworkPX_Controller_Action
+{
+
+    public $modules = array(
+        'ExampleModule' => array(
+            'conn' => 'default'
+        )
+    );
+}
+
+class example extends xFrameworkPX_Controller_Action
+{
+
+    public $modules = array(
+        ExampleModule
+    );
+}
+}}}
+
+モジュールのクラス名のみを指定した場合、DBのコネクションの設定は「default」のものが使用されます。よってこの二つの宣言は同義です。
+複数のモジュールを使用する場合は、この配列に複数のモジュールの指定をします。
+
+
+定義したモジュールは ''$this->モジュールのクラス名'' でモジュールのオブジェクトが取得できるので、コントローラー内で以下のように記述して使用します。
+
+{{{
+class example extends xFrameworkPX_Controller_Action
+{
+
+    public $modules = array(
+        'ExampleModule' => array(
+            'conn' => 'default'
+        )
+    );
+
+    public function execute()
+    {
+        $this->ExampleModule->method();
+    }
+}
+}}}
+
+&br;
+
+
+* 使用コンポーネントの定義
+
+使用するコンポーネントの定義もモジュールと同様に ''_components'' という配列のプロパティに定義します。配列の要素はコンポーネントを使用するために必要な設定のパラメータ配列になります。
+
+{{{
+class example extends xFrameworkPX_Controller_Action
+{
+    protected _components = array(
+
+        // コンポーネントクラス名
+        'clsName' => 'ExampleComponent',
+
+        // バインド名
+        'bindName' => 'Example',
+
+        // コンポーネントクラスのオブジェクト生成時に渡されるパラメータの配列
+        'args' => array()
+    );
+}
+}}}
+
+定義したコンポーネントをコントローラー内で使用する場合は、 ''$this->バインド名'' と記述することでコンポーネントクラスのオブジェクトを呼び出すことができるので、あとはそのオブジェクトを使用してコンポーネントの機能を使用します。
+
+{{{
+class example extends xFrameworkPX_Controller_Action
+{
+    protected _components = array(
+
+        // コンポーネントクラス名
+        'clsName' => 'ExampleComponent',
+
+        // バインド名
+        'bindName' => 'Example',
+
+        // コンポーネントクラスのオブジェクト生成時に渡されるパラメータの配列
+        'args' => array()
+    );
+
+    public function execute()
+    {
+        // ExampleComponentのmethodというメソッドの実行
+        $this->Example->method();
+    }
+}
+}}}
+
+&br;
+
+* 入力データ(POST・GET値)の取得
+コントローラー内でPOSTやGETで渡されてくる入力データの取得方法を説明します。
+
+** POSTデータ
+以下の記述でPOSTで送られてきたデータを取得することができます。
+{{{
+$this->_conf->params->form;
+または
+$this->post;
+}}}
+
+** GETデータ
+以下の記述でGETで送られてきたデータを取得することができます。
+{{{
+$this->_conf->params->url;
+または
+$this->get;
+}}}
+
+** FILESデータ
+以下の記述でPOSTで送られてきたFILESデータを取得することができます。
+{{{
+$this->_conf->params->files;
+または
+$this->files;
+}}}
+
+&br;
+
+* ビューへデータを渡す
+コントローラーからビューへモデルの処理結果などのデータを渡す方法を説明します。
+~
+コントローラーからビューへデータを渡す方法は簡単です。
+以下のメソッドを実行するだけでコントローラーからビューにデータを渡すことができます。
+
+{{{$this->set('参照名', データ);}}}
+
+ビューでは参照名に設定した名前の変数に渡したデータが格納されています。
+開発者はSmartyを使用してこの渡されたデータの表示処理を記述します。
+
+&br;
+
+----
+

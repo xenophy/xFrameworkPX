@@ -1,0 +1,137 @@
+﻿@charset "utf-8";
+
+/* ---------------------------------------------------------------------------
+ [ temporary.css ]
+
+ テンポラリ設定
+
+ テンポラリに関する設定を行います。
+
+--------------------------------------------------------------------------- */
+body {
+  background: url(../images/temporary/bg_body.png) #2E69A0 repeat-x top;
+}
+
+a {
+  color: white;
+}
+
+em {
+  font-style: italic;
+  font-weight: bold;
+}
+
+
+/* ------------------------------
+ px-north 設定
+------------------------------ */
+.px-cns .px-north {
+  margin: 28px 0 140px 30px;
+}
+
+
+/* ------------------------------
+ px-center 設定
+------------------------------ */
+.px-cns .px-center {
+  min-height: 550px;
+  height: auto !important;
+  height: 550px;
+  margin: 0 0 30px 0;
+}
+
+.px-cns .px-center .ttl01 {
+  margin: 0 0 120px 0;
+  text-align: center;
+}
+
+.px-cns .px-center .ttl02 {
+  margin: 0 0 10px 0;
+  padding: 0 0 3px 3px;
+  color: #FFF;
+  font-size: 18px;
+  border-bottom: 1px solid #BDBCBD;
+}
+
+.px-cns .px-center .icon01 {
+  vertical-align: middle;
+  margin: 0 8px 3px 0;
+}
+
+.px-cns .px-center .icon02 {
+  vertical-align: middle;
+  margin: 0 10px 3px 0;
+}
+
+.px-cns .px-center .icon03 {
+  vertical-align: middle;
+  margin: 0 11px 3px 0;
+}
+
+.px-cns .px-center .icon04 {
+  vertical-align: middle;
+  margin: 0 11px 6px 0;
+}
+
+.px-cns .px-center ul.cir li {
+  margin: 0 0 8px 0;
+  padding: 0 0 0 15px;
+  color: #FFF;
+  font-size: 14px;
+  line-height: 1.1;
+  background: url(../images/temporary/pont_w.gif) no-repeat left 4px;
+}
+
+.px-cns .px-center ul.cir li a {
+  color: #FFF;
+  text-decoration: underline;
+}
+
+.px-cns .px-center .notearea {
+  margin: 0 0 60px 0;
+}
+
+.px-cns .px-center .notel {
+  float: left;
+  width: 455px;
+}
+
+.px-cns .px-center .noter {
+  float: right;
+  width: 455px;
+}
+
+.px-cns .px-center .notel p,
+.px-cns .px-center .noter p {
+  font-size: 14px;
+  color: #FFF;
+}
+
+.px-cns .px-center .px-body {
+  padding: 0 30px 0 30px;
+}
+
+
+/* ------------------------------
+ px-south 設定
+------------------------------ */
+.px-cns .px-south address {
+  margin: 0 0 30px 0;
+  text-align: center;
+  font-size: 14px;
+  color: #FFF;
+}
+
+
+/* ------------------------------
+ clearfix 設定
+------------------------------ */
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.clearfix {
+  zoom: 1;
+}

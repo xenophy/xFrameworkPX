@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-script-Type" content="text/javascript" />
+    <meta http-equiv="content-style-type" content="text/css" />
+    <title>O/R mapping(1)</title>
+</head>
+<body>
+    <h1>O/R mapping(1)</h1>
+
+    <h2>getDataAllによる取得</h2>
+
+    <table border="1">
+    <tr>
+        <th>id</th>
+        <th>title</th>
+        <th>note</th>
+        <th>modified</th>
+    </tr>
+    <!--{foreach from=$alldata item=item key=key}-->
+    <tr>
+        <td><!--{$item.id}--></td>
+        <td><!--{$item.title}--></td>
+        <td><!--{$item.note}--></td>
+        <td><!--{$item.modified}--></td>
+    </tr>
+    <!--{/foreach}-->
+    </table>
+
+    <hr />
+
+    <h2>getDataAll2による取得</h2>
+
+    <table border="1">
+    <tr>
+        <th>id</th>
+        <th>title</th>
+        <th>note</th>
+        <th>modified</th>
+    </tr>
+    <!--{foreach from=$alldata2 item=item key=key}-->
+    <tr>
+        <td><!--{$item.id}--></td>
+        <td><!--{$item.title}--></td>
+        <td><!--{$item.note}--></td>
+        <td><!--{$item.modified}--></td>
+    </tr>
+    <!--{/foreach}-->
+    </table>
+
+    <hr />
+
+    <h2>getDataAll3による取得</h2>
+
+    <table border="1">
+    <tr>
+        <th>id</th>
+        <th>title</th>
+        <th>note</th>
+        <th>modified</th>
+    </tr>
+    <!--{foreach from=$alldata3 item=item key=key}-->
+    <tr>
+        <td><!--{$item.id}--></td>
+        <td><!--{$item.title}--></td>
+        <td><!--{$item.note}--></td>
+        <td><!--{$item.modified}--></td>
+    </tr>
+    <!--{/foreach}-->
+    </table>
+
+    <hr />
+
+    <h2>getDataAll4による取得</h2>
+
+    <table border="1">
+    <tr>
+        <th>id</th>
+        <th>title</th>
+        <th>note</th>
+        <th>modified</th>
+    </tr>
+    <!--{foreach from=$alldata4 item=item key=key}-->
+    <tr>
+        <td><!--{$item.id}--></td>
+        <td><!--{$item.title}--></td>
+        <td><!--{$item.note}--></td>
+        <td><!--{$item.modified}--></td>
+    </tr>
+    <!--{/foreach}-->
+    </table>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!--{strip}-->
+<div class="px-edit">
+
+    <div class="px-wrap">
+
+        <div class="px-body">
+
+            <table border="0" cellspacing="0" cellpadding="0"<!--{if $listsummary}--> summary="<!--{$listsummary}-->"<!--{/if}--> class="tablelayout">
+                <col width="20%" />
+                <col width="80%" />
+                <!--{foreach from=$outdata item=item key=key}-->
+                <tr>
+                    <th><!--{$label.$key}--></th>
+                    <td><!--{$item|escape|nl2br}--></td>
+                </tr>
+                <!--{/foreach}-->
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+<!--{/strip}-->

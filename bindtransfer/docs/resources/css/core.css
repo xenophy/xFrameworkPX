@@ -1,0 +1,155 @@
+/*
+ * core.css
+ * Copyright (c) 2006-2009 Xenophy.CO.,LTD All rights Reserved.
+ * http://www.xenophy.com
+ */
+
+.x-border-layout-ct {
+  background-color:transparent !important;
+}
+
+body.x-border-layout-ct {
+  background:#d8d8d8 url(../images/bg.gif) repeat-x left top !important;
+}
+
+.x-layout-split {
+  background-color:transparent !important;
+}
+
+.x-icon-book_error {
+  background-image: url(../images/icons/page_white_error.png) !important;
+}
+
+.content .x-panel-body {
+  padding: 0px 40px 80px 40px;
+  color: #555555;
+  font-family: verdana,geneva,lucida,'lucida grande',arial,helvetica,sans-serif;
+  font-size:12px;
+  line-height:18px;
+}
+
+.content .x-panel-body h3 {
+  color: #385F95;
+  font-family: verdana,arial,sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing:-1px;
+  margin:40px 0 2px; 0;
+}
+
+.content .x-panel-body h4 {
+  color:#555555;
+  font-family:"Trebuchet MS",Tahoma,arial,sans-serif;
+  font-size:14px;
+  font-weight:bold;
+  margin:10px 0;
+}
+
+.content .x-panel-body h5 {
+  color:#385f95;
+  font-family:"Trebuchet MS",Tahoma,arial,sans-serif;
+  font-size:14px;
+  font-weight:normal;
+  margin:10px 0;
+}
+
+.content .x-panel-body dl {
+  margin: 0 20px 0 20px;
+}
+
+.content .x-panel-body dt {
+  color: #385f95;
+  font-weight: bold;
+}
+
+.content .x-panel-body dd {
+  padding-left: 20px;
+  padding-bottom: 10px;
+}
+
+.content .x-panel-body p {
+  margin-bottom:8px;
+  margin-top:8px;
+}
+
+.content .x-panel-body em {
+  font-style: italic;
+  padding-right: 8px;
+}
+
+.content .x-panel-body strong,
+.content .x-panel-body strong em {
+  font-weight: bold ! important;
+}
+
+.content .x-panel-body pre.code {
+  margin: 20px;
+  border: dotted 1px #ccc;
+  background-color: #f3f3f3;
+  padding: 10px;
+}
+
+.content .x-panel-body table {
+  margin: 20px;
+  border-spacing:0;
+  background-color:#ffffff;
+  empty-cells:show;
+  border-right: solid 1px #ccc;
+  border-bottom: solid 1px #ccc;
+}
+
+.content .x-panel-body th,
+.content .x-panel-body td {
+  border-top: solid 1px #ccc;
+  border-left: solid 1px #ccc;
+  padding: 5px;
+}
+
+.content .x-panel-body th {
+  background-color: #f3f3f3;
+  font-weight: bold;
+}
+
+.content .x-panel-body ul {
+  list-style-type: square;
+  margin: 0 30px 0 30px;
+}
+
+.content .x-panel-body ol {
+  list-style-type: decimal-leading-zero;
+  margin: 0 30px 0 30px;
+}
+
+.content img {
+  margin: 10px 0;
+}
+
+
+
+#class .loading-indicator{
+  font-size:12px;
+  height:18px;
+}
+
+.loading-indicator {
+  font-size:11px;
+  background-image:url('../../../extjs/resources/images/default/grid/loading.gif');
+  background-repeat: no-repeat;
+  background-position:top left;
+  padding-left:20px;
+  height:18px;
+  text-align:left;
+}
+
+#Docs-main .loading-indicator {
+  font:bold 13px  Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  position:absolute;
+  top:35%;
+  left:43%;
+  color:#444;
+  background-image:url(../../../extjs/resources/images/default/shared/large-loading.gif);
+  background-repeat: no-repeat;
+  background-position:left 5px;
+  padding:10px 10px 10px 38px;
+  text-align:left;
+}

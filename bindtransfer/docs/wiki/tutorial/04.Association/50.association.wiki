@@ -1,0 +1,171 @@
+* アソシエーション
+
+モジュールのアソシエーションを利用したテーブル結合のチュートリアルです。
+接続先データベースはMySQLを使用します。
+デフォルトでは、ローカルホストのデータベースに接続する設定になっており、''myapp''というデータベースに接続するようになっています。
+環境に合わせて変更、またはデータベースを作成してください。
+以下のチュートリアルを進めるためには、データベースのデフォルト接続先に次のテーブルを生成しておく必要があります。
+
+
+
+** tbl_customer
+|~名前|~タイプ|~長さ|~小数|~Nullを許可|~PK|
+|id|bigint|20|0|×|○|
+|name|varchar|255|0|×||
+
+
+*** DDL
+{{{
+SET FOREIGN_KEY_CHECKS=0;
+-- ----------------------------
+-- Table structure for `tbl_customer`
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_customer`;
+CREATE TABLE `tbl_customer` (
+  `id` bigint(20) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of tbl_customer
+-- ----------------------------
+INSERT INTO `tbl_customer` VALUES ('101', '二島商店');
+INSERT INTO `tbl_customer` VALUES ('102', '姫路商事');
+INSERT INTO `tbl_customer` VALUES ('103', '大阪物産');
+INSERT INTO `tbl_customer` VALUES ('104', '神戸商店');
+INSERT INTO `tbl_customer` VALUES ('105', '福岡商事');
+}}}
+
+
+** tbl_uriage
+|~名前|~タイプ|~長さ|~小数|~Nullを許可|~PK|
+|id|bigint|20|0|×|○|
+|date|datetime|0|0|×||
+|customer_id|bigint|20|0|×||
+
+*** DDL
+{{{
+SET FOREIGN_KEY_CHECKS=0;
+-- ----------------------------
+-- Table structure for `tbl_uriage`
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_uriage`;
+CREATE TABLE `tbl_uriage` (
+  `id` bigint(20) NOT NULL,
+  `date` datetime NOT NULL,
+  `customer_id` bigint(20) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of tbl_uriage
+-- ----------------------------
+INSERT INTO `tbl_uriage` VALUES ('1', '2001-05-27 00:00:00', '105');
+INSERT INTO `tbl_uriage` VALUES ('2', '2001-05-27 00:00:00', '101');
+INSERT INTO `tbl_uriage` VALUES ('3', '2001-05-27 00:00:00', '103');
+INSERT INTO `tbl_uriage` VALUES ('4', '2001-06-27 00:00:00', '102');
+INSERT INTO `tbl_uriage` VALUES ('5', '2001-06-27 00:00:00', '104');
+}}}
+
+
+
+** tbl_item
+|~名前|~タイプ|~長さ|~小数|~Nullを許可|~PK|
+|id|bigint|20|0|×|○|
+|name|varchar|0|0|×||
+|price|int|11|0|×||
+
+*** DDL
+{{{
+SET FOREIGN_KEY_CHECKS=0;
+-- ----------------------------
+-- Table structure for `tbl_item`
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_item`;
+CREATE TABLE `tbl_item` (
+  `id` bigint(20) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `price` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of tbl_item
+-- ----------------------------
+INSERT INTO `tbl_item` VALUES ('10', '鉛筆', '30');
+INSERT INTO `tbl_item` VALUES ('20', '消しゴム', '50');
+INSERT INTO `tbl_item` VALUES ('30', 'シャープペン', '250');
+INSERT INTO `tbl_item` VALUES ('40', 'ボールペン', '150');
+INSERT INTO `tbl_item` VALUES ('50', '色鉛筆', '700');
+INSERT INTO `tbl_item` VALUES ('60', 'ノート', '100');
+}}}
+
+
+
+** tbl_meisai
+|~名前|~タイプ|~長さ|~小数|~Nullを許可|~PK|
+|id|bigint|20|0|×|○|
+|seq|bigint|20|0|×||
+|item_id|bigint|20|0|×||
+|count|int|11|0|×||
+
+
+*** DDL
+{{{
+SET FOREIGN_KEY_CHECKS=0;
+-- ----------------------------
+-- Table structure for `tbl_meisai`
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_meisai`;
+CREATE TABLE `tbl_meisai` (
+  `id` bigint(20) NOT NULL,
+  `seq` bigint(20) NOT NULL,
+  `item_id` bigint(20) NOT NULL,
+  `count` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of tbl_meisai
+-- ----------------------------
+INSERT INTO `tbl_meisai` VALUES ('1', '1', '10', '10');
+INSERT INTO `tbl_meisai` VALUES ('1', '2', '30', '7');
+INSERT INTO `tbl_meisai` VALUES ('1', '3', '60', '25');
+INSERT INTO `tbl_meisai` VALUES ('2', '1', '20', '15');
+INSERT INTO `tbl_meisai` VALUES ('2', '2', '40', '3');
+INSERT INTO `tbl_meisai` VALUES ('3', '1', '30', '8');
+INSERT INTO `tbl_meisai` VALUES ('3', '2', '40', '30');
+INSERT INTO `tbl_meisai` VALUES ('3', '3', '50', '12');
+INSERT INTO `tbl_meisai` VALUES ('3', '4', '60', '50');
+INSERT INTO `tbl_meisai` VALUES ('4', '1', '20', '9');
+INSERT INTO `tbl_meisai` VALUES ('4', '2', '40', '21');
+INSERT INTO `tbl_meisai` VALUES ('5', '1', '10', '17');
+INSERT INTO `tbl_meisai` VALUES ('5', '2', '20', '5');
+}}}
+
+
+
+* hasOne
+
+|~タイトル|
+|[[tbl_uriageとtbl_customerのINNER JOIN(1)>#tutorial_04.Association_51.hasOne1>internal]]|
+|[[tbl_uriageとtbl_customerのINNER JOIN(2)>#tutorial_04.Association_52.hasOne2>internal]]|
+|[[tbl_uriageとtbl_customerのINNER JOIN(3)>#tutorial_04.Association_53.hasOne3>internal]]|
+|[[複数の内部結合(INNER JOIN)>#tutorial_04.Association_54.hasOne4>internal]]|
+|[[検索条件を指定してレコードを取得する(1)>#tutorial_04.Association_55.hasOne5>internal]]|
+|[[検索条件を指定してレコードを取得する(2)>#tutorial_04.Association_56.hasOne6>internal]]|
+|[[並び順を指定する>#tutorial_04.Association_57.hasOne7>internal]]|
+|[[取得数を制限する>#tutorial_04.Association_58.hasOne8>internal]]|
+|[[内部結合のネスト>#tutorial_04.Association_59.hasOne9>internal]]|
+
+
+* belongsTo
+
+|~タイトル|
+|[[1対多の結合をする(1)>#tutorial_04.Association_60.belongsTo>internal]]|
+
+
+* hasMany
+
+|~タイトル|
+|[[1対多の結合をする(2)>#tutorial_04.Association_70.hasMany>internal]]|

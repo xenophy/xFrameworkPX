@@ -1,0 +1,5 @@
+#!/bin/bash
+clear
+APP=`pwd`
+exec php -q px.php -working "${APP}" --app=YourController
+exit;

@@ -1,0 +1,38 @@
+<!--{strip}-->
+<p class="pager">
+
+    <!--{foreach from=$pager item=item key=key name="pager"}-->
+
+        <!--{if $smarty.foreach.pager.first && $item.current != true}-->
+            <span>
+                <a href="./?q=<!--{$item.search}-->&amp;p=<!--{$item.prevpage}-->">
+                    前のページ
+                </a>
+            </span>
+        <!--{/if}-->
+
+        <!--{if $item.current}-->
+            <span class="cu">
+                <!--{$key+1}-->
+            </span>
+        <!--{else}-->
+            <span>
+                <a href="./?q=<!--{$item.search}-->&amp;p=<!--{$key}-->" class="adjust">
+                    <!--{$key+1}-->
+                </a>
+            </span>
+        <!--{/if}-->
+        <!--{if $item.next}--><!--{/if}-->
+
+        <!--{if $smarty.foreach.pager.last && $item.current != true}-->
+            <span>
+                <a href="./?q=<!--{$item.search}-->&amp;p=<!--{$item.nextpage}-->">
+                    次のページ
+                </a>
+            </span>
+        <!--{/if}-->
+
+    <!--{/foreach}-->
+
+</p>
+<!--{/strip}-->

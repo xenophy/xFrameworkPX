@@ -1,0 +1,622 @@
+<html>
+<head>
+<title>Docs For Class PHPExcel_DocumentSecurity</title>
+<link rel="stylesheet" type="text/css" href="../media/style.css">
+</head>
+<body>
+
+<table border="0" cellspacing="0" cellpadding="0" height="48" width="100%">
+  <tr>
+    <td class="header_top">PHPExcel</td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+  <tr>
+    <td class="header_menu">
+        
+                                                                                                                    
+                                                                                                                                                                                                                                                                                                                                          		  [ <a href="../classtrees_PHPExcel.html" class="menu">class tree: PHPExcel</a> ]
+		  [ <a href="../elementindex_PHPExcel.html" class="menu">index: PHPExcel</a> ]
+		  	    [ <a href="../elementindex.html" class="menu">all elements</a> ]
+    </td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+</table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="200" class="menu">
+	<div id="todolist">
+			<p><a href="../todolist.html">Todo List</a></p>
+	</div>
+      <b>Packages:</b><br />
+              <a href="../li_default.html">default</a><br />
+              <a href="../li_com-tecnick-tcpdf.html">com-tecnick-tcpdf</a><br />
+              <a href="../li_JAMA.html">JAMA</a><br />
+              <a href="../li_Math_Stats.html">Math_Stats</a><br />
+              <a href="../li_PHPExcel.html">PHPExcel</a><br />
+              <a href="../li_PHPExcel_Calculation.html">PHPExcel_Calculation</a><br />
+              <a href="../li_PHPExcel_Cell.html">PHPExcel_Cell</a><br />
+              <a href="../li_PHPExcel_Reader.html">PHPExcel_Reader</a><br />
+              <a href="../li_PHPExcel_Reader_Excel5.html">PHPExcel_Reader_Excel5</a><br />
+              <a href="../li_PHPExcel_RichText.html">PHPExcel_RichText</a><br />
+              <a href="../li_PHPExcel_Shared.html">PHPExcel_Shared</a><br />
+              <a href="../li_PHPExcel_Shared_Best_Fit.html">PHPExcel_Shared_Best_Fit</a><br />
+              <a href="../li_PHPExcel_Shared_Escher.html">PHPExcel_Shared_Escher</a><br />
+              <a href="../li_PHPExcel_Shared_OLE.html">PHPExcel_Shared_OLE</a><br />
+              <a href="../li_PHPExcel_Style.html">PHPExcel_Style</a><br />
+              <a href="../li_PHPExcel_Worksheet.html">PHPExcel_Worksheet</a><br />
+              <a href="../li_PHPExcel_Worksheet_Drawing.html">PHPExcel_Worksheet_Drawing</a><br />
+              <a href="../li_PHPExcel_Writer.html">PHPExcel_Writer</a><br />
+              <a href="../li_PHPExcel_Writer_Excel5.html">PHPExcel_Writer_Excel5</a><br />
+              <a href="../li_PHPExcel_Writer_Excel2007.html">PHPExcel_Writer_Excel2007</a><br />
+            <br /><br />
+                        <b>Files:</b><br />
+      	  <div class="package">
+			<a href="../PHPExcel/_PHPExcel---Comment.php.html">		Comment.php
+		</a><br>
+			<a href="../PHPExcel/_PHPExcel---DocumentProperties.php.html">		DocumentProperties.php
+		</a><br>
+			<a href="../PHPExcel/_PHPExcel---DocumentSecurity.php.html">		DocumentSecurity.php
+		</a><br>
+			<a href="../PHPExcel/_PHPExcel---HashTable.php.html">		HashTable.php
+		</a><br>
+			<a href="../PHPExcel/_PHPExcel---IComparable.php.html">		IComparable.php
+		</a><br>
+			<a href="../PHPExcel/_PHPExcel---IOFactory.php.html">		IOFactory.php
+		</a><br>
+			<a href="../PHPExcel/_PHPExcel---NamedRange.php.html">		NamedRange.php
+		</a><br>
+			<a href="../PHPExcel/_PHPExcel.php.html">		PHPExcel.php
+		</a><br>
+			<a href="../PHPExcel/_PHPExcel---ReferenceHelper.php.html">		ReferenceHelper.php
+		</a><br>
+			<a href="../PHPExcel/_PHPExcel---WorksheetIterator.php.html">		WorksheetIterator.php
+		</a><br>
+	  </div><br />
+      
+            <b>Interfaces:</b><br />
+        <div class="package">
+		    		<a href="../PHPExcel/PHPExcel_IComparable.html">PHPExcel_IComparable</a><br />
+	  </div>
+      
+            <b>Classes:</b><br />
+        <div class="package">
+		    		<a href="../PHPExcel/PHPExcel.html">PHPExcel</a><br />
+	    		<a href="../PHPExcel/PHPExcel_Comment.html">PHPExcel_Comment</a><br />
+	    		<a href="../PHPExcel/PHPExcel_DocumentProperties.html">PHPExcel_DocumentProperties</a><br />
+	    		<a href="../PHPExcel/PHPExcel_DocumentSecurity.html">PHPExcel_DocumentSecurity</a><br />
+	    		<a href="../PHPExcel/PHPExcel_HashTable.html">PHPExcel_HashTable</a><br />
+	    		<a href="../PHPExcel/PHPExcel_IOFactory.html">PHPExcel_IOFactory</a><br />
+	    		<a href="../PHPExcel/PHPExcel_NamedRange.html">PHPExcel_NamedRange</a><br />
+	    		<a href="../PHPExcel/PHPExcel_ReferenceHelper.html">PHPExcel_ReferenceHelper</a><br />
+	    		<a href="../PHPExcel/PHPExcel_WorksheetIterator.html">PHPExcel_WorksheetIterator</a><br />
+	  </div>
+                </td>
+    <td>
+      <table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+
+<h1>Class: PHPExcel_DocumentSecurity</h1>
+Source Location: /PHPExcel/DocumentSecurity.php<br /><br />
+
+
+<table width="100%" border="0">
+<tr><td valign="top">
+
+<h3><a href="#class_details">Class Overview</a></h3>
+<pre></pre><br />
+<div class="description">PHPExcel_DocumentSecurity</div><br /><br />
+<h4>Author(s):</h4>
+<ul>
+        </ul>
+
+
+
+
+      
+  
+
+<h4>Copyright:</h4>
+<ul>
+  <li>Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)</li>
+</ul>
+        
+</td>
+
+<td valign="top">
+<h3><a href="#class_vars">Variables</a></h3>
+<ul>
+    <li><a href="../PHPExcel/PHPExcel_DocumentSecurity.html#var$_lockRevision">$_lockRevision</a></li>
+    <li><a href="../PHPExcel/PHPExcel_DocumentSecurity.html#var$_lockStructure">$_lockStructure</a></li>
+    <li><a href="../PHPExcel/PHPExcel_DocumentSecurity.html#var$_lockWindows">$_lockWindows</a></li>
+    <li><a href="../PHPExcel/PHPExcel_DocumentSecurity.html#var$_revisionsPassword">$_revisionsPassword</a></li>
+    <li><a href="../PHPExcel/PHPExcel_DocumentSecurity.html#var$_workbookPassword">$_workbookPassword</a></li>
+  </ul>
+</td>
+
+
+<td valign="top">
+<h3><a href="#class_methods">Methods</a></h3>
+<ul>
+    <li><a href="../PHPExcel/PHPExcel_DocumentSecurity.html#method__construct">__construct</a></li>
+    <li><a href="../PHPExcel/PHPExcel_DocumentSecurity.html#methodgetLockRevision">getLockRevision</a></li>
+    <li><a href="../PHPExcel/PHPExcel_DocumentSecurity.html#methodgetLockStructure">getLockStructure</a></li>
+    <li><a href="../PHPExcel/PHPExcel_DocumentSecurity.html#methodgetLockWindows">getLockWindows</a></li>
+    <li><a href="../PHPExcel/PHPExcel_DocumentSecurity.html#methodgetRevisionsPassword">getRevisionsPassword</a></li>
+    <li><a href="../PHPExcel/PHPExcel_DocumentSecurity.html#methodgetWorkbookPassword">getWorkbookPassword</a></li>
+    <li><a href="../PHPExcel/PHPExcel_DocumentSecurity.html#methodisSecurityEnabled">isSecurityEnabled</a></li>
+    <li><a href="../PHPExcel/PHPExcel_DocumentSecurity.html#methodsetLockRevision">setLockRevision</a></li>
+    <li><a href="../PHPExcel/PHPExcel_DocumentSecurity.html#methodsetLockStructure">setLockStructure</a></li>
+    <li><a href="../PHPExcel/PHPExcel_DocumentSecurity.html#methodsetLockWindows">setLockWindows</a></li>
+    <li><a href="../PHPExcel/PHPExcel_DocumentSecurity.html#methodsetRevisionsPassword">setRevisionsPassword</a></li>
+    <li><a href="../PHPExcel/PHPExcel_DocumentSecurity.html#methodsetWorkbookPassword">setWorkbookPassword</a></li>
+    <li><a href="../PHPExcel/PHPExcel_DocumentSecurity.html#method__clone">__clone</a></li>
+  </ul>
+</td>
+
+</tr></table>
+<hr />
+
+<table width="100%" border="0"><tr>
+
+
+
+
+
+
+</tr></table>
+<hr />
+
+<a name="class_details"></a>
+<h3>Class Details</h3>
+<div class="tags">
+[line <a href="../__filesource/fsource_PHPExcel__PHPExcelDocumentSecurity.php.html#a48">48</a>]<br />
+PHPExcel_DocumentSecurity<br /><br /><p>PHPExcel_DocumentSecurity</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)</td>
+  </tr>
+</table>
+</div>
+</div><br /><br />
+<div class="top">[ <a href="#top">Top</a> ]</div><br />
+
+<hr />
+<a name="class_vars"></a>
+<h3>Class Variables</h3>
+<div class="tags">
+	<a name="var$_lockRevision"></a>
+	<p></p>
+	<h4>$_lockRevision = <span class="value"></span></h4>
+	<p>[line <a href="../__filesource/fsource_PHPExcel__PHPExcelDocumentSecurity.php.html#a55">55</a>]</p>
+  LockRevision<br /><br /><p>LockRevision</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>boolean</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$_lockStructure"></a>
+	<p></p>
+	<h4>$_lockStructure = <span class="value"></span></h4>
+	<p>[line <a href="../__filesource/fsource_PHPExcel__PHPExcelDocumentSecurity.php.html#a62">62</a>]</p>
+  LockStructure<br /><br /><p>LockStructure</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>boolean</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$_lockWindows"></a>
+	<p></p>
+	<h4>$_lockWindows = <span class="value"></span></h4>
+	<p>[line <a href="../__filesource/fsource_PHPExcel__PHPExcelDocumentSecurity.php.html#a69">69</a>]</p>
+  LockWindows<br /><br /><p>LockWindows</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>boolean</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$_revisionsPassword"></a>
+	<p></p>
+	<h4>$_revisionsPassword = <span class="value"></span></h4>
+	<p>[line <a href="../__filesource/fsource_PHPExcel__PHPExcelDocumentSecurity.php.html#a76">76</a>]</p>
+  RevisionsPassword<br /><br /><p>RevisionsPassword</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>string</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$_workbookPassword"></a>
+	<p></p>
+	<h4>$_workbookPassword = <span class="value"></span></h4>
+	<p>[line <a href="../__filesource/fsource_PHPExcel__PHPExcelDocumentSecurity.php.html#a83">83</a>]</p>
+  WorkbookPassword<br /><br /><p>WorkbookPassword</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>string</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+</div><br />
+
+<hr />
+<a name="class_methods"></a>
+<h3>Class Methods</h3>
+<div class="tags">
+
+  <hr />
+	<a name="method__construct"></a>
+	<h3>constructor __construct <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel__PHPExcelDocumentSecurity.php.html#a88">88</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>PHPExcel_DocumentSecurity __construct(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Create a new PHPExcel_DocumentSecurity<br /><br /><p>Create a new PHPExcel_DocumentSecurity</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodgetLockRevision"></a>
+	<h3>method getLockRevision <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel__PHPExcelDocumentSecurity.php.html#a114">114</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>boolean getLockRevision(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Get LockRevision<br /><br /><p>Get LockRevision</p><br /><br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodgetLockStructure"></a>
+	<h3>method getLockStructure <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel__PHPExcelDocumentSecurity.php.html#a134">134</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>boolean getLockStructure(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Get LockStructure<br /><br /><p>Get LockStructure</p><br /><br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodgetLockWindows"></a>
+	<h3>method getLockWindows <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel__PHPExcelDocumentSecurity.php.html#a154">154</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>boolean getLockWindows(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Get LockWindows<br /><br /><p>Get LockWindows</p><br /><br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodgetRevisionsPassword"></a>
+	<h3>method getRevisionsPassword <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel__PHPExcelDocumentSecurity.php.html#a174">174</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>string getRevisionsPassword(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Get RevisionsPassword (hashed)<br /><br /><p>Get RevisionsPassword (hashed)</p><br /><br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodgetWorkbookPassword"></a>
+	<h3>method getWorkbookPassword <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel__PHPExcelDocumentSecurity.php.html#a198">198</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>string getWorkbookPassword(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Get WorkbookPassword (hashed)<br /><br /><p>Get WorkbookPassword (hashed)</p><br /><br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodisSecurityEnabled"></a>
+	<h3>method isSecurityEnabled <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel__PHPExcelDocumentSecurity.php.html#a103">103</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>boolean isSecurityEnabled(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Is some sort of dcument security enabled?<br /><br /><p>Is some sort of dcument security enabled?</p><br /><br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodsetLockRevision"></a>
+	<h3>method setLockRevision <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel__PHPExcelDocumentSecurity.php.html#a124">124</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code><a href="../PHPExcel/PHPExcel_DocumentSecurity.html">PHPExcel_DocumentSecurity</a> setLockRevision(
+[boolean
+$pValue = false])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Set LockRevision<br /><br /><p>Set LockRevision</p><br /><br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">boolean&nbsp;&nbsp;</td>
+        <td><b>$pValue</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodsetLockStructure"></a>
+	<h3>method setLockStructure <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel__PHPExcelDocumentSecurity.php.html#a144">144</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code><a href="../PHPExcel/PHPExcel_DocumentSecurity.html">PHPExcel_DocumentSecurity</a> setLockStructure(
+[boolean
+$pValue = false])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Set LockStructure<br /><br /><p>Set LockStructure</p><br /><br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">boolean&nbsp;&nbsp;</td>
+        <td><b>$pValue</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodsetLockWindows"></a>
+	<h3>method setLockWindows <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel__PHPExcelDocumentSecurity.php.html#a164">164</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code><a href="../PHPExcel/PHPExcel_DocumentSecurity.html">PHPExcel_DocumentSecurity</a> setLockWindows(
+[boolean
+$pValue = false])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Set LockWindows<br /><br /><p>Set LockWindows</p><br /><br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">boolean&nbsp;&nbsp;</td>
+        <td><b>$pValue</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodsetRevisionsPassword"></a>
+	<h3>method setRevisionsPassword <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel__PHPExcelDocumentSecurity.php.html#a185">185</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code><a href="../PHPExcel/PHPExcel_DocumentSecurity.html">PHPExcel_DocumentSecurity</a> setRevisionsPassword(
+[string
+$pValue = ''], [boolean
+$pAlreadyHashed = false])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Set RevisionsPassword<br /><br /><p>Set RevisionsPassword</p><br /><br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$pValue</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+          <tr>
+        <td class="type">boolean&nbsp;&nbsp;</td>
+        <td><b>$pAlreadyHashed</b>&nbsp;&nbsp;</td>
+        <td>If the password has already been hashed, set this to true</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodsetWorkbookPassword"></a>
+	<h3>method setWorkbookPassword <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel__PHPExcelDocumentSecurity.php.html#a209">209</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code><a href="../PHPExcel/PHPExcel_DocumentSecurity.html">PHPExcel_DocumentSecurity</a> setWorkbookPassword(
+[string
+$pValue = ''], [boolean
+$pAlreadyHashed = false])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Set WorkbookPassword<br /><br /><p>Set WorkbookPassword</p><br /><br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$pValue</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+          <tr>
+        <td class="type">boolean&nbsp;&nbsp;</td>
+        <td><b>$pAlreadyHashed</b>&nbsp;&nbsp;</td>
+        <td>If the password has already been hashed, set this to true</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="method__clone"></a>
+	<h3>method __clone <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel__PHPExcelDocumentSecurity.php.html#a220">220</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void __clone(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Implement PHP __clone to create a deep clone, not just a shallow copy.<br /><br /><p>Implement PHP __clone to create a deep clone, not just a shallow copy.</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+</div><br />
+
+
+        <div class="credit">
+		    <hr />
+		    Documentation generated on Mon, 02 Nov 2009 08:39:28 +0100 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.1</a>
+	      </div>
+      </td></tr></table>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>

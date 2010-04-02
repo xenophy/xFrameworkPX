@@ -1,0 +1,1212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<px>
+
+    <!-- ファイル転送設定 -->
+    <filetransfer>
+
+        <!-- mime/拡張子設定 -->
+        <mimetypes>
+
+            <!-- AutoCAD -->
+            <mimetype>
+                <ext>dwg</ext>
+                <mime>application/acad</mime>
+            </mimetype>
+            <!-- /AutoCAD-->
+
+            <!-- compressed archive -->
+            <mimetype>
+                <ext>arj</ext>
+                <mime>application/arj</mime>
+            </mimetype>
+            <!-- /compressed archive-->
+
+            <!-- Astound -->
+            <mimetype>
+                <ext>asd</ext>
+                <mime>application/astound</mime>
+            </mimetype>
+            <!-- /Astound-->
+
+            <!-- Astound -->
+            <mimetype>
+                <ext>asn</ext>
+                <mime>application/astound</mime>
+            </mimetype>
+            <!-- /Astound-->
+
+            <!-- Cascading Style Sheet -->
+            <mimetype>
+                <ext>css</ext>
+                <mime>text/css</mime>
+            </mimetype>
+            <!-- /Cascading Style Sheet -->
+
+            <!-- ClarisCAD -->
+            <mimetype>
+                <ext>ccad</ext>
+                <mime>application/clariscad</mime>
+            </mimetype>
+            <!-- /ClarisCAD-->
+
+            <!-- MATRA Prelude drafting -->
+            <mimetype>
+                <ext>drw</ext>
+                <mime>application/drafting</mime>
+            </mimetype>
+            <!-- /MATRA Prelude drafting-->
+
+            <!-- DXF (AutoCAD) -->
+            <mimetype>
+                <ext>dxf</ext>
+                <mime>application/dxf</mime>
+            </mimetype>
+            <!-- /DXF (AutoCAD)-->
+
+            <!-- Favicon -->
+            <mimetype>
+                <ext>ico</ext>
+                <mime>image/vnd.microsoft.icon</mime>
+            </mimetype>
+            <!-- /Favicon -->
+
+            <!-- SDRC I-DEAS -->
+            <mimetype>
+                <ext>unv</ext>
+                <mime>application/i-deas</mime>
+            </mimetype>
+            <!-- /SDRC I-DEAS-->
+
+            <!-- IGES graphics format -->
+            <mimetype>
+                <ext>iges</ext>
+                <mime>application/iges</mime>
+            </mimetype>
+            <!-- /IGES graphics format-->
+
+            <!-- IGES graphics format -->
+            <mimetype>
+                <ext>iges</ext>
+                <mime>application/iges</mime>
+            </mimetype>
+            <!-- /IGES graphics format-->
+
+            <!-- Java archive -->
+            <mimetype>
+                <ext>jar</ext>
+                <mime>application/java-archive</mime>
+            </mimetype>
+            <!-- /Java archive-->
+
+
+            <!-- Macintosh binary BinHex 4.0 -->
+            <mimetype>
+                <ext>hqx</ext>
+                <mime>application/mac-binhex40</mime>
+            </mimetype>
+            <!-- /Macintosh binary BinHex 4.0-->
+
+            <!-- Microsoft Access -->
+            <mimetype>
+                <ext>mdb</ext>
+                <mime>application/msaccess</mime>
+            </mimetype>
+            <!-- /Microsoft Access-->
+
+            <!-- Microsoft Excel -->
+            <mimetype>
+                <ext>xla</ext>
+                <mime>application/msexcel</mime>
+            </mimetype>
+            <!-- /Microsoft Excel-->
+
+            <!-- Microsoft Excel -->
+            <mimetype>
+                <ext>xls</ext>
+                <mime>application/msexcel</mime>
+            </mimetype>
+            <!-- /Microsoft Excel-->
+
+            <!-- Microsoft Excel -->
+            <mimetype>
+                <ext>xlt</ext>
+                <mime>application/msexcel</mime>
+            </mimetype>
+            <!-- /Microsoft Excel-->
+
+            <!-- Microsoft Excel -->
+            <mimetype>
+                <ext>xlw</ext>
+                <mime>application/msexcel</mime>
+            </mimetype>
+            <!-- /Microsoft Excel-->
+
+            <!-- Microsoft PowerPoint -->
+            <mimetype>
+                <ext>pot</ext>
+                <mime>application/mspowerpoint</mime>
+            </mimetype>
+            <!-- /Microsoft PowerPoint-->
+
+            <!-- Microsoft PowerPoint -->
+            <mimetype>
+                <ext>pps</ext>
+                <mime>application/mspowerpoint</mime>
+            </mimetype>
+            <!-- /Microsoft PowerPoint-->
+
+            <!-- Microsoft PowerPoint -->
+            <mimetype>
+                <ext>ppt</ext>
+                <mime>application/mspowerpoint</mime>
+            </mimetype>
+            <!-- /Microsoft PowerPoint-->
+
+            <!-- Microsoft Project -->
+            <mimetype>
+                <ext>mpp</ext>
+                <mime>application/msproject</mime>
+            </mimetype>
+            <!-- /Microsoft Project-->
+
+            <!-- Microsoft Word -->
+            <mimetype>
+                <ext>doc</ext>
+                <mime>application/msword</mime>
+            </mimetype>
+            <!-- /Microsoft Word-->
+
+            <!-- Microsoft Word -->
+            <mimetype>
+                <ext>word</ext>
+                <mime>application/msword</mime>
+            </mimetype>
+            <!-- /Microsoft Word-->
+
+            <!-- Microsoft Word -->
+            <mimetype>
+                <ext>w6w</ext>
+                <mime>application/msword</mime>
+            </mimetype>
+            <!-- /Microsoft Word-->
+
+            <!-- Microsoft Write -->
+            <mimetype>
+                <ext>wri</ext>
+                <mime>application/mswrite</mime>
+            </mimetype>
+            <!-- /Microsoft Write-->
+
+            <!-- uninterpreted binary -->
+            <mimetype>
+                <ext>bin</ext>
+                <mime>application/octet-stream</mime>
+            </mimetype>
+            <!-- /uninterpreted binary-->
+
+            <!-- ODA -->
+            <mimetype>
+                <ext>oda</ext>
+                <mime>application/oda</mime>
+            </mimetype>
+            <!-- /ODA-->
+
+            <!-- Adobe Acrobat -->
+            <mimetype>
+                <ext>pdf</ext>
+                <mime>application/pdf</mime>
+            </mimetype>
+            <!-- /Adobe Acrobat-->
+
+            <!-- PostScript -->
+            <mimetype>
+                <ext>ai</ext>
+                <mime>application/postscript</mime>
+            </mimetype>
+            <!-- /PostScript-->
+
+            <!-- PostScript -->
+            <mimetype>
+                <ext>eps</ext>
+                <mime>application/postscript</mime>
+            </mimetype>
+            <!-- /PostScript-->
+
+            <!-- PostScript -->
+            <mimetype>
+                <ext>ps</ext>
+                <mime>application/postscript</mime>
+            </mimetype>
+            <!-- /PostScript-->
+
+            <!-- PTC Pro/ENGINEER -->
+            <mimetype>
+                <ext>part</ext>
+                <mime>application/pro_eng</mime>
+            </mimetype>
+            <!-- /PTC Pro/ENGINEER-->
+
+            <!-- PTC Pro/ENGINEER -->
+            <mimetype>
+                <ext>part</ext>
+                <mime>application/pro_eng</mime>
+            </mimetype>
+            <!-- /PTC Pro/ENGINEER-->
+
+            <!-- Rich Text Format -->
+            <mimetype>
+                <ext>rtf</ext>
+                <mime>application/rtf</mime>
+            </mimetype>
+            <!-- /Rich Text Format-->
+
+            <!-- SET (French CAD) -->
+            <mimetype>
+                <ext>set</ext>
+                <mime>application/set</mime>
+            </mimetype>
+            <!-- /SET (French CAD)-->
+
+            <!-- stereolithography -->
+            <mimetype>
+                <ext>stl</ext>
+                <mime>application/sla</mime>
+            </mimetype>
+            <!-- /stereolithography-->
+
+            <!-- MATRA Prelude Solids -->
+            <mimetype>
+                <ext>sol</ext>
+                <mime>application/solids</mime>
+            </mimetype>
+            <!-- /MATRA Prelude Solids-->
+
+            <!-- ISO-10303 STEP data -->
+            <mimetype>
+                <ext>st</ext>
+                <mime>application/STEP</mime>
+            </mimetype>
+            <!-- /ISO-10303 STEP data-->
+
+            <!-- ISO-10303 STEP data -->
+            <mimetype>
+                <ext>step</ext>
+                <mime>application/STEP</mime>
+            </mimetype>
+            <!-- /ISO-10303 STEP data-->
+
+            <!-- ISO-10303 STEP data -->
+            <mimetype>
+                <ext>stp</ext>
+                <mime>application/STEP</mime>
+            </mimetype>
+            <!-- /ISO-10303 STEP data-->
+
+            <!-- VDA-FS Surface data -->
+            <mimetype>
+                <ext>vda</ext>
+                <mime>application/vda</mime>
+            </mimetype>
+            <!-- /VDA-FS Surface data-->
+
+            <!-- binary CPIO -->
+            <mimetype>
+                <ext>bcpio</ext>
+                <mime>application/x-bcpio</mime>
+            </mimetype>
+            <!-- /binary CPIO-->
+
+            <!-- POSIX CPIO -->
+            <mimetype>
+                <ext>cpio</ext>
+                <mime>application/x-cpio</mime>
+            </mimetype>
+            <!-- /POSIX CPIO-->
+
+            <!-- C-shell script -->
+            <mimetype>
+                <ext>csh</ext>
+                <mime>application/x-csh</mime>
+            </mimetype>
+            <!-- /C-shell script-->
+
+            <!-- Macromedia Director -->
+            <mimetype>
+                <ext>dcr</ext>
+                <mime>application/x-director</mime>
+            </mimetype>
+            <!-- /Macromedia Director-->
+
+            <!-- Macromedia Director -->
+            <mimetype>
+                <ext>dir</ext>
+                <mime>application/x-director</mime>
+            </mimetype>
+            <!-- /Macromedia Director-->
+
+            <!-- Macromedia Director -->
+            <mimetype>
+                <ext>dxr</ext>
+                <mime>application/x-director</mime>
+            </mimetype>
+            <!-- /Macromedia Director-->
+
+            <!-- TeX DVI -->
+            <mimetype>
+                <ext>dvi</ext>
+                <mime>application/x-dvi</mime>
+            </mimetype>
+            <!-- /TeX DVI-->
+
+            <!-- AutoCAD -->
+            <mimetype>
+                <ext>dwf</ext>
+                <mime>application/x-dwf</mime>
+            </mimetype>
+            <!-- /AutoCAD-->
+
+            <!-- GNU tar -->
+            <mimetype>
+                <ext>gtar</ext>
+                <mime>application/x-gtar</mime>
+            </mimetype>
+            <!-- /GNU tar-->
+
+            <!-- GNU ZIP -->
+            <mimetype>
+                <ext>gz</ext>
+                <mime>application/x-gzip</mime>
+            </mimetype>
+            <!-- /GNU ZIP-->
+
+            <!-- GNU ZIP -->
+            <mimetype>
+                <ext>gzip</ext>
+                <mime>application/x-gzip</mime>
+            </mimetype>
+            <!-- /GNU ZIP-->
+
+            <!-- NCSA HDF Data File -->
+            <mimetype>
+                <ext>hdf</ext>
+                <mime>application/x-hdf</mime>
+            </mimetype>
+            <!-- /NCSA HDF Data File-->
+
+            <!-- JavaScript -->
+            <mimetype>
+                <ext>js</ext>
+                <mime>application/x-javascript</mime>
+            </mimetype>
+            <!-- /JavaScript-->
+
+            <!-- LaTeX source -->
+            <mimetype>
+                <ext>latex</ext>
+                <mime>application/x-latex</mime>
+            </mimetype>
+            <!-- /LaTeX source-->
+
+            <!-- Macintosh compressed -->
+            <mimetype>
+                <ext>bin</ext>
+                <mime>application/x-macbinary</mime>
+            </mimetype>
+            <!-- /Macintosh compressed-->
+
+            <!-- MIDI -->
+            <mimetype>
+                <ext>mid</ext>
+                <mime>application/x-midi</mime>
+            </mimetype>
+            <!-- /MIDI-->
+
+            <!-- FrameMaker MIF -->
+            <mimetype>
+                <ext>mif</ext>
+                <mime>application/x-mif</mime>
+            </mimetype>
+            <!-- /FrameMaker MIF-->
+
+            <!-- Unidata netCDF -->
+            <mimetype>
+                <ext>cdf</ext>
+                <mime>application/x-netcdf</mime>
+            </mimetype>
+            <!-- /Unidata netCDF-->
+
+            <!-- Unidata netCDF -->
+            <mimetype>
+                <ext>nc</ext>
+                <mime>application/x-netcdf</mime>
+            </mimetype>
+            <!-- /Unidata netCDF-->
+
+            <!-- Bourne shell script -->
+            <mimetype>
+                <ext>sh</ext>
+                <mime>application/x-sh</mime>
+            </mimetype>
+            <!-- /Bourne shell script-->
+
+            <!-- shell archive -->
+            <mimetype>
+                <ext>shar</ext>
+                <mime>application/x-shar</mime>
+            </mimetype>
+            <!-- /shell archive-->
+
+            <!-- Macromedia Shockwave -->
+            <mimetype>
+                <ext>swf</ext>
+                <mime>application/x-shockwave-flash</mime>
+            </mimetype>
+            <!-- /Macromedia Shockwave-->
+
+            <!-- StuffIt archive -->
+            <mimetype>
+                <ext>sit</ext>
+                <mime>application/x-stuffit</mime>
+            </mimetype>
+            <!-- /StuffIt archive-->
+
+            <!-- SVR4 CPIO -->
+            <mimetype>
+                <ext>sv4cpio</ext>
+                <mime>application/x-sv4cpio</mime>
+            </mimetype>
+            <!-- /SVR4 CPIO-->
+
+            <!-- SVR4 CPIO with CRC -->
+            <mimetype>
+                <ext>sv4crc</ext>
+                <mime>application/x-sv4crc</mime>
+            </mimetype>
+            <!-- /SVR4 CPIO with CRC-->
+
+            <!-- 4.3BSD tar format -->
+            <mimetype>
+                <ext>tar</ext>
+                <mime>application/x-tar</mime>
+            </mimetype>
+            <!-- /4.3BSD tar format-->
+
+            <!-- TCL script -->
+            <mimetype>
+                <ext>tcl</ext>
+                <mime>application/x-tcl</mime>
+            </mimetype>
+            <!-- /TCL script-->
+
+            <!-- TeX source -->
+            <mimetype>
+                <ext>tex</ext>
+                <mime>application/x-tex</mime>
+            </mimetype>
+            <!-- /TeX source-->
+
+            <!-- Texinfo (Emacs) -->
+            <mimetype>
+                <ext>texi</ext>
+                <mime>application/x-texinfo</mime>
+            </mimetype>
+            <!-- /Texinfo (Emacs)-->
+
+            <!-- Texinfo (Emacs) -->
+            <mimetype>
+                <ext>texinfo</ext>
+                <mime>application/x-texinfo</mime>
+            </mimetype>
+            <!-- /Texinfo (Emacs)-->
+
+            <!-- Troff -->
+            <mimetype>
+                <ext>roff</ext>
+                <mime>application/x-troff</mime>
+            </mimetype>
+            <!-- /Troff-->
+
+            <!-- Troff -->
+            <mimetype>
+                <ext>t</ext>
+                <mime>application/x-troff</mime>
+            </mimetype>
+            <!-- /Troff-->
+
+            <!-- Troff -->
+            <mimetype>
+                <ext>tr</ext>
+                <mime>application/x-troff</mime>
+            </mimetype>
+            <!-- /Troff-->
+
+            <!-- Troff with MAN macros -->
+            <mimetype>
+                <ext>man</ext>
+                <mime>application/x-troff-man</mime>
+            </mimetype>
+            <!-- /Troff with MAN macros-->
+
+            <!-- Troff with ME macros -->
+            <mimetype>
+                <ext>me</ext>
+                <mime>application/x-troff-me</mime>
+            </mimetype>
+            <!-- /Troff with ME macros-->
+
+            <!-- Troff with MS macros -->
+            <mimetype>
+                <ext>ms</ext>
+                <mime>application/x-troff-ms</mime>
+            </mimetype>
+            <!-- /Troff with MS macros-->
+
+            <!-- POSIX tar format -->
+            <mimetype>
+                <ext>ustar</ext>
+                <mime>application/x-ustar</mime>
+            </mimetype>
+            <!-- /POSIX tar format-->
+
+            <!-- WAIS source -->
+            <mimetype>
+                <ext>src</ext>
+                <mime>application/x-wais-source</mime>
+            </mimetype>
+            <!-- /WAIS source-->
+
+            <!-- Microsoft Windows help -->
+            <mimetype>
+                <ext>hlp</ext>
+                <mime>application/x-winhelp</mime>
+            </mimetype>
+            <!-- /Microsoft Windows help-->
+
+            <!-- ZIP archive -->
+            <mimetype>
+                <ext>zip</ext>
+                <mime>application/zip</mime>
+            </mimetype>
+            <!-- /ZIP archive-->
+
+            <!-- BASIC audio (u-law) -->
+            <mimetype>
+                <ext>au</ext>
+                <mime>audio/basic</mime>
+            </mimetype>
+            <!-- /BASIC audio (u-law)-->
+
+            <!-- BASIC audio (u-law) -->
+            <mimetype>
+                <ext>snd</ext>
+                <mime>audio/basic</mime>
+            </mimetype>
+            <!-- /BASIC audio (u-law)-->
+
+            <!-- MIDI -->
+            <mimetype>
+                <ext>mid</ext>
+                <mime>audio/midi</mime>
+            </mimetype>
+            <!-- /MIDI-->
+
+            <!-- MIDI -->
+            <mimetype>
+                <ext>midi</ext>
+                <mime>audio/midi</mime>
+            </mimetype>
+            <!-- /MIDI-->
+
+            <!-- AIFF audio -->
+            <mimetype>
+                <ext>aif</ext>
+                <mime>audio/x-aiff</mime>
+            </mimetype>
+            <!-- /AIFF audio-->
+
+            <!-- AIFF audio -->
+            <mimetype>
+                <ext>aifc</ext>
+                <mime>audio/x-aiff</mime>
+            </mimetype>
+            <!-- /AIFF audio-->
+
+            <!-- AIFF audio -->
+            <mimetype>
+                <ext>aiff</ext>
+                <mime>audio/x-aiff</mime>
+            </mimetype>
+            <!-- /AIFF audio-->
+
+            <!-- MPEG audio -->
+            <mimetype>
+                <ext>mp3</ext>
+                <mime>audio/x-mpeg</mime>
+            </mimetype>
+            <!-- /MPEG audio-->
+
+            <!-- RealAudio -->
+            <mimetype>
+                <ext>ra</ext>
+                <mime>audio/x-pn-realaudio</mime>
+            </mimetype>
+            <!-- /RealAudio-->
+
+            <!-- RealAudio -->
+            <mimetype>
+                <ext>ram</ext>
+                <mime>audio/x-pn-realaudio</mime>
+            </mimetype>
+            <!-- /RealAudio-->
+
+            <!-- RealAudio plug-in -->
+            <mimetype>
+                <ext>rpm</ext>
+                <mime>audio/x-pn-realaudio-plugin</mime>
+            </mimetype>
+            <!-- /RealAudio plug-in-->
+
+            <!-- Voice -->
+            <mimetype>
+                <ext>voc</ext>
+                <mime>audio/x-voice</mime>
+            </mimetype>
+            <!-- /Voice-->
+
+            <!-- Microsoft Windows WAVE audio -->
+            <mimetype>
+                <ext>wav</ext>
+                <mime>audio/x-wav</mime>
+            </mimetype>
+            <!-- /Microsoft Windows WAVE audio-->
+
+            <!-- Bitmap -->
+            <mimetype>
+                <ext>bmp</ext>
+                <mime>image/bmp</mime>
+            </mimetype>
+            <!-- /Bitmap-->
+
+            <!-- GIF image -->
+            <mimetype>
+                <ext>gif</ext>
+                <mime>image/gif</mime>
+            </mimetype>
+            <!-- /GIF image-->
+
+            <!-- Image Exchange Format -->
+            <mimetype>
+                <ext>ief</ext>
+                <mime>image/ief</mime>
+            </mimetype>
+            <!-- /Image Exchange Format-->
+
+            <!-- JPEG image -->
+            <mimetype>
+                <ext>jpe</ext>
+                <mime>image/jpeg</mime>
+            </mimetype>
+            <!-- /JPEG image-->
+
+            <!-- JPEG image -->
+            <mimetype>
+                <ext>jpeg</ext>
+                <mime>image/jpeg</mime>
+            </mimetype>
+            <!-- /JPEG image-->
+
+            <!-- JPEG image -->
+            <mimetype>
+                <ext>jpg</ext>
+                <mime>image/jpeg</mime>
+            </mimetype>
+            <!-- /JPEG image-->
+
+            <!-- Macintosh PICT -->
+            <mimetype>
+                <ext>pict</ext>
+                <mime>image/pict</mime>
+            </mimetype>
+            <!-- /Macintosh PICT-->
+
+            <!-- Portable Network Graphic -->
+            <mimetype>
+                <ext>png</ext>
+                <mime>image/png</mime>
+            </mimetype>
+            <!-- /Portable Network Graphic-->
+
+            <!-- TIFF image -->
+            <mimetype>
+                <ext>tif</ext>
+                <mime>image/tiff</mime>
+            </mimetype>
+            <!-- /TIFF image-->
+
+            <!-- TIFF image -->
+            <mimetype>
+                <ext>tiff</ext>
+                <mime>image/tiff</mime>
+            </mimetype>
+            <!-- /TIFF image-->
+
+            <!-- CMU raster -->
+            <mimetype>
+                <ext>ras</ext>
+                <mime>image/x-cmu-raster</mime>
+            </mimetype>
+            <!-- /CMU raster-->
+
+            <!-- PBM Anymap format -->
+            <mimetype>
+                <ext>pnm</ext>
+                <mime>image/x-portable-anymap</mime>
+            </mimetype>
+            <!-- /PBM Anymap format-->
+
+            <!-- PBM Bitmap format -->
+            <mimetype>
+                <ext>pbm</ext>
+                <mime>image/x-portable-bitmap</mime>
+            </mimetype>
+            <!-- /PBM Bitmap format-->
+
+            <!-- PBM Graymap format -->
+            <mimetype>
+                <ext>pgm</ext>
+                <mime>image/x-portable-graymap</mime>
+            </mimetype>
+            <!-- /PBM Graymap format-->
+
+            <!-- PBM Pixmap format -->
+            <mimetype>
+                <ext>ppm</ext>
+                <mime>image/x-portable-pixmap</mime>
+            </mimetype>
+            <!-- /PBM Pixmap format-->
+
+            <!-- RGB image -->
+            <mimetype>
+                <ext>rgb</ext>
+                <mime>image/x-rgb</mime>
+            </mimetype>
+            <!-- /RGB image-->
+
+            <!-- X Bitmap -->
+            <mimetype>
+                <ext>xbm</ext>
+                <mime>image/x-xbitmap</mime>
+            </mimetype>
+            <!-- /X Bitmap-->
+
+            <!-- X Pixmap -->
+            <mimetype>
+                <ext>xpm</ext>
+                <mime>image/x-xpixmap</mime>
+            </mimetype>
+            <!-- /X Pixmap-->
+
+            <!-- X Window System dump -->
+            <mimetype>
+                <ext>xwd</ext>
+                <mime>image/x-xwindowdump</mime>
+            </mimetype>
+            <!-- /X Window System dump-->
+
+            <!-- GNU ZIP archive -->
+            <mimetype>
+                <ext>gzip</ext>
+                <mime>multipart/x-gzip</mime>
+            </mimetype>
+            <!-- /GNU ZIP archive-->
+
+            <!-- PKZIP archive -->
+            <mimetype>
+                <ext>zip</ext>
+                <mime>multipart/x-zip</mime>
+            </mimetype>
+            <!-- /PKZIP archive-->
+
+            <!-- HTML -->
+            <mimetype>
+                <ext>htm</ext>
+                <mime>text/html</mime>
+            </mimetype>
+            <!-- /HTML-->
+
+            <!-- HTML -->
+            <!--
+            <mimetype>
+                <ext>html</ext>
+                <mime>text/html</mime>
+            </mimetype>
+            -->
+            <!-- /HTML-->
+
+            <!-- plain text -->
+            <mimetype>
+                <ext>C</ext>
+                <mime>text/plain</mime>
+            </mimetype>
+            <!-- /plain text-->
+
+            <!-- plain text -->
+            <mimetype>
+                <ext>cc</ext>
+                <mime>text/plain</mime>
+            </mimetype>
+            <!-- /plain text-->
+
+            <!-- plain text -->
+            <mimetype>
+                <ext>h</ext>
+                <mime>text/plain</mime>
+            </mimetype>
+            <!-- /plain text-->
+
+            <!-- plain text -->
+            <mimetype>
+                <ext>txt</ext>
+                <mime>text/plain</mime>
+            </mimetype>
+            <!-- /plain text-->
+
+            <!-- MIME Richtext -->
+            <mimetype>
+                <ext>rtx</ext>
+                <mime>text/richtext</mime>
+            </mimetype>
+            <!-- /MIME Richtext-->
+
+            <!-- text with tabs -->
+            <mimetype>
+                <ext>tsv</ext>
+                <mime>text/tab-separated-values</mime>
+            </mimetype>
+            <!-- /text with tabs-->
+
+            <!-- Structurally Enhanced Text -->
+            <mimetype>
+                <ext>etx</ext>
+                <mime>text/x-setext</mime>
+            </mimetype>
+            <!-- /Structurally Enhanced Text-->
+
+            <!-- SGML -->
+            <mimetype>
+                <ext>sgm</ext>
+                <mime>text/x-sgml</mime>
+            </mimetype>
+            <!-- /SGML-->
+
+            <!-- SGML -->
+            <mimetype>
+                <ext>sgml</ext>
+                <mime>text/x-sgml</mime>
+            </mimetype>
+            <!-- /SGML-->
+
+            <!-- MPEG video -->
+            <mimetype>
+                <ext>mpe</ext>
+                <mime>video/mpeg</mime>
+            </mimetype>
+            <!-- /MPEG video-->
+
+            <!-- MPEG video -->
+            <mimetype>
+                <ext>mpeg</ext>
+                <mime>video/mpeg</mime>
+            </mimetype>
+            <!-- /MPEG video-->
+
+            <!-- MPEG video -->
+            <mimetype>
+                <ext>mpg</ext>
+                <mime>video/mpeg</mime>
+            </mimetype>
+            <!-- /MPEG video-->
+
+            <!-- Microsoft Windows video -->
+            <mimetype>
+                <ext>avi</ext>
+                <mime>video/msvideo</mime>
+            </mimetype>
+            <!-- /Microsoft Windows video-->
+
+            <!-- QuickTime video -->
+            <mimetype>
+                <ext>mov</ext>
+                <mime>video/quicktime</mime>
+            </mimetype>
+            <!-- /QuickTime video-->
+
+            <!-- QuickTime video -->
+            <mimetype>
+                <ext>qt</ext>
+                <mime>video/quicktime</mime>
+            </mimetype>
+            <!-- /QuickTime video-->
+
+            <!-- VDO streaming video -->
+            <mimetype>
+                <ext>vdo</ext>
+                <mime>video/vdo</mime>
+            </mimetype>
+            <!-- /VDO streaming video-->
+
+            <!-- VIVO streaming video -->
+            <mimetype>
+                <ext>viv</ext>
+                <mime>video/vivo</mime>
+            </mimetype>
+            <!-- /VIVO streaming video-->
+
+            <!-- VIVO streaming video -->
+            <mimetype>
+                <ext>vivo</ext>
+                <mime>video/vivo</mime>
+            </mimetype>
+            <!-- /VIVO streaming video-->
+
+            <!-- SGI Movieplayer format -->
+            <mimetype>
+                <ext>movie</ext>
+                <mime>video/x-sgi-movie</mime>
+            </mimetype>
+            <!-- /SGI Movieplayer format-->
+
+            <!-- CoolTalk -->
+            <mimetype>
+                <ext>ice</ext>
+                <mime>x-conference/x-cooltalk</mime>
+            </mimetype>
+            <!-- /CoolTalk-->
+
+            <!-- Virtual reality -->
+            <mimetype>
+                <ext>svr</ext>
+                <mime>x-world/x-svr</mime>
+            </mimetype>
+            <!-- /Virtual reality-->
+
+            <!-- VRML Worlds -->
+            <mimetype>
+                <ext>wrl</ext>
+                <mime>x-world/x-vrml</mime>
+            </mimetype>
+            <!-- /VRML Worlds-->
+
+            <!-- Virtual reality -->
+            <mimetype>
+                <ext>vrt</ext>
+                <mime>x-world/x-vrt</mime>
+            </mimetype>
+            <!-- /Virtual reality-->
+
+            <!-- Resource Description Framework -->
+            <mimetype>
+                <ext>rdf</ext>
+                <mime>text/xml</mime>
+            </mimetype>
+            <!-- /Resource Description Framework -->
+
+            <!--  Extensible Markup Language -->
+            <mimetype>
+                <ext>xml</ext>
+                <mime>text/xml</mime>
+            </mimetype>
+            <!--  /Extensible Markup Language -->
+
+            <!-- JavaScript Object Notation -->
+            <mimetype>
+                <ext>json</ext>
+                <mime>text/plane</mime>
+            </mimetype>
+            <!-- /JavaScript Object Notation -->
+
+            <!-- Microsoft Word 2007 -->
+            <mimetype>
+                <ext>docm</ext>
+                <mime>application/vnd.ms-word.document.macroEnabled.12</mime>
+            </mimetype>
+            <!-- /Microsoft Word 2007-->
+
+            <!-- Microsoft Word 2007 -->
+            <mimetype>
+                <ext>docx</ext>
+                <mime>application/vnd.openxmlformats-officedocument.wordprocessingml.document</mime>
+            </mimetype>
+            <!-- /Microsoft Word 2007-->
+
+            <!-- Microsoft Word 2007 -->
+            <mimetype>
+                <ext>dotm</ext>
+                <mime>application/vnd.ms-word.template.macroEnabled.12</mime>
+            </mimetype>
+            <!-- /Microsoft Word 2007-->
+
+            <!-- Microsoft Word 2007 -->
+            <mimetype>
+                <ext>dotx</ext>
+                <mime>application/vnd.openxmlformats-officedocument.wordprocessingml.template</mime>
+            </mimetype>
+            <!-- /Microsoft Word 2007-->
+
+            <!-- Microsoft PowerPoint 2007 -->
+            <mimetype>
+                <ext>potm</ext>
+                <mime>application/vnd.ms-powerpoint.template.macroEnabled.12</mime>
+            </mimetype>
+            <!-- /Microsoft PowerPoint 2007-->
+
+            <!-- Microsoft PowerPoint 2007 -->
+            <mimetype>
+                <ext>potx</ext>
+                <mime>application/vnd.openxmlformats-officedocument.presentationml.template</mime>
+            </mimetype>
+            <!-- /Microsoft PowerPoint 2007-->
+
+            <!-- Microsoft PowerPoint 2007 -->
+            <mimetype>
+                <ext>ppam</ext>
+                <mime>application/vnd.ms-powerpoint.addin.macroEnabled.12</mime>
+            </mimetype>
+            <!-- /Microsoft PowerPoint 2007-->
+
+            <!-- Microsoft PowerPoint 2007 -->
+            <mimetype>
+                <ext>ppsm</ext>
+                <mime>application/vnd.ms-powerpoint.slideshow.macroEnabled.12</mime>
+            </mimetype>
+            <!-- /Microsoft PowerPoint 2007-->
+
+            <!-- Microsoft PowerPoint 2007 -->
+            <mimetype>
+                <ext>ppsx</ext>
+                <mime>application/vnd.openxmlformats-officedocument.presentationml.slideshow</mime>
+            </mimetype>
+            <!-- /Microsoft PowerPoint 2007-->
+
+            <!-- Microsoft PowerPoint 2007 -->
+            <mimetype>
+                <ext>pptm</ext>
+                <mime>application/vnd.ms-powerpoint.presentation.macroEnabled.12</mime>
+            </mimetype>
+            <!-- /Microsoft PowerPoint 2007-->
+
+            <!-- Microsoft PowerPoint 2007 -->
+            <mimetype>
+                <ext>pptx</ext>
+                <mime>application/vnd.openxmlformats-officedocument.presentationml.presentation</mime>
+            </mimetype>
+            <!-- /Microsoft PowerPoint 2007-->
+
+            <!-- Microsoft Excel 2007 -->
+            <mimetype>
+                <ext>xlam</ext>
+                <mime>application/vnd.ms-excel.addin.macroEnabled.12</mime>
+            </mimetype>
+            <!-- /Microsoft Excel 2007-->
+
+            <!-- Microsoft Excel 2007 -->
+            <mimetype>
+                <ext>xlsb</ext>
+                <mime>application/vnd.ms-excel.sheet.binary.macroEnabled.12</mime>
+            </mimetype>
+            <!-- /Microsoft Excel 2007-->
+
+            <!-- Microsoft Excel 2007 -->
+            <mimetype>
+                <ext>xlsm</ext>
+                <mime>application/vnd.ms-excel.sheet.macroEnabled.12</mime>
+            </mimetype>
+            <!-- /Microsoft Excel 2007-->
+
+            <!-- Microsoft Excel 2007 -->
+            <mimetype>
+                <ext>xlsx</ext>
+                <mime>application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</mime>
+            </mimetype>
+            <!-- /Microsoft Excel 2007-->
+
+            <!-- Microsoft Excel 2007 -->
+            <mimetype>
+                <ext>xltm</ext>
+                <mime>application/vnd.ms-excel.template.macroEnabled.12</mime>
+            </mimetype>
+            <!-- /Microsoft Excel 2007-->
+
+            <!-- Microsoft Excel 2007 -->
+            <mimetype>
+                <ext>xltx</ext>
+                <mime>application/vnd.openxmlformats-officedocument.spreadsheetml.template</mime>
+            </mimetype>
+            <!-- /Microsoft Excel 2007-->
+
+        </mimetypes>
+        <!-- コンテントタイプ/拡張子設定 -->
+
+        <!-- バインド転送設定 -->
+        <binds>
+
+            <!-- Ext JS -->
+            <bind>
+                <target>extjs</target>
+                <exts>
+                    <ext>js</ext>
+                    <ext>swf</ext>
+                    <ext>css</ext>
+                    <ext>gif</ext>
+                    <ext>png</ext>
+                    <ext>jpg</ext>
+                </exts>
+            </bind>
+            <!-- Ext JS -->
+
+            <!-- xFrameworkPX -->
+            <bind>
+                <target>xFrameworkPX</target>
+                <emulation>true</emulation>
+            </bind>
+            <!-- xFrameworkPX -->
+
+            <!-- prettify -->
+            <bind>
+                <target>prettify</target>
+                <exts>
+                    <ext>js</ext>
+                    <ext>css</ext>
+                </exts>
+            </bind>
+            <!-- prettify -->
+
+            <!-- docs -->
+            <!--
+            ※ ローカルドキュメンテーションを無効にする場合は、
+               下記の<bind>タグを削除するかコメントアウトしてください。
+            -->
+            <bind>
+                <target>docs</target>
+                <emulation>true</emulation>
+            </bind>
+            <!-- /docs -->
+
+            <!-- temporary -->
+            <!--
+            ※ 開発開始時、下記の<bind>タグを削除するか
+               コメントアウトしてください。
+            -->
+            <bind>
+                <target></target>
+                <emulation>true</emulation>
+            </bind>
+            <!-- /temporary -->
+
+        </binds>
+        <!-- /バインド転送設定 -->
+
+    </filetransfer>
+    <!-- /ファイル転送設定 -->
+
+</px>

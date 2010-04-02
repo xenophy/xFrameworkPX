@@ -1,0 +1,274 @@
+* RapidDriveの基本操作(3)
+
+
+ここでは、[[RapidDriveの基本操作(2)>#tutorial_06.Component_11.RapidDrive2>internal]]で作成した一覧画面に、詳細表示の機能を付加します。
+タイトルをクリックすると、詳細ページが表示されるようにします。
+
+
+このチュートリアルでは、次の操作を行います。
+
++ アプリケーションディレクトリにHTMLを設置する
++ アプリケーションディレクトリにコントローラーを設置する
++ モジュールディレクトリにモジュールを設置する
++ 仮想スクリーンの動作を確認する
++ サンプル実行
+
+* アプリケーションディレクトリにHTMLを設置する
+
+webapp下に、次のindex.htmlを設置します。
+保存する文字コードは、''UTF-8''、改行コードは''LF''です。
+
+{{{
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-script-Type" content="text/javascript" />
+    <meta http-equiv="content-style-type" content="text/css" />
+    <title>RapidDriveの基本操作(3)</title>
+    <style>
+
+    table {
+        border-top: solid #222 1px;
+        border-left: solid #222 1px;
+    }
+    th,td {
+        border-right: solid #222 1px;
+        border-bottom: solid #222 1px;
+        padding: 5px;
+    }
+    th {
+        background-color: #efefef;
+    }
+
+    </style>
+</head>
+<body>
+    <h1>RapidDriveの基本操作(3)</h1>
+
+    <form>
+        <input type="text" name="q" value="<!--{$smarty.get.q}-->" />
+        <input type="submit" value="検索" />
+    </form>
+
+    <hr />
+
+    <!--{if count($list) > 0}-->
+    <table border="0" cellspacing="0" cellpadding="0"<!--{if $listsummary}--> summary="<!--{$listsummary}-->"<!--{/if}--> class="tablelayout">
+    <tr>
+        <!--{foreach from=$outheader item=item}-->
+        <th>
+            <!--{$item|escape}-->
+        </th>
+        <!--{/foreach}-->
+
+    </tr>
+    <!--{foreach from=$outlist item=fields key=id}-->
+    <tr>
+
+        <!--{foreach from=$fields item=item key=key}-->
+        <td>
+            <!--{if $key eq 'title'}-->
+
+                <!--{if $query}-->
+                <a href="<!--{$nextaction}-->.html?<!--{$query}-->&<!--{$idkey}-->=<!--{$id}-->"><!--{$item|escape}--></a>
+                <!--{else}-->
+                <a href="<!--{$nextaction}-->.html?<!--{$idkey}-->=<!--{$id}-->"><!--{$item|escape}--></a>
+                <!--{/if}-->
+
+            <!--{else}-->
+            <!--{$item|escape}-->
+            <!--{/if}-->
+        </td>
+        <!--{/foreach}-->
+
+    </tr>
+    <!--{/foreach}-->
+    </table>
+    <!--{else}-->
+    <p><!--{$listnomessage}--></p>
+    <!--{/if}-->
+
+    <p>
+
+        <!--{foreach from=$pager item=item key=key name="pager"}-->
+
+            <!--{if $smarty.foreach.pager.first && $item.current != true}-->
+                <span>
+                    <a href="./?q=<!--{$item.search}-->&amp;p=<!--{$item.prevpage}-->">
+                        前のページ
+                    </a>
+                </span>
+            <!--{/if}-->
+
+            <!--{if $item.current}-->
+                <span class="cu">
+                    <!--{$key+1}-->
+                </span>
+            <!--{else}-->
+                <span>
+                    <a href="./?q=<!--{$item.search}-->&amp;p=<!--{$key}-->" class="adjust">
+                        <!--{$key+1}-->
+                    </a>
+                </span>
+            <!--{/if}-->
+            <!--{if $item.next}--><!--{/if}-->
+
+            <!--{if $smarty.foreach.pager.last && $item.current != true}-->
+                <span>
+                    <a href="./?q=<!--{$item.search}-->&amp;p=<!--{$item.nextpage}-->">
+                        次のページ
+                    </a>
+                </span>
+            <!--{/if}-->
+
+        <!--{/foreach}-->
+
+    </p>
+
+</body>
+</html>
+}}}
+
+webapp下に、次のdetail.htmlを設置します。
+保存する文字コードは、''UTF-8''、改行コードは''LF''です。
+
+{{{
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-script-Type" content="text/javascript" />
+    <meta http-equiv="content-style-type" content="text/css" />
+    <title>RapidDriveの基本操作(3) - 詳細画面</title>
+    <style>
+
+    table {
+        border-top: solid #222 1px;
+        border-left: solid #222 1px;
+    }
+    th,td {
+        border-right: solid #222 1px;
+        border-bottom: solid #222 1px;
+        padding: 5px;
+    }
+    th {
+        background-color: #efefef;
+    }
+
+    </style>
+</head>
+<body>
+    <h1>RapidDriveの基本操作(3) - 詳細画面</h1>
+
+    <table border="0" cellspacing="0" cellpadding="0"<!--{if $listsummary}--> summary="<!--{$listsummary}-->"<!--{/if}--> class="tablelayout">
+        <col width="20%" />
+        <col width="80%" />
+        <!--{foreach from=$outdata item=item key=key}-->
+        <tr>
+            <th><!--{$label.$key}--></th>
+            <td><!--{$item|escape|nl2br}--></td>
+        </tr>
+        <!--{/foreach}-->
+    </table>
+
+    <hr />
+
+    <a href="./index.html<!--{$listquery}-->">一覧へ戻る</a>
+
+</body>
+</html>
+}}}
+
+
+* アプリケーションディレクトリにコントローラーを設置する
+
+webapp下に、次の.index.phpを設置します。
+保存する文字コードは、''UTF-8''、改行コードは''LF''です。
+
+{{{
+<?php
+
+class index extends xFrameworkPX_Controller_Action
+{
+    public $modules = array('Docs_Tutorial_Component_RapidDrive1_sample');
+
+    public $rapid = array(
+        'mode' => 'list',
+        'count' => 2,
+        'next_action' => 'detail',
+        'search_field' => array(
+            'title',
+            'note'
+        ),
+        'field_filter' => array(
+            'id'
+        ),
+        'order_field' => array(
+            'id' => ''
+        ),
+        'no_item_message' => 'データがありません。'
+    );
+}
+}}}
+
+''next_action''に遷移する仮想スクリーン名を設定します。
+ここでは、''detail''を設定します。
+
+
+webapp下に、次の.detail.phpを設置します。
+保存する文字コードは、''UTF-8''、改行コードは''LF''です。
+
+{{{
+<?php
+
+class detail extends xFrameworkPX_Controller_Action
+{
+    public $modules = array('Docs_Tutorial_Component_RapidDrive1_sample');
+
+    public $rapid = array(
+        'mode' => 'detail',
+        'field_filter' => array(
+            'id'
+        ),
+    );
+
+}
+}}}
+
+
+詳細表示を行うために、RapidDriveのモードを''detail''に設定します。
+詳細画面に、idフィールドは表示しない仕様にしますので、''field_filter''取得するデータをフィルタリングします。
+
+
+* モジュールディレクトリにモジュールを設置する
+
+modules下に、次のsample.phpを設置します。
+
+{{{
+<?php
+
+class sample extends xFrameworkPX_Model_RapidDrive
+{
+}
+}}}
+
+
+* 仮想スクリーンの動作を確認する
+
+ブラウザで'''''http://yourdomain/index.html'''''にアクセスします。
+
+
+* サンプル実行
+
+下記のボタンから、ここまでのサンプルを実行することができます。
+
+[[&img(./resources/images/demo.gif){サンプル画像};>./tutorial/component/rapiddrive3/index.html>external]]
+
+** サンプル格納位置
+
+'''bindtransfer/docs/tutorial/model/association/'''
+
+

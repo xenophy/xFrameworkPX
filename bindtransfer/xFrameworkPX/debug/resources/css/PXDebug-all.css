@@ -1,0 +1,220 @@
+/* BootIcon */
+
+.pxdebug-booticon {
+  position: absolute;
+  width:50px;
+  height:50px;
+  top: 0;
+  left: -50px;
+  z-index: 25000;
+}
+
+.pxdebug-booticon-icon {
+  display: block;
+  cursor: pointer;
+  width:50px;
+  height:50px;
+  background-position: 0 0 !important;
+  background-image: url(../images/booticon.gif) !important;
+}
+
+.pxdebug-booticon-icon-over {
+  display: block;
+  cursor: pointer;
+  width:50px;
+  height:50px;
+  background-position: -50px 0 !important;
+  background-image: url(../images/booticon.gif) !important;
+}
+
+/* /BootIcon */
+
+
+.pxdebug-icon-logo {
+  background-image: url(../images/logo.gif) !important;
+}
+
+
+
+
+
+
+#class .loading-indicator{
+  font-size:12px;
+  height:18px;
+}
+
+#pxdebug-loading-mask{
+  position:absolute;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  z-index:20000;
+  background-color:white;
+}
+
+
+#pxdebug-loading .loading-indicator{
+  background:white;
+  color:#555;
+  font:bold 13px tahoma,arial,helvetica;
+  padding:10px;
+  margin:0;
+  text-align:center;
+  height:auto;
+}
+
+#pxdebug-loading .message {
+  padding-left: 5px;
+  padding-top:15px;
+  color: black;
+}
+
+
+
+
+
+.pxdebug-icon-query {
+  background-image: url(../images/database.png) !important;
+  background-position: 0 4px ! important;
+  font-family:'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif !important;
+  margin-top: 2px;
+
+}
+
+.pxdebug-icon-parameter {
+  background-image: url(../images/monitor.png) !important;
+  background-position: 0 4px ! important;
+  font-family:'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif !important;
+  margin-top: 2px;
+}
+
+.pxdebug-icon-userdata {
+  background-image: url(../images/note.png) !important;
+  background-position: 0 4px ! important;
+  font-family:'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif !important;
+  margin-top: 2px;
+}
+
+.pxdebug-icon-profiler {
+  background-image: url(../images/time.png) !important;
+  background-position: 0 4px ! important;
+  font-family:'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif !important;
+  margin-top: 2px;
+}
+
+.pxdebug-icon-trace {
+  background-image: url(../images/flag_green.png) !important;
+  background-position: 0 4px ! important;
+  font-family:'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif !important;
+  margin-top: 2px;
+}
+
+.pxdebug-icon-session {
+  background-image: url(../images/bricks.png) !important;
+  background-position: 0 4px ! important;
+  font-family:'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif !important;
+  margin-top: 2px;
+}
+
+.pxdebug-icon-cookie {
+  background-image: url(../images/asterisk_yellow.png) !important;
+  background-position: 0 4px ! important;
+  font-family:'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif !important;
+  margin-top: 2px;
+}
+
+.pxdebug-icon-help {
+  background-image: url(../images/help.png) !important;
+  background-position: 0 5px ! important;
+  font-family:'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif !important;
+  margin-top: 2px;
+}
+
+.pxdebug-icon-cacheclear {
+  background-image: url(../images/brick_delete.png) !important;
+  background-position: 0 5px ! important;
+  font-family:'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif !important;
+  margin-top: 2px;
+}
+
+.pxdebug-icon-none {
+  padding: 0;
+  display: none;
+}
+
+.pxdebug-icon-database-magnifier {
+  background-image: url(../images/database_magnifier.png) !important;
+  font-family:'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif !important;
+  margin-top: 2px;
+}
+
+.pxdebug-icon-monitor-magnifier {
+  background-image: url(../images/monitor_magnifier.png) !important;
+  font-family:'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif !important;
+  margin-top: 2px;
+}
+
+.pxdebug-icon-note-magnifier {
+  background-image: url(../images/note_magnifier.png) !important;
+  font-family:'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif !important;
+  margin-top: 2px;
+}
+
+.pxdebug-icon-flag-green-magnifier {
+  background-image: url(../images/flag_green_magnifier.png) !important;
+  font-family:'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif !important;
+  margin-top: 2px;
+}
+
+.pxdebug-icon-flag-bricks-magnifier {
+  background-image: url(../images/bricks_magnifier.png) !important;
+  font-family:'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif !important;
+  margin-top: 2px;
+}
+
+.pxdebug-icon-flag-asterisk-yellow-magnifier {
+  background-image: url(../images/asterisk_yellow_magnifier.png) !important;
+  font-family:'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif !important;
+  margin-top: 2px;
+}
+
+
+
+
+
+
+
+
+.pxdebug-proctime {
+  color: #1e5aa4;
+  font-weight: bold;
+}
+
+.pxdebug-proctime span {
+  color: black;
+  margin-left: 3px;
+  font-weight: normal;
+}
+
+.pxdebug-usertime {
+  color: green;
+  font-weight: bold;
+}
+
+.pxdebug-usertime span {
+  color: black;
+  margin-left: 3px;
+  font-weight: normal;
+}
+
+
+
+.pxdebug-icon-session-delete {
+  background-image: url(../images/delete.png) !important;
+}
+
+.pxdebug-icon-cookie-delete {
+  background-image: url(../images/delete.png) !important;
+}

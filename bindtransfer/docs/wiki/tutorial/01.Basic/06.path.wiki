@@ -1,0 +1,21 @@
+* 相対パスの取得
+
+ここでは、相対パスの取得について学びます。
+
+このチュートリアルでは、次の操作を行います。
+
++ 相対パスの取得のコードを記述する
+
+このコードは、xFrameworkPXを読み込むことで、どこでも利用することができます。
+
+* 相対パスの取得のコードを記述する
+
+{{{
+$base = 'http://www.xframeworkpx.com/for/bar/';
+$target = 'http://www.xframeworkpx.com/';
+echo get_relative_url($base, $target);
+}}}
+
+URLやディレクトリの相対パスを計算します。
+上記の場合、''../../''が返却されます。
+

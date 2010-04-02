@@ -1,0 +1,13 @@
+#------------------------------------------------------------------------------
+# [ mod_rewrite ]
+#------------------------------------------------------------------------------
+<IfModule mod_rewrite.c>
+
+    RewriteEngine On
+    RewriteBase /~px/
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^(.*)$ ?cp=/$1\&%{QUERY_STRING} [QSA,L]
+
+</IfModule>
+#------------------------------------------------------------------------------

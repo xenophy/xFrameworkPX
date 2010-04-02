@@ -1,0 +1,86 @@
+/*
+ * tree.css
+ * Copyright (c) 2006-2009 Xenophy.CO.,LTD All rights Reserved.
+ * http://www.xenophy.com
+ */
+
+#Docs-tree a span {
+  font-family:verdana,arial,tahoma,sans-serif;
+  font-size:11px;
+}
+
+#Docs-tree .cls a:hover span {
+  text-decoration:underline;
+}
+
+#Docs-tree .x-panel-body {
+  background-color:white;
+  position:relative;
+  padding:3px;
+}
+
+#Docs-tree .cls{
+  border:1px solid #fff;
+}
+
+#Docs-tree .x-tree-selected {
+  border:1px dotted #a3bae9;
+  background:#DFE8F6;
+}
+
+#Docs-tree .x-tree-node .x-tree-selected a span {
+  background:transparent;
+  color:#1E4176;
+  font-weight:bold;
+}
+
+.x-tree-node-expanded .x-tree-node-icon {
+  background-image:url(../images/icons/book_open.png);
+}
+
+.x-tree-node-collapsed .x-tree-node-icon {
+  background-image:url(../images/icons/book.png);
+}
+
+.x-tree-node-leaf .x-tree-node-icon {
+  background-image:url(../images/icons/page_white_text.png);
+}
+
+.x-icon-collapse-all {
+  background-image: url(../images/icons/collapse-all.png) ! important;
+}
+
+.x-icon-expand-all {
+  background-image: url(../images/icons/expand-all.png) ! important;
+}
+
+.x-icon-next {
+  background-image: url(../images/icons/next.png) ! important;
+}
+
+.x-icon-prev {
+  background-image: url(../images/icons/previous.png) ! important;
+}
+
+.x-icon-direct {
+  background-image: url(../images/icons/star.png) ! important;
+}
+
+
+
+
+
+/*
+.cmenu-nodetext {
+  display:block;
+  height: 18px;
+  font-size: 14px;
+  padding: 5px;
+  background-color: #f0f0f0;
+}
+*/
+/*
+#Docs-tree .x-tree-node-icon {
+  background-image: url(../images/icons/book.png) !important;
+}
+*/

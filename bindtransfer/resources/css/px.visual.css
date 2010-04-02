@@ -1,0 +1,1012 @@
+@charset "utf-8";
+
+/* ---------------------------------------------------------------------------
+ [ px.visual.css ]
+
+ ヴィジュアル設定
+
+ 装飾に関する設定を行います。
+
+--------------------------------------------------------------------------- */
+
+body {
+
+}
+
+
+/*======================================
+
+  fixed 設定
+
+=======================================*/
+/*.px-fixed .px-center {
+  background: #CCC;
+}
+
+.px-fixed .px-north {
+  background: #E6E6E6;
+}
+
+.px-fixed .px-west-wrap .px-west {
+  background: #EFEFEF;
+}
+
+.px-fixed .px-west-wrap .px-east {
+  background: #bbb;
+}
+
+.px-fixed .px-center-wrap .px-north {
+  background: #CCC;
+}
+
+.px-fixed .px-center-wrap .px-west {
+  background: #EFEFEF;
+}
+
+.px-fixed .px-center-wrap .px-center {
+  background: #CCC;
+}
+
+.px-fixed .px-center-wrap .px-east {
+  background: #bbb;
+}
+
+.px-fixed .px-east-wrap .px-west {
+  background: #EFEFEF;
+}
+
+.px-fixed .px-east-wrap .px-east {
+  background: #bbb;
+}
+
+.px-fixed .px-south {
+  background: #999;
+}
+
+
+/* ------------------------------
+ C 設定
+------------------------------ */
+.px-fixed.px-c {
+
+}
+
+
+/* ------------------------------
+ CE 設定
+------------------------------ */
+.px-fixed.px-ce {
+
+}
+
+
+/* ------------------------------
+ CES 設定
+------------------------------ */
+.px-fixed.px-ces {
+
+}
+
+
+/* ------------------------------
+ CEW 設定
+------------------------------ */
+.px-fixed.px-cew {
+
+}
+
+
+/* ------------------------------
+ CEWS 設定
+------------------------------ */
+.px-fixed.px-cews {
+
+}
+
+
+/* ------------------------------
+ CN 設定
+------------------------------ */
+.px-fixed.px-cn {
+
+}
+
+
+/* ------------------------------
+ CNE 設定
+------------------------------ */
+.px-fixed.px-cne {
+
+}
+
+
+/* ------------------------------
+ CNES 設定
+------------------------------ */
+.px-fixed.px-cnes {
+
+}
+
+
+/* ------------------------------
+ CNEW 設定
+------------------------------ */
+.px-fixed.px-cnew {
+
+}
+
+
+/* ------------------------------
+ CNEWS 設定
+------------------------------ */
+.px-fixed.px-cnews {
+
+}
+
+
+/* ------------------------------
+ CNS 設定
+------------------------------ */
+.px-fixed.px-cns {
+
+}
+
+
+/* ------------------------------
+ CNW 設定
+------------------------------ */
+.px-fixed.px-cnw {
+
+}
+
+
+/* ------------------------------
+ CNWS 設定
+------------------------------ */
+.px-fixed.px-cnws {
+
+}
+
+
+/* ------------------------------
+ CS 設定
+------------------------------ */
+.px-fixed.px-cs {
+
+}
+
+
+/* ------------------------------
+ CW 設定
+------------------------------ */
+.px-fixed.px-cw {
+
+}
+
+
+/* ------------------------------
+ CWS 設定
+------------------------------ */
+.px-fixed.px-cws {
+
+}
+
+
+/* ------------------------------
+ F 設定
+------------------------------ */
+.px-fixed.px-f {
+
+}
+
+
+/* ------------------------------
+ FE 設定
+------------------------------ */
+.px-fixed.px-fe {
+
+}
+
+
+/* ------------------------------
+ FES 設定
+------------------------------ */
+.px-fixed.px-fes {
+
+}
+
+
+/* ------------------------------
+ FEW 設定
+------------------------------ */
+.px-fixed.px-few {
+
+}
+
+
+/* ------------------------------
+ FEWS 設定
+------------------------------ */
+.px-fixed.px-fews {
+
+}
+
+
+/* ------------------------------
+ FN 設定
+------------------------------ */
+.px-fixed.px-fn {
+
+}
+
+
+/* ------------------------------
+ FNE 設定
+------------------------------ */
+.px-fixed.px-fne {
+
+}
+
+
+/* ------------------------------
+ FNES 設定
+------------------------------ */
+.px-fixed.px-fnes {
+
+}
+
+
+/* ------------------------------
+ FNEW 設定
+------------------------------ */
+.px-fixed.px-fnew {
+
+}
+
+
+/* ------------------------------
+ FNEWS 設定
+------------------------------ */
+.px-fixed.px-fnews {
+
+}
+
+
+/* ------------------------------
+ FNS 設定
+------------------------------ */
+.px-fixed.px-fns {
+
+}
+
+
+/* ------------------------------
+ FNW 設定
+------------------------------ */
+.px-fixed.px-fnw {
+
+}
+
+
+/* ------------------------------
+ FNWS 設定
+------------------------------ */
+.px-fixed.px-fnws {
+
+}
+
+
+/* ------------------------------
+ FS 設定
+------------------------------ */
+.px-fixed.px-fs {
+
+}
+
+
+/* ------------------------------
+ FW 設定
+------------------------------ */
+.px-fixed.px-fw {
+
+}
+
+
+/* ------------------------------
+ FWS 設定
+------------------------------ */
+.px-fixed.px-fws {
+
+}
+
+
+/*======================================
+
+   liquid 設定
+
+=======================================*/
+/*.px-liquid .px-south {
+  background-color: #113b73;
+}
+
+.px-liquid-east-ct .px-east-ct {
+  background: #009999;
+}
+
+.px-liquid .px-center-wrap .px-liquid-ct {
+  background: #CCC;
+}
+
+.px-liquid .px-center-wrap .px-liquid-center-ct {
+  background: #999;
+}
+
+.px-liquid .px-center-wrap .px-liquid-center-wrap {
+  background: #EFEFEF;
+}
+
+.px-liquid .px-center-wrap .px-center {
+  background: #FFCC33;
+}
+
+.px-liquid .px-center-wrap .px-west {
+  background: #FFCC99;
+}
+
+.px-liquid .px-center-wrap .px-east {
+  background: #FF9999;
+}
+
+.px-liquid .px-east {
+  background: #6699CC;
+}
+
+.px-liquid-west-ct {
+  background-color: #eff1f2;
+}
+
+.px-liquid-west-ct .px-west-ct {
+  background-color: #FFF;
+}
+
+.px-liquid-east-ct {
+  background: #ff9;
+}
+
+
+/* ------------------------------
+ L 設定
+------------------------------ */
+.px-liquid.px-l .px-center {
+  background: #CCC;
+}
+
+
+/* ------------------------------
+ LE 設定
+------------------------------ */
+.px-liquid.px-le {
+
+}
+
+
+/* ------------------------------
+ LES 設定
+------------------------------ */
+.px-liquid.px-les {
+
+}
+
+
+/* ------------------------------
+ LEW 設定
+------------------------------ */
+.px-liquid.px-lew {
+
+}
+
+
+/* ------------------------------
+ LEWS 設定
+------------------------------ */
+.px-liquid.px-lews {
+
+}
+
+
+/* ------------------------------
+ LN 設定
+------------------------------ */
+.px-liquid.px-ln .px-north {
+  background: #66CCFF;
+}
+
+.px-liquid.px-ln .px-center {
+  background: #CCC;
+}
+
+
+/* ------------------------------
+ LNE 設定
+------------------------------ */
+.px-liquid.px-lne .px-north {
+  background: #66CCFF;
+}
+
+
+/* ------------------------------
+ LNES 設定
+------------------------------ */
+.px-liquid.px-lnes .px-north {
+  background: #66CCFF;
+}
+
+
+/* ------------------------------
+ LNEW 設定
+------------------------------ */
+.px-liquid.px-lnew .px-north {
+  background: #66CCFF;
+}
+
+
+/* ------------------------------
+ LNEWS 設定
+------------------------------ */
+.px-liquid.px-lnews .px-north {
+  background: #66CCFF;
+}
+
+
+/* ------------------------------
+ LNS 設定
+------------------------------ */
+/* px-north */
+/*.px-liquid.px-lns .px-north h1 {
+  width: 377px;
+  height: 100px;
+}
+
+.px-liquid.px-lns .px-north h1 span {
+  display: none;
+}
+/* /px-north */
+
+/* globalnavi */
+/*.px-liquid.px-lns .globalnavi {
+  padding: 10px 15px 5px 15px;
+  border: 3px solid #d9e4ec;
+  background: #123C75 url(../images/globalnavi/bg.gif) repeat-x scroll 0 0;
+}
+
+.px-liquid.px-lns .globalnavi ul {
+  margin-bottom: 3px;
+}
+
+.px-liquid.px-lns .globalnavi ul li {
+  list-style-type: none;
+  display: inline;
+  line-height: 110%;
+  margin: 0 10px 0 0;
+  padding: 0 10px 0 0;
+  color: #FFF;
+  font-weight: bold;
+  background: url(../images/px/topicpath.gif) no-repeat right center;
+}
+
+.px-liquid.px-lns .globalnavi ul li.last {
+  background: none;
+}
+
+.px-liquid.px-lns .globalnavi ul li a {
+  color: #FFF;
+  font-weight: normal;
+  text-decoration: none;
+}
+/* /globalnavi */
+
+/* px-center */
+/*.px-liquid.px-lns .px-center {
+  padding-top: 20px;
+}
+
+.px-liquid.px-lns .px-center .colspace {
+  padding: 0 20px 0 20px;
+}
+
+.px-liquid.px-lns .px-center h2.ttlform {
+  margin: 0 0 10px 0;
+  padding: 10px 0 10px 20px;
+  color: #123C75;
+  background: #EFF1F2;
+}
+
+.px-liquid.px-lns .px-center .ttl01 {
+  margin: 0 0 3px 0;
+  padding: 0 0 5px 5px;
+  font-weight: bold;
+  color: #666;
+  background: url(../images/px/bg_ttl01.png) repeat-x bottom;
+}
+
+.px-liquid.px-lns .px-center .ttl02 {
+  margin: 0 0 8px 0;
+  padding: 0 0 0 6px;
+  border-left: 5px solid #123D76;
+}
+
+.px-liquid.px-lns .px-center ul.form {
+  margin: 0 0 10px 0;
+}
+
+.px-liquid.px-lns .px-center ul.form li {
+  margin: 0 0 10px 0;
+}
+
+.px-liquid.px-lns .px-center ul.form li span.ttl {
+  display: block;
+  margin: 0 0 5px 0;
+  color: #333;
+  font-weight: bold;
+}
+
+.px-liquid.px-lns .px-center ul.form li span.err {
+  color: #FF0000;
+}
+
+.px-liquid.px-lns .px-center ul.form li input {
+  width: 500px;
+  height: 15px;
+  padding: 5px;
+  border: 1px solid #cecfd0;
+  color: #333;
+  background: url(../images/px/input_bg.gif) repeat-x right center;
+}
+
+.px-liquid.px-lns .px-center ul.veri {
+  margin: 0 0 20px 0;
+}
+
+.px-liquid.px-lns .px-center ul.veri li {
+  margin: 0 0 10px 0;
+  padding: 0 0 5px 0;
+  border-bottom: 1px solid #26567C;
+}
+
+.px-liquid.px-lns .px-center ul.veri li span.verittl {
+  color: #333;
+  font-weight: bold;
+}
+
+.px-liquid.px-lns .px-center .borderbox,
+.px-liquid.px-lns .px-center .px-nolist {
+  margin: 0 0 20px 0;
+  padding: 50px;
+  border: 1px solid #CCC;
+  background: #EFEFEF;
+}
+
+.px-liquid.px-lns .px-center .px-nolist p {
+  text-align: center;
+}
+
+.px-liquid.px-lns .px-center .borderbox img.mid {
+  vertical-align: middle;
+  margin: 0 5px 0 0;
+}
+
+.px-liquid.px-lns .px-center form.search,
+.px-liquid.px-lns .px-center .searcharea {
+  height: 30px;
+  margin: 0 0 20px 0;
+  margin-bottom: 20px;
+  padding: 20px 20px 25px 20px;
+  border: 1px solid #cecfd0;
+  background-color: #f0f0f0;
+}
+
+.px-liquid.px-lns .px-center .px-search {
+  overflow: hidden;
+  margin-bottom: 20px;
+  padding: 20px 20px 25px 20px;
+  border: 1px solid #cecfd0;
+  background-color: #f0f0f0;
+}
+
+.px-liquid.px-lns .px-center .px-search .txt,
+.px-liquid.px-lns .px-center .searcharea .txt {
+  float: left;
+  width: 500px;
+  height: 26px;
+  margin-right: 10px;
+  padding-top: 5px;
+  padding-right: 5px;
+  padding-left: 5px;
+  border: 1px solid #cecfd0;
+  color: #333;
+  font-weight: bold;
+  font-size: 18px;
+  background: url(../images/px/input_bg.gif) repeat-x right center;
+}
+
+.px-liquid.px-lns .px-center .px-search .searchbtn,
+.px-liquid.px-lns .px-center .searcharea .searchbtn {
+  cursor: pointer;
+  width: 70px;
+  padding: 5px 5px 5px 0;
+  border: 2px solid #D9E4EC;
+  color: #FFF;
+  font-size: 14px;
+  text-decoration: none;
+  background: #123C75 url(../images/globalnavi/bg.gif) repeat-x bottom;
+}
+
+.px-liquid.px-lns .px-center .px-search form.px-form input {
+  float: left;
+  width: 500px;
+  height: 28px;
+  margin-right: 10px;
+  padding-top: 5px;
+  padding-right: 5px;
+  padding-left: 5px;
+  border: solid 1px #cecfd0;
+  color: #333;
+  font-weight: bold;
+  font-size: 18px;
+  background: url(../images/px/input_bg.gif) repeat-x right center;
+}
+
+.px-liquid.px-lns .px-center form.search button {
+  width: 100px;
+  display: block;
+  float: left;
+  margin: 0 7px 0 0;
+  background-color: #194c8b;
+  border: 1px solid #dedede;
+  border-top: 1px solid #eee;
+  border-left: 1px solid #eee;
+  font-family: "Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
+  font-size: 16px;
+  line-height: 130%;
+  text-decoration: none;
+  font-weight: bold;
+  color: #FFF;
+  cursor: pointer;
+  padding: 5px 10px 6px 0;
+}
+
+.px-liquid.px-lns .px-center .searcharea .searchbtn .magnifier {
+  padding: 0 0 0 20px;
+  background: url(../images/px/magnifier.png) no-repeat left center;
+}
+
+.px-liquid.px-lns .px-center form.search button:hover {
+  background-color: #2767a1;
+}
+
+.px-liquid.px-lns .px-center form.search button img {
+  float: left;
+  margin-top: 3px;
+  margin-right: 5px;
+}
+
+.px-liquid.px-lns .px-center .formleft {
+  float: left;
+}
+
+.px-liquid.px-lns .px-center .btnright {
+  float: right;
+}
+
+.px-liquid.px-lns .px-center form.contri {
+  margin: 0 0 10px 0;
+}
+
+.px-liquid.px-lns .px-center form textarea.messa {
+  width: 600px;
+  height: 100px;
+  border: solid 1px #cecfd0;
+  color: #333;
+  background: url(../images/px/input_bg.gif) repeat-x top;
+}
+
+.px-liquid.px-lns .px-center .bluebtn {
+  cursor: pointer;
+  padding: 5px;
+  border: 2px solid #D9E4EC;
+  color: #FFF;
+  font-size: 14px;
+  text-decoration: none;
+  background: #123C75 url(../images/globalnavi/bg.gif) repeat-x bottom;
+}
+
+.px-liquid.px-lns .px-center .tablelayout {
+  width: 100%;
+  margin: 0 0 20px 0;
+  border-top: 1px solid #CCC;
+  border-right: 1px solid #CCC;
+  border-left: 1px solid #CCC;
+}
+
+.px-liquid.px-lns .px-center .tablelayout caption {
+  padding: 5px 5px 8px 5px;
+  color: #555;
+  font-weight: bold;
+  text-align: left;
+  background: url(../images/px/bg_gra.png) repeat-x top;
+}
+
+.px-liquid.px-lns .px-center .tablelayout th,
+.px-liquid.px-lns .px-center .tablelayout td {
+  padding: 6px;
+  text-align: left;
+}
+
+.px-liquid.px-lns .px-center .tablelayout th {
+  border-bottom: 1px solid #CCC;
+  color: #123C75;
+  font-weight: bold;
+  background: #EFEFEF;
+}
+
+.px-liquid.px-lns .px-center .tablelayout td {
+  border-bottom: 1px solid #CCC;
+}
+
+.px-liquid.px-lns .px-center .pager {
+  margin: 5px 0;
+  padding: 0;
+  font: normal normal normal 12px/1.0 monospace;
+  text-align: center;
+  text-decoration: none;
+}
+
+.px-liquid.px-lns .px-center .pager span {
+  margin: 0 5px 0 5px;
+}
+
+.px-liquid.px-lns .px-center .pager a {
+  padding: 4px 7px 2px 8px;
+  border: 1px solid #CCC;
+  color: #333;
+  font: normal 12px monospace;
+  text-decoration: none;
+  background: #EFEFEF;
+}
+
+.px-liquid.px-lns .px-center .pager span.cu {
+  padding: 4px 7px 2px 8px;
+  border: 1px solid #CCC;
+  color: #FFF;
+  font: normal 12px monospace;
+  text-decoration: none;
+  background: #2B67AA;
+}
+
+.px-liquid.px-lns .px-center .pager a:hover {
+  color: #fff;
+  text-decoration: none;
+  background: #2B67AA;
+}
+
+.px-liquid.px-lns .px-center dl.layout {
+  width: 90px;
+}
+
+.px-liquid.px-lns .px-center dl.layout dt {
+  height: 90px;
+  margin: 0 0 6px 0;
+}
+
+.px-liquid.px-lns .px-center dl.layout dd {
+  text-align: center;
+}
+
+.px-liquid.px-lns .px-center .btn {
+  margin: 0 0 10px 0;
+}
+
+.px-liquid.px-lns .px-center ul.file {
+  margin: 0 0 10px 0;
+}
+
+.px-liquid.px-lns .px-center ul.file li {
+  margin: 0 0 5px 0;
+}
+
+.px-liquid.px-lns .px-center ul.file li.last {
+  margin: 0;
+}
+
+/* /px-center */
+
+/* px-verufy */
+/*.px-liquid.px-lns .px-verify {
+  margin: 0 0 10px 0;
+}
+
+/* /px-verufy */
+
+/* px-south */
+/*.px-liquid.px-lns .px-south {
+  clear: both;
+  padding: 30px 0 20px 0;
+  background: #123D76;  
+}
+
+.px-liquid.px-lns .px-south address{
+  text-align: center;
+  color: #FFF;
+}
+
+/* /px-south */
+
+
+/* ------------------------------
+ LNW 設定
+------------------------------ */
+.px-liquid.px-lnw .px-north {
+  background: #66CCFF;
+}
+
+
+/* ------------------------------
+ LNWS 設定
+------------------------------ */
+.px-liquid.px-lnws .px-north {
+  background: #66CCFF;
+}
+
+
+/* ------------------------------
+ LS 設定
+------------------------------ */
+.px-liquid.px-ls .px-center {
+  background: #EFEFEF;
+}
+
+
+/* ------------------------------
+ LW 設定
+------------------------------ */
+.px-liquid.px-lw {
+
+}
+
+
+/* ------------------------------
+ LWS 設定
+------------------------------ */
+.px-liquid.px-lws {
+
+}
+
+
+/* ------------------------------
+ のちのちデザインする予定
+------------------------------ */
+/*.px-form {
+  border: solid 2px #b7ddf2;
+  background: #ebf4fb;
+}
+
+.px-form h1 {
+  margin-bottom: 8px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.px-form p {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: solid 1px #b7ddf2;
+  color: #666666;
+  font-size: 11px;
+}
+
+.px-form label{
+  display: block;
+  float: left;
+  width: 140px;
+  font-weight: bold;
+  text-align: right;
+}
+
+.px-form .small{
+  display: block;
+  width: 140px;
+  color: #666666;
+  font-weight: normal;
+  font-size: 11px;
+  text-align: right;
+}
+
+.px-form input,textarea{
+  float: left;
+  width: 200px;
+  margin: 2px 0 20px 10px;
+  padding: 4px 2px;
+  border: solid 1px #aacfe4;
+  font-size: 12px;
+}
+
+.px-form button{
+  clear: both;
+  width: 125px;
+  height: 31px;
+  line-height: 31px;
+  margin-left: 150px;
+  color: #FFFFFF;
+  font-weight: bold;
+  font-size: 11px;
+  text-align: center;
+  background: #666666 url(img/button.png) no-repeat;
+}
+*/
+
+
+/* ------------------------------
+ フォント 設定
+------------------------------ */
+strong {
+  font-weight: bold;
+}
+
+
+/* ------------------------------
+ clear 設定
+------------------------------ */
+.clear {
+  clear: both;
+}
+
+
+/* ------------------------------
+ text-align 設定
+------------------------------ */
+.cmove {
+  text-align: center;
+}
+
+
+/* ------------------------------
+ IE6 ハック 設定
+------------------------------ */
+.px-liquid.px-lns .px-center .colspace {
+  _width: 100%;
+}
+
+.px-liquid.px-lns .px-center .px-search form.px-form button {
+  _padding: 5px 10px 0 0; /* Links */
+}
+
+.px-liquid.px-lns .px-center .px-search form.px-form input {
+  _height: 29px;
+}
+
+.px-liquid.px-lns .px-center ul.form li input {
+  _height: 25px;
+}
+
+.px-liquid.px-lns .px-center .px-search .txt,
+.px-liquid.px-lns .px-center .searcharea .txt {
+  _height: 32px;
+}
+
+.px-liquid.px-lns .px-center .pager a.adjust,
+.px-liquid.px-lns .px-center .pager span.cu {
+  _padding: 2px 7px 2px 8px;
+}
+
+
+/* ------------------------------
+ IE7 ハック 設定
+------------------------------ */
+*:first-child+html .px-liquid.px-lns .px-search form.px-form input {
+  height: 32px;
+}
+
+*:first-child+html .px-liquid.px-lns .px-center .pager a.adjust,
+*:first-child+html .px-liquid.px-lns .px-center .pager span.cu {
+  padding: 2px 7px 2px 8px;
+}

@@ -1,0 +1,36 @@
+## 役職
+posts:
+  - &p91
+    id:     91
+    name:   重役
+  - &p92
+    id:     92
+    name:   管理職
+  - &p93
+    id:     93
+    name:   平社員
+
+
+## 社員
+employees:
+
+  ## 山田は重役、上司はなし
+  - &e1001
+    id:     1001
+    name:   山田○○
+    post:   *p91
+    supervisor: ~
+
+  ## 田中は管理職、上司は山田
+  - &e1002
+    id:     1002
+    name:   田中○○
+    post:   *p92
+    supervisor: *e1001
+
+  ## 中村は平社員、上司は田中
+  - &e1003
+    id:     1003
+    name:   中村○○
+    post:   *p93
+    supervisor: *e1002

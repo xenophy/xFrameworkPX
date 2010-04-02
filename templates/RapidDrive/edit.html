@@ -1,0 +1,152 @@
+<!--{strip}-->
+<div class="px-edit">
+
+    <div class="px-wrap">
+
+        <div class="px-body">
+
+            <!--{* 編集フォーム *}-->
+            <form id="px-form-input" name="px-form-input" method="post" action="<!--{$nextaction}-->.html">
+
+                <!--{foreach from=$outdata item=item key=key}-->
+
+                <!--{if ($type.$key.type == 'hidden')}-->
+                <input type="hidden" name="<!--{$moduleName}-->[<!--{$key}-->]" value="<!--{$item}-->" />
+
+                <ul class="form">
+
+                    <!--{elseif ( $type.$key.type == 'text' )}-->
+                    <li>
+                        <span class="ttl"><!--{$label.$key}--></span>
+                        <input type="text" name="<!--{$moduleName}-->[<!--{$key}-->]" maxlength="<!--{$type.$key.length}-->" value="<!--{$item}-->" />
+                    </li>
+
+                    <!--{elseif ( $type.$key.type == 'password' )}-->
+                    <li>
+                        <span class="ttl"><!--{$label.$key}--></span>
+                        <input type="password" name="<!--{$moduleName}-->[<!--{$key}-->]" maxlength="<!--{$type.$key.length}-->" value="" />
+                    </li>
+
+                    <!--{elseif ( $type.$key.type == 'textarea')}-->
+                    <li>
+                        <span class="ttl"><!--{$label.$key}--></span>
+                        <textarea name="<!--{$moduleName}-->[<!--{$key}-->]" rows="20" cols="10" class="messa"><!--{$item}--></textarea>
+                    </li>
+
+                    <!--{elseif ( $type.$key.type == 'checkbox')}-->
+                    <li>
+                        <span class="ttl"><!--{$label.$key}--></span>
+                        <input type="checkbox" name="<!--{$moduleName}-->[<!--{$key}-->]" value="1" <!--{if ( $item !== '0' )}-->checked<!--{/if}--> />
+                    </li>
+
+                <!--{elseif ( $type.$key.type == 'select_date' )}-->
+                    <li>
+                        <span class="ttl"><!--{$label.$key}--></span>
+                        <select name="<!--{$moduleName}-->[<!--{$key}-->][year]">
+                            <!--{foreach from=$type.$key.item.year item=option}-->
+                            <option value="<!--{$option}-->"<!--{if ( $option == $item.year )}--> selected<!--{/if}-->>
+                                <!--{$option|string_format:"%04d"}-->
+                            </option>
+                            <!--{/foreach}-->
+                        </select>/
+                        <select name="<!--{$moduleName}-->[<!--{$key}-->][month]">
+                            <!--{foreach from=$type.$key.item.month item=option}-->
+                            <option value="<!--{$option}-->"<!--{if ( $option == $item.month )}--> selected<!--{/if}-->>
+                                <!--{$option|string_format:"%02d"}-->
+                            </option>
+                            <!--{/foreach}-->
+                        </select>/
+                        <select name="<!--{$moduleName}-->[<!--{$key}-->][day]">
+                            <!--{foreach from=$type.$key.item.day item=option}-->
+                            <option value="<!--{$option}-->"<!--{if ( $option == $item.day )}--> selected<!--{/if}-->>
+                                <!--{$option|string_format:"%02d"}-->
+                            </option>
+                            <!--{/foreach}-->
+                        </select>
+                    </li>
+
+                    <!--{elseif ( $type.$key.type == 'select_datetime' )}-->
+                    <li>
+                        <span class="ttl"><!--{$label.$key}--></span>
+                        <select name="<!--{$moduleName}-->[<!--{$key}-->][year]">
+                            <!--{foreach from=$type.$key.item.year item=option}-->
+                            <option value="<!--{$option}-->"<!--{if ( $option == $item.year )}--> selected<!--{/if}-->>
+                                <!--{$option|string_format:"%04d"}-->
+                            </option>
+                            <!--{/foreach}-->
+                        </select>/
+                        <select name="<!--{$moduleName}-->[<!--{$key}-->][month]">
+                            <!--{foreach from=$type.$key.item.month item=option}-->
+                            <option value="<!--{$option}-->"<!--{if ( $option == $item.month )}--> selected<!--{/if}-->>
+                                <!--{$option|string_format:"%02d"}-->
+                            </option>
+                            <!--{/foreach}-->
+                        </select>/
+                        <select name="<!--{$moduleName}-->[<!--{$key}-->][day]">
+                            <!--{foreach from=$type.$key.item.day item=option}-->
+                            <option value="<!--{$option}-->"<!--{if ( $option == $item.day )}--> selected<!--{/if}-->>
+                                <!--{$option|string_format:"%02d"}-->
+                            </option>
+                            <!--{/foreach}-->
+                        </select>
+                        &nbsp;
+                        <select name="<!--{$moduleName}-->[<!--{$key}-->][hour]">
+                            <!--{foreach from=$type.$key.item.hour item=option}-->
+                            <option value="<!--{$option}-->"<!--{if ( $option == $item.hour )}--> selected<!--{/if}-->>
+                                <!--{$option|string_format:"%02d"}-->
+                            </option>
+                            <!--{/foreach}-->
+                        </select>:
+                        <select name="<!--{$moduleName}-->[<!--{$key}-->][minute]">
+                            <!--{foreach from=$type.$key.item.minute item=option}-->
+                            <option value="<!--{$option}-->"<!--{if ( $option == $item.minute )}--> selected<!--{/if}-->>
+                                <!--{$option|string_format:"%02d"}-->
+                            </option>
+                            <!--{/foreach}-->
+                        </select>
+                    </li>
+
+                    <!--{elseif ( $type.$key.type == 'select_time' )}-->
+                    <li>
+                        <span class="ttl"><!--{$label.$key}--></span>
+                        <select name="<!--{$moduleName}-->[<!--{$key}-->][hour]">
+                            <!--{foreach from=$type.$key.item.hour item=option}-->
+                            <option value="<!--{$option}-->"<!--{if ( $option == $item.hour )}--> selected<!--{/if}-->>
+                                <!--{$option|string_format:"%02d"}-->
+                            </option>
+                            <!--{/foreach}-->
+                        </select>:
+                        <select name="<!--{$moduleName}-->[<!--{$key}-->][minute]">
+                            <!--{foreach from=$type.$key.item.minute item=option}-->
+                            <option value="<!--{$option}-->"<!--{if ( $option == $item.minute )}--> selected<!--{/if}-->>
+                                <!--{$option|string_format:"%02d"}-->
+                            </option>
+                            <!--{/foreach}-->
+                        </select>
+                    </li>
+
+                    <!--{/if}-->
+
+                    <!--{if ( $validerror->key_exists( $key ) )}-->
+                        <!--{foreach from=$validerror[$key].messages item=message}-->
+                    <li><span class="err"><!--{$message}--></span></li>
+                        <!--{/foreach}-->
+                    <!--{/if}-->
+
+                    <!--{/foreach}-->
+                    <!--{* 確認ボタン *}-->
+                    <li><button type="submit" class="bluebtn">確認</button></li>
+                    <!--{* /確認ボタン *}-->
+                </ul>
+                <!--{* リファラー *}-->
+                <input type="hidden" name="<!--{$refererName}-->" value="<!--{$px_ref|escape}-->" />
+                <!--{* /リファラー *}-->
+            </form>
+            <!--{* /編集フォーム *}-->
+
+        </div>
+
+    </div>
+
+</div>
+<!--{/strip}-->
