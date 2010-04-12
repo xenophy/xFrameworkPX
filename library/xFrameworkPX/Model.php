@@ -178,7 +178,8 @@ abstract class xFrameworkPX_Model extends xFrameworkPX_Util_Observable
         $adaptermap = array(
             'mysql' => 'MySQL',
             'pgsql' => 'PgSQL',
-            'postgresql' => 'PgSQL'
+            'postgresql' => 'PgSQL',
+            'oracle' => 'Oracle'
         );
 
         // 設定オブジェクト格納

@@ -3,7 +3,7 @@
 /* vim: set expandtab tabstop=4 shiftwidth=4 softtabstop=4: */
 
 /**
- * xFrameworkPX_Model_Adapter_MySQL Class File
+ * xFrameworkPX_Model_Adapter_Oracle Class File
  *
  * PHP versions 5
  *
@@ -12,13 +12,13 @@
  * @author     Kazuhiro Kotsutsumi <kotsutsumi@xenophy.com>
  * @copyright  Copyright (c) 2006-2010 Xenophy.CO.,LTD All rights Reserved.
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
- * @version    SVN $Id: MySQL.php 1369 2010-01-18 12:02:07Z kotsutsumi $
+ * @version    SVN $Id: Oracle.php 1369 2010-01-18 12:02:07Z kotsutsumi $
  */
-
-// {{{ xFrameworkPX_Model_Adapter_MySQL
+// {{{ xFrameworkPX_Model_Adapter_Oracle
 
 /**
- * xFrameworkPX_Model_Adapter_MySQL Class
+
+ * xFrameworkPX_Model_Adapter_Oracle Class
  *
  * @category   xFrameworkPX
  * @package    xFrameworkPX_Model_Adapter
@@ -26,9 +26,9 @@
  * @copyright  Copyright (c) 2006-2010 Xenophy.CO.,LTD All rights Reserved.
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  * @version    Release: 3.5.0
- * @link       http://www.xframeworkpx.com/api/?class=xFrameworkPX_Model_Adapter_MySQL
+ * @link       http://www.xframeworkpx.com/api/?class=xFrameworkPX_Model_Adapter_Oracle
  */
-class xFrameworkPX_Model_Adapter_MySQL extends xFrameworkPX_Model_Adapter
+class xFrameworkPX_Model_Adapter_Oracle extends xFrameworkPX_Model_Adapter
 {
 
     // {{{ properties
@@ -38,18 +38,17 @@ class xFrameworkPX_Model_Adapter_MySQL extends xFrameworkPX_Model_Adapter
      *
      * @var array
      */
-    private $_functionList = array(
+    public $functionList = array(
         'date' => array(
-            'CURDATE()', 'CURRENT_DATE', 'CURRENT_DATE()',
-            'CURTIME()', 'CURRENT_TIME', 'CURRENT_TIME()',
-            'NOW()', 'CURRENT_TIMESTAMP', 'CURRENT_TIMESTAMP()', 'SYSDATE()'
+            'SYSDATE', 'SYSTIMESTAMP', 'CURRENT_DATE',
+            'CURRENT_TIMESTAMP', 'CURRENT_TIMESTAMP()'
         ),
         'group' => array('COUNT()', 'MIN()', 'MAX()', 'AVG()', 'SUM()'),
-        'other' => array('MD5()')
+        'other' => array()
     );
 
     // }}}
-    // {{{ getRdbmsName
+    // {{{ getDbName
 
     /**
      * RDBMS名取得メソッド
@@ -58,7 +57,7 @@ class xFrameworkPX_Model_Adapter_MySQL extends xFrameworkPX_Model_Adapter
      */
     public function getRdbmsName()
     {
-        return 'mysql';
+        return 'oracle';
     }
 
     // }}}
@@ -71,7 +70,30 @@ class xFrameworkPX_Model_Adapter_MySQL extends xFrameworkPX_Model_Adapter
      */
     public function getQuerySchema()
     {
-        return 'SHOW FULL COLUMNS FROM %s';
+        $query = array();
+        $query[] = 'SELECT a.column_id, a.column_name, a.data_type,';
+        $query[] = '    a.data_precision, a.data_length, a.data_scale,';
+        $query[] = '    a.nullable, a.data_default, b.comments';
+        $query[] = 'FROM user_tab_columns a, user_col_comments b';
+        $query[] = 'WHERE (a.table_name = b.table_name(+) AND';
+        $query[] = '       a.column_name = b.column_name(+)) AND';
+        $query[] = "(a.table_name = UPPER('%s'))";
+        $query[] = 'ORDER BY a.column_id';
+        /*
+        $query[] = 'SELECT a.index_name, uniqueness';
+        $query[] = 'FROM user_indexes a';
+        $query[] = "WHERE a.table_name = '%s' AND";
+        $query[] = '      NOT EXISTS (';
+        $query[] = '          SELECT *';
+        $query[] = '          FROM user_constraints b';
+        $query[] = "          WHERE (b.constraint_type = 'P') AND";
+        $query[] = '                (b.table_name = a.table_name AND';
+        $query[] = '                    b.constraint_name = a.index_name)';
+        $query[] = '      )';
+        $query[] = 'ORDER BY a.index_name';
+        */
+
+        return implode(' ', $query);
     }
 
     // }}}
@@ -101,13 +123,27 @@ class xFrameworkPX_Model_Adapter_MySQL extends xFrameworkPX_Model_Adapter
      */
     public function addQueryLimit($query, $count = null, $offset = null)
     {
-        $ret = $query;
 
         // 取得数設定
-        if (!is_null($offset) && !is_null($count)) {
-            $ret .= sprintf(' LIMIT %s, %s', $offset, $count);
-        } else if (!is_null($count)) {
-            $ret .= sprintf(' LIMIT %s', $count);
+        if (!is_null($count)) {
+
+            $ret = sprintf(
+                'SELECT * FROM (SELECT temp__cnt.*, ROWNUM AS "temp__rn" FROM (%s) temp__cnt)',
+                rtrim($query, ';')
+            );
+
+            if (!is_null($offset)) {
+                $ret .= sprintf(
+                    ' WHERE "temp__rn" BETWEEN %s AND %s',
+                    $offset + 1,
+                    $offset + $count
+                );
+            } else {
+                $ret .= sprintf(' WHERE "temp__rn" BETWEEN 1 AND %s', $count);
+            }
+
+        } else {
+            $ret = $query;
         }
 
         return $ret;

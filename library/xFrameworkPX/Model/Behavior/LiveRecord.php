@@ -31,20 +31,6 @@
 class xFrameworkPX_Model_Behavior_LiveRecord
 extends xFrameworkPX_Model_Behavior
 {
-    /**
-     * 関数名リスト
-     *
-     * @var array
-     */
-    private $_functionList = array(
-        'date' => array(
-            'CURDATE()', 'CURRENT_DATE', 'CURRENT_DATE()',
-            'CURTIME()', 'CURRENT_TIME', 'CURRENT_TIME()',
-            'NOW()', 'CURRENT_TIMESTAMP', 'CURRENT_TIMESTAMP()'
-        ),
-        'group' => array('COUNT()', 'MIN()', 'MAX()', 'AVG()', 'SUM()'),
-        'other' => array('MD5()')
-    );
 
     // {{{ bindConnection
 
@@ -533,7 +519,7 @@ extends xFrameworkPX_Model_Behavior
 
         // クエリー生成
         $query = sprintf(
-            'UPDATE %s SET %s %s;',
+            'UPDATE %s SET %s %s',
             $this->usetable,
             $set,
             $clause . $whereClause
@@ -701,14 +687,6 @@ extends xFrameworkPX_Model_Behavior
         $orderClause     = isset($options['order'])
                               ? $options['order']
                               : '';
-        /*
-        $limitClause     = isset($options['limit'])
-                              ? $options['limit']
-                              : '';
-        */
-        $pageClause     = isset($options['page'])
-                              ? $options['page']
-                              : '';
 
         // WHERE句が配列の場合join
         $whereClause = $this->_getWhereClause($whereClause);
@@ -779,7 +757,9 @@ extends xFrameworkPX_Model_Behavior
         if (endsWith($query,';')) {
             $query = substr($query, 0, strlen($query) - 1);
         }
-        $query .= ' ' . $this->module->adapter->getQueryLimit(1, 0);
+
+        // LIMIT句付加
+        $query = $this->module->adapter->addQueryLimit($query, 1, 0);
 
         // クエリー取得の場合は、ここで終了
         if ($onlyQuery === true) {
@@ -799,6 +779,14 @@ extends xFrameworkPX_Model_Behavior
 
         // 単行取得
         $result = $stmt->fetch($fetch);
+
+        if ($result) {
+
+            if ($this->module->adapter->getRdbmsName() == 'oracle') {
+                array_pop($result);
+            }
+
+        }
 
         // デバッグ情報追加
         if ($this->module->conf['px']['DEBUG'] >= 2) {
@@ -936,34 +924,30 @@ extends xFrameworkPX_Model_Behavior
             $whereClause .= ' ORDER BY ' . $orderClause;
         }
 
-        $whereClause .= ' ' . $this->module->adapter->getQueryLimit(
-            $limitClause,
-            $pageClause * $limitClause
-        );
-
-
-        // PDOStatement取得
+        // query生成
         if (!empty($whereClause)) {
-            if ($onlyQuery === true) {
-                return $query . $clause . $whereClause;
-            } else {
-                $query = $query . $clause . $whereClause;
+            $query = $query . $clause . $whereClause;
+        }
 
-                // 最終実行クエリ設定
-                xFrameworkPX_Debug::getInstance()->setLastQuery($query);
+        // LIMIT句付加
+        if (!is_null($limitClause) && is_numeric($limitClause)) {
+            $limitClause = intval($limitClause);
+            $query = $this->module->adapter->addQueryLimit(
+                $query,
+                $limitClause,
+                $pageClause * $limitClause
+            );
+        }
 
-                $stmt = @$this->pdo->prepare($query);
-            }
+        if ($onlyQuery === true) {
+            return query;
         } else {
-            if ($onlyQuery === true) {
-                return $query;
-            } else {
 
-                // 最終実行クエリ設定
-                xFrameworkPX_Debug::getInstance()->setLastQuery($query);
+            // 最終実行クエリ設定
+            xFrameworkPX_Debug::getInstance()->setLastQuery($query);
 
-                $stmt = @$this->pdo->prepare($query);
-            }
+            // PDOStatement取得
+            $stmt = @$this->pdo->prepare($query);
         }
 
         // 最終バインド設定
@@ -979,6 +963,23 @@ extends xFrameworkPX_Model_Behavior
 
         // 行取得
         $result = $stmt->fetchAll($fetch);
+
+        if ($result) {
+
+            if (!is_null($limitClause) && is_numeric($limitClause)) {
+
+                if ($this->module->adapter->getRdbmsName() == 'oracle') {
+
+                    foreach ($result as $key => $line) {
+                        array_pop($line);
+                        $result[$key] = $line;
+                    }
+
+                }
+
+            }
+
+        }
 
         // デバッグ情報追加
         if ($this->module->conf['px']['DEBUG'] >= 2) {
@@ -1052,6 +1053,23 @@ extends xFrameworkPX_Model_Behavior
                               ? $options['lf']
                               : false;
 
+        // SELECT句にAS句追加
+        if (is_string($selectClause)) {
+
+            if (!preg_match('/(AS|as) CNT$/', $selectClause)) {
+                $selectClause .= 'AS "cnt"';
+            }
+
+        } else {
+            $selectClause = 'COUNT(*) AS "cnt"';
+        }
+
+
+        // WHERE句が配列の場合join
+        if (is_array($whereClause) && !empty($whereClause)) {
+            $whereClause = implode(' AND ', $whereClause);
+        }
+
         // WHERE句が宣言されている場合と空の場合は、'WHERE'を付加しない
         if (
             (is_string($whereClause) &&
@@ -1060,11 +1078,6 @@ extends xFrameworkPX_Model_Behavior
         ) {
 
             $clause = "\x20";
-        }
-
-        // WHERE句が配列の場合join
-        if (is_array($whereClause) && !empty($whereClause)) {
-            $whereClause = implode(' AND ', $whereClause);
         }
 
         // クエリー生成
@@ -1088,7 +1101,7 @@ extends xFrameworkPX_Model_Behavior
             return $result;
         }
 
-        return intval($result[$selectClause]);
+        return intval($result['cnt']);
 
     }
 
@@ -2062,7 +2075,7 @@ extends xFrameworkPX_Model_Behavior
     private function _getWhereClause($whereClause)
     {
 
-        if (is_array($whereClause) && !empty($whereClause)) {
+        if (is_array($whereClause)) {
             $whereTemp = '';
             $prevOperator = false;
 
@@ -2304,18 +2317,7 @@ extends xFrameworkPX_Model_Behavior
                             }
 
                         }
-                        /*
-                        else if ($val['type'] == 'other') {
 
-                            if (
-                                !matchesIn(strtolower($type), 'date') &&
-                                !matchesIn(strtolower($type), 'time')
-                            ) {
-                                $isFunc = true;
-                            }
-
-                        }
-                        */
                     }
 
                 } else if (
@@ -2882,7 +2884,7 @@ extends xFrameworkPX_Model_Behavior
             $name = isset($matches[2]) ? $matches[1] . '()'
                                        : $matches[1];
 
-            foreach ($this->_functionList as $type => $functions) {
+            foreach ($this->adapter->functionList as $type => $functions) {
 
                 if (in_array(strtoupper($name), $functions)) {
                     $src = $matches[0];

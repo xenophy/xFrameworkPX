@@ -123,6 +123,7 @@ class xFrameworkPX_Loader_Core
                 include 'xFrameworkPX/Model/RapidDrive.php';
                 include 'xFrameworkPX/Model/Adapter/MySQL.php';
                 include 'xFrameworkPX/Model/Adapter/PgSQL.php';
+                include 'xFrameworkPX/Model/Adapter/Oracle.php';
                 include 'xFrameworkPX/Model/Behavior/LiveRecord.php';
                 include 'xFrameworkPX/Model/Behavior/WiseTag.php';
                 include 'xFrameworkPX/Validation.php';
