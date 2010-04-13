@@ -247,7 +247,7 @@ abstract class xFrameworkPX_Model extends xFrameworkPX_Util_Observable
             );
 
             // MySQLキャラセット設定
-            if ((string)$xmlConn->driver === 'mysql') {
+            if (strtolower($this->conn->{$conf->conn}->driver) === 'mysql') {
                 $chaeset = strtolower((string)$xmlConn->charset);
                 if (isset($this->_charasetmap[$chaeset])) {
                     $this->pdo->exec(
@@ -294,6 +294,10 @@ abstract class xFrameworkPX_Model extends xFrameworkPX_Util_Observable
         // デバッグ用計測開始
         if ($this->conf['px']['DEBUG'] >= 2) {
             $startTime = microtime(true);
+        }
+
+        if ($type === 'oci' && !matchesIn($database, '/')) {
+            $database = sprintf('%s/%s', $host, $database);
         }
 
         $dsn = "{$type}:host={$host};dbname={$database}";

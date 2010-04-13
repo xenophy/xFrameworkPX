@@ -61,7 +61,7 @@
             <!-- /Adapter -->
 
             <!-- Driver -->
-            <driver>mysql</driver>
+            <driver>pgsql</driver>
             <!-- /Driver -->
 
             <!-- Host -->
@@ -69,11 +69,11 @@
             <!-- /Host -->
 
             <!-- User -->
-            <user>root</user>
+            <user>postgres</user>
             <!-- /User -->
 
             <!-- Password -->
-            <password></password>
+            <password>postgres</password>
             <!-- /Password -->
 
             <!-- Database -->
@@ -93,6 +93,53 @@
             <!-- /Socket -->
 
         </connection>
+
+        <!-- oracle -->
+        <connection name="default3">
+
+            <!-- Charset -->
+            <charset>UTF8</charset>
+            <!-- /Charset -->
+
+            <!-- Adapter -->
+            <adapter>oracle</adapter>
+            <!-- /Adapter -->
+
+            <!-- Driver -->
+            <driver>oci</driver>
+            <!-- /Driver -->
+
+            <!-- Host -->
+            <host>localhost</host>
+            <!-- /Host -->
+
+            <!-- User -->
+            <user>SCOTT</user>
+            <!-- /User -->
+
+            <!-- Password -->
+            <password>tiger</password>
+            <!-- /Password -->
+
+            <!-- Database -->
+            <database>127.0.0.1/myapp</database>
+            <!-- /Database -->
+
+            <!-- Prefix -->
+            <prefix></prefix>
+            <!-- /Prefix -->
+
+            <!-- Port -->
+            <port></port>
+            <!-- /Port -->
+
+            <!-- Socket -->
+            <socket></socket>
+            <!-- /Socket -->
+
+        </connection>
+        <!-- /oracle -->
+
     </database>
     <!-- /データベース設定 -->
 
