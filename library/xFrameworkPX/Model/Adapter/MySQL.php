@@ -38,7 +38,7 @@ class xFrameworkPX_Model_Adapter_MySQL extends xFrameworkPX_Model_Adapter
      *
      * @var array
      */
-    private $_functionList = array(
+    public $functionList = array(
         'date' => array(
             'CURDATE()', 'CURRENT_DATE', 'CURRENT_DATE()',
             'CURTIME()', 'CURRENT_TIME', 'CURRENT_TIME()',
@@ -62,16 +62,52 @@ class xFrameworkPX_Model_Adapter_MySQL extends xFrameworkPX_Model_Adapter
     }
 
     // }}}
-    // {{{ getQuerySchema
+    // {{{ getSchema
 
     /**
-     * スキーマ取得クエリー取得メソッド
+     * スキーマ取得メソッド
      *
-     * @return string SQLフラグメント
+     * @return array スキーマ情報とクエリ
      */
-    public function getQuerySchema()
+    public function getSchema($pdoObj, $tableName)
     {
-        return 'SHOW FULL COLUMNS FROM %s';
+        $ret = array();
+        $query = 'SHOW FULL COLUMNS FROM ' . $tableName;
+        $temp = array();
+
+        // PDOStatement取得
+        $stmt = @$pdoObj->prepare($query);
+
+        // クエリー実行
+        $stmt->execute();
+
+        // 単行取得
+        $result = $stmt->fetchAll(PDO::FETCH_NAMED);
+
+        if ($result) {
+            foreach ($result as $field) {
+                $temp[] = array(
+                    'Field' => $field['Field'],
+                    'Type' => $field['Type'],
+                    'Key' => $field['Key'],
+                    'Extra' => $field['Extra'],
+                    'Comment' => $field['Comment']
+                );
+            }
+
+        }
+
+        // 結果セット
+        $ret['result'] = $temp;
+        $ret['query'] = $query;
+
+        // カーソルを閉じてステートメントを再実行できるようにする
+        $stmt->closeCursor();
+
+        // PDOStatement破棄
+        unset($stmt);
+
+        return $ret;
     }
 
     // }}}

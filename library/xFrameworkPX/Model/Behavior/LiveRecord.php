@@ -88,25 +88,15 @@ extends xFrameworkPX_Model_Behavior
         // スキーマキャッシュ生成
         if (!file_exists($schemaFile)) {
 
-            // クエリー生成
-            $query = sprintf(
-                $this->adapter->getQuerySchema(),
-                $this->usetable
-            );
-
-            // PDOStatement取得
-            $stmt = @$this->pdo->prepare($query);
-
             // デバッグ用計測開始
             if ($this->module->conf['px']['DEBUG'] >= 2) {
                 $startTime = microtime(true);
             }
 
-            // クエリー実行
-            $stmt->execute();
+            $result = $this->adapter->getSchema($this->pdo, $this->usetable);
 
-            // 単行取得
-            $result = $stmt->fetchAll(PDO::FETCH_NAMED);
+            $query = $result['query'];
+            $result = $result['result'];
 
             // デバッグ情報追加
             if ($this->module->conf['px']['DEBUG'] >= 2) {
@@ -119,12 +109,6 @@ extends xFrameworkPX_Model_Behavior
                     microtime(true) - $startTime
                 );
             }
-
-            // カーソルを閉じてステートメントを再実行できるようにする
-            $stmt->closeCursor();
-
-            // PDOStatement破棄
-            unset($stmt);
 
             file_put_contents(
                 $schemaFile,
@@ -149,7 +133,6 @@ extends xFrameworkPX_Model_Behavior
 
         return $schemas;
     }
-
     // }}}
     // {{{ bindGetTableInfo
     
@@ -3028,12 +3011,18 @@ extends xFrameworkPX_Model_Behavior
                                     !matchesIn(strtolower($colType), 'date') ||
                                     !matchesIn(strtolower($colType), 'time')
                                 ) {
-                                    $values[] = sprintf(
-                                        '%s(:%s)',
-                                        substr($func['name'], 0, -2),
-                                        $key
-                                    );
-                                    $binds[$key] = $func['param'];
+
+                                    if ($func['param'] !== '') {
+                                        $values[] = sprintf(
+                                            '%s(:%s)',
+                                            substr($func['name'], 0, -2),
+                                            $key
+                                        );
+                                        $binds[$key] = $func['param'];
+                                    } else {
+                                        $values[] = $func['src'];
+                                    }
+
                                 }
 
                                 break;
@@ -3146,12 +3135,18 @@ extends xFrameworkPX_Model_Behavior
                                 !matchesIn(strtolower($colType), 'date') ||
                                 !matchesIn(strtolower($colType), 'time')
                             ) {
-                                $values[] = sprintf(
-                                    '%s(:%s)',
-                                    substr($func['name'], 0, -2),
-                                    $key
-                                );
-                                $binds[$key] = $func['param'];
+
+                                if ($func['param'] !== '') {
+                                    $values[] = sprintf(
+                                        '%s(:%s)',
+                                      substr($func['name'], 0, -2),
+                                        $key
+                                    );
+                                    $binds[$key] = $func['param'];
+                                } else {
+                                    $values[] = $func['src'];
+                                }
+
                             }
 
                             break;

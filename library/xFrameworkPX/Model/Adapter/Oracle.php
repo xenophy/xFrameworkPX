@@ -61,39 +61,89 @@ class xFrameworkPX_Model_Adapter_Oracle extends xFrameworkPX_Model_Adapter
     }
 
     // }}}
-    // {{{ getQuerySchema
+    // {{{ getSchema
 
-    /**
-     * スキーマ取得クエリー取得メソッド
-     *
-     * @return string SQLフラグメント
-     */
-    public function getQuerySchema()
+    public function getSchema($pdoObj, $tableName)
     {
-        $query = array();
-        $query[] = 'SELECT a.column_id, a.column_name, a.data_type,';
-        $query[] = '    a.data_precision, a.data_length, a.data_scale,';
-        $query[] = '    a.nullable, a.data_default, b.comments';
-        $query[] = 'FROM user_tab_columns a, user_col_comments b';
-        $query[] = 'WHERE (a.table_name = b.table_name(+) AND';
-        $query[] = '       a.column_name = b.column_name(+)) AND';
-        $query[] = "(a.table_name = UPPER('%s'))";
-        $query[] = 'ORDER BY a.column_id';
-        /*
-        $query[] = 'SELECT a.index_name, uniqueness';
-        $query[] = 'FROM user_indexes a';
-        $query[] = "WHERE a.table_name = '%s' AND";
-        $query[] = '      NOT EXISTS (';
-        $query[] = '          SELECT *';
-        $query[] = '          FROM user_constraints b';
-        $query[] = "          WHERE (b.constraint_type = 'P') AND";
-        $query[] = '                (b.table_name = a.table_name AND';
-        $query[] = '                    b.constraint_name = a.index_name)';
-        $query[] = '      )';
-        $query[] = 'ORDER BY a.index_name';
-        */
+        $ret = array();
+        $temp = array();
+        $query = sprintf(
+            implode(' ', array(
+                'SELECT a.COLUMN_NAME, a.DATA_TYPE, a.DATA_LENGTH,',
+                'c.CONSTRAINT_TYPE, b.COMMENTS',
+                'FROM ALL_TAB_COLUMNS a, ALL_COL_COMMENTS b,',
+                '(SELECT c1.TABLE_NAME, c1.COLUMN_NAME, c2.CONSTRAINT_TYPE',
+                'FROM ALL_CONS_COLUMNS c1, ALL_CONSTRAINTS c2',
+                'WHERE c1.CONSTRAINT_NAME = c2.CONSTRAINT_NAME AND',
+                'c1.TABLE_NAME = c2.TABLE_NAME(+) AND',
+                "c2.STATUS = 'ENABLED' AND",
+                "c2.CONSTRAINT_TYPE = 'P') c",
+                'WHERE (a.TABLE_NAME = b.TABLE_NAME(+) AND',
+                'a.TABLE_NAME = c.TABLE_NAME(+) AND',
+                'a.COLUMN_NAME = b.COLUMN_NAME(+) AND',
+                'a.COLUMN_NAME = c.COLUMN_NAME(+)) AND',
+                "a.TABLE_NAME = '%s'",
+                'ORDER BY a.COLUMN_ID ASC'
+            )),
+            $tableName
+        );
 
-        return implode(' ', $query);
+        // PDOStatement取得
+        $stmt = @$pdoObj->prepare($query);
+
+        // クエリー実行
+        $stmt->execute();
+
+        // 単行取得
+        $result = $stmt->fetchAll(PDO::FETCH_NAMED);
+
+        if ($result) {
+
+            foreach ($result as $field) {
+                $constType = '';
+
+                if (isset($field['CONSTRAINT_TYPE'])) {
+
+                    switch ($field['CONSTRAINT_TYPE']) {
+
+                        case 'P':
+                            $constType = 'PRI';
+                            break;
+                    }
+
+                }
+
+                if (intval($field['DATA_LENGTH']) > 0) {
+                    $fieldType = sprintf(
+                        '%s(%s)',
+                        $field['DATA_TYPE'],
+                        $field['DATA_LENGTH']
+                    );
+                } else {
+                    $fieldType = $field['DATA_TYPE'];
+                }
+
+                $temp[] = array(
+                    'Field' => $field['COLUMN_NAME'],
+                    'Type' => $fieldType,
+                    'Key' => $constType,
+                    'Extra' => '',
+                    'Comment' => $field['COMMENTS']
+                );
+            }
+
+        }
+
+        $ret['result'] = $temp;
+        $ret['query'] = $query;
+
+        // カーソルを閉じてステートメントを再実行できるようにする
+        $stmt->closeCursor();
+
+        // PDOStatement破棄
+        unset($stmt);
+
+        return $ret;
     }
 
     // }}}
