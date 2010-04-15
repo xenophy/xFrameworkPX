@@ -136,9 +136,24 @@ class xFrameworkPX_Model_Adapter_MySQL extends xFrameworkPX_Model_Adapter
      *
      * @return string SQLフラグメント
      */
-    public function getQueryLastId()
+    public function getQueryLastId($tblName, $colName)
     {
         return 'SELECT last_insert_id() AS last_id;';
+    }
+
+    // }}}
+    // {{{ getQueryTableInfo
+
+    /**
+     * テーブル情報取得クエリー取得メソッド
+     */
+    public function getQueryTableInfo($dbName, $tblName)
+    {
+        return sprintf(
+            "show table status from `%s` like '%s'",
+            $dbName,
+            $tblName
+        );
     }
 
     // }}}
@@ -173,7 +188,7 @@ class xFrameworkPX_Model_Adapter_MySQL extends xFrameworkPX_Model_Adapter
     /**
      * カラムデータ型抽象化メソッド
      */
-    public function getColTypeGroup($type)
+    public function getColTypeAbstract($type)
     {
         $ret = 'other';
 
@@ -181,10 +196,10 @@ class xFrameworkPX_Model_Adapter_MySQL extends xFrameworkPX_Model_Adapter
             $type = $matches[1];
         }
 
-        foreach ($this->dataTypeList as $group => $types) {
+        foreach ($this->dataTypeList as $abst => $types) {
 
             if (in_array($type, $types)) {
-                $ret = $group;
+                $ret = $abst;
                 break;
             }
 

@@ -154,9 +154,30 @@ class xFrameworkPX_Model_Adapter_Oracle extends xFrameworkPX_Model_Adapter
      *
      * @return string SQLフラグメント
      */
-    public function getQueryLastId()
+    public function getQueryLastId($tblName, $colName)
     {
-        return 'SELECT last_insert_id() AS last_id;';
+        return sprintf(
+            "SELECT MAX(%s.%s) AS 'last_id' FROM %s",
+            $tblName, $colName, $tblName
+        );
+    }
+
+    // }}}
+    // {{{ getQueryTableInfo
+
+    /**
+     * テーブル情報取得クエリー取得メソッド
+     */
+    public function getQueryTableInfo($dbName, $tblName)
+    {
+        $ret = implode(' ', array(
+            'SELECT a.TABLE_NAME, a.OWNER, a.TABLESPACE_NAME, a.NUM_ROWS, b.COMMENTS',
+            'FROM ALL_TABLES a, ALL_TAB_COMMENTS b',
+            'WHERE a.TABLE_NAME = b.TABLE_NAME(+) AND',
+            "a.TABLE_NAME = '%s'"
+        ));
+
+        return sprintf($ret, $tblName);
     }
 
     // }}}

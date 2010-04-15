@@ -102,7 +102,7 @@ extends xFrameworkPX_Model_Behavior
             if ($this->module->conf['px']['DEBUG'] >= 2) {
                 $traceQuery = $query;
                 xFrameworkPX_Debug::getInstance()->addQuery(
-                    $this->module->getTableName(),
+                    $this->usetable,
                     get_class($this->module),
                     $traceQuery,
                     count($result),
@@ -139,7 +139,10 @@ extends xFrameworkPX_Model_Behavior
     public function bindGetTableInfo()
     {
         // クエリー生成
-        $query = 'show table status from `' . $this->bindDatabase() . '` like \'' . $this->module->getTableName() . '\'';
+        // $query = 'show table status from `' . $this->bindDatabase() . '` like \'' . $this->module->getTableName() . '\'';
+        $query = $this->adapter->getQueryTableInfo(
+            $this->bindDatabase(), $this->usetable
+        );
 
         // PDOStatement取得
         $stmt = @$this->pdo->prepare($query);
@@ -2291,11 +2294,15 @@ extends xFrameworkPX_Model_Behavior
                         }
 
                         if ($val['type'] == 'date') {
-
+                            /*
                             if (
                                 matchesIn(strtolower($type), 'date') ||
                                 matchesIn(strtolower($type), 'time')
                             ) {
+                                $isFunc = true;
+                            }
+                            */
+                            if ($this->adapter->getColTypeAbstract($type) == 'date') {
                                 $isFunc = true;
                             }
 
@@ -2314,20 +2321,28 @@ extends xFrameworkPX_Model_Behavior
                         if (is_array($val)) {
 
                             if ($val['type'] == 'date') {
-
+                                /*
                                 if (
                                     matchesIn(strtolower($type), 'date') ||
                                     matchesIn(strtolower($type), 'time')
                                 ) {
                                     $isFunc = true;
                                 }
+                                */
+                                if ($this->adapter->getColTypeAbstract($type) == 'date') {
+                                    $isFunc = true;
+                                }
 
                             } else if ($val['type'] == 'other') {
-
+                                /*
                                 if (
                                     !matchesIn(strtolower($type), 'date') &&
                                     !matchesIn(strtolower($type), 'time')
                                 ) {
+                                    $isFunc = true;
+                                }
+                                */
+                                if ($this->adapter->getColTypeAbstract($type) != 'date') {
                                     $isFunc = true;
                                 }
 
@@ -2338,20 +2353,28 @@ extends xFrameworkPX_Model_Behavior
                     }
 
                 } else if ($func && $func['type'] == 'date') {
-
+                    /*
                     if (
                         matchesIn(strtolower($type), 'date') ||
                         matchesIn(strtolower($type), 'time')
                     ) {
                         $isFunc = true;
                     }
+                    */
+                    if ($this->adapter->getColTypeAbstract($type) == 'date') {
+                        $isFunc = true;
+                    }
 
                 } else if ($func && $func['type'] == 'other') {
-
+                    /*
                     if (
                         !matchesIn(strtolower($type), 'date') &&
                         !matchesIn(strtolower($type), 'time')
                     ) {
+                        $isFunc = true;
+                    }
+                    */
+                    if ($this->adapter->getColTypeAbstract($type) != 'date') {
                         $isFunc = true;
                     }
 
@@ -2720,25 +2743,32 @@ extends xFrameworkPX_Model_Behavior
                 $isFunc = false;
 
                 if ($func && $func['type'] == 'date') {
-
+                    /*
                     if (
                         matchesIn(strtolower($type), 'date') ||
                         matchesIn(strtolower($type), 'time')
                     ) {
                         $isFunc = true;
                     }
+                    */
+                    if ($this->abstract->getColTypeAbstract($type) == 'date') {
+                        $isFunc = true;
+                    }
 
                 } else if ($func && $func['type'] == 'group') {
                     $isFunc = true;
                 } else if ($func && $func['type'] == 'other') {
-
+                    /*
                     if (
                         !matchesIn(strtolower($type), 'date') &&
                         !matchesIn(strtolower($type), 'time')
                     ) {
                         $isFunc = true;
                     }
-
+                    */
+                    if ($this->abstract->getColTypeAbstract($type) != 'date') {
+                        $isFunc = true;
+                    }
                 }
 
                 if ($isFunc) {
@@ -2995,18 +3025,21 @@ extends xFrameworkPX_Model_Behavior
                         switch ($func['type']) {
 
                             case 'date':
-
+                                /*
                                 if (
                                     matchesIn(strtolower($colType), 'date') ||
                                     matchesIn(strtolower($colType), 'time')
                                 ) {
                                     $values[] = $func['src'];
                                 }
-
+                                */
+                                if ($this->abstract->getColTypeAbstract($type) == 'date') {
+                                    $values[] = $func['src'];
+                                }
                                 break;
 
                             case 'other':
-
+                                /*
                                 if (
                                     !matchesIn(strtolower($colType), 'date') ||
                                     !matchesIn(strtolower($colType), 'time')
@@ -3024,7 +3057,21 @@ extends xFrameworkPX_Model_Behavior
                                     }
 
                                 }
+                                */
+                                if ($this->abstract->getColTypeAbstract($type) != 'date') {
 
+                                    if ($func['param'] !== '') {
+                                        $values[] = sprintf(
+                                            '%s(:%s)',
+                                            substr($func['name'], 0, -2),
+                                            $key
+                                        );
+                                        $binds[$key] = $func['param'];
+                                    } else {
+                                        $values[] = $func['src'];
+                                    }
+
+                                }
                                 break;
                         }
 
@@ -3119,22 +3166,41 @@ extends xFrameworkPX_Model_Behavior
                     switch ($func['type']) {
 
                         case 'date':
-
+                            /*
                             if (
                                 matchesIn(strtolower($colType), 'date') ||
                                 matchesIn(strtolower($colType), 'time')
                             ) {
                                 $values[] = $func['src'];
                             }
+                            */
+                            if ($this->abstract->getColTypeAbstract($type) == 'date') {
+                                $values[] = $func['src'];
+                            }
 
                             break;
 
                         case 'other':
-
+                            /*
                             if (
                                 !matchesIn(strtolower($colType), 'date') ||
                                 !matchesIn(strtolower($colType), 'time')
                             ) {
+
+                                if ($func['param'] !== '') {
+                                    $values[] = sprintf(
+                                        '%s(:%s)',
+                                      substr($func['name'], 0, -2),
+                                        $key
+                                    );
+                                    $binds[$key] = $func['param'];
+                                } else {
+                                    $values[] = $func['src'];
+                                }
+
+                            }
+                            */
+                            if ($this->abstract->getColTypeAbstract($type) != 'date') {
 
                                 if ($func['param'] !== '') {
                                     $values[] = sprintf(
@@ -3162,7 +3228,7 @@ extends xFrameworkPX_Model_Behavior
             if (!isset($data[$this->primaryKey])) {
 
                 $tableinfo= $this->bindGetTableInfo();
-                if (is_null($tableinfo['Auto_increment'])) {
+                if (!isset($tableinfo['Auto_increment'])) {
                     $ret = $this->bindRow(array(
                         'query' => 'SELECT Max(' . $tableName . '.' . $this->primaryKey . ') as max FROM ' . $tableName
                     ));
