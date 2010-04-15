@@ -34,6 +34,24 @@ class xFrameworkPX_Model_Adapter_MySQL extends xFrameworkPX_Model_Adapter
     // {{{ properties
 
     /**
+     * カラムデータ型抽象化リスト
+     */
+    public $dataTypeList = array(
+        'num' => array(
+            'tinyint', 'smallint', 'mediumint', 'int', 'integer', 'bigint',
+            'float', 'double', 'numeric', 'decimal', 'dec', 'fixed'
+        ),
+        'date' => array(
+            'date', 'datetime', 'timestamp', 'time', 'year'
+        ),
+        'char' => array(
+            'char', 'varchar', 'binary', 'varbinary', 'tinyblob', 'tinytext',
+            'blob', 'text', 'mediumblob', 'mediumtext', 'longblob', 'longtext',
+            'enum', 'set'
+        )
+    );
+
+    /**
      * 関数名リスト
      *
      * @var array
@@ -144,6 +162,32 @@ class xFrameworkPX_Model_Adapter_MySQL extends xFrameworkPX_Model_Adapter
             $ret .= sprintf(' LIMIT %s, %s', $offset, $count);
         } else if (!is_null($count)) {
             $ret .= sprintf(' LIMIT %s', $count);
+        }
+
+        return $ret;
+    }
+
+    // }}}
+    // {{{ getColType
+
+    /**
+     * カラムデータ型抽象化メソッド
+     */
+    public function getColTypeGroup($type)
+    {
+        $ret = 'other';
+
+        if (preg_match('/^([a-z]+)\(.+\)/i', $type, $matches)) {
+            $type = $matches[1];
+        }
+
+        foreach ($this->dataTypeList as $group => $types) {
+
+            if (in_array($type, $types)) {
+                $ret = $group;
+                break;
+            }
+
         }
 
         return $ret;
