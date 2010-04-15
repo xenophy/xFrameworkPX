@@ -2751,7 +2751,7 @@ extends xFrameworkPX_Model_Behavior
                         $isFunc = true;
                     }
                     */
-                    if ($this->abstract->getColTypeAbstract($type) == 'date') {
+                    if ($this->adapter->getColTypeAbstract($type) == 'date') {
                         $isFunc = true;
                     }
 
@@ -2766,7 +2766,7 @@ extends xFrameworkPX_Model_Behavior
                         $isFunc = true;
                     }
                     */
-                    if ($this->abstract->getColTypeAbstract($type) != 'date') {
+                    if ($this->adapter->getColTypeAbstract($type) != 'date') {
                         $isFunc = true;
                     }
                 }
@@ -3033,7 +3033,7 @@ extends xFrameworkPX_Model_Behavior
                                     $values[] = $func['src'];
                                 }
                                 */
-                                if ($this->abstract->getColTypeAbstract($type) == 'date') {
+                                if ($this->adapter->getColTypeAbstract($colType) == 'date') {
                                     $values[] = $func['src'];
                                 }
                                 break;
@@ -3058,7 +3058,7 @@ extends xFrameworkPX_Model_Behavior
 
                                 }
                                 */
-                                if ($this->abstract->getColTypeAbstract($type) != 'date') {
+                                if ($this->adapter->getColTypeAbstract($colType) != 'date') {
 
                                     if ($func['param'] !== '') {
                                         $values[] = sprintf(
@@ -3174,7 +3174,7 @@ extends xFrameworkPX_Model_Behavior
                                 $values[] = $func['src'];
                             }
                             */
-                            if ($this->abstract->getColTypeAbstract($type) == 'date') {
+                            if ($this->adapter->getColTypeAbstract($colType) == 'date') {
                                 $values[] = $func['src'];
                             }
 
@@ -3200,7 +3200,7 @@ extends xFrameworkPX_Model_Behavior
 
                             }
                             */
-                            if ($this->abstract->getColTypeAbstract($type) != 'date') {
+                            if ($this->adapter->getColTypeAbstract($colType) != 'date') {
 
                                 if ($func['param'] !== '') {
                                     $values[] = sprintf(
