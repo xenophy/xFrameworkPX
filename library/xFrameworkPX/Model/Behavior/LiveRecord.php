@@ -3003,6 +3003,12 @@ extends xFrameworkPX_Model_Behavior
 
             foreach ($data as $key => $value) {
 
+                if (matchesIn($key, '.')) {
+                    $bindKey = str_replace('.', '__', $key);
+                } else {
+                    $bindKey = 'bind__' . $key;
+                }
+
                 if ($key !== $this->primaryKey) {
 
                     foreach ($schema as $column) {
@@ -3033,9 +3039,14 @@ extends xFrameworkPX_Model_Behavior
                                     $values[] = $func['src'];
                                 }
                                 */
+
                                 if ($this->adapter->getColTypeAbstract($colType) == 'date') {
                                     $values[] = $func['src'];
+                                } else {
+                                    $values[] = ':' . $bindKey;
+                                    $binds[$bindKey] = $func['src'];
                                 }
+
                                 break;
 
                             case 'other':
@@ -3064,20 +3075,28 @@ extends xFrameworkPX_Model_Behavior
                                         $values[] = sprintf(
                                             '%s(:%s)',
                                             substr($func['name'], 0, -2),
-                                            $key
+                                            $bindKey
                                         );
-                                        $binds[$key] = $func['param'];
+                                        $binds[$bindKey] = $func['param'];
                                     } else {
                                         $values[] = $func['src'];
                                     }
 
+                                } else {
+                                    $values[] = ':' . $bindKey;
+                                    $binds[$bindKey] = $func['src'];
                                 }
+
                                 break;
+
+                            default:
+                                $values[] = ':' . $bindKey;
+                                $binds[$bindKey] = $func['src'];
                         }
 
                     } else {
-                        $values[] = ':' . $key;
-                        $binds[$key] = $value;
+                        $values[] = ':' . $bindKey;
+                        $binds[$bindKey] = $value;
                     }
 
                 }
@@ -3146,6 +3165,12 @@ extends xFrameworkPX_Model_Behavior
             // INSERT
             foreach ($data as $key => $value) {
 
+                if (matchesIn($key, '.')) {
+                    $bindKey = str_replace('.', '__', $key);
+                } else {
+                    $bindKey = 'bind__' . $key;
+                }
+
                 foreach ($schema as $column) {
 
                     if ($column['Field'] == $key) {
@@ -3174,8 +3199,12 @@ extends xFrameworkPX_Model_Behavior
                                 $values[] = $func['src'];
                             }
                             */
+
                             if ($this->adapter->getColTypeAbstract($colType) == 'date') {
                                 $values[] = $func['src'];
+                            } else {
+                                $values[] = ':' . $bindKey;
+                                $binds[$bindKey] = $func['src'];
                             }
 
                             break;
@@ -3206,21 +3235,28 @@ extends xFrameworkPX_Model_Behavior
                                     $values[] = sprintf(
                                         '%s(:%s)',
                                       substr($func['name'], 0, -2),
-                                        $key
+                                        $bindKey
                                     );
-                                    $binds[$key] = $func['param'];
+                                    $binds[$bindKey] = $func['param'];
                                 } else {
                                     $values[] = $func['src'];
                                 }
 
+                            } else {
+                                $values[] = ':' . $bindKey;
+                                $binds[$bindKey] = $func['src'];
                             }
 
                             break;
+
+                        default:
+                            $values[] = ':' . $bindKey;
+                            $binds[$bindKey] = $func['src'];
                     }
 
                 } else {
-                    $values[] = ':' . $key;
-                    $binds[$key] = $value;
+                    $values[] = ':' . $bindKey;
+                    $binds[$bindKey] = $value;
                 }
 
             }
@@ -3229,15 +3265,25 @@ extends xFrameworkPX_Model_Behavior
 
                 $tableinfo= $this->bindGetTableInfo();
                 if (!isset($tableinfo['Auto_increment'])) {
+                    /*
                     $ret = $this->bindRow(array(
-                        'query' => 'SELECT Max(' . $tableName . '.' . $this->primaryKey . ') as max FROM ' . $tableName
+                        'query' => 'SELECT MAX(' . $tableName . '.' . $this->primaryKey . ') as max FROM ' . $tableName
                     ));
-
-                    $nextId = intval($ret['max']) + 1;
+                    */
+                    $query = sprintf(
+                            'SELECT MAX(%s) as "maxId" FROM %s',
+                            $this->primaryKey,
+                            $tableName
+                    );
+                    $ret = $this->bindRow(array(
+                        'query' => $query
+                    ));
+                    $nextId = intval($ret['maxId']) + 1;
 
                     $fields[] = $this->primaryKey;
-                    $values[] = ':' . $this->primaryKey;
-                    $binds[$this->primaryKey] = $nextId;
+                    $bindKey = 'bind__' . $this->primaryKey;
+                    $values[] = ':' . $bindKey;
+                    $binds[$bindKey] = $nextId;
                 }
             }
 

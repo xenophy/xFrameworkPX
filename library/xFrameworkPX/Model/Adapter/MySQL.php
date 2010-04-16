@@ -183,7 +183,7 @@ class xFrameworkPX_Model_Adapter_MySQL extends xFrameworkPX_Model_Adapter
     }
 
     // }}}
-    // {{{ getColType
+    // {{{ getColTypeAbstract
 
     /**
      * カラムデータ型抽象化メソッド

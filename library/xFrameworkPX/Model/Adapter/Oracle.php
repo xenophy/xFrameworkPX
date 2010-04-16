@@ -34,6 +34,22 @@ class xFrameworkPX_Model_Adapter_Oracle extends xFrameworkPX_Model_Adapter
     // {{{ properties
 
     /**
+     * カラムデータ型抽象化リスト
+     */
+    public $dataTypeList = array(
+        'num' => array(
+            'number', 'binary_float', 'binary_double', 'float'
+        ),
+        'date' => array(
+            'date', 'timestamp'
+        ),
+        'char' => array(
+            'varchar', 'varchar2', 'nvarchar2', 'char', 'nchar',
+            'clob', 'nclob', 'long'
+        )
+    );
+
+    /**
      * 関数名リスト
      *
      * @var array
@@ -221,6 +237,32 @@ class xFrameworkPX_Model_Adapter_Oracle extends xFrameworkPX_Model_Adapter
     }
 
     // }}}
+    // {{{ getColType
+
+    /**
+     * カラムデータ型抽象化メソッド
+     */
+    public function getColTypeAbstract($type)
+    {
+        $ret = 'other';
+        $type = strtolower($type);
+        if (preg_match('/^([a-z]+)\(.+\)/i', $type, $matches)) {
+            $type = $matches[1];
+        }
+
+        foreach ($this->dataTypeList as $abst => $types) {
+
+            if (in_array($type, $types)) {
+                $ret = $abst;
+                break;
+            }
+
+        }
+
+        return $ret;
+    }
+
+    // }}}
     // {{{ getType
 
     /**
@@ -280,26 +322,29 @@ class xFrameworkPX_Model_Adapter_Oracle extends xFrameworkPX_Model_Adapter
 
     public function getLockQuery($tables)
     {
-        $ret = 'LOCK TABLES';
+        $ret = 'LOCK TABLE ';
 
         if (is_array($tables)) {
             $i = 0;
+
             foreach ($tables as $table) {
 
                 if ($i > 0) {
-                    $ret .= ',';
+                    $ret .= ', ';
                 }
 
                 if (is_string($table)) {
-                    $ret .= ' ' . $table . ' WRITE';
-                } else if(is_array($table)) {
-                    $ret .= ' ' . $table['name'] . ' ' . $table['mode'];
+                    $ret .= $table;
+                } else if (is_array($table)) {
+                    $ret .= $table['name'];
                 }
 
                 $i++;
             }
 
-            return $ret . ';';
+            $ret .= ' IN EXCLUSIVE MODE';
+
+            return $ret;
         }
 
         return null;
@@ -310,7 +355,7 @@ class xFrameworkPX_Model_Adapter_Oracle extends xFrameworkPX_Model_Adapter
 
     public function getUnlockQuery()
     {
-        return 'UNLOCK TABLES;';
+        return 'COMMIT';
     }
 
     // }}}
