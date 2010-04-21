@@ -32,6 +32,27 @@ class xFrameworkPX_Model_Behavior_LiveRecord
 extends xFrameworkPX_Model_Behavior
 {
 
+    // {{{ properties
+
+    // バインド変数名用カウンター
+    private $_bindCnt = 0;
+
+    // }}}
+    // {{{ getBindKey
+
+    /**
+     * バインド変数名取得メソッド
+     */
+    private function _getBindName()
+    {
+
+        $ret = 'bind_' . $this->_bindCnt;
+        $this->_bindCnt++;
+
+        return $ret;
+    }
+
+    // }}}
     // {{{ bindConnection
 
     /**
@@ -1103,6 +1124,7 @@ extends xFrameworkPX_Model_Behavior
      */
     public function bindGet($type = 'all', $config = array())
     {
+        $this->_bindCnt = 0;
         $where = null;
         $binds = null;
         $group = '';
@@ -2099,18 +2121,21 @@ extends xFrameworkPX_Model_Behavior
 
         foreach ($conditions as $key => $value) {
 
+            /*
             if (matchesIn($key, '.')) {
                 $bindKey = str_replace('.', '__', $key);
             } else {
                 $bindKey = 'bind__' . $key;
             }
+            */
 
             if (is_numeric($key) && is_array($value)) {
                 $temp = $this->_getConditions($value, $dubCnt);
-                $tempWhere = '(' . $this->_getWhereClause($temp['where']) . ')';
+                // $tempWhere = '(' . $this->_getWhereClause($temp['where']) . ')';
+                $where[] = '(' . $this->_getWhereClause($temp['where']) . ')';
 
                 foreach ($temp['bind'] as $bindKey => $bindValue) {
-
+                    /*
                     if (array_key_exists($bindKey ,$binds)) {
 
                         do{
@@ -2122,10 +2147,11 @@ extends xFrameworkPX_Model_Behavior
                     } else {
                         $binds[$bindKey] = $bindValue;
                     }
-
+                    */
+                    $binds[$bindKey] = $bindValue;
                 }
 
-                $where[] = $tempWhere;
+                // $where[] = $tempWhere;
             } else if (
                 is_numeric($key) &&
                 (
@@ -2390,13 +2416,17 @@ extends xFrameworkPX_Model_Behavior
                         ) {
 
                             if (is_string($func[0])) {
-                                $from = ':' . $bindKey . '__from';
+                                // $from = ':' . $bindKey . '__from';
+                                $from = ':' . $this->_getBindName();
+                                $binds[$from] = $func[0];
                             } else {
                                 $from = $func[0]['src'];
                             }
 
                             if (is_string($func[1])) {
-                                $to = ':' . $bindKey . '__to';
+                                // $to = ':' . $bindKey . '__to';
+                                $to = ':' . $this->_getBindName();
+                                $binds[$to] = $func[1];
                             } else {
                                 $to = $func[1]['src'];
                             }
@@ -2420,20 +2450,22 @@ extends xFrameworkPX_Model_Behavior
                                 if (is_array($val)) {
 
                                     if (strtoupper($val['name']) == 'MD5()') {
-                                        $bkTemp = $bindKey . '__in' . $index;
+                                        // $bkTemp = $bindKey . '__in_' . $index;
+                                        $bindKey = $this->_getBindName();
                                         $inTemp[$index] = sprintf(
                                             'MD5(:%s)',
-                                            $bkTemp
+                                            $bindKey
                                         );
-                                        $bindTemp[$bkTemp] = $val['param'];
+                                        $binds[$bindKey] = $val['param'];
                                     } else {
                                         $inTemp[$index] = $val['src'];
                                     }
 
                                 } else {
-                                    $bkTemp = $bindKey . '__in' . $index;
-                                    $inTemp[$index] = ':' . $bkTemp;
-                                    $bindTemp[$bkTemp] = $val;
+                                    // $bkTemp = $bindKey . '__in_' . $index;
+                                    $bindKey = $this->_getBindName();
+                                    $inTemp[$index] = ':' . $bindKey;
+                                    $binds[$bindKey] = $val;
                                 }
 
                             }
@@ -2456,12 +2488,14 @@ extends xFrameworkPX_Model_Behavior
                     } else {
 
                         if (strtoupper($func['name']) == 'MD5()') {
+                            $bindKey = $this->_getBindName();
                             $tempWhere = sprintf(
                                 '%s = %s(:%s)',
                                 $key,
                                 substr($func['name'], 0, -2),
                                 $bindKey
                             );
+                            $binds[$bindKey] = $func['param'];
                         } else {
                             $tempWhere = sprintf(
                                 '%s = %s',
@@ -2471,7 +2505,7 @@ extends xFrameworkPX_Model_Behavior
                         }
 
                     }
-
+                    /*
                     if (
                         $hasOperator == 'BETWEEN' ||
                         $hasOperator == 'NOT BETWEEN'
@@ -2537,7 +2571,7 @@ extends xFrameworkPX_Model_Behavior
                         }
 
                     }
-
+                    */
                 } else {
 
                     if ($hasOperator !== false) {
@@ -2546,13 +2580,17 @@ extends xFrameworkPX_Model_Behavior
                             $hasOperator == 'BETWEEN' ||
                             $hasOperator == 'NOT BETWEEN'
                         ) {
+                            $from = $this->_getBindName();
+                            $to = $this->_getBindName();
                             $tempWhere = sprintf(
                                 '%s %s :%s AND :%s',
                                 $key,
                                 $hasOperator,
-                                $bindKey . '__from',
-                                $bindKey . '__to'
+                                $from,
+                                $to
                             );
+                            $binds[$from] = $value[0];
+                            $binds[$to] = $value[1];
                         } else if (
                             $hasOperator == 'IN' ||
                             $hasOperator == 'NOT IN'
@@ -2561,9 +2599,10 @@ extends xFrameworkPX_Model_Behavior
                             $bindTemp = array();
 
                             foreach ($inVal as $index => $val) {
-                                $bkTemp = $bindKey . '__in' . $index;
-                                $inTemp[$index] = ':' . $bkTemp;
-                                $bindTemp[$bkTemp] = $val;
+                                // $bkTemp = $bindKey . '__in' . $index;
+                                $bindKey = $this->_getBindName();
+                                $inTemp[$index] = ':' . $bindKey;
+                                $binds[$bindKey] = $val;
                             }
 
                             $tempWhere = sprintf(
@@ -2573,6 +2612,7 @@ extends xFrameworkPX_Model_Behavior
                                 implode(', ', $inTemp)
                             );
                         } else {
+                            $bindKey = $this->_getBindName();
                             $tempWhere = implode(
                                 '',
                                 array(
@@ -2590,12 +2630,15 @@ extends xFrameworkPX_Model_Behavior
                                     strlen($hasOperator)
                                 )
                             );
+                            $binds[$bindKey] = $value;
                         }
 
                     } else {
+                        $bindKey = $this->_getBindName();
                         $tempWhere = $key . ' = :' . $bindKey;
+                        $binds[$bindKey] = $value;
                     }
-
+                    /*
                     if (
                         $hasOperator == 'BETWEEN' ||
                         $hasOperator == 'NOT BETWEEN'
@@ -2646,7 +2689,7 @@ extends xFrameworkPX_Model_Behavior
                         }
 
                     }
-
+                    */
                 }
 
                 $where[] = $tempWhere;
@@ -2675,6 +2718,7 @@ extends xFrameworkPX_Model_Behavior
 
             $keyFunc = $this->_getFunction($key);
 
+            /*
             if ($keyFunc && $keyFunc['type'] == 'group') {
                 $bindKey = 'bind__' . substr($keyFunc['name'], 0, -2);
             } else {
@@ -2686,13 +2730,14 @@ extends xFrameworkPX_Model_Behavior
                 }
 
             }
+            */
 
             if (is_numeric($key) && is_array($value)) {
                 $temp = $this->_getHaving($value, array(), $dubCnt);
-                $tempHaving = '(' . $this->_getWhereClause($temp['having']) . ')';
-
+                // $tempHaving = '(' . $this->_getWhereClause($temp['having']) . ')';
+                $having[] = '(' . $this->_getWhereClause($temp['having']) . ')';
                 foreach ($temp['bind'] as $bindKey => $bindValue) {
-
+                    /*
                     if (array_key_exists($bindKey ,$binds)) {
 
                         do{
@@ -2704,10 +2749,11 @@ extends xFrameworkPX_Model_Behavior
                     } else {
                         $binds[$bindKey] = $bindValue;
                     }
-
+                    */
+                    $binds[$bindKey] = $bindValue;
                 }
 
-                $having[] = $tempHaving;
+                // $having[] = $tempHaving;
             } else if (
                 is_numeric($key) &&
                 (
@@ -2781,7 +2827,7 @@ extends xFrameworkPX_Model_Behavior
                                 $key,
                                 $this->_hasOperator(trim($value)),
                                 substr($func['name'], 0, -2),
-                                $bindKey
+                                $this->_getBindName()
                             );
                         } else {
                             $tempHaving = sprintf(
@@ -2799,7 +2845,7 @@ extends xFrameworkPX_Model_Behavior
                                 '%s = %s(:%s)',
                                 $key,
                                 substr($func['name'], 0, -2),
-                                $bindKey
+                                $this->_getBindName()
                             );
                         } else {
                             $tempHaving = sprintf(
@@ -2809,7 +2855,7 @@ extends xFrameworkPX_Model_Behavior
                             );
                         }
                     }
-
+                    /*
                     if (strtoupper($func['name']) == 'MD5()') {
 
                         if (array_key_exists($bindKey, $binds)) {
@@ -2827,8 +2873,9 @@ extends xFrameworkPX_Model_Behavior
                         }
 
                     }
-
+                    */
                 } else {
+                    $bindKey = $this->_getBindName();
 
                     if ($this->_hasOperator($value) !== false) {
                         $tempHaving = implode(
@@ -2851,7 +2898,7 @@ extends xFrameworkPX_Model_Behavior
                     } else {
                         $tempHaving = $key . ' = :' . $bindKey;
                     }
-
+                    /*
                     if (array_key_exists($bindKey, $binds)) {
 
                         do {
@@ -2863,7 +2910,8 @@ extends xFrameworkPX_Model_Behavior
                     } else {
                         $binds[$bindKey] = $value;
                     }
-
+                    */
+                    $binds[$bindKey] = $value;
                 }
 
                 $having[] = $tempHaving;
