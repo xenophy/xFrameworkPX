@@ -2589,8 +2589,19 @@ extends xFrameworkPX_Model_Behavior
                                 $from,
                                 $to
                             );
-                            $binds[$from] = $value[0];
-                            $binds[$to] = $value[1];
+
+                            if (preg_match(
+                                '/^(?:between|not between)\x20+([^\x20]+)\x20+and\x20+([^\x20]+)/i',
+                                $value,
+                                $matches
+                            )) {
+                                $binds[$from] = $matches[1];
+                                $binds[$to] = $matches[2];
+                            } else {
+                                $binds[$from] = "";
+                                $binds[$to] = "";
+                            }
+
                         } else if (
                             $hasOperator == 'IN' ||
                             $hasOperator == 'NOT IN'

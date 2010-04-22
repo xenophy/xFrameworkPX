@@ -246,6 +246,7 @@ class xFrameworkPX_Model_Adapter_Oracle extends xFrameworkPX_Model_Adapter
     {
         $ret = 'other';
         $type = strtolower($type);
+
         if (preg_match('/^([a-z]+)\(.+\)/i', $type, $matches)) {
             $type = $matches[1];
         }
