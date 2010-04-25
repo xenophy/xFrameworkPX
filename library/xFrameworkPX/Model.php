@@ -198,20 +198,40 @@ abstract class xFrameworkPX_Model extends xFrameworkPX_Util_Observable
 
             // コネクション設定取得
             foreach ($conf->database->connection as $xmlConn) {
-                $this->conn->{
-                    (string)$xmlConn[ 'name' ]
-                } = new xFrameworkPX_Util_MixedCollection( array(
-                    'charset' => (string)$xmlConn->charset,
-                    'adapter' => (string)$xmlConn->adapter,
-                    'driver' => (string)$xmlConn->driver,
-                    'host' => (string)$xmlConn->host,
-                    'user' => (string)$xmlConn->user,
-                    'password' => (string)$xmlConn->password,
-                    'database' => (string)$xmlConn->database,
-                    'prefix' => (string)$xmlConn->prefix,
-                    'port' => (string)$xmlConn->port,
-                    'socket' => (string)$xmlConn->socket
-                ) );
+
+                if ((string)$xmlConn->driver == 'oci') {
+                    $this->conn->{
+                        (string)$xmlConn[ 'name' ]
+                    } = new xFrameworkPX_Util_MixedCollection( array(
+                        'charset' => (string)$xmlConn->charset,
+                        'adapter' => (string)$xmlConn->adapter,
+                        'driver' => (string)$xmlConn->driver,
+                        'host' => (string)$xmlConn->host,
+                        'user' => (string)$xmlConn->user,
+                        'password' => (string)$xmlConn->password,
+                        'database' => (string)$xmlConn->database,
+                        'prefix' => (string)$xmlConn->prefix,
+                        'port' => (string)$xmlConn->port,
+                        'socket' => (string)$xmlConn->socket,
+                        'nls' => $xmlConn->nls
+                    ) );
+                } else {
+                    $this->conn->{
+                        (string)$xmlConn[ 'name' ]
+                    } = new xFrameworkPX_Util_MixedCollection( array(
+                        'charset' => (string)$xmlConn->charset,
+                        'adapter' => (string)$xmlConn->adapter,
+                        'driver' => (string)$xmlConn->driver,
+                        'host' => (string)$xmlConn->host,
+                        'user' => (string)$xmlConn->user,
+                        'password' => (string)$xmlConn->password,
+                        'database' => (string)$xmlConn->database,
+                        'prefix' => (string)$xmlConn->prefix,
+                        'port' => (string)$xmlConn->port,
+                        'socket' => (string)$xmlConn->socket
+                    ) );
+                }
+
             }
 
             // アダプターオブジェクト生成
@@ -257,7 +277,32 @@ abstract class xFrameworkPX_Model extends xFrameworkPX_Util_Observable
                         )
                     );
                 }
+            } else if (strtolower($this->conn->{$conf->conn}->driver) === 'oci') {
+
+                if (isset($this->conn->{$conf->conn}->nls)) {
+
+                    if (isset($this->conn->{$conf->conn}->nls->date_format)) {
+                        $this->pdo->exec(
+                            sprintf(
+                                "ALTER SESSION SET NLS_DATE_FORMAT = '%s'",
+                                (string)$this->conn->{$conf->conn}->nls->date_format
+                            )
+                        );
+                    }
+
+                    if (isset($this->conn->{$conf->conn}->nls->timestamp_format)) {
+                        $this->pdo->exec(
+                            sprintf(
+                                "ALTER SESSION SET NLS_TIMESTAMP_FORMAT = '%s'",
+                                (string)$this->conn->{$conf->conn}->nls->timestamp_format
+                            )
+                        );
+                    }
+
+                }
+
             }
+
         }
 
         // ビヘイビア設定

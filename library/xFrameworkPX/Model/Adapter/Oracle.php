@@ -57,7 +57,8 @@ class xFrameworkPX_Model_Adapter_Oracle extends xFrameworkPX_Model_Adapter
     public $functionList = array(
         'date' => array(
             'SYSDATE', 'SYSTIMESTAMP', 'CURRENT_DATE',
-            'CURRENT_TIMESTAMP', 'CURRENT_TIMESTAMP()'
+            'CURRENT_TIMESTAMP', 'CURRENT_TIMESTAMP()',
+            'TO_DATE()'
         ),
         'group' => array('COUNT()', 'MIN()', 'MAX()', 'AVG()', 'SUM()'),
         'other' => array()

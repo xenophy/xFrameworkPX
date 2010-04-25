@@ -160,7 +160,6 @@ extends xFrameworkPX_Model_Behavior
     public function bindGetTableInfo()
     {
         // クエリー生成
-        // $query = 'show table status from `' . $this->bindDatabase() . '` like \'' . $this->module->getTableName() . '\'';
         $query = $this->adapter->getQueryTableInfo(
             $this->bindDatabase(), $this->usetable
         );
@@ -180,10 +179,11 @@ extends xFrameworkPX_Model_Behavior
         $result = $stmt->fetchAll(PDO::FETCH_NAMED);
 
         // デバッグ情報追加
+
         if ($this->module->conf['px']['DEBUG'] >= 2) {
             $traceQuery = $query;
             xFrameworkPX_Debug::getInstance()->addQuery(
-                $this->module->getTableName(),
+                $this->module->useTable,
                 get_class($this->module),
                 $traceQuery,
                 count($result),
@@ -240,13 +240,14 @@ extends xFrameworkPX_Model_Behavior
             if ($this->module->conf['px']['DEBUG'] >= 2) {
                 $traceQuery = $query;
                 xFrameworkPX_Debug::getInstance()->addQuery(
-                    $this->module->getTableName(),
+                    $this->module->usetable,
                     get_class($this->module),
                     $traceQuery,
                     $ret,
                     microtime(true) - $startTime
                 );
             }
+
         }
 
         return $ret;
@@ -294,8 +295,9 @@ extends xFrameworkPX_Model_Behavior
                 if (get_class($ret) === 'PDOStatement') {
                     $count = count($ret->fetchAll());
                 }
+
                 xFrameworkPX_Debug::getInstance()->addQuery(
-                    $this->module->getTableName(),
+                    $this->module->usetable,
                     get_class($this->module),
                     $traceQuery,
                     $count,
@@ -368,7 +370,7 @@ extends xFrameworkPX_Model_Behavior
                 }
 
                 xFrameworkPX_Debug::getInstance()->addQuery(
-                    $this->module->getTableName(),
+                    $this->module->usetable,
                     get_class($this->module),
                     $traceQuery,
                     count($ret),
@@ -639,14 +641,13 @@ extends xFrameworkPX_Model_Behavior
         if ($this->module->conf['px']['DEBUG'] >= 2) {
             $traceQuery = $query;
             xFrameworkPX_Debug::getInstance()->addQuery(
-                $this->module->getTableName(),
+                $this->module->usetable,
                 get_class($this->module),
                 $traceQuery,
                 count($ret),
                 microtime(true) - $startTime
             );
         }
-
         // カーソルを閉じてステートメントを再実行できるようにする
         $stmt->closeCursor();
 
@@ -821,7 +822,7 @@ extends xFrameworkPX_Model_Behavior
             }
 
             xFrameworkPX_Debug::getInstance()->addQuery(
-                $this->module->getTableName(),
+                $this->module->usetable,
                 get_class($this->module),
                 $traceQuery,
                 count($result),
@@ -1014,7 +1015,7 @@ extends xFrameworkPX_Model_Behavior
             }
 
             xFrameworkPX_Debug::getInstance()->addQuery(
-                $this->module->getTableName(),
+                $this->module->usetable,
                 get_class($this->module),
                 $traceQuery,
                 count($result),
@@ -1364,7 +1365,7 @@ extends xFrameworkPX_Model_Behavior
             if (isset($this->module->modules[$key])) {
                 $joinModule = $this->module->modules[$key];
                 $joinType = isset($value['type']) ? $value['type'] : null;
-                $joinTable = $joinModule->getTableName();
+                $joinTable = $joinModule->usetable;
                 $joinTableCore = $joinModule->getTableName(true);
                 $joinPrimaryKey = $joinModule->primaryKey;
             } else {
@@ -1458,7 +1459,7 @@ extends xFrameworkPX_Model_Behavior
             if (isset($this->module->modules[$moduleKey])) {
 
                 $joinModule = $this->module->modules[$moduleKey];
-                $joinTable = $joinModule->getTableName();
+                $joinTable = $joinModule->usetable;
                 $joinTableCore = $joinModule->getTableName(true);
                 $joinPrimaryKey = $joinModule->primaryKey;
 
@@ -1518,7 +1519,7 @@ extends xFrameworkPX_Model_Behavior
                 if (isset($this->module->modules[$key])) {
                     $joinModule = $this->module->modules[$key];
                     $joinType = isset($value['type']) ? $value['type'] : null;
-                    $joinTable = $joinModule->getTableName();
+                    $joinTable = $joinModule->usetable;
                     $joinTableCore = $joinModule->getTableName(true);
                     $joinPrimaryKey = $joinModule->primaryKey;
                 } else {
@@ -1596,7 +1597,7 @@ extends xFrameworkPX_Model_Behavior
 
             if (isset($this->module->modules[$moduleKey])) {
                 $joinModule = $this->module->modules[$moduleKey];
-                $joinTable = $joinModule->getTableName();
+                $joinTable = $joinModule->usetable;
                 $joinTableCore = $joinModule->getTableName(true);
                 $joinPrimaryKey = $joinModule->primaryKey;
             } else {
@@ -1654,7 +1655,7 @@ extends xFrameworkPX_Model_Behavior
                 if (isset($this->module->modules[$key])) {
                     $joinModule = $this->module->modules[$key];
                     $joinType = isset($value['type']) ? $value['type'] : null;
-                    $joinTable = $joinModule->getTableName();
+                    $joinTable = $joinModule->usetable;
                     $joinTableCore = $joinModule->getTableName(true);
                     $joinPrimaryKey = $joinModule->primaryKey;
                 } else {
@@ -1731,7 +1732,7 @@ extends xFrameworkPX_Model_Behavior
         if (is_string($this->module->hasMany)) {
 
             $primaryKey = 'id';
-            $table = $this->module->getTableName();
+            $table = $this->module->usetable;
             $tableCore = end(explode('_', $table));
             $targetTable = $this->module->hasMany;
             $schema = $this->bindSchema();
@@ -1819,9 +1820,9 @@ extends xFrameworkPX_Model_Behavior
                         $primaryKey = $module->primaryKey;
                     }
 
-                    $table = $this->module->getTableName();
+                    $table = $this->module->usetable;
                     $tableCore = end(explode('_', $table));
-                    $targetTable = $module->getTableName();
+                    $targetTable = $module->usetable;
                     $schema = $this->bindSchema();
                     $fields = array();
                     foreach ($schema as $svalue) {
@@ -1830,10 +1831,12 @@ extends xFrameworkPX_Model_Behavior
 
                 } else {
                     $primaryKey = 'id';
+
                     if(isset($value['primaryKey'])) {
                         $primaryKey = $value['primaryKey'];
                     }
-                    $table = $this->module->getTableName();
+
+                    $table = $this->module->usetable;
                     $tableCore = end(explode('_', $table));
                     $targetTable = $key;
                     $schema = $this->bindSchema();
@@ -1949,8 +1952,9 @@ extends xFrameworkPX_Model_Behavior
 
         foreach ($this->module->modules as $module) {
             if (is_object($module)) {
+
                 if(
-                    $module->getTableName() === $table &&
+                    $module->usetable === $table &&
                     !is_null($module->getJoinQuery())
                 ) {
                     $table = sprintf(
@@ -1959,6 +1963,7 @@ extends xFrameworkPX_Model_Behavior
                         $module->getJoinQuery()
                     );
                 }
+
             }
         }
 
@@ -2114,44 +2119,21 @@ extends xFrameworkPX_Model_Behavior
     // }}}
     // {{{ _getConditions
 
-    private function _getConditions($conditions, $dubCnt = 1)
+    private function _getConditions($conditions)
     {
         $where = array();
         $binds = array();
 
         foreach ($conditions as $key => $value) {
 
-            /*
-            if (matchesIn($key, '.')) {
-                $bindKey = str_replace('.', '__', $key);
-            } else {
-                $bindKey = 'bind__' . $key;
-            }
-            */
-
             if (is_numeric($key) && is_array($value)) {
-                $temp = $this->_getConditions($value, $dubCnt);
-                // $tempWhere = '(' . $this->_getWhereClause($temp['where']) . ')';
+                $temp = $this->_getConditions($value);
                 $where[] = '(' . $this->_getWhereClause($temp['where']) . ')';
 
                 foreach ($temp['bind'] as $bindKey => $bindValue) {
-                    /*
-                    if (array_key_exists($bindKey ,$binds)) {
-
-                        do{
-                            $dupKey = $bindKey . '___duplicateKey' . $dubCnt++;
-                        } while (array_key_exists($dupKey, $binds));
-
-                        $binds[$dupKey] = $bindValue;
-                        $tempWhere = str_replace($bindKey, $dupKey, $tempWhere);
-                    } else {
-                        $binds[$bindKey] = $bindValue;
-                    }
-                    */
                     $binds[$bindKey] = $bindValue;
                 }
 
-                // $where[] = $tempWhere;
             } else if (
                 is_numeric($key) &&
                 (
@@ -2320,14 +2302,7 @@ extends xFrameworkPX_Model_Behavior
                         }
 
                         if ($val['type'] == 'date') {
-                            /*
-                            if (
-                                matchesIn(strtolower($type), 'date') ||
-                                matchesIn(strtolower($type), 'time')
-                            ) {
-                                $isFunc = true;
-                            }
-                            */
+
                             if ($this->adapter->getColTypeAbstract($type) == 'date') {
                                 $isFunc = true;
                             }
@@ -2347,27 +2322,13 @@ extends xFrameworkPX_Model_Behavior
                         if (is_array($val)) {
 
                             if ($val['type'] == 'date') {
-                                /*
-                                if (
-                                    matchesIn(strtolower($type), 'date') ||
-                                    matchesIn(strtolower($type), 'time')
-                                ) {
-                                    $isFunc = true;
-                                }
-                                */
+
                                 if ($this->adapter->getColTypeAbstract($type) == 'date') {
                                     $isFunc = true;
                                 }
 
                             } else if ($val['type'] == 'other') {
-                                /*
-                                if (
-                                    !matchesIn(strtolower($type), 'date') &&
-                                    !matchesIn(strtolower($type), 'time')
-                                ) {
-                                    $isFunc = true;
-                                }
-                                */
+
                                 if ($this->adapter->getColTypeAbstract($type) != 'date') {
                                     $isFunc = true;
                                 }
@@ -2379,27 +2340,13 @@ extends xFrameworkPX_Model_Behavior
                     }
 
                 } else if ($func && $func['type'] == 'date') {
-                    /*
-                    if (
-                        matchesIn(strtolower($type), 'date') ||
-                        matchesIn(strtolower($type), 'time')
-                    ) {
-                        $isFunc = true;
-                    }
-                    */
+
                     if ($this->adapter->getColTypeAbstract($type) == 'date') {
                         $isFunc = true;
                     }
 
                 } else if ($func && $func['type'] == 'other') {
-                    /*
-                    if (
-                        !matchesIn(strtolower($type), 'date') &&
-                        !matchesIn(strtolower($type), 'time')
-                    ) {
-                        $isFunc = true;
-                    }
-                    */
+
                     if ($this->adapter->getColTypeAbstract($type) != 'date') {
                         $isFunc = true;
                     }
@@ -2416,7 +2363,6 @@ extends xFrameworkPX_Model_Behavior
                         ) {
 
                             if (is_string($func[0])) {
-                                // $from = ':' . $bindKey . '__from';
                                 $from = ':' . $this->_getBindName();
                                 $binds[$from] = $func[0];
                             } else {
@@ -2424,7 +2370,6 @@ extends xFrameworkPX_Model_Behavior
                             }
 
                             if (is_string($func[1])) {
-                                // $to = ':' . $bindKey . '__to';
                                 $to = ':' . $this->_getBindName();
                                 $binds[$to] = $func[1];
                             } else {
@@ -2450,7 +2395,6 @@ extends xFrameworkPX_Model_Behavior
                                 if (is_array($val)) {
 
                                     if (strtoupper($val['name']) == 'MD5()') {
-                                        // $bkTemp = $bindKey . '__in_' . $index;
                                         $bindKey = $this->_getBindName();
                                         $inTemp[$index] = sprintf(
                                             'MD5(:%s)',
@@ -2462,7 +2406,6 @@ extends xFrameworkPX_Model_Behavior
                                     }
 
                                 } else {
-                                    // $bkTemp = $bindKey . '__in_' . $index;
                                     $bindKey = $this->_getBindName();
                                     $inTemp[$index] = ':' . $bindKey;
                                     $binds[$bindKey] = $val;
@@ -2505,73 +2448,7 @@ extends xFrameworkPX_Model_Behavior
                         }
 
                     }
-                    /*
-                    if (
-                        $hasOperator == 'BETWEEN' ||
-                        $hasOperator == 'NOT BETWEEN'
-                    ) {
 
-                        if (is_string($func[0])) {
-
-                            if (array_key_exists($bindKey . '__from', $binds)) {
-                                $dupKey = $bindKey . '__from___duplicateKey' . $dubCnt++;
-                                $binds[$dupKey] = $func[0];
-                                $tempWhere = str_replace(
-                                    $bindKey . '__from', $dupKey, $tempWhere
-                                );
-                            } else {
-                                $binds[$bindKey . '__from'] = $func[0];
-                            }
-
-                        }
-
-                        if (is_string($func[1])) {
-
-                            if (array_key_exists($bindKey . '__to', $binds)) {
-                                $dupKey = $bindKey . '__to___duplicateKey' . $dubCnt++;
-                                $binds[$dupKey] = $func[1];
-                                $tempWhere = str_replace(
-                                    $bindKey . '__to', $dupKey, $tempWhere
-                                );
-                            } else {
-                                $binds[$bindKey . '__to'] = $func[1];
-                            }
-
-                        }
-
-                    } else if (
-                        $hasOperator == 'IN' ||
-                        $hasOperator == 'NOT IN'
-                    ) {
-
-                        foreach ($bindTemp as $bk => $val) {
-
-                            if (array_key_exists($bk, $binds)) {
-                                $dupKey = $bk . '__duplicateKey' . $dubCnt++;
-                                $binds[$dupKey] = $val;
-                                $tempWhere = str_replace(
-                                    $bk, $dupKey, $tempWhere
-                                );
-                            } else {
-                                $binds[$bk] = $val;
-                            }
-
-                        }
-
-                    } else if (strtoupper($func['name']) == 'MD5()') {
-
-                        if (array_key_exists($bindKey, $binds)) {
-                            $dupKey = $bindKey . '___duplicateKey' . $dubCnt++;
-                            $binds[$dupKey] = $func['param'];
-                            $tempWhere = str_replace(
-                                $bindKey, $dupKey, $tempWhere
-                            );
-                        } else {
-                            $binds[$bindKey] = $func['param'];
-                        }
-
-                    }
-                    */
                 } else {
 
                     if ($hasOperator !== false) {
@@ -2590,16 +2467,15 @@ extends xFrameworkPX_Model_Behavior
                                 $to
                             );
 
-                            if (preg_match(
-                                '/^(?:between|not between)\x20+([^\x20]+)\x20+and\x20+([^\x20]+)/i',
-                                $value,
-                                $matches
-                            )) {
-                                $binds[$from] = $matches[1];
-                                $binds[$to] = $matches[2];
+                            if (
+                                (isset($value[0]) && $value[0] !== '') &&
+                                (isset($value[1]) && $value[1] !== '')
+                            ) {
+                                $binds[$from] = $value[0];
+                                $binds[$to] = $value[1];
                             } else {
-                                $binds[$from] = "";
-                                $binds[$to] = "";
+                                $binds[$from] = '';
+                                $binds[$to] = '';
                             }
 
                         } else if (
@@ -2610,7 +2486,6 @@ extends xFrameworkPX_Model_Behavior
                             $bindTemp = array();
 
                             foreach ($inVal as $index => $val) {
-                                // $bkTemp = $bindKey . '__in' . $index;
                                 $bindKey = $this->_getBindName();
                                 $inTemp[$index] = ':' . $bindKey;
                                 $binds[$bindKey] = $val;
@@ -2649,58 +2524,7 @@ extends xFrameworkPX_Model_Behavior
                         $tempWhere = $key . ' = :' . $bindKey;
                         $binds[$bindKey] = $value;
                     }
-                    /*
-                    if (
-                        $hasOperator == 'BETWEEN' ||
-                        $hasOperator == 'NOT BETWEEN'
-                    ) {
 
-                        if (array_key_exists($bindKey . '__from', $binds)) {
-                            $dupKey = $bindKey . '__from___duplicateKey' . $dubCnt++;
-                            $binds[$dupKey] = $value[0];
-                            $tempWhere = str_replace($bindKey . '__from', $dupKey, $tempWhere);
-                        } else {
-                            $binds[$bindKey . '__from'] = $value[0];
-                        }
-
-                        if (array_key_exists($bindKey . '__to', $binds)) {
-                            $dupKey = $bindKey . '__to___duplicateKey' . $dubCnt++;
-                            $binds[$dupKey] = $value[1];
-                            $tempWhere = str_replace($bindKey . '__to', $dupKey, $tempWhere);
-                        } else {
-                            $binds[$bindKey . '__to'] = $value[1];
-                        }
-
-                    } else if (
-                        $hasOperator == 'IN' ||
-                        $hasOperator == 'NOT IN'
-                    ) {
-
-                        foreach ($bindTemp as $bk => $val) {
-
-                            if (array_key_exists($bk, $binds)) {
-                                $dupKey = $bk . '___duplicateKey' . $dubCnt++;
-                                $binds[$dupKey] = $val;
-                                $tempWhere = str_replace(
-                                    $bk, $dupKey, $tempWhere
-                                );
-                            } else {
-                                $binds[$bk] = $val;
-                            }
-
-                        }
-                    } else {
-
-                        if (array_key_exists($bindKey, $binds)) {
-                            $dupKey = $bindKey . '___duplicateKey' . $dubCnt++;
-                            $binds[$dupKey] = $value;
-                            $tempWhere = str_replace($bindKey, $dupKey, $tempWhere);
-                        } else {
-                            $binds[$bindKey] = $value;
-                        }
-
-                    }
-                    */
                 }
 
                 $where[] = $tempWhere;
@@ -2729,42 +2553,14 @@ extends xFrameworkPX_Model_Behavior
 
             $keyFunc = $this->_getFunction($key);
 
-            /*
-            if ($keyFunc && $keyFunc['type'] == 'group') {
-                $bindKey = 'bind__' . substr($keyFunc['name'], 0, -2);
-            } else {
-
-                if (matchesIn($key, '.')) {
-                    $bindKey = str_replace('.', '__', $key);
-                } else {
-                    $bindKey = 'bind__' . $key;
-                }
-
-            }
-            */
-
             if (is_numeric($key) && is_array($value)) {
                 $temp = $this->_getHaving($value, array(), $dubCnt);
-                // $tempHaving = '(' . $this->_getWhereClause($temp['having']) . ')';
                 $having[] = '(' . $this->_getWhereClause($temp['having']) . ')';
+
                 foreach ($temp['bind'] as $bindKey => $bindValue) {
-                    /*
-                    if (array_key_exists($bindKey ,$binds)) {
-
-                        do{
-                            $dupKey = $bindKey . '___duplicateKey' . $dubCnt++;
-                        } while (array_key_exists($dupKey, $binds));
-
-                        $binds[$dupKey] = $bindValue;
-                        $tempHaving = str_replace($bindKey, $dupKey, $tempHaving);
-                    } else {
-                        $binds[$bindKey] = $bindValue;
-                    }
-                    */
                     $binds[$bindKey] = $bindValue;
                 }
 
-                // $having[] = $tempHaving;
             } else if (
                 is_numeric($key) &&
                 (
@@ -2800,14 +2596,7 @@ extends xFrameworkPX_Model_Behavior
                 $isFunc = false;
 
                 if ($func && $func['type'] == 'date') {
-                    /*
-                    if (
-                        matchesIn(strtolower($type), 'date') ||
-                        matchesIn(strtolower($type), 'time')
-                    ) {
-                        $isFunc = true;
-                    }
-                    */
+
                     if ($this->adapter->getColTypeAbstract($type) == 'date') {
                         $isFunc = true;
                     }
@@ -2815,14 +2604,7 @@ extends xFrameworkPX_Model_Behavior
                 } else if ($func && $func['type'] == 'group') {
                     $isFunc = true;
                 } else if ($func && $func['type'] == 'other') {
-                    /*
-                    if (
-                        !matchesIn(strtolower($type), 'date') &&
-                        !matchesIn(strtolower($type), 'time')
-                    ) {
-                        $isFunc = true;
-                    }
-                    */
+
                     if ($this->adapter->getColTypeAbstract($type) != 'date') {
                         $isFunc = true;
                     }
@@ -2866,25 +2648,7 @@ extends xFrameworkPX_Model_Behavior
                             );
                         }
                     }
-                    /*
-                    if (strtoupper($func['name']) == 'MD5()') {
 
-                        if (array_key_exists($bindKey, $binds)) {
-
-                            do {
-                                $dupKey = $bindKey . '___duplicateKey' . $dubCnt++;
-                            } while (array_key_exists($dupKey, $binds));
-
-                            $binds[$dupKey] = $func['param'];
-                            $tempHaving = str_replace(
-                                $bindKey, $dupKey, $tempHaving
-                            );
-                        } else {
-                            $binds[$bindKey] = $func['param'];
-                        }
-
-                    }
-                    */
                 } else {
                     $bindKey = $this->_getBindName();
 
@@ -2909,19 +2673,7 @@ extends xFrameworkPX_Model_Behavior
                     } else {
                         $tempHaving = $key . ' = :' . $bindKey;
                     }
-                    /*
-                    if (array_key_exists($bindKey, $binds)) {
 
-                        do {
-                            $dupKey = $bindKey . '___duplicateKey' . $dubCnt++;
-                        } while (array_key_exists($dupKey, $binds));
-
-                        $binds[$dupKey] = $value;
-                        $tempHaving = str_replace($bindKey, $dupKey, $tempHaving);
-                    } else {
-                        $binds[$bindKey] = $value;
-                    }
-                    */
                     $binds[$bindKey] = $value;
                 }
 
@@ -3015,43 +2767,41 @@ extends xFrameworkPX_Model_Behavior
 
     public function bindSet($data, $primaryCond = array(), $lock = true)
     {
-        if (is_null($this->module->usetable)) {
-            $tableName = $this->module->getTableName();
-        } else {
-            $tableName = $this->module->usetable;
-        }
+
+        $tableName = $this->module->usetable;
 
         // テーブルロック
         if ($lock) {
             $this->bindLock(array($tableName));
         }
 
-        $configs = null;
+        $conditions = null;
 
         if (is_array($primaryCond) && count($primaryCond) > 0) {
-            $configs = array(
-                'conditions' => $primaryCond
-            );
+            $conditions = $primaryCond;
         } else {
 
             if (isset($data[$this->primaryKey])) {
-                $configs = array(
-                    'conditions' => array(
-                        array(
-                            $tableName . '.' . $this->primaryKey => $data[$this->primaryKey]
-                        )
-                    )
+                $conditions = array(
+                    $tableName . '.' . $this->primaryKey => $data[$this->primaryKey]
                 );
             }
 
         }
 
-        if (isset($configs)) {
-            $cnt = $this->bindGet('count', $configs);
+        if (isset($conditions)) {
+            $temp = $this->_getConditions($conditions);
+            $result = $this->bindRow(array(
+                'query' => 'SELECT COUNT(*) FROM ' . $this->usetable,
+                'where' => $temp['where'],
+                'bind' => $temp['bind']
+            ));
+            $cnt = ($result) ? intval($result['COUNT(*)']) : 0;
         } else {
             $cnt = 0;
         }
 
+        $this->_bindCnt = 0;
         $fields = array();
         $values = array();
         $binds = array();
@@ -3061,12 +2811,7 @@ extends xFrameworkPX_Model_Behavior
         if ($cnt > 0) {
 
             foreach ($data as $key => $value) {
-
-                if (matchesIn($key, '.')) {
-                    $bindKey = str_replace('.', '__', $key);
-                } else {
-                    $bindKey = 'bind__' . $key;
-                }
+                $bindKey = $this->_getBindName();
 
                 if ($key !== $this->primaryKey) {
 
@@ -3090,14 +2835,6 @@ extends xFrameworkPX_Model_Behavior
                         switch ($func['type']) {
 
                             case 'date':
-                                /*
-                                if (
-                                    matchesIn(strtolower($colType), 'date') ||
-                                    matchesIn(strtolower($colType), 'time')
-                                ) {
-                                    $values[] = $func['src'];
-                                }
-                                */
 
                                 if ($this->adapter->getColTypeAbstract($colType) == 'date') {
                                     $values[] = $func['src'];
@@ -3109,25 +2846,7 @@ extends xFrameworkPX_Model_Behavior
                                 break;
 
                             case 'other':
-                                /*
-                                if (
-                                    !matchesIn(strtolower($colType), 'date') ||
-                                    !matchesIn(strtolower($colType), 'time')
-                                ) {
 
-                                    if ($func['param'] !== '') {
-                                        $values[] = sprintf(
-                                            '%s(:%s)',
-                                            substr($func['name'], 0, -2),
-                                            $key
-                                        );
-                                        $binds[$key] = $func['param'];
-                                    } else {
-                                        $values[] = $func['src'];
-                                    }
-
-                                }
-                                */
                                 if ($this->adapter->getColTypeAbstract($colType) != 'date') {
 
                                     if ($func['param'] !== '') {
@@ -3170,40 +2889,15 @@ extends xFrameworkPX_Model_Behavior
                 $tempWhere = $temp['where'];
 
                 foreach ($temp['bind'] as $bindKey => $bindVal) {
-
-                    if (array_key_exists($bindKey, $binds)) {
-                        $dupCnt = 1;
-
-                        do {
-                            $dupKey = $bindKey . '___duplicate' . $dupCnt++;
-                        } while (array_key_exists($dupKey, $binds));
-
-                        $binds[$dupKey] = $bindVal;
-                    } else {
-                        $binds[$bindKey] = $bindVal;
-                    }
-
+                    $binds[$bindKey] = $bindVal;
                 }
 
             } else {
-                $bindKey = $tableName . '_' . $this->primaryKey;
+                $bindKey = $this->_getBindName();
                 $tempWhere = sprintf(
                     '%s.%s = :%s', $tableName, $this->primaryKey, $bindKey
                 );
-
-                if (array_key_exists($bindKey, $binds)) {
-                    $dupCnt = 1;
-
-                    do {
-                        $dupKey = $bindKey . '___duplicate' . $dupCnt++;
-                    } while (array_key_exists($dupKey, $binds));
-
-                    $binds[$dupKey] = $data[$this->primaryKey];
-                    $tempWhere = str_replace($bindKey, $dupKey, $tempWhere);
-                } else {
-                    $binds[$bindKey] = $data[$this->primaryKey];
-                }
-
+                $binds[$bindKey] = $data[$this->primaryKey];
             }
 
             // UPDATE
@@ -3223,12 +2917,7 @@ extends xFrameworkPX_Model_Behavior
 
             // INSERT
             foreach ($data as $key => $value) {
-
-                if (matchesIn($key, '.')) {
-                    $bindKey = str_replace('.', '__', $key);
-                } else {
-                    $bindKey = 'bind__' . $key;
-                }
+                $bindKey = $this->_getBindName();
 
                 foreach ($schema as $column) {
 
@@ -3250,14 +2939,6 @@ extends xFrameworkPX_Model_Behavior
                     switch ($func['type']) {
 
                         case 'date':
-                            /*
-                            if (
-                                matchesIn(strtolower($colType), 'date') ||
-                                matchesIn(strtolower($colType), 'time')
-                            ) {
-                                $values[] = $func['src'];
-                            }
-                            */
 
                             if ($this->adapter->getColTypeAbstract($colType) == 'date') {
                                 $values[] = $func['src'];
@@ -3269,25 +2950,7 @@ extends xFrameworkPX_Model_Behavior
                             break;
 
                         case 'other':
-                            /*
-                            if (
-                                !matchesIn(strtolower($colType), 'date') ||
-                                !matchesIn(strtolower($colType), 'time')
-                            ) {
 
-                                if ($func['param'] !== '') {
-                                    $values[] = sprintf(
-                                        '%s(:%s)',
-                                      substr($func['name'], 0, -2),
-                                        $key
-                                    );
-                                    $binds[$key] = $func['param'];
-                                } else {
-                                    $values[] = $func['src'];
-                                }
-
-                            }
-                            */
                             if ($this->adapter->getColTypeAbstract($colType) != 'date') {
 
                                 if ($func['param'] !== '') {
@@ -3324,11 +2987,6 @@ extends xFrameworkPX_Model_Behavior
 
                 $tableinfo= $this->bindGetTableInfo();
                 if (!isset($tableinfo['Auto_increment'])) {
-                    /*
-                    $ret = $this->bindRow(array(
-                        'query' => 'SELECT MAX(' . $tableName . '.' . $this->primaryKey . ') as max FROM ' . $tableName
-                    ));
-                    */
                     $query = sprintf(
                             'SELECT MAX(%s) as "maxId" FROM %s',
                             $this->primaryKey,
@@ -3364,6 +3022,7 @@ extends xFrameworkPX_Model_Behavior
 
     public function bindRemove($cond)
     {
+        $this->_bindCnt = 0;
 
         if (is_array($cond) && array_key_exists('conditions', $cond)) {
             $temp = $this->_getConditions($cond['conditions']);

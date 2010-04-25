@@ -137,6 +137,13 @@
             <socket></socket>
             <!-- /Socket -->
 
+            <!-- NLS -->
+            <nls>
+                <date_format>yyyy-mm-dd hh24:mi:ss</date_format>
+                <timestamp_format>yyyy-mm-dd hh24:mi:ss</timestamp_format>
+            </nls>
+            <!-- /NLS -->
+
         </connection>
         <!-- /oracle -->
 
