@@ -39,6 +39,28 @@ class xFrameworkPX_Loader_Auto
      */
     public static $list = array();
 
+    /**
+     * コンフィグ配列
+     *
+     * @var array
+     */
+    public static $conf = array();
+
+    // }}}
+    // {{{ setConf
+
+    /**
+     * コンフィグ設定メソッド
+     *
+     * @param array $conf コンフィグ配列
+     * @param string $path パス
+     * @return void
+     */
+    public static function setConf($conf)
+    {
+        self::$conf = $conf;
+    }
+
     // }}}
     // {{{ register
 
@@ -104,10 +126,70 @@ class xFrameworkPX_Loader_Auto
             if (array_key_exists($class, self::$list)) {
                 include self::$list[$class];
             } else {
-                throw new xFrameworkPX_Exception(sprintf(
-                    PX_ERR50000,
-                    $class
-                ));
+
+                // コントローラー、モジュールから該当クラスを探し出す
+                $exists = false;
+
+                $controllerPath = '';
+                $controllerPreffix = '';
+                $controllerExtension = '';
+
+                if (isset(self::$conf['CONTROLLER_DIR'])) {
+                    $controllerPath = self::$conf['CONTROLLER_DIR'];
+                }
+
+                if (isset(self::$conf['CONTROLLER_PREFIX'])) {
+                    $controllerPreffix = self::$conf['CONTROLLER_PREFIX'];
+                }
+
+                if (isset(self::$conf['CONTROLLER_EXTENSION'])) {
+                    $controllerExtension = self::$conf['CONTROLLER_EXTENSION'];
+                }
+
+                $path = str_replace('_', DS, $class);
+                $controllerPath = realpath($controllerPath);
+                if ($controllerPath) {
+
+                    $controllerPath = $controllerPath
+                                    . DS
+                                    . $controllerPreffix
+                                    . $path
+                                    . $controllerExtension;
+
+                    if (file_exists($controllerPath)) {
+                        include_once $controllerPath;
+                        $exists = true;
+                    }
+                }
+
+                $modulePath = '';
+                $modulePreffix = '';
+                $moduleExtension = '.php';
+
+                if (isset(self::$conf['MODULE_DIR'])) {
+                    $modulePath = self::$conf['MODULE_DIR'];
+                }
+
+                $modulePath = realpath($modulePath);
+                if ($modulePath) {
+
+                    $modulePath = $modulePath
+                                . DS
+                                . $modulePreffix
+                                . $path
+                                . $moduleExtension;
+                    if (file_exists($modulePath)) {
+                        include_once $modulePath;
+                        $exists = true;
+                    }
+                }
+
+                if (!$exists) {
+                    throw new xFrameworkPX_Exception(sprintf(
+                        PX_ERR50000,
+                        $class
+                    ));
+                }
             }
         } catch (xFrameworkPX_Exception $e) {
             exit($e->printStackTrace());

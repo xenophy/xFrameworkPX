@@ -259,6 +259,9 @@ class xFrameworkPX_Dispatcher extends xFrameworkPX_Object
         // xFrameworkPX動作設定適用
         $this->_conf = array_merge($this->_conf, $conf);
 
+        // Auto設定適用
+        xFrameworkPX_Loader_Auto::setConf($this->_conf);
+
         // デバッグレベル設定
         xFrameworkPX_Debug::getInstance()->level = $this->_conf['DEBUG'];
 

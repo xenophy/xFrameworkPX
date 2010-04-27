@@ -349,7 +349,7 @@ class xFrameworkPX_Controller_Web extends xFrameworkPX_Controller
                     $conf->contentpath = $this->getContentPath();
 
                     // モジュールオブジェクト生成
-                    $cls->modules[$name] = new $name($conf);
+                    $cls->modules[$name] = new $name($conf, $this);
                 }
 
                 // モジュール一覧設定
@@ -458,7 +458,7 @@ class xFrameworkPX_Controller_Web extends xFrameworkPX_Controller
                     $conf->contentpath = $this->getContentPath();
 
                     // モジュールオブジェクト生成
-                    $cls->modules[$name] = new $name($conf);
+                    $cls->modules[$name] = new $name($conf, $this);
                 }
 
                 // モジュール一覧設定
