@@ -319,6 +319,10 @@ class xFrameworkPX_Controller_Web extends xFrameworkPX_Controller
                         $value = array('conn' => 'default');
                     }
 
+                    if (isset($cls->forceConnect)) {
+                        $value = array('conn' => $cls->forceConnect);
+                    }
+
                     $clsPath = str_replace('_', DS, $name);
                     $modulePath = normalize_path(
                         implode(
@@ -426,6 +430,10 @@ class xFrameworkPX_Controller_Web extends xFrameworkPX_Controller
                     if (is_string($value)) {
                         $name = $value;
                         $value = array('conn' => 'default');
+                    }
+
+                    if (isset($cls->forceConnect)) {
+                        $value = array('conn' => $cls->forceConnect);
                     }
 
                     $clsPath = str_replace('_', DS, $name);

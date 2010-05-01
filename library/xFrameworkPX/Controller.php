@@ -455,6 +455,10 @@ abstract class xFrameworkPX_Controller extends xFrameworkPX_Util_Observable
                     $value = array('conn' => 'default');
                 }
 
+                if (isset($cls->forceConn)) {
+                    $value = array('conn' => $cls->forceConnect);
+                }
+
                 $clsPath = str_replace('_', DS, $name);
                 $moduleFileName = normalize_path(
                     implode(
