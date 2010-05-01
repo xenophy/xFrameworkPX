@@ -452,11 +452,11 @@ abstract class xFrameworkPX_Controller extends xFrameworkPX_Util_Observable
 
                 if (is_string($value)) {
                     $name = $value;
-                    $value = array('conn' => 'default');
-                }
-
-                if (isset($cls->forceConn)) {
-                    $value = array('conn' => $cls->forceConnect);
+                    if (isset($cls->forceConnect)) {
+                        $value = array('conn' => $cls->forceConnect);
+                    } else {
+                        $value = array('conn' => 'default');
+                    }
                 }
 
                 $clsPath = str_replace('_', DS, $name);
