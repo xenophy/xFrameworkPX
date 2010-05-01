@@ -61,7 +61,10 @@ class xFrameworkPX_Dispatcher extends xFrameworkPX_Object
 
             // デバッグモード設定
             'DEBUG' => false,
-            
+
+            // 強制コントローラー実行
+            'FORCE_CONTROLLER_EXECUTE' => false,
+
             // タイムゾーン設定
             'TIMEZONE' => 'Asia/Tokyo',
 
@@ -293,16 +296,16 @@ class xFrameworkPX_Dispatcher extends xFrameworkPX_Object
         }
 
         // 正規化されたURLで無い場合は、正規化してリダイレクト
-		if (isset($_SERVER['REQUEST_URI'])) {
-	        $url = parse_url($_SERVER['REQUEST_URI']);
-	        if (isset($url['path']) && $url['path'] !== normalize_path($url['path'], '/')) {
-	            $query = '';
-	            if (isset($url['query'])) {
-	                $query = '?' . $url['query'];
-	            }
-	            $this->redirect(normalize_path($url['path'], '/') . $query);
-	        }
-		}
+        if (isset($_SERVER['REQUEST_URI'])) {
+            $url = parse_url($_SERVER['REQUEST_URI']);
+            if (isset($url['path']) && $url['path'] !== normalize_path($url['path'], '/')) {
+                $query = '';
+                if (isset($url['query'])) {
+                    $query = '?' . $url['query'];
+                }
+                $this->redirect(normalize_path($url['path'], '/') . $query);
+            }
+        }
 
         // ファイル転送
         $isTransfer = $this->transfer();
@@ -316,7 +319,7 @@ class xFrameworkPX_Dispatcher extends xFrameworkPX_Object
         }
 
         // 仮想スクリーン
-        if (!$this->isVirtualScreen()) {
+        if (!$this->isVirtualScreen() && $this->_conf['FORCE_CONTROLLER_EXECUTE'] === false) {
 
             if (PHP_SAPI === 'cli') {
 
