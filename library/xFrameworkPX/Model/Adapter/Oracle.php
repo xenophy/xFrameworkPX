@@ -361,7 +361,14 @@ class xFrameworkPX_Model_Adapter_Oracle extends xFrameworkPX_Model_Adapter
     }
 
     // }}}
+    // {{{ getTruncateQuery
 
+    public function getTruncateQuery()
+    {
+        return 'TRUNCATE TABLE %s';
+    }
+
+    // }}}
 }
 
 // }}}

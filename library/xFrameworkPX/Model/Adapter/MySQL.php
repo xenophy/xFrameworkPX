@@ -136,7 +136,7 @@ class xFrameworkPX_Model_Adapter_MySQL extends xFrameworkPX_Model_Adapter
      *
      * @return string SQLフラグメント
      */
-    public function getQueryLastId($tblName, $colName)
+    public function getQueryLastId($tblName = null, $colName = null)
     {
         return 'SELECT last_insert_id() AS last_id;';
     }
@@ -302,7 +302,14 @@ class xFrameworkPX_Model_Adapter_MySQL extends xFrameworkPX_Model_Adapter
     }
 
     // }}}
+    // {{{ getTruncateQuery
 
+    public function getTruncateQuery()
+    {
+        return 'TRUNCATE TABLE %s';
+    }
+
+    // }}}
 }
 
 // }}}

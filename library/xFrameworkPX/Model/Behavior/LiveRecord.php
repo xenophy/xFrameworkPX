@@ -611,6 +611,38 @@ extends xFrameworkPX_Model_Behavior
     }
 
     // }}}
+    // {{{ bindTruncate
+
+    /**
+     * truncateバインドメソッド
+     *
+     * @param bool $onlyQuery
+     * @return void
+     * @access public
+     */
+    public function bindTruncate($onlyQuery = false)
+    {
+
+        try {
+            $query = sprintf(
+                $this->module->adapter->getTruncateQuery(),
+                $this->module->usetable
+            );
+
+            if ($onlyQuery) {
+                return $query;
+            }
+
+            // テーブルトランケート
+            $this->bindExec(array('query' => $query));
+
+        } catch (PDOException $ex) {
+            echo $ex->getMessage();
+        }
+
+    }
+
+    // }}}
     // {{{ bindLastId
 
     /**
@@ -623,7 +655,9 @@ extends xFrameworkPX_Model_Behavior
     public function bindLastId()
     {
         // LAST_INSERT_IDクエリ取得
-        $query = $this->module->adapter->getQueryLastId();
+        $query = $this->module->adapter->getQueryLastId(
+            $this->module->usetable, $this->module->primaryKey
+        );
         $stmt = @$this->pdo->prepare($query);
 
         // デバッグ用計測開始
@@ -2792,11 +2826,11 @@ extends xFrameworkPX_Model_Behavior
         if (isset($conditions)) {
             $temp = $this->_getConditions($conditions);
             $result = $this->bindRow(array(
-                'query' => 'SELECT COUNT(*) FROM ' . $this->usetable,
+                'query' => 'SELECT COUNT(*) AS "cnt" FROM ' . $this->usetable,
                 'where' => $temp['where'],
                 'bind' => $temp['bind']
             ));
-            $cnt = ($result) ? intval($result['COUNT(*)']) : 0;
+            $cnt = ($result) ? intval($result['cnt']) : 0;
         } else {
             $cnt = 0;
         }
