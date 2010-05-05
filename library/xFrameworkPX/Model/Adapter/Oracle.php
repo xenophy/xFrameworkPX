@@ -174,7 +174,7 @@ class xFrameworkPX_Model_Adapter_Oracle extends xFrameworkPX_Model_Adapter
     public function getQueryLastId($tblName, $colName)
     {
         return sprintf(
-            "SELECT MAX(%s.%s) AS 'last_id' FROM %s",
+            'SELECT MAX(%s.%s) AS "last_id" FROM %s',
             $tblName, $colName, $tblName
         );
     }
