@@ -1214,9 +1214,9 @@ extends xFrameworkPX_Model_Behavior
         if ($type == 'count') {
 
             if ($fields == '*' || count($config['fields']) <= 0) {
-                $fields = 'COUNT(*)';
+                $fields = 'COUNT(*) AS "cnt"';
             } else {
-                $fields = sprintf('COUNT(%s)', $config['fields'][0]);
+                $fields = sprintf('COUNT(%s) AS "cnt"', $config['fields'][0]);
             }
 
         }
@@ -1363,7 +1363,7 @@ extends xFrameworkPX_Model_Behavior
                         'order' => $order
                     )
                 );
-                $ret = ($temp) ? intval($temp[$fields]) : 0;
+                $ret = ($temp) ? intval($temp['cnt']) : 0;
                 break;
         }
 
