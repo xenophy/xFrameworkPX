@@ -2397,15 +2397,17 @@ extends xFrameworkPX_Model_Behavior
                         ) {
 
                             if (is_string($func[0])) {
-                                $from = ':' . $this->_getBindName();
+                                $from = $this->_getBindName();
                                 $binds[$from] = $func[0];
+                                $from = ':' . $from;
                             } else {
                                 $from = $func[0]['src'];
                             }
 
                             if (is_string($func[1])) {
-                                $to = ':' . $this->_getBindName();
+                                $to = $this->_getBindName();
                                 $binds[$to] = $func[1];
+                                $to = ':' . $to;
                             } else {
                                 $to = $func[1]['src'];
                             }
