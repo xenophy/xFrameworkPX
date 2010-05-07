@@ -381,8 +381,7 @@ class xFrameworkPX_View_Smarty extends xFrameworkPX_View
                 }
 
                 if($disable === false) {
-                    echo str_replace('<head>','<head>' . $shim, $display);
-//                    echo str_replace('</body>', $shim . '</body>', $display);
+                    echo str_replace('</head>',$shim.'</head>', $display );
                 } else {
                     echo $display;
                 }
