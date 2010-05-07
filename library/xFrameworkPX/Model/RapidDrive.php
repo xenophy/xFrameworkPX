@@ -47,10 +47,10 @@ class xFrameworkPX_Model_RapidDrive extends xFrameworkPX_Model
      *
      * @param SimpleXMLElement $conf 設定オブジェクト
      */
-    public function __construct($conf)
+    public function __construct($conf, $controller)
     {
         // スーパークラスメソッドコール
-        parent::__construct($conf);
+        parent::__construct($conf, $controller);
     }
 
     // }}}
