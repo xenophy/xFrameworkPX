@@ -190,7 +190,9 @@ abstract class xFrameworkPX_Model extends xFrameworkPX_Util_Observable
         }
 
         // ビヘイビア設定
-        $this->behaviors = array_merge($this->behaviors, array('LiveRecord'));
+        $this->behaviors = array_merge(
+            $this->behaviors, array('LiveRecord')
+        );
 
         // ビヘイビアバインド
         $this->_bindBehavior();
@@ -297,6 +299,7 @@ abstract class xFrameworkPX_Model extends xFrameworkPX_Util_Observable
                 $this->getDSN(
                     strtolower($this->conn->{$this->conf->conn}->driver),
                     $this->conn->{$this->conf->conn}->host,
+                    $this->conn->{$this->conf->conn}->port,
                     $this->conn->{$this->conf->conn}->database,
                     $this->conn->{$this->conf->conn}->socket
                 ),
@@ -367,21 +370,71 @@ abstract class xFrameworkPX_Model extends xFrameworkPX_Util_Observable
      * @param $unixScoket
      * @return
      */
-    public function getDSN($type,$host,$database,$unixScoket = null)
+    public function getDSN($type, $host, $port, $database, $unixScoket = null)
     {
         // デバッグ用計測開始
         if ($this->conf['px']['DEBUG'] >= 2) {
             $startTime = microtime(true);
         }
 
-        if ($type === 'oci' && !matchesIn($database, '/')) {
-            $database = sprintf('%s/%s', $host, $database);
+        switch ($type) {
+
+            case 'mysql':
+                $dsn = 'mysql:';
+
+                if ($host) {
+                    $temp[] = sprintf('host=%s', $host);
+
+                    if ($port) {
+                        $temp[] = sprintf('port=%s', $port);
+                    }
+
+                } else if ($unixSocket) {
+                    $temp[] = sprintf('unix_socket=%s', $unixSocket);
+                }
+
+                $temp[] = sprintf('dbname=%s', $database);
+                break;
+
+            case 'oci':
+                $dsn = 'oci:';
+
+                if (!matchesIn($database, '/') && $host) {
+
+                    if ($port) {
+                        $host .= ':' . $port;
+                    }
+
+                    $database = sprintf('%s/%s', $host, $database);
+                }
+
+                $temp[] = sprintf('dbname=%s', $database);
+                break;
+
+            case 'pgsql':
+                $dsn = 'pgsql:';
+
+                if ($host) {
+                    $temp[] = sprintf('host=%s', $host);
+                }
+
+                if ($port) {
+                    $temp[] = sprintf('port=%s', $port);
+                }
+
+                if ($database) {
+                    $temp[] = sprintf('dbname=%s', $database);
+                }
+
+                break;
+
+            default:
+                $dsn = null;
+                break;
         }
 
-        $dsn = "{$type}:host={$host};dbname={$database}";
-
-        if (!empty($unixScoket)) {
-            $dsn = $dsn . ";unix_socket={$unixScoket}";
+        if ($dsn) {
+            $dsn .= implode(';', $temp);
         }
 
         if ($this->conf['px']['DEBUG'] >= 2) {

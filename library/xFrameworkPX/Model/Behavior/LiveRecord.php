@@ -2103,6 +2103,10 @@ extends xFrameworkPX_Model_Behavior
             return '>';
         } else if (startsWith(trim(strtoupper($text)), 'LIKE')) {
             return 'LIKE';
+        } else if (startsWith(trim(strtoupper($text)), 'IS')) {
+            return 'IS';
+        } else if (startsWith(trim(strtoupper($text)), 'IS NOT')) {
+            return 'IS NOT';
         } else if (startsWith(trim(strtoupper($text)), 'BETWEEN')) {
             return 'BETWEEN';
         } else if (startsWith(trim(strtoupper($text)), 'NOT BETWEEN')) {
@@ -2532,6 +2536,17 @@ extends xFrameworkPX_Model_Behavior
                                 $key,
                                 $hasOperator,
                                 implode(', ', $inTemp)
+                            );
+                        } else if (
+                            $hasOperator == 'IS' || $hasOperator == 'IS NOT'
+                        ) {
+                            $tempWhere = sprintf(
+                                '%s %s %s',
+                                $key,
+                                $hasOperator,
+                                trim(substr(
+                                    trim($value), strlen($hasOperator)
+                                ))
                             );
                         } else {
                             $bindKey = $this->_getBindName();
