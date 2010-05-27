@@ -65,8 +65,21 @@ extends xFrameworkPX_Controller_Web
             );
         }
 
+        // WiseTagコンポーネント設定
+        $this->_components[] = array(
+            'clsName' => 'xFrameworkPX_Controller_Component_WiseTag',
+            'bindName' => 'Tag',
+            'args' => $conf->pxconf['WISE_TAG']
+        );
+
         // スーパークラスメソッドコール
         parent::__construct($conf);
+
+        // セッションオブジェクト設定
+        $this->Tag->setSession($this->Session);
+
+        // WiseTag初期化
+        $this->Tag->init();
 
         if ($this->_conf->pxconf['DEBUG'] >= 2) {
             xFrameworkPX_Debug::getInstance()->addProfileData(

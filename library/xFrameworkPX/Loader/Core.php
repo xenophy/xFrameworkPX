@@ -109,6 +109,7 @@ class xFrameworkPX_Loader_Core
                 include 'xFrameworkPX/Controller/Component/Session.php';
                 include 'xFrameworkPX/Controller/Component/PhpSession.php';
                 include 'xFrameworkPX/Controller/Component/RapidDrive.php';
+                include 'xFrameworkPX/Controller/Component/WiseTag.php';
                 include 'xFrameworkPX/Dispatcher.php';
                 include 'xFrameworkPX/Debug.php';
                 include 'xFrameworkPX/Log.php';
@@ -125,7 +126,6 @@ class xFrameworkPX_Loader_Core
                 include 'xFrameworkPX/Model/Adapter/PgSQL.php';
                 include 'xFrameworkPX/Model/Adapter/Oracle.php';
                 include 'xFrameworkPX/Model/Behavior/LiveRecord.php';
-                include 'xFrameworkPX/Model/Behavior/WiseTag.php';
                 include 'xFrameworkPX/Validation.php';
                 include 'xFrameworkPX/Version.php';
                 include 'xFrameworkPX/View.php';

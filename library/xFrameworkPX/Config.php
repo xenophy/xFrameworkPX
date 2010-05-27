@@ -100,7 +100,9 @@ implements xFrameworkPX_ConfigInterface
      *
      * @return xFrameworkPXインスタンス
      */
-    abstract public static function getInstance();
+    public static function getInstance()
+    {
+    }
 
     // }}}
     // {{{ import

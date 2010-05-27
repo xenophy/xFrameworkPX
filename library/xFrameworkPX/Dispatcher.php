@@ -197,6 +197,16 @@ class xFrameworkPX_Dispatcher extends xFrameworkPX_Object
 
                 // 右デリミタ設定
                 'RIGHT_DELIMITER' => '}-->'
+            ),
+
+            // WiseTag設定
+            'WISE_TAG' => array(
+
+                // ビューへのアサイン名設定
+                'assign_name' => 'wt',
+
+                // セッション登録名設定
+                'session_name' => 'WiseTagConfig'
             )
         );
     }
