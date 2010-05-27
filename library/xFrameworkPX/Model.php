@@ -261,7 +261,18 @@ abstract class xFrameworkPX_Model extends xFrameworkPX_Util_Observable
         }
 
         if (is_array($settings)) {
-            $this->conn->{$this->conf->conn} = $this->mix();
+            $this->conn->{$this->conf->conn} = $this->mix(array(
+                'charset' => '',
+                'adapter' => '',
+                'driver' => '',
+                'host' => '',
+                'user' => '',
+                'password' => '',
+                'database' => '',
+                'prefix' => '',
+                'port' => '',
+                'socket' => ''
+            ));
 
             foreach ($settings as $key => $value) {
                 $this->conn->{$this->conf->conn}->$key = $value;
@@ -285,11 +296,24 @@ abstract class xFrameworkPX_Model extends xFrameworkPX_Util_Observable
                 $this->usetable = $this->getTableName();
             }
 
-            // アダプターオブジェクト生成
-            $clsName = sprintf(
-                'xFrameworkPX_Model_Adapter_%s',
-                $adaptermap[$this->conn->{$this->conf->conn}->adapter]
-            );
+            if (!isset($this->conn->{$this->conf->conn})) {
+                throw new xFrameworkPX_Model_Exception(sprintf(
+                    PX_ERR30002, $this->conf->conn
+                ));
+            }
+
+            if (isset($adaptermap[$this->conn->{$this->conf->conn}->adapter])) {
+
+                // アダプターオブジェクト生成
+                $clsName = sprintf(
+                    'xFrameworkPX_Model_Adapter_%s',
+                    $adaptermap[$this->conn->{$this->conf->conn}->adapter]
+                );
+            } else {
+                throw new xFrameworkPX_Model_Exception(sprintf(
+                    PX_ERR30003, $this->conn->{$this->conf->conn}->adapter
+                ));
+            }
 
             $this->adapter = new $clsName();
             // PDOオブジェクト生成
