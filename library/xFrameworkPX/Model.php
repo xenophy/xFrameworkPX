@@ -317,7 +317,7 @@ abstract class xFrameworkPX_Model extends xFrameworkPX_Util_Observable
 
             $this->adapter = new $clsName();
             // PDOオブジェクト生成
-            $this->pdo = new PDO(
+            $this->pdo = @new PDO(
 
                 // DSN設定
                 $this->getDSN(
