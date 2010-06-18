@@ -64,7 +64,21 @@ abstract class xFrameworkPX_Model_Behavior extends xFrameworkPX_Object
      */
     public function __get($name)
     {
-        return $this->module->{$name};
+        $ret = null;
+
+        if ($name == 'pdo') {
+
+            if (!is_null($this->module->{$name})) {
+                $ret = $this->module->{$name};
+            } else {
+                throw new xFrameworkPX_Model_Exception(PX_ERR30004);
+            }
+
+        } else {
+            $ret = $this->module->{$name};
+        }
+
+        return $ret;
     }
 
     // }}}

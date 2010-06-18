@@ -75,6 +75,10 @@ if (!defined('PX_ERR30003')) {
     define('PX_ERR30003', '\'%s\' is Undefined Adapter.');
 }
 
+if (!defined('PX_ERR30004')) {
+    define('PX_ERR30004', 'PDO Object doesn\'t exist.');
+}
+
 // }}}
 // {{{ xFrameworkPX_CodeGenerator
 
