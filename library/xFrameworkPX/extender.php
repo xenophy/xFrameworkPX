@@ -516,15 +516,8 @@ function is_secure()
 {
 
     if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') {
-
         return true;
-
     } else {
-
-        if (isset($_SERVER['HTTP_VIA']) && $_SERVER['HTTP_VIA'] != 'off') {
-            return true;
-        }
-
         return false;
     }
 
