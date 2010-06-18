@@ -1,8 +1,8 @@
 <?php
 //
-//  FPDI - Version 1.3.1
+//  FPDI - Version 1.3.3
 //
-//    Copyright 2004-2009 Setasign - Jan Slabon
+//    Copyright 2004-2010 Setasign - Jan Slabon
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -213,6 +213,11 @@ class fpdi_pdf_parser extends pdf_parser {
         if (isset($obj[1][1]['/Filter'])) {
             $_filter = $obj[1][1]['/Filter'];
 
+            if ($_filter[0] == PDF_TYPE_OBJREF) {
+                $tmpFilter = $this->pdf_resolve_object($this->c, $_filter);
+                $_filter = $tmpFilter[1];
+            }
+            
             if ($_filter[0] == PDF_TYPE_TOKEN) {
                 $filters[] = $_filter;
             } else if ($_filter[0] == PDF_TYPE_ARRAY) {
@@ -236,12 +241,12 @@ class fpdi_pdf_parser extends pdf_parser {
                 break;
                 case '/LZWDecode':
                     include_once('filters/FilterLZW_FPDI.php');
-                    $decoder =& new FilterLZW_FPDI($this->fpdi);
+                    $decoder = new FilterLZW_FPDI($this->fpdi);
                     $stream = $decoder->decode($stream);
                     break;
                 case '/ASCII85Decode':
                     include_once('filters/FilterASCII85_FPDI.php');
-                    $decoder =& new FilterASCII85_FPDI($this->fpdi);
+                    $decoder = new FilterASCII85_FPDI($this->fpdi);
                     $stream = $decoder->decode($stream);
                     break;
                 case null:
@@ -353,11 +358,18 @@ class fpdi_pdf_parser extends pdf_parser {
      */
     function read_pages (&$c, &$pages, &$result) {
         // Get the kids dictionary
-    	$kids = $this->pdf_resolve_object ($c, $pages[1][1]['/Kids']);
-
-        if (!is_array($kids))
+    	$_kids = $this->pdf_resolve_object ($c, $pages[1][1]['/Kids']);
+        
+        if (!is_array($_kids))
             $this->error('Cannot find /Kids in current /Page-Dictionary');
-        foreach ($kids[1] as $v) {
+            
+        if ($_kids[1][0] == PDF_TYPE_ARRAY) {
+            $kids = $_kids[1][1];
+        } else {
+            $kids = $_kids[1];
+        }
+        
+        foreach ($kids as $v) {
     		$pg = $this->pdf_resolve_object ($c, $v);
             if ($pg[1][1]['/Type'][1] === '/Pages') {
                 // If one of the kids is an embedded

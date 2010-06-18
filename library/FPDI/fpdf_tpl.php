@@ -1,8 +1,8 @@
 <?php
 //
-//  FPDF_TPL - Version 1.1.3
+//  FPDF_TPL - Version 1.1.5
 //
-//    Copyright 2004-2009 Setasign - Jan Slabon
+//    Copyright 2004-2010 Setasign - Jan Slabon
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -266,17 +266,19 @@ class FPDF_TPL extends FPDF {
     /**
      * See FPDF/TCPDF-Documentation ;-)
      */
-    function Image($file, $x, $y, $w=0, $h=0, $type='', $link='', $align='', $resize=false, $dpi=300, $palign='', $ismask=false, $imgmask=false, $border=0) {
+    function Image($file, $x='', $y='', $w=0, $h=0, $type='', $link='', $align='', $resize=false, $dpi=300, $palign='', $ismask=false, $imgmask=false, $border=0, $fitbox=false,   $hidden=false, $fitonpage=false) {
         if (!is_subclass_of($this, 'TCPDF') && func_num_args() > 7) {
             $this->Error('More than 7 arguments for the Image method are only available in TCPDF.');
         }
         
-        parent::Image($file, $x, $y, $w, $h, $type, $link, $align, $resize, $dpi, $palign, $ismask, $imgmask, $border);
+        $ret = parent::Image($file, $x, $y, $w, $h, $type, $link, $align, $resize, $dpi, $palign, $ismask, $imgmask, $border, $fitbox, $hidden, $fitonpage);
         if ($this->_intpl) {
             $this->_res['tpl'][$this->tpl]['images'][$file] =& $this->images[$file];
         } else {
             $this->_res['page'][$this->page]['images'][$file] =& $this->images[$file];
         }
+        
+        return $ret;
     }
     
     /**
@@ -284,10 +286,14 @@ class FPDF_TPL extends FPDF {
      *
      * AddPage is not available when you're "in" a template.
      */
-    function AddPage($orientation='', $format='') {
+    function AddPage($orientation='', $format='', $keepmargins=false) {
+    	if (!is_subclass_of($this, 'TCPDF') && func_num_args() > 2) {
+            $this->Error('More than 2 arguments for the AddPage method are only available in TCPDF.');
+        }
+        
         if ($this->_intpl)
             $this->Error('Adding pages in templates isn\'t possible!');
-        parent::AddPage($orientation, $format);
+        parent::AddPage($orientation, $format, $keepmargins);
     }
 
     /**
@@ -295,7 +301,7 @@ class FPDF_TPL extends FPDF {
      */
     function Link($x, $y, $w, $h, $link, $spaces=0) {
         if (!is_subclass_of($this, 'TCPDF') && func_num_args() > 5) {
-            $this->Error('More than 7 arguments for the Image method are only available in TCPDF.');
+            $this->Error('More than 5 arguments for the Image method are only available in TCPDF.');
         }
         
         if ($this->_intpl)
@@ -331,9 +337,9 @@ class FPDF_TPL extends FPDF {
             $this->_out('/FormType 1');
             $this->_out(sprintf('/BBox [%.2F %.2F %.2F %.2F]',
                 // llx
-                $tpl['x'],
+                $tpl['x']*$this->k,
                 // lly
-                -$tpl['y'],
+                -$tpl['y']*$this->k,
                 // urx
                 ($tpl['w']+$tpl['x'])*$this->k,
                 // ury

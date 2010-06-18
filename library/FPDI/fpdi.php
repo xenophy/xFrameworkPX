@@ -1,8 +1,8 @@
 <?php
 //
-//  FPDI - Version 1.3.1
+//  FPDI - Version 1.3.3
 //
-//    Copyright 2004-2009 Setasign - Jan Slabon
+//    Copyright 2004-2010 Setasign - Jan Slabon
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -17,12 +17,14 @@
 //  limitations under the License.
 //
 
-define('FPDI_VERSION','1.3.1');
+define('FPDI_VERSION','1.3.2');
 
 // Check for TCPDF and remap TCPDF to FPDF
-if (class_exists('TCPDF')) {
+$__tmp = version_compare(phpversion(), "5") == -1 ? array('TCPDF') : array('TCPDF', false);
+if (call_user_func_array('class_exists', $__tmp)) {
     require_once('fpdi2tcpdf_bridge.php');
 }
+unset($__tmp);
 
 require_once('fpdf_tpl.php');
 require_once('fpdi_pdf_parser.php');
@@ -85,7 +87,7 @@ class FPDI extends FPDF_TPL {
         $fn =& $this->current_filename;
 
         if (!isset($this->parsers[$fn]))
-            $this->parsers[$fn] =& new fpdi_pdf_parser($fn, $this);
+            $this->parsers[$fn] = new fpdi_pdf_parser($fn, $this);
         $this->current_parser =& $this->parsers[$fn];
         
         return $this->parsers[$fn]->getPageCount();
@@ -112,13 +114,6 @@ class FPDI extends FPDF_TPL {
         $parser =& $this->parsers[$fn];
         $parser->setPageno($pageno);
 
-        $this->tpl++;
-        $this->tpls[$this->tpl] = array();
-        $tpl =& $this->tpls[$this->tpl];
-        $tpl['parser'] =& $parser;
-        $tpl['resources'] = $parser->getPageResources();
-        $tpl['buffer'] = $parser->getContent();
-        
         if (!in_array($boxName, $parser->availableBoxes))
             return $this->Error(sprintf('Unknown box: %s', $boxName));
         $pageboxes = $parser->getPageBoxes($pageno);
@@ -140,16 +135,21 @@ class FPDI extends FPDF_TPL {
         $this->lastUsedPageBox = $boxName;
         
         $box = $pageboxes[$boxName];
+        
+        $this->tpl++;
+        $this->tpls[$this->tpl] = array();
+        $tpl =& $this->tpls[$this->tpl];
+        $tpl['parser'] =& $parser;
+        $tpl['resources'] = $parser->getPageResources();
+        $tpl['buffer'] = $parser->getContent();
         $tpl['box'] = $box;
         
         // To build an array that can be used by PDF_TPL::useTemplate()
-        $this->tpls[$this->tpl] = array_merge($this->tpls[$this->tpl],$box);
+        $this->tpls[$this->tpl] = array_merge($this->tpls[$this->tpl], $box);
         
         // An imported page will start at 0,0 everytime. Translation will be set in _putformxobjects()
         $tpl['x'] = 0;
         $tpl['y'] = 0;
-        
-        $page =& $parser->pages[$parser->pageno];
         
         // handle rotated pages
         $rotation = $parser->getPageRotation($pageno);
@@ -273,7 +273,7 @@ class FPDI extends FPDF_TPL {
                             break;
                         case -270:
                             $tx = $tpl['box']['ury'];
-                            $ty = 0;
+                            $ty = -$tpl['box']['llx'];
                             break;
                     }
                 }
@@ -501,5 +501,4 @@ class FPDI extends FPDF_TPL {
         }
         return false;
     }
-
 }
