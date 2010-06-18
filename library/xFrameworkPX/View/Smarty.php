@@ -239,6 +239,12 @@ class xFrameworkPX_View_Smarty extends xFrameworkPX_View
                       ? true
                       : false;
 
+        $isiPod = $this->_checkUA('/iPod/i') ? true : false;
+        $isiPhone = $this->_checkUA('/iPhone/i') ? true : false;
+        $isiPad = $this->_checkUA('/iPad/i') ? true : false;
+        $isXperia = $this->_checkUA('/SonyEricsson(SO-01B|X10i)/i') ? true : false;
+        $isAndroid = $this->_checkUA('/Android/i') ? true : false;
+
         $this->smarty->assign('isOpera', $isOpera);
         $this->smarty->assign('isChrome', $isChrome);
         $this->smarty->assign('isWebKit', $isWebKit);
@@ -253,6 +259,11 @@ class xFrameworkPX_View_Smarty extends xFrameworkPX_View
         $this->smarty->assign('isGecko', $isGecko);
         $this->smarty->assign('isGecko2', $isGecko2);
         $this->smarty->assign('isGecko3', $isGecko3);
+        $this->smarty->assign('isiPod', $isiPod);
+        $this->smarty->assign('isiPhone', $isiPhone);
+        $this->smarty->assign('isiPad', $isiPad);
+        $this->smarty->assign('isXperia', $isXperia);
+        $this->smarty->assign('isAndroid', $isAndroid);
 
         // デバッグ情報にユーザーデータを設定
         xFrameworkPX_Debug::getInstance()->addUserData('isOpera', $isOpera);
@@ -269,6 +280,11 @@ class xFrameworkPX_View_Smarty extends xFrameworkPX_View
         xFrameworkPX_Debug::getInstance()->addUserData('isGecko', $isGecko);
         xFrameworkPX_Debug::getInstance()->addUserData('isGecko2', $isGecko2);
         xFrameworkPX_Debug::getInstance()->addUserData('isGecko3', $isGecko3);
+        xFrameworkPX_Debug::getInstance()->addUserData('isiPod', $isiPod);
+        xFrameworkPX_Debug::getInstance()->addUserData('isiPhone', $isiPhone);
+        xFrameworkPX_Debug::getInstance()->addUserData('isiPad', $isiPad);
+        xFrameworkPX_Debug::getInstance()->addUserData('isXperia', $isXperia);
+        xFrameworkPX_Debug::getInstance()->addUserData('isAndroid', $isAndroid);
 
         // 相対位置設定
         $this->smarty->assign('relpath', $this->getRelativePath());
