@@ -13,7 +13,7 @@
   <tr>
     <td class="header_menu">
         
-                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                                                
                                                                                                                                                                                                                   		  [ <a href="../classtrees_PHPExcel_Shared.html" class="menu">class tree: PHPExcel_Shared</a> ]
 		  [ <a href="../elementindex_PHPExcel_Shared.html" class="menu">index: PHPExcel_Shared</a> ]
 		  	    [ <a href="../elementindex.html" class="menu">all elements</a> ]
@@ -29,16 +29,17 @@
 			<p><a href="../todolist.html">Todo List</a></p>
 	</div>
       <b>Packages:</b><br />
-              <a href="../li_default.html">default</a><br />
+              <a href="../li_PHPExcel.html">PHPExcel</a><br />
               <a href="../li_com-tecnick-tcpdf.html">com-tecnick-tcpdf</a><br />
               <a href="../li_JAMA.html">JAMA</a><br />
               <a href="../li_Math_Stats.html">Math_Stats</a><br />
-              <a href="../li_PHPExcel.html">PHPExcel</a><br />
+              <a href="../li_PHPExcel_CachedObjectStorage.html">PHPExcel_CachedObjectStorage</a><br />
               <a href="../li_PHPExcel_Calculation.html">PHPExcel_Calculation</a><br />
               <a href="../li_PHPExcel_Cell.html">PHPExcel_Cell</a><br />
               <a href="../li_PHPExcel_Reader.html">PHPExcel_Reader</a><br />
               <a href="../li_PHPExcel_Reader_Excel5.html">PHPExcel_Reader_Excel5</a><br />
               <a href="../li_PHPExcel_RichText.html">PHPExcel_RichText</a><br />
+              <a href="../li_PHPExcel_Settings.html">PHPExcel_Settings</a><br />
               <a href="../li_PHPExcel_Shared.html">PHPExcel_Shared</a><br />
               <a href="../li_PHPExcel_Shared_Best_Fit.html">PHPExcel_Shared_Best_Fit</a><br />
               <a href="../li_PHPExcel_Shared_Escher.html">PHPExcel_Shared_Escher</a><br />
@@ -52,6 +53,8 @@
             <br /><br />
                         <b>Files:</b><br />
       	  <div class="package">
+			<a href="../PHPExcel_Shared/_PHPExcel---Shared---CodePage.php.html">		CodePage.php
+		</a><br>
 			<a href="../PHPExcel_Shared/_PHPExcel---Shared---Date.php.html">		Date.php
 		</a><br>
 			<a href="../PHPExcel_Shared/_PHPExcel---Shared---Drawing.php.html">		Drawing.php
@@ -66,8 +69,6 @@
 		</a><br>
 			<a href="../PHPExcel_Shared/_PHPExcel---Shared---PasswordHasher.php.html">		PasswordHasher.php
 		</a><br>
-			<a href="../PHPExcel_Shared/_PHPExcel---Shared---PDF.php.html">		PDF.php
-		</a><br>
 			<a href="../PHPExcel_Shared/_PHPExcel---Shared---String.php.html">		String.php
 		</a><br>
 			<a href="../PHPExcel_Shared/_PHPExcel---Shared---XMLWriter.php.html">		XMLWriter.php
@@ -79,7 +80,8 @@
       
             <b>Classes:</b><br />
         <div class="package">
-		    		<a href="../PHPExcel_Shared/PHPExcel_Shared_Date.html">PHPExcel_Shared_Date</a><br />
+		    		<a href="../PHPExcel_Shared/PHPExcel_Shared_CodePage.html">PHPExcel_Shared_CodePage</a><br />
+	    		<a href="../PHPExcel_Shared/PHPExcel_Shared_Date.html">PHPExcel_Shared_Date</a><br />
 	    		<a href="../PHPExcel_Shared/PHPExcel_Shared_Drawing.html">PHPExcel_Shared_Drawing</a><br />
 	    		<a href="../PHPExcel_Shared/PHPExcel_Shared_Excel5.html">PHPExcel_Shared_Excel5</a><br />
 	    		<a href="../PHPExcel_Shared/PHPExcel_Shared_File.html">PHPExcel_Shared_File</a><br />
@@ -113,12 +115,6 @@ Source Location: /PHPExcel/Shared/OLERead.php<br /><br />
         
 </td>
 
-<td valign="top">
-<h3><a href="#class_vars">Variables</a></h3>
-<ul>
-    <li><a href="../PHPExcel_Shared/PHPExcel_Shared_OLERead.html#var$data">$data</a></li>
-  </ul>
-</td>
 
 <td valign="top">
 <h3><a href="#class_consts">Constants</a></h3>
@@ -144,11 +140,9 @@ Source Location: /PHPExcel/Shared/OLERead.php<br /><br />
 <td valign="top">
 <h3><a href="#class_methods">Methods</a></h3>
 <ul>
+    <li><a href="../PHPExcel_Shared/PHPExcel_Shared_OLERead.html#methodgetSummaryInformation">getSummaryInformation</a></li>
     <li><a href="../PHPExcel_Shared/PHPExcel_Shared_OLERead.html#methodgetWorkBook">getWorkBook</a></li>
     <li><a href="../PHPExcel_Shared/PHPExcel_Shared_OLERead.html#methodread">read</a></li>
-    <li><a href="../PHPExcel_Shared/PHPExcel_Shared_OLERead.html#method_GetInt4d">_GetInt4d</a></li>
-    <li><a href="../PHPExcel_Shared/PHPExcel_Shared_OLERead.html#method_readData">_readData</a></li>
-    <li><a href="../PHPExcel_Shared/PHPExcel_Shared_OLERead.html#method_readPropertySets">_readPropertySets</a></li>
   </ul>
 </td>
 
@@ -172,35 +166,6 @@ Source Location: /PHPExcel/Shared/OLERead.php<br /><br />
 </div><br /><br />
 <div class="top">[ <a href="#top">Top</a> ]</div><br />
 
-<hr />
-<a name="class_vars"></a>
-<h3>Class Variables</h3>
-<div class="tags">
-	<a name="var$data"></a>
-	<p></p>
-	<h4>$data = <span class="value">&nbsp;''</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Shared__PHPExcelSharedOLERead.php.html#a31">31</a>]</p>
-  <br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
-  </tr>
-</table>
-</div>
-
-  <br />
-	<div class="tags">
-  <table border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td><b>Type:</b>&nbsp;&nbsp;</td>
-      <td>mixed</td>
-    </tr>
-      </table>
-	</div><br /><br />
-	<div class="top">[ <a href="#top">Top</a> ]</div><br />
-</div><br />
 
 <hr />
 <a name="class_methods"></a>
@@ -208,8 +173,33 @@ Source Location: /PHPExcel/Shared/OLERead.php<br /><br />
 <div class="tags">
 
   <hr />
+	<a name="methodgetSummaryInformation"></a>
+	<h3>method getSummaryInformation <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared__PHPExcelSharedOLERead.php.html#a220">220</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>string|null getSummaryInformation(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Extract binary stream data, summary information<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
 	<a name="methodgetWorkBook"></a>
-	<h3>method getWorkBook <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared__PHPExcelSharedOLERead.php.html#a173">173</a>]</span></h3>
+	<h3>method getWorkBook <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared__PHPExcelSharedOLERead.php.html#a172">172</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -218,7 +208,7 @@ Source Location: /PHPExcel/Shared/OLERead.php<br /><br />
     </td></tr></table>
     </td></tr></table><br />
 	
-		Extract binary stream data, workbook stream + sheet streams<br /><br /><p>Extract binary stream data, workbook stream + sheet streams</p><br /><br /><br />
+		Extract binary stream data, workbook stream + sheet streams<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -244,7 +234,7 @@ $sFileName)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Read the file<br /><br /><p>Read the file</p><br /><br /><br />
+		Read the file<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -271,116 +261,10 @@ $sFileName)</code>
     </div><br />
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
-  <hr />
-	<a name="method_GetInt4d"></a>
-	<h3>method _GetInt4d <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared__PHPExcelSharedOLERead.php.html#a295">295</a>]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>int _GetInt4d(
-string
-$data, int
-$pos)</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		Read 4 bytes of data at specified position<br /><br /><p>Read 4 bytes of data at specified position</p><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
-	
-        <h4>Parameters:</h4>
-    <div class="tags">
-    <table border="0" cellspacing="0" cellpadding="0">
-          <tr>
-        <td class="type">string&nbsp;&nbsp;</td>
-        <td><b>$data</b>&nbsp;&nbsp;</td>
-        <td></td>
-      </tr>
-          <tr>
-        <td class="type">int&nbsp;&nbsp;</td>
-        <td><b>$pos</b>&nbsp;&nbsp;</td>
-        <td></td>
-      </tr>
-        </table>
-    </div><br />
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
-	<a name="method_readData"></a>
-	<h3>method _readData <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared__PHPExcelSharedOLERead.php.html#a222">222</a>]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>string _readData(
-int
-$bl)</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		Read a standard stream (by joining sectors using information from SAT)<br /><br /><p>Read a standard stream (by joining sectors using information from SAT)</p><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>return:</b>&nbsp;&nbsp;</td><td>Data for standard stream</td>
-  </tr>
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
-	
-        <h4>Parameters:</h4>
-    <div class="tags">
-    <table border="0" cellspacing="0" cellpadding="0">
-          <tr>
-        <td class="type">int&nbsp;&nbsp;</td>
-        <td><b>$bl</b>&nbsp;&nbsp;</td>
-        <td>Sector ID where the stream starts</td>
-      </tr>
-        </table>
-    </div><br />
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
-	<a name="method_readPropertySets"></a>
-	<h3>method _readPropertySets <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared__PHPExcelSharedOLERead.php.html#a239">239</a>]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>void _readPropertySets(
-)</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		Read entries in the directory stream.<br /><br /><p>Read entries in the directory stream.</p><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
-	
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
 </div><br />
 
 <hr />
-<a name="class_constss"></a>
+<a name="class_consts"></a>
 <h3>Class Constants</h3>
 <div class="tags">
 	<a name="constBIG_BLOCK_DEPOT_BLOCKS_POS"></a>
@@ -492,7 +376,7 @@ $bl)</code>
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Mon, 02 Nov 2009 08:43:33 +0100 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.1</a>
+		    Documentation generated on Tue, 01 Jun 2010 17:05:26 +0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>

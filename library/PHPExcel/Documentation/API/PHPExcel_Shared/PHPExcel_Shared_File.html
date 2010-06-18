@@ -13,7 +13,7 @@
   <tr>
     <td class="header_menu">
         
-                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                                                
                                                                                                                                                                                                                   		  [ <a href="../classtrees_PHPExcel_Shared.html" class="menu">class tree: PHPExcel_Shared</a> ]
 		  [ <a href="../elementindex_PHPExcel_Shared.html" class="menu">index: PHPExcel_Shared</a> ]
 		  	    [ <a href="../elementindex.html" class="menu">all elements</a> ]
@@ -29,16 +29,17 @@
 			<p><a href="../todolist.html">Todo List</a></p>
 	</div>
       <b>Packages:</b><br />
-              <a href="../li_default.html">default</a><br />
+              <a href="../li_PHPExcel.html">PHPExcel</a><br />
               <a href="../li_com-tecnick-tcpdf.html">com-tecnick-tcpdf</a><br />
               <a href="../li_JAMA.html">JAMA</a><br />
               <a href="../li_Math_Stats.html">Math_Stats</a><br />
-              <a href="../li_PHPExcel.html">PHPExcel</a><br />
+              <a href="../li_PHPExcel_CachedObjectStorage.html">PHPExcel_CachedObjectStorage</a><br />
               <a href="../li_PHPExcel_Calculation.html">PHPExcel_Calculation</a><br />
               <a href="../li_PHPExcel_Cell.html">PHPExcel_Cell</a><br />
               <a href="../li_PHPExcel_Reader.html">PHPExcel_Reader</a><br />
               <a href="../li_PHPExcel_Reader_Excel5.html">PHPExcel_Reader_Excel5</a><br />
               <a href="../li_PHPExcel_RichText.html">PHPExcel_RichText</a><br />
+              <a href="../li_PHPExcel_Settings.html">PHPExcel_Settings</a><br />
               <a href="../li_PHPExcel_Shared.html">PHPExcel_Shared</a><br />
               <a href="../li_PHPExcel_Shared_Best_Fit.html">PHPExcel_Shared_Best_Fit</a><br />
               <a href="../li_PHPExcel_Shared_Escher.html">PHPExcel_Shared_Escher</a><br />
@@ -52,6 +53,8 @@
             <br /><br />
                         <b>Files:</b><br />
       	  <div class="package">
+			<a href="../PHPExcel_Shared/_PHPExcel---Shared---CodePage.php.html">		CodePage.php
+		</a><br>
 			<a href="../PHPExcel_Shared/_PHPExcel---Shared---Date.php.html">		Date.php
 		</a><br>
 			<a href="../PHPExcel_Shared/_PHPExcel---Shared---Drawing.php.html">		Drawing.php
@@ -66,8 +69,6 @@
 		</a><br>
 			<a href="../PHPExcel_Shared/_PHPExcel---Shared---PasswordHasher.php.html">		PasswordHasher.php
 		</a><br>
-			<a href="../PHPExcel_Shared/_PHPExcel---Shared---PDF.php.html">		PDF.php
-		</a><br>
 			<a href="../PHPExcel_Shared/_PHPExcel---Shared---String.php.html">		String.php
 		</a><br>
 			<a href="../PHPExcel_Shared/_PHPExcel---Shared---XMLWriter.php.html">		XMLWriter.php
@@ -79,7 +80,8 @@
       
             <b>Classes:</b><br />
         <div class="package">
-		    		<a href="../PHPExcel_Shared/PHPExcel_Shared_Date.html">PHPExcel_Shared_Date</a><br />
+		    		<a href="../PHPExcel_Shared/PHPExcel_Shared_CodePage.html">PHPExcel_Shared_CodePage</a><br />
+	    		<a href="../PHPExcel_Shared/PHPExcel_Shared_Date.html">PHPExcel_Shared_Date</a><br />
 	    		<a href="../PHPExcel_Shared/PHPExcel_Shared_Drawing.html">PHPExcel_Shared_Drawing</a><br />
 	    		<a href="../PHPExcel_Shared/PHPExcel_Shared_Excel5.html">PHPExcel_Shared_Excel5</a><br />
 	    		<a href="../PHPExcel_Shared/PHPExcel_Shared_File.html">PHPExcel_Shared_File</a><br />
@@ -116,7 +118,7 @@ Source Location: /PHPExcel/Shared/File.php<br /><br />
 
 <h4>Copyright:</h4>
 <ul>
-  <li>Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)</li>
+  <li>Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)</li>
 </ul>
         
 </td>
@@ -128,6 +130,7 @@ Source Location: /PHPExcel/Shared/File.php<br /><br />
 <ul>
     <li><a href="../PHPExcel_Shared/PHPExcel_Shared_File.html#methodfile_exists">file_exists</a></li>
     <li><a href="../PHPExcel_Shared/PHPExcel_Shared_File.html#methodrealpath">realpath</a></li>
+    <li><a href="../PHPExcel_Shared/PHPExcel_Shared_File.html#methodsys_get_temp_dir">sys_get_temp_dir</a></li>
   </ul>
 </td>
 
@@ -148,12 +151,12 @@ Source Location: /PHPExcel/Shared/File.php<br /><br />
 <h3>Class Details</h3>
 <div class="tags">
 [line <a href="../__filesource/fsource_PHPExcel_Shared__PHPExcelSharedFile.php.html#a36">36</a>]<br />
-PHPExcel_Shared_File<br /><br /><p>PHPExcel_Shared_File</p><br /><br /><br />
+PHPExcel_Shared_File<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td><b>copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)</td>
+    <td><b>copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)</td>
   </tr>
 </table>
 </div>
@@ -177,7 +180,7 @@ $pFilename)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Verify if a file exists<br /><br /><p>Verify if a file exists</p><br /><br /><br />
+		Verify if a file exists<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -213,7 +216,7 @@ $pFilename)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Returns canonicalized absolute pathname, also for ZIP archives<br /><br /><p>Returns canonicalized absolute pathname, also for ZIP archives</p><br /><br /><br />
+		Returns canonicalized absolute pathname, also for ZIP archives<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -237,13 +240,38 @@ $pFilename)</code>
     </div><br />
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
+  <hr />
+	<a name="methodsys_get_temp_dir"></a>
+	<h3>static method sys_get_temp_dir <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared__PHPExcelSharedFile.php.html#a104">104</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>static string sys_get_temp_dir(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Get the systems temporary directory.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
 
 </div><br />
 
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Mon, 02 Nov 2009 08:40:51 +0100 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.1</a>
+		    Documentation generated on Tue, 01 Jun 2010 17:03:46 +0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>

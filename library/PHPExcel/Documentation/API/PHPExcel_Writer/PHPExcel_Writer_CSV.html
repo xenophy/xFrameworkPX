@@ -13,7 +13,7 @@
   <tr>
     <td class="header_menu">
         
-                                                                                                                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                                                                                            
                                                                       		  [ <a href="../classtrees_PHPExcel_Writer.html" class="menu">class tree: PHPExcel_Writer</a> ]
 		  [ <a href="../elementindex_PHPExcel_Writer.html" class="menu">index: PHPExcel_Writer</a> ]
 		  	    [ <a href="../elementindex.html" class="menu">all elements</a> ]
@@ -29,16 +29,17 @@
 			<p><a href="../todolist.html">Todo List</a></p>
 	</div>
       <b>Packages:</b><br />
-              <a href="../li_default.html">default</a><br />
+              <a href="../li_PHPExcel.html">PHPExcel</a><br />
               <a href="../li_com-tecnick-tcpdf.html">com-tecnick-tcpdf</a><br />
               <a href="../li_JAMA.html">JAMA</a><br />
               <a href="../li_Math_Stats.html">Math_Stats</a><br />
-              <a href="../li_PHPExcel.html">PHPExcel</a><br />
+              <a href="../li_PHPExcel_CachedObjectStorage.html">PHPExcel_CachedObjectStorage</a><br />
               <a href="../li_PHPExcel_Calculation.html">PHPExcel_Calculation</a><br />
               <a href="../li_PHPExcel_Cell.html">PHPExcel_Cell</a><br />
               <a href="../li_PHPExcel_Reader.html">PHPExcel_Reader</a><br />
               <a href="../li_PHPExcel_Reader_Excel5.html">PHPExcel_Reader_Excel5</a><br />
               <a href="../li_PHPExcel_RichText.html">PHPExcel_RichText</a><br />
+              <a href="../li_PHPExcel_Settings.html">PHPExcel_Settings</a><br />
               <a href="../li_PHPExcel_Shared.html">PHPExcel_Shared</a><br />
               <a href="../li_PHPExcel_Shared_Best_Fit.html">PHPExcel_Shared_Best_Fit</a><br />
               <a href="../li_PHPExcel_Shared_Escher.html">PHPExcel_Shared_Escher</a><br />
@@ -102,7 +103,7 @@ Source Location: /PHPExcel/Writer/CSV.php<br /><br />
 
 <h4>Copyright:</h4>
 <ul>
-  <li>Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)</li>
+  <li>Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)</li>
 </ul>
                 <p class="implements">
             Implements interfaces:
@@ -112,18 +113,6 @@ Source Location: /PHPExcel/Writer/CSV.php<br /><br />
         
 </td>
 
-<td valign="top">
-<h3><a href="#class_vars">Variables</a></h3>
-<ul>
-    <li><a href="../PHPExcel_Writer/PHPExcel_Writer_CSV.html#var$_delimiter">$_delimiter</a></li>
-    <li><a href="../PHPExcel_Writer/PHPExcel_Writer_CSV.html#var$_enclosure">$_enclosure</a></li>
-    <li><a href="../PHPExcel_Writer/PHPExcel_Writer_CSV.html#var$_lineEnding">$_lineEnding</a></li>
-    <li><a href="../PHPExcel_Writer/PHPExcel_Writer_CSV.html#var$_phpExcel">$_phpExcel</a></li>
-    <li><a href="../PHPExcel_Writer/PHPExcel_Writer_CSV.html#var$_preCalculateFormulas">$_preCalculateFormulas</a></li>
-    <li><a href="../PHPExcel_Writer/PHPExcel_Writer_CSV.html#var$_sheetIndex">$_sheetIndex</a></li>
-    <li><a href="../PHPExcel_Writer/PHPExcel_Writer_CSV.html#var$_useBOM">$_useBOM</a></li>
-  </ul>
-</td>
 
 
 <td valign="top">
@@ -143,7 +132,6 @@ Source Location: /PHPExcel/Writer/CSV.php<br /><br />
     <li><a href="../PHPExcel_Writer/PHPExcel_Writer_CSV.html#methodsetPreCalculateFormulas">setPreCalculateFormulas</a></li>
     <li><a href="../PHPExcel_Writer/PHPExcel_Writer_CSV.html#methodsetSheetIndex">setSheetIndex</a></li>
     <li><a href="../PHPExcel_Writer/PHPExcel_Writer_CSV.html#methodsetUseBOM">setUseBOM</a></li>
-    <li><a href="../PHPExcel_Writer/PHPExcel_Writer_CSV.html#method_writeLine">_writeLine</a></li>
   </ul>
 </td>
 
@@ -163,192 +151,19 @@ Source Location: /PHPExcel/Writer/CSV.php<br /><br />
 <a name="class_details"></a>
 <h3>Class Details</h3>
 <div class="tags">
-[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterCSV.php.html#a57">57</a>]<br />
-PHPExcel_Writer_CSV<br /><br /><p>PHPExcel_Writer_CSV</p><br /><br /><br />
+[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterCSV.php.html#a36">36</a>]<br />
+PHPExcel_Writer_CSV<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td><b>copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)</td>
+    <td><b>copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)</td>
   </tr>
 </table>
 </div>
 </div><br /><br />
 <div class="top">[ <a href="#top">Top</a> ]</div><br />
 
-<hr />
-<a name="class_vars"></a>
-<h3>Class Variables</h3>
-<div class="tags">
-	<a name="var$_delimiter"></a>
-	<p></p>
-	<h4>$_delimiter = <span class="value"></span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterCSV.php.html#a70">70</a>]</p>
-  Delimiter<br /><br /><p>Delimiter</p><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
-  </tr>
-</table>
-</div>
-
-  <br />
-	<div class="tags">
-  <table border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td><b>Type:</b>&nbsp;&nbsp;</td>
-      <td>string</td>
-    </tr>
-      </table>
-	</div><br /><br />
-	<div class="top">[ <a href="#top">Top</a> ]</div><br />
-	<a name="var$_enclosure"></a>
-	<p></p>
-	<h4>$_enclosure = <span class="value"></span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterCSV.php.html#a77">77</a>]</p>
-  Enclosure<br /><br /><p>Enclosure</p><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
-  </tr>
-</table>
-</div>
-
-  <br />
-	<div class="tags">
-  <table border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td><b>Type:</b>&nbsp;&nbsp;</td>
-      <td>string</td>
-    </tr>
-      </table>
-	</div><br /><br />
-	<div class="top">[ <a href="#top">Top</a> ]</div><br />
-	<a name="var$_lineEnding"></a>
-	<p></p>
-	<h4>$_lineEnding = <span class="value"></span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterCSV.php.html#a84">84</a>]</p>
-  Line ending<br /><br /><p>Line ending</p><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
-  </tr>
-</table>
-</div>
-
-  <br />
-	<div class="tags">
-  <table border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td><b>Type:</b>&nbsp;&nbsp;</td>
-      <td>string</td>
-    </tr>
-      </table>
-	</div><br /><br />
-	<div class="top">[ <a href="#top">Top</a> ]</div><br />
-	<a name="var$_phpExcel"></a>
-	<p></p>
-	<h4>$_phpExcel = <span class="value"></span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterCSV.php.html#a63">63</a>]</p>
-  PHPExcel object<br /><br /><p>PHPExcel object</p><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
-  </tr>
-</table>
-</div>
-
-  <br />
-	<div class="tags">
-  <table border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td><b>Type:</b>&nbsp;&nbsp;</td>
-      <td><a href="../PHPExcel/PHPExcel.html">PHPExcel</a></td>
-    </tr>
-      </table>
-	</div><br /><br />
-	<div class="top">[ <a href="#top">Top</a> ]</div><br />
-	<a name="var$_preCalculateFormulas"></a>
-	<p></p>
-	<h4>$_preCalculateFormulas = <span class="value">&nbsp;true</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterCSV.php.html#a98">98</a>]</p>
-  Pre-calculate formulas<br /><br /><p>Pre-calculate formulas</p><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
-  </tr>
-</table>
-</div>
-
-  <br />
-	<div class="tags">
-  <table border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td><b>Type:</b>&nbsp;&nbsp;</td>
-      <td>boolean</td>
-    </tr>
-      </table>
-	</div><br /><br />
-	<div class="top">[ <a href="#top">Top</a> ]</div><br />
-	<a name="var$_sheetIndex"></a>
-	<p></p>
-	<h4>$_sheetIndex = <span class="value"></span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterCSV.php.html#a91">91</a>]</p>
-  Sheet index to write<br /><br /><p>Sheet index to write</p><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
-  </tr>
-</table>
-</div>
-
-  <br />
-	<div class="tags">
-  <table border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td><b>Type:</b>&nbsp;&nbsp;</td>
-      <td>int</td>
-    </tr>
-      </table>
-	</div><br /><br />
-	<div class="top">[ <a href="#top">Top</a> ]</div><br />
-	<a name="var$_useBOM"></a>
-	<p></p>
-	<h4>$_useBOM = <span class="value">&nbsp;false</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterCSV.php.html#a105">105</a>]</p>
-  Whether to write a BOM (for UTF8).<br /><br /><p>Whether to write a BOM (for UTF8).</p><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
-  </tr>
-</table>
-</div>
-
-  <br />
-	<div class="tags">
-  <table border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td><b>Type:</b>&nbsp;&nbsp;</td>
-      <td>boolean</td>
-    </tr>
-      </table>
-	</div><br /><br />
-	<div class="top">[ <a href="#top">Top</a> ]</div><br />
-</div><br />
 
 <hr />
 <a name="class_methods"></a>
@@ -357,7 +172,7 @@ PHPExcel_Writer_CSV<br /><br /><p>PHPExcel_Writer_CSV</p><br /><br /><br />
 
   <hr />
 	<a name="method__construct"></a>
-	<h3>constructor __construct <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterCSV.php.html#a112">112</a>]</span></h3>
+	<h3>constructor __construct <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterCSV.php.html#a91">91</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -367,7 +182,7 @@ $phpExcel)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Create a new PHPExcel_Writer_CSV<br /><br /><p>Create a new PHPExcel_Writer_CSV</p><br /><br /><br />
+		Create a new PHPExcel_Writer_CSV<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -393,7 +208,7 @@ $phpExcel)</code>
   </div>
   <hr />
 	<a name="methodgetDelimiter"></a>
-	<h3>method getDelimiter <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterCSV.php.html#a163">163</a>]</span></h3>
+	<h3>method getDelimiter <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterCSV.php.html#a142">142</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -402,7 +217,7 @@ $phpExcel)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Get delimiter<br /><br /><p>Get delimiter</p><br /><br /><br />
+		Get delimiter<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -418,7 +233,7 @@ $phpExcel)</code>
   </div>
   <hr />
 	<a name="methodgetEnclosure"></a>
-	<h3>method getEnclosure <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterCSV.php.html#a183">183</a>]</span></h3>
+	<h3>method getEnclosure <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterCSV.php.html#a162">162</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -427,7 +242,7 @@ $phpExcel)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Get enclosure<br /><br /><p>Get enclosure</p><br /><br /><br />
+		Get enclosure<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -443,7 +258,7 @@ $phpExcel)</code>
   </div>
   <hr />
 	<a name="methodgetLineEnding"></a>
-	<h3>method getLineEnding <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterCSV.php.html#a206">206</a>]</span></h3>
+	<h3>method getLineEnding <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterCSV.php.html#a185">185</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -452,7 +267,7 @@ $phpExcel)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Get line ending<br /><br /><p>Get line ending</p><br /><br /><br />
+		Get line ending<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -468,7 +283,7 @@ $phpExcel)</code>
   </div>
   <hr />
 	<a name="methodgetPreCalculateFormulas"></a>
-	<h3>method getPreCalculateFormulas <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterCSV.php.html#a306">306</a>]</span></h3>
+	<h3>method getPreCalculateFormulas <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterCSV.php.html#a285">285</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -477,7 +292,7 @@ $phpExcel)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Get Pre-Calculate Formulas<br /><br /><p>Get Pre-Calculate Formulas</p><br /><br /><br />
+		Get Pre-Calculate Formulas<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -493,7 +308,7 @@ $phpExcel)</code>
   </div>
   <hr />
 	<a name="methodgetSheetIndex"></a>
-	<h3>method getSheetIndex <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterCSV.php.html#a246">246</a>]</span></h3>
+	<h3>method getSheetIndex <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterCSV.php.html#a225">225</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -502,7 +317,7 @@ $phpExcel)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Get sheet index<br /><br /><p>Get sheet index</p><br /><br /><br />
+		Get sheet index<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -518,7 +333,7 @@ $phpExcel)</code>
   </div>
   <hr />
 	<a name="methodgetUseBOM"></a>
-	<h3>method getUseBOM <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterCSV.php.html#a226">226</a>]</span></h3>
+	<h3>method getUseBOM <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterCSV.php.html#a205">205</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -527,7 +342,7 @@ $phpExcel)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Get whether BOM should be used<br /><br /><p>Get whether BOM should be used</p><br /><br /><br />
+		Get whether BOM should be used<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -543,7 +358,7 @@ $phpExcel)</code>
   </div>
   <hr />
 	<a name="methodsave"></a>
-	<h3>method save <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterCSV.php.html#a126">126</a>]</span></h3>
+	<h3>method save <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterCSV.php.html#a105">105</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -554,7 +369,7 @@ $pFileName)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Save PHPExcel to file<br /><br /><p>Save PHPExcel to file</p><br /><br /><br />
+		Save PHPExcel to file<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -594,7 +409,7 @@ $pFileName)</code>
   </div>
   <hr />
 	<a name="methodsetDelimiter"></a>
-	<h3>method setDelimiter <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterCSV.php.html#a173">173</a>]</span></h3>
+	<h3>method setDelimiter <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterCSV.php.html#a152">152</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -604,7 +419,7 @@ $pValue = ','])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Set delimiter<br /><br /><p>Set delimiter</p><br /><br /><br />
+		Set delimiter<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -630,7 +445,7 @@ $pValue = ','])</code>
   </div>
   <hr />
 	<a name="methodsetEnclosure"></a>
-	<h3>method setEnclosure <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterCSV.php.html#a193">193</a>]</span></h3>
+	<h3>method setEnclosure <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterCSV.php.html#a172">172</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -640,7 +455,7 @@ $pValue = '&quot;'])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Set enclosure<br /><br /><p>Set enclosure</p><br /><br /><br />
+		Set enclosure<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -666,7 +481,7 @@ $pValue = '&quot;'])</code>
   </div>
   <hr />
 	<a name="methodsetLineEnding"></a>
-	<h3>method setLineEnding <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterCSV.php.html#a216">216</a>]</span></h3>
+	<h3>method setLineEnding <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterCSV.php.html#a195">195</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -676,7 +491,7 @@ $pValue = PHP_EOL])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Set line ending<br /><br /><p>Set line ending</p><br /><br /><br />
+		Set line ending<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -702,7 +517,7 @@ $pValue = PHP_EOL])</code>
   </div>
   <hr />
 	<a name="methodsetPreCalculateFormulas"></a>
-	<h3>method setPreCalculateFormulas <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterCSV.php.html#a316">316</a>]</span></h3>
+	<h3>method setPreCalculateFormulas <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterCSV.php.html#a295">295</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -712,7 +527,7 @@ $pValue = true])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Set Pre-Calculate Formulas<br /><br /><p>Set Pre-Calculate Formulas</p><br /><br /><br />
+		Set Pre-Calculate Formulas<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -738,7 +553,7 @@ $pValue = true])</code>
   </div>
   <hr />
 	<a name="methodsetSheetIndex"></a>
-	<h3>method setSheetIndex <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterCSV.php.html#a256">256</a>]</span></h3>
+	<h3>method setSheetIndex <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterCSV.php.html#a235">235</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -748,7 +563,7 @@ $pValue = 0])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Set sheet index<br /><br /><p>Set sheet index</p><br /><br /><br />
+		Set sheet index<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -774,7 +589,7 @@ $pValue = 0])</code>
   </div>
   <hr />
 	<a name="methodsetUseBOM"></a>
-	<h3>method setUseBOM <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterCSV.php.html#a236">236</a>]</span></h3>
+	<h3>method setUseBOM <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterCSV.php.html#a215">215</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -784,7 +599,7 @@ $pValue = false])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Set whether BOM should be used<br /><br /><p>Set whether BOM should be used</p><br /><br /><br />
+		Set whether BOM should be used<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -808,57 +623,12 @@ $pValue = false])</code>
     </div><br />
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
-  <hr />
-	<a name="method_writeLine"></a>
-	<h3>method _writeLine <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Writer__PHPExcelWriterCSV.php.html#a268">268</a>]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>void _writeLine(
-[mixed
-$pFileHandle = null], [array
-$pValues = null])</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		Write line to CSV file<br /><br /><p>Write line to CSV file</p><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>throws:</b>&nbsp;&nbsp;</td><td>Exception</td>
-  </tr>
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
-	
-        <h4>Parameters:</h4>
-    <div class="tags">
-    <table border="0" cellspacing="0" cellpadding="0">
-          <tr>
-        <td class="type">mixed&nbsp;&nbsp;</td>
-        <td><b>$pFileHandle</b>&nbsp;&nbsp;</td>
-        <td>PHP filehandle</td>
-      </tr>
-          <tr>
-        <td class="type">array&nbsp;&nbsp;</td>
-        <td><b>$pValues</b>&nbsp;&nbsp;</td>
-        <td>Array containing values in a row</td>
-      </tr>
-        </table>
-    </div><br />
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
 </div><br />
 
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Mon, 02 Nov 2009 08:39:04 +0100 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.1</a>
+		    Documentation generated on Tue, 01 Jun 2010 17:02:40 +0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>

@@ -2,7 +2,7 @@
 /**
  * PHPExcel
  *
- * Copyright (C) 2006 - 2009 PHPExcel
+ * Copyright (C) 2006 - 2010 PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,9 +20,9 @@
  *
  * @category   PHPExcel
  * @package    PHPExcel
- * @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.1, 2009-11-02
+ * @version    1.7.3c, 2010-06-01
  */
 
 /** Error reporting */
@@ -31,8 +31,6 @@ error_reporting(E_ALL);
 /** PHPExcel */
 require_once '../Classes/PHPExcel.php';
 
-/** PHPExcel_Calculation */
-require_once '../Classes/PHPExcel/Calculation.php';
 
 // List functions
 echo date('H:i:s') . " List implemented functions\n";
@@ -222,6 +220,7 @@ echo 'Value of C32 [=VAR(C2:C12)]: ' . $objPHPExcel->getActiveSheet()->getCell('
 echo 'Value of C33 [=VARA(C2:C12)]: ' . $objPHPExcel->getActiveSheet()->getCell('C33')->getCalculatedValue() . "\r\n";
 echo 'Value of C34 [=VARP(C2:C12)]: ' . $objPHPExcel->getActiveSheet()->getCell('C34')->getCalculatedValue() . "\r\n";
 echo 'Value of C35 [=VARPA(C2:C12)]: ' . $objPHPExcel->getActiveSheet()->getCell('C35')->getCalculatedValue() . "\r\n";
+
 
 // Echo memory peak usage
 echo date('H:i:s') . " Peak memory usage: " . (memory_get_peak_usage(true) / 1024 / 1024) . " MB\r\n";

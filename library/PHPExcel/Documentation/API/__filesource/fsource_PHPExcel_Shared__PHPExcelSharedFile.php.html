@@ -13,7 +13,7 @@
   <tr>
     <td class="header_menu">
         
-                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                                                
                                                                                                                                                                                                                   		  [ <a href="../classtrees_PHPExcel_Shared.html" class="menu">class tree: PHPExcel_Shared</a> ]
 		  [ <a href="../elementindex_PHPExcel_Shared.html" class="menu">index: PHPExcel_Shared</a> ]
 		  	    [ <a href="../elementindex.html" class="menu">all elements</a> ]
@@ -29,16 +29,17 @@
 			<p><a href="../todolist.html">Todo List</a></p>
 	</div>
       <b>Packages:</b><br />
-              <a href="../li_default.html">default</a><br />
+              <a href="../li_PHPExcel.html">PHPExcel</a><br />
               <a href="../li_com-tecnick-tcpdf.html">com-tecnick-tcpdf</a><br />
               <a href="../li_JAMA.html">JAMA</a><br />
               <a href="../li_Math_Stats.html">Math_Stats</a><br />
-              <a href="../li_PHPExcel.html">PHPExcel</a><br />
+              <a href="../li_PHPExcel_CachedObjectStorage.html">PHPExcel_CachedObjectStorage</a><br />
               <a href="../li_PHPExcel_Calculation.html">PHPExcel_Calculation</a><br />
               <a href="../li_PHPExcel_Cell.html">PHPExcel_Cell</a><br />
               <a href="../li_PHPExcel_Reader.html">PHPExcel_Reader</a><br />
               <a href="../li_PHPExcel_Reader_Excel5.html">PHPExcel_Reader_Excel5</a><br />
               <a href="../li_PHPExcel_RichText.html">PHPExcel_RichText</a><br />
+              <a href="../li_PHPExcel_Settings.html">PHPExcel_Settings</a><br />
               <a href="../li_PHPExcel_Shared.html">PHPExcel_Shared</a><br />
               <a href="../li_PHPExcel_Shared_Best_Fit.html">PHPExcel_Shared_Best_Fit</a><br />
               <a href="../li_PHPExcel_Shared_Escher.html">PHPExcel_Shared_Escher</a><br />
@@ -63,7 +64,7 @@
 <li><div class="src-line"><a name="a2"></a><span class="src-doc">/**</span></div></li>
 <li><div class="src-line"><a name="a3"></a><span class="src-doc">&nbsp;*&nbsp;PHPExcel</span></div></li>
 <li><div class="src-line"><a name="a4"></a><span class="src-doc">&nbsp;*</span></div></li>
-<li><div class="src-line"><a name="a5"></a><span class="src-doc">&nbsp;*&nbsp;Copyright&nbsp;(c)&nbsp;2006&nbsp;-&nbsp;2009&nbsp;PHPExcel</span></div></li>
+<li><div class="src-line"><a name="a5"></a><span class="src-doc">&nbsp;*&nbsp;Copyright&nbsp;(c)&nbsp;2006&nbsp;-&nbsp;2010&nbsp;PHPExcel</span></div></li>
 <li><div class="src-line"><a name="a6"></a><span class="src-doc">&nbsp;*</span></div></li>
 <li><div class="src-line"><a name="a7"></a><span class="src-doc">&nbsp;*&nbsp;This&nbsp;library&nbsp;is&nbsp;free&nbsp;software;&nbsp;you&nbsp;can&nbsp;redistribute&nbsp;it&nbsp;and/or</span></div></li>
 <li><div class="src-line"><a name="a8"></a><span class="src-doc">&nbsp;*&nbsp;modify&nbsp;it&nbsp;under&nbsp;the&nbsp;terms&nbsp;of&nbsp;the&nbsp;GNU&nbsp;Lesser&nbsp;General&nbsp;Public</span></div></li>
@@ -81,9 +82,9 @@
 <li><div class="src-line"><a name="a20"></a><span class="src-doc">&nbsp;*</span></div></li>
 <li><div class="src-line"><a name="a21"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@category</span><span class="src-doc">&nbsp;&nbsp;&nbsp;PHPExcel</span></div></li>
 <li><div class="src-line"><a name="a22"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@package</span><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;PHPExcel_Shared</span></div></li>
-<li><div class="src-line"><a name="a23"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@copyright</span><span class="src-doc">&nbsp;&nbsp;Copyright&nbsp;(c)&nbsp;2006&nbsp;-&nbsp;2009&nbsp;PHPExcel&nbsp;(http://www.codeplex.com/PHPExcel)</span></div></li>
+<li><div class="src-line"><a name="a23"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@copyright</span><span class="src-doc">&nbsp;&nbsp;Copyright&nbsp;(c)&nbsp;2006&nbsp;-&nbsp;2010&nbsp;PHPExcel&nbsp;(http://www.codeplex.com/PHPExcel)</span></div></li>
 <li><div class="src-line"><a name="a24"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@license</span><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt&nbsp;&nbsp;&nbsp;&nbsp;LGPL</span></div></li>
-<li><div class="src-line"><a name="a25"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@version</span><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;1.7.1,&nbsp;2009-11-02</span></div></li>
+<li><div class="src-line"><a name="a25"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@version</span><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;1.7.3c,&nbsp;2010-06-01</span></div></li>
 <li><div class="src-line"><a name="a26"></a><span class="src-doc">&nbsp;*/</span></div></li>
 <li><div class="src-line"><a name="a27"></a>&nbsp;</div></li>
 <li><div class="src-line"><a name="a28"></a>&nbsp;</div></li>
@@ -92,7 +93,7 @@
 <li><div class="src-line"><a name="a31"></a><span class="src-doc">&nbsp;*</span></div></li>
 <li><div class="src-line"><a name="a32"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@category</span><span class="src-doc">&nbsp;&nbsp;&nbsp;PHPExcel</span></div></li>
 <li><div class="src-line"><a name="a33"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@package</span><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;PHPExcel_Shared</span></div></li>
-<li><div class="src-line"><a name="a34"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@copyright</span><span class="src-doc">&nbsp;&nbsp;Copyright&nbsp;(c)&nbsp;2006&nbsp;-&nbsp;2009&nbsp;PHPExcel&nbsp;(http://www.codeplex.com/PHPExcel)</span></div></li>
+<li><div class="src-line"><a name="a34"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@copyright</span><span class="src-doc">&nbsp;&nbsp;Copyright&nbsp;(c)&nbsp;2006&nbsp;-&nbsp;2010&nbsp;PHPExcel&nbsp;(http://www.codeplex.com/PHPExcel)</span></div></li>
 <li><div class="src-line"><a name="a35"></a><span class="src-doc">&nbsp;*/</span></div></li>
 <li><div class="src-line"><a name="a36"></a><span class="src-key">class&nbsp;</span><a href="../PHPExcel_Shared/PHPExcel_Shared_File.html">PHPExcel_Shared_File</a></div></li>
 <li><div class="src-line"><a name="a37"></a><span class="src-sym">{</span></div></li>
@@ -140,7 +141,7 @@
 <li><div class="src-line"><a name="a79"></a>&nbsp;</div></li>
 <li><div class="src-line"><a name="a80"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//&nbsp;Found&nbsp;something?</span></div></li>
 <li><div class="src-line"><a name="a81"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">if&nbsp;</span><span class="src-sym">(</span><span class="src-var">$returnValue&nbsp;</span>==&nbsp;<span class="src-str">''&nbsp;</span>||&nbsp;<a href="http://www.php.net/is_null">is_null</a><span class="src-sym">(</span><span class="src-var">$returnValue</span><span class="src-sym">))&nbsp;</span><span class="src-sym">{</span></div></li>
-<li><div class="src-line"><a name="a82"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$pathArray&nbsp;</span>=&nbsp;<a href="http://www.php.net/split">split</a><span class="src-sym">(</span><span class="src-str">'/'&nbsp;</span><span class="src-sym">,&nbsp;</span><span class="src-var">$pFilename</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a82"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$pathArray&nbsp;</span>=&nbsp;<a href="http://www.php.net/explode">explode</a><span class="src-sym">(</span><span class="src-str">'/'&nbsp;</span><span class="src-sym">,&nbsp;</span><span class="src-var">$pFilename</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
 <li><div class="src-line"><a name="a83"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">while</span><span class="src-sym">(</span><a href="http://www.php.net/in_array">in_array</a><span class="src-sym">(</span><span class="src-str">'..'</span><span class="src-sym">,&nbsp;</span><span class="src-var">$pathArray</span><span class="src-sym">)&nbsp;</span>&amp;&amp;&nbsp;<span class="src-var">$pathArray</span><span class="src-sym">[</span><span class="src-num">0</span><span class="src-sym">]&nbsp;</span>!=&nbsp;<span class="src-str">'..'</span><span class="src-sym">)&nbsp;</span><span class="src-sym">{</span></div></li>
 <li><div class="src-line"><a name="a84"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">for&nbsp;</span><span class="src-sym">(</span><span class="src-var">$i&nbsp;</span>=&nbsp;<span class="src-num">0</span><span class="src-sym">;&nbsp;</span><span class="src-var">$i&nbsp;</span>&lt;&nbsp;<a href="http://www.php.net/count">count</a><span class="src-sym">(</span><span class="src-var">$pathArray</span><span class="src-sym">)</span><span class="src-sym">;&nbsp;</span>++<span class="src-var">$i</span><span class="src-sym">)&nbsp;</span><span class="src-sym">{</span></div></li>
 <li><div class="src-line"><a name="a85"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">if&nbsp;</span><span class="src-sym">(</span><span class="src-var">$pathArray</span><span class="src-sym">[</span><span class="src-var">$i</span><span class="src-sym">]&nbsp;</span>==&nbsp;<span class="src-str">'..'&nbsp;</span>&amp;&amp;&nbsp;<span class="src-var">$i&nbsp;</span>&gt;&nbsp;<span class="src-num">0</span><span class="src-sym">)&nbsp;</span><span class="src-sym">{</span></div></li>
@@ -156,12 +157,50 @@
 <li><div class="src-line"><a name="a95"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//&nbsp;Return</span></div></li>
 <li><div class="src-line"><a name="a96"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">return&nbsp;</span><span class="src-var">$returnValue</span><span class="src-sym">;</span></div></li>
 <li><div class="src-line"><a name="a97"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
-<li><div class="src-line"><a name="a98"></a><span class="src-sym">}</span></div></li>
+<li><div class="src-line"><a name="a98"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a99"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><a name="a100"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Get&nbsp;the&nbsp;systems&nbsp;temporary&nbsp;directory.</span></div></li>
+<li><div class="src-line"><a name="a101"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a102"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@return&nbsp;</span><span class="src-doc-type">string&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a103"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
+<li><div class="src-line"><a name="a104"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><span class="src-key">static&nbsp;</span><span class="src-key">function&nbsp;</span><a href="../PHPExcel_Shared/PHPExcel_Shared_File.html#methodsys_get_temp_dir">sys_get_temp_dir</a><span class="src-sym">(</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a105"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a106"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//&nbsp;sys_get_temp_dir&nbsp;is&nbsp;only&nbsp;available&nbsp;since&nbsp;PHP&nbsp;5.2.1</span></div></li>
+<li><div class="src-line"><a name="a107"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//&nbsp;http://php.net/manual/en/function.sys-get-temp-dir.php#94119</span></div></li>
+<li><div class="src-line"><a name="a108"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a109"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">if&nbsp;</span><span class="src-sym">(&nbsp;</span><span class="src-sym">!</span><a href="http://www.php.net/function_exists">function_exists</a><span class="src-sym">(</span><span class="src-str">'sys_get_temp_dir'</span><span class="src-sym">))&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a110"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">if</span><span class="src-sym">(&nbsp;</span><span class="src-var">$temp&nbsp;</span>=&nbsp;<a href="http://www.php.net/getenv">getenv</a><span class="src-sym">(</span><span class="src-str">'TMP'</span><span class="src-sym">)&nbsp;)&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a111"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">return&nbsp;</span><a href="../PHPExcel_Shared/PHPExcel_Shared_File.html#methodrealpath">realpath</a><span class="src-sym">(</span><span class="src-var">$temp</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a112"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
+<li><div class="src-line"><a name="a113"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">if</span><span class="src-sym">(&nbsp;</span><span class="src-var">$temp&nbsp;</span>=&nbsp;<a href="http://www.php.net/getenv">getenv</a><span class="src-sym">(</span><span class="src-str">'TEMP'</span><span class="src-sym">)&nbsp;)&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a114"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">return&nbsp;</span><a href="../PHPExcel_Shared/PHPExcel_Shared_File.html#methodrealpath">realpath</a><span class="src-sym">(</span><span class="src-var">$temp</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a115"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
+<li><div class="src-line"><a name="a116"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">if</span><span class="src-sym">(&nbsp;</span><span class="src-var">$temp&nbsp;</span>=&nbsp;<a href="http://www.php.net/getenv">getenv</a><span class="src-sym">(</span><span class="src-str">'TMPDIR'</span><span class="src-sym">)&nbsp;)&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a117"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">return&nbsp;</span><a href="../PHPExcel_Shared/PHPExcel_Shared_File.html#methodrealpath">realpath</a><span class="src-sym">(</span><span class="src-var">$temp</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a118"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
+<li><div class="src-line"><a name="a119"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a120"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//&nbsp;trick&nbsp;for&nbsp;creating&nbsp;a&nbsp;file&nbsp;in&nbsp;system's&nbsp;temporary&nbsp;dir</span></div></li>
+<li><div class="src-line"><a name="a121"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//&nbsp;without&nbsp;knowing&nbsp;the&nbsp;path&nbsp;of&nbsp;the&nbsp;system's&nbsp;temporary&nbsp;dir</span></div></li>
+<li><div class="src-line"><a name="a122"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$temp&nbsp;</span>=&nbsp;<a href="http://www.php.net/tempnam">tempnam</a><span class="src-sym">(</span>__FILE__<span class="src-sym">,&nbsp;</span><span class="src-str">''</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a123"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">if&nbsp;</span><span class="src-sym">(</span><a href="../PHPExcel_Shared/PHPExcel_Shared_File.html#methodfile_exists">file_exists</a><span class="src-sym">(</span><span class="src-var">$temp</span><span class="src-sym">))&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a124"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.php.net/unlink">unlink</a><span class="src-sym">(</span><span class="src-var">$temp</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a125"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">return&nbsp;</span><a href="../PHPExcel_Shared/PHPExcel_Shared_File.html#methodrealpath">realpath</a><span class="src-sym">(</span><a href="http://www.php.net/dirname">dirname</a><span class="src-sym">(</span><span class="src-var">$temp</span><span class="src-sym">))</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a126"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
+<li><div class="src-line"><a name="a127"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a128"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">return&nbsp;</span><span class="src-id">null</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a129"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a130"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
+<li><div class="src-line"><a name="a131"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a132"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//&nbsp;use&nbsp;ordinary&nbsp;built-in&nbsp;PHP&nbsp;function</span></div></li>
+<li><div class="src-line"><a name="a133"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">return&nbsp;</span><a href="../PHPExcel_Shared/PHPExcel_Shared_File.html#methodrealpath">realpath</a><span class="src-sym">(</span><a href="../PHPExcel_Shared/PHPExcel_Shared_File.html#methodsys_get_temp_dir">sys_get_temp_dir</a><span class="src-sym">(</span><span class="src-sym">))</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a134"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
+<li><div class="src-line"><a name="a135"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a136"></a><span class="src-sym">}</span></div></li>
 </ol>
 </div>
         <div class="credit">
 		    <hr />
-		    Documentation generated on Mon, 02 Nov 2009 08:40:51 +0100 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.1</a>
+		    Documentation generated on Tue, 01 Jun 2010 17:03:46 +0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>

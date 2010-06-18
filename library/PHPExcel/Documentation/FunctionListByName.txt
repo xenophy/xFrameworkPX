@@ -56,12 +56,12 @@ COUNTA                  CATEGORY_STATISTICAL            PHPExcel_Calculation_Fun
 COUNTBLANK              CATEGORY_STATISTICAL            PHPExcel_Calculation_Functions::COUNTBLANK
 COUNTIF                 CATEGORY_STATISTICAL            PHPExcel_Calculation_Functions::COUNTIF
 COUNTIFS                CATEGORY_STATISTICAL            ***  Not yet Implemented
-COUPDAYBS               CATEGORY_FINANCIAL              ***  Not yet Implemented
-COUPDAYS                CATEGORY_FINANCIAL              ***  Not yet Implemented
-COUPDAYSNC              CATEGORY_FINANCIAL              ***  Not yet Implemented
-COUPNCD                 CATEGORY_FINANCIAL              ***  Not yet Implemented
+COUPDAYBS               CATEGORY_FINANCIAL              PHPExcel_Calculation_Functions::COUPDAYBS
+COUPDAYS                CATEGORY_FINANCIAL              PHPExcel_Calculation_Functions::COUPDAYS
+COUPDAYSNC              CATEGORY_FINANCIAL              PHPExcel_Calculation_Functions::COUPDAYSNC
+COUPNCD                 CATEGORY_FINANCIAL              PHPExcel_Calculation_Functions::COUPNCD
 COUPNUM                 CATEGORY_FINANCIAL              PHPExcel_Calculation_Functions::COUPNUM
-COUPPCD                 CATEGORY_FINANCIAL              ***  Not yet Implemented
+COUPPCD                 CATEGORY_FINANCIAL              PHPExcel_Calculation_Functions::COUPPCD
 COVAR                   CATEGORY_STATISTICAL            PHPExcel_Calculation_Functions::COVAR
 CRITBINOM               CATEGORY_STATISTICAL            PHPExcel_Calculation_Functions::CRITBINOM
 CUBEKPIMEMBER           CATEGORY_CUBE                   ***  Not yet Implemented
@@ -131,7 +131,7 @@ FORECAST                CATEGORY_STATISTICAL            PHPExcel_Calculation_Fun
 FREQUENCY               CATEGORY_STATISTICAL            ***  Not yet Implemented
 FTEST                   CATEGORY_STATISTICAL            ***  Not yet Implemented
 FV                      CATEGORY_FINANCIAL              PHPExcel_Calculation_Functions::FV
-FVSCHEDULE              CATEGORY_FINANCIAL              ***  Not yet Implemented
+FVSCHEDULE              CATEGORY_FINANCIAL              PHPExcel_Calculation_Functions::FVSCHEDULE
 
 GAMMADIST               CATEGORY_STATISTICAL            PHPExcel_Calculation_Functions::GAMMADIST
 GAMMAINV                CATEGORY_STATISTICAL            PHPExcel_Calculation_Functions::GAMMAINV
@@ -148,7 +148,7 @@ HEX2DEC                 CATEGORY_ENGINEERING            PHPExcel_Calculation_Fun
 HEX2OCT                 CATEGORY_ENGINEERING            PHPExcel_Calculation_Functions::HEXTOOCT
 HLOOKUP                 CATEGORY_LOOKUP_AND_REFERENCE   ***  Not yet Implemented
 HOUR                    CATEGORY_DATE_AND_TIME          PHPExcel_Calculation_Functions::HOUROFDAY
-HYPERLINK               CATEGORY_LOOKUP_AND_REFERENCE   ***  Not yet Implemented
+HYPERLINK               CATEGORY_LOOKUP_AND_REFERENCE   PHPExcel_Calculation_Functions::HYPERLINK
 HYPGEOMDIST             CATEGORY_STATISTICAL            PHPExcel_Calculation_Functions::HYPGEOMDIST
 
 IF                      CATEGORY_LOGICAL                PHPExcel_Calculation_Functions::STATEMENT_IF
@@ -177,7 +177,7 @@ INT                     CATEGORY_MATH_AND_TRIG          intval
 INTERCEPT               CATEGORY_STATISTICAL            PHPExcel_Calculation_Functions::INTERCEPT
 INTRATE                 CATEGORY_FINANCIAL              PHPExcel_Calculation_Functions::INTRATE
 IPMT                    CATEGORY_FINANCIAL              PHPExcel_Calculation_Functions::IPMT
-IRR                     CATEGORY_FINANCIAL              ***  Not yet Implemented
+IRR                     CATEGORY_FINANCIAL              PHPExcel_Calculation_Functions::IRR
 ISBLANK                 CATEGORY_INFORMATION            PHPExcel_Calculation_Functions::IS_BLANK
 ISERR                   CATEGORY_INFORMATION            PHPExcel_Calculation_Functions::IS_ERR
 ISERROR                 CATEGORY_INFORMATION            PHPExcel_Calculation_Functions::IS_ERROR
@@ -187,7 +187,7 @@ ISNA                    CATEGORY_INFORMATION            PHPExcel_Calculation_Fun
 ISNONTEXT               CATEGORY_INFORMATION            PHPExcel_Calculation_Functions::IS_NONTEXT
 ISNUMBER                CATEGORY_INFORMATION            PHPExcel_Calculation_Functions::IS_NUMBER
 ISODD                   CATEGORY_INFORMATION            PHPExcel_Calculation_Functions::IS_ODD
-ISPMT                   CATEGORY_FINANCIAL              ***  Not yet Implemented
+ISPMT                   CATEGORY_FINANCIAL              PHPExcel_Calculation_Functions::ISPMT
 ISREF                   CATEGORY_INFORMATION            ***  Not yet Implemented
 ISTEXT                  CATEGORY_INFORMATION            PHPExcel_Calculation_Functions::IS_TEXT
 
@@ -226,7 +226,7 @@ MINA                    CATEGORY_STATISTICAL            PHPExcel_Calculation_Fun
 MINIF                   CATEGORY_STATISTICAL            ***  Not yet Implemented
 MINUTE                  CATEGORY_DATE_AND_TIME          PHPExcel_Calculation_Functions::MINUTEOFHOUR
 MINVERSE                CATEGORY_MATH_AND_TRIG          PHPExcel_Calculation_Functions::MINVERSE
-MIRR                    CATEGORY_FINANCIAL              ***  Not yet Implemented
+MIRR                    CATEGORY_FINANCIAL              PHPExcel_Calculation_Functions::MIRR
 MMULT                   CATEGORY_MATH_AND_TRIG          PHPExcel_Calculation_Functions::MMULT
 MOD                     CATEGORY_MATH_AND_TRIG          PHPExcel_Calculation_Functions::MOD
 MODE                    CATEGORY_STATISTICAL            PHPExcel_Calculation_Functions::MODE
@@ -234,7 +234,7 @@ MONTH                   CATEGORY_DATE_AND_TIME          PHPExcel_Calculation_Fun
 MROUND                  CATEGORY_MATH_AND_TRIG          PHPExcel_Calculation_Functions::MROUND
 MULTINOMIAL             CATEGORY_MATH_AND_TRIG          PHPExcel_Calculation_Functions::MULTINOMIAL
 
-N                       CATEGORY_INFORMATION            ***  Not yet Implemented
+N                       CATEGORY_INFORMATION            PHPExcel_Calculation_Functions::N
 NA                      CATEGORY_INFORMATION            PHPExcel_Calculation_Functions::NA
 NEGBINOMDIST            CATEGORY_STATISTICAL            PHPExcel_Calculation_Functions::NEGBINOMDIST
 NETWORKDAYS             CATEGORY_DATE_AND_TIME          PHPExcel_Calculation_Functions::NETWORKDAYS
@@ -269,7 +269,7 @@ PMT                     CATEGORY_FINANCIAL              PHPExcel_Calculation_Fun
 POISSON                 CATEGORY_STATISTICAL            PHPExcel_Calculation_Functions::POISSON
 POWER                   CATEGORY_MATH_AND_TRIG          PHPExcel_Calculation_Functions::POWER
 PPMT                    CATEGORY_FINANCIAL              PHPExcel_Calculation_Functions::PPMT
-PRICE                   CATEGORY_FINANCIAL              ***  Not yet Implemented
+PRICE                   CATEGORY_FINANCIAL              PHPExcel_Calculation_Functions::PRICE
 PRICEDISC               CATEGORY_FINANCIAL              PHPExcel_Calculation_Functions::PRICEDISC
 PRICEMAT                CATEGORY_FINANCIAL              PHPExcel_Calculation_Functions::PRICEMAT
 PROB                    CATEGORY_STATISTICAL            ***  Not yet Implemented
@@ -284,7 +284,7 @@ RADIANS                 CATEGORY_MATH_AND_TRIG          deg2rad
 RAND                    CATEGORY_MATH_AND_TRIG          PHPExcel_Calculation_Functions::RAND
 RANDBETWEEN             CATEGORY_MATH_AND_TRIG          PHPExcel_Calculation_Functions::RAND
 RANK                    CATEGORY_STATISTICAL            PHPExcel_Calculation_Functions::RANK
-RATE                    CATEGORY_FINANCIAL              ***  Not yet Implemented
+RATE                    CATEGORY_FINANCIAL              PHPExcel_Calculation_Functions::RATE
 RECEIVED                CATEGORY_FINANCIAL              PHPExcel_Calculation_Functions::RECEIVED
 REPLACE                 CATEGORY_TEXT_AND_DATA          PHPExcel_Calculation_Functions::REPLACE
 REPLACEB                CATEGORY_TEXT_AND_DATA          PHPExcel_Calculation_Functions::REPLACE
@@ -324,7 +324,7 @@ SUBTOTAL                CATEGORY_MATH_AND_TRIG          PHPExcel_Calculation_Fun
 SUM                     CATEGORY_MATH_AND_TRIG          PHPExcel_Calculation_Functions::SUM
 SUMIF                   CATEGORY_MATH_AND_TRIG          PHPExcel_Calculation_Functions::SUMIF
 SUMIFS                  CATEGORY_MATH_AND_TRIG          ***  Not yet Implemented
-SUMPRODUCT              CATEGORY_MATH_AND_TRIG          ***  Not yet Implemented
+SUMPRODUCT              CATEGORY_MATH_AND_TRIG          PHPExcel_Calculation_Functions::SUMPRODUCT
 SUMSQ                   CATEGORY_MATH_AND_TRIG          PHPExcel_Calculation_Functions::SUMSQ
 SUMX2MY2                CATEGORY_MATH_AND_TRIG          PHPExcel_Calculation_Functions::SUMX2MY2
 SUMX2PY2                CATEGORY_MATH_AND_TRIG          PHPExcel_Calculation_Functions::SUMX2PY2
@@ -350,7 +350,7 @@ TRIMMEAN                CATEGORY_STATISTICAL            PHPExcel_Calculation_Fun
 TRUE                    CATEGORY_LOGICAL                PHPExcel_Calculation_Functions::LOGICAL_TRUE
 TRUNC                   CATEGORY_MATH_AND_TRIG          PHPExcel_Calculation_Functions::TRUNC
 TTEST                   CATEGORY_STATISTICAL            ***  Not yet Implemented
-TYPE                    CATEGORY_INFORMATION            ***  Not yet Implemented
+TYPE                    CATEGORY_INFORMATION            PHPExcel_Calculation_Functions::TYPE
 
 UPPER                   CATEGORY_TEXT_AND_DATA          PHPExcel_Calculation_Functions::UPPERCASE
 USDOLLAR                CATEGORY_FINANCIAL              ***  Not yet Implemented
@@ -369,8 +369,8 @@ WEEKNUM                 CATEGORY_DATE_AND_TIME          PHPExcel_Calculation_Fun
 WEIBULL                 CATEGORY_STATISTICAL            PHPExcel_Calculation_Functions::WEIBULL
 WORKDAY                 CATEGORY_DATE_AND_TIME          PHPExcel_Calculation_Functions::WORKDAY
 
-XIRR                    CATEGORY_FINANCIAL              ***  Not yet Implemented
-XNPV                    CATEGORY_FINANCIAL              ***  Not yet Implemented
+XIRR                    CATEGORY_FINANCIAL              PHPExcel_Calculation_Functions::XIRR
+XNPV                    CATEGORY_FINANCIAL              PHPExcel_Calculation_Functions::XNPV
 
 YEAR                    CATEGORY_DATE_AND_TIME          PHPExcel_Calculation_Functions::YEAR
 YEARFRAC                CATEGORY_DATE_AND_TIME          PHPExcel_Calculation_Functions::YEARFRAC
@@ -378,4 +378,4 @@ YIELD                   CATEGORY_FINANCIAL              ***  Not yet Implemented
 YIELDDISC               CATEGORY_FINANCIAL              PHPExcel_Calculation_Functions::YIELDDISC
 YIELDMAT                CATEGORY_FINANCIAL              PHPExcel_Calculation_Functions::YIELDMAT
 
-ZTEST                   CATEGORY_STATISTICAL            ***  Not yet Implemented
+ZTEST                   CATEGORY_STATISTICAL            PHPExcel_Calculation_Functions::ZTEST

@@ -14,7 +14,7 @@
     <td class="header_menu">
         
                                                                                                                                         
-                                                                                                                                                                                                                                                                                                                      		  [ <a href="../classtrees_PHPExcel_Calculation.html" class="menu">class tree: PHPExcel_Calculation</a> ]
+                                                                                                                                                                                                                                                                                                                                          		  [ <a href="../classtrees_PHPExcel_Calculation.html" class="menu">class tree: PHPExcel_Calculation</a> ]
 		  [ <a href="../elementindex_PHPExcel_Calculation.html" class="menu">index: PHPExcel_Calculation</a> ]
 		  	    [ <a href="../elementindex.html" class="menu">all elements</a> ]
     </td>
@@ -29,16 +29,17 @@
 			<p><a href="../todolist.html">Todo List</a></p>
 	</div>
       <b>Packages:</b><br />
-              <a href="../li_default.html">default</a><br />
+              <a href="../li_PHPExcel.html">PHPExcel</a><br />
               <a href="../li_com-tecnick-tcpdf.html">com-tecnick-tcpdf</a><br />
               <a href="../li_JAMA.html">JAMA</a><br />
               <a href="../li_Math_Stats.html">Math_Stats</a><br />
-              <a href="../li_PHPExcel.html">PHPExcel</a><br />
+              <a href="../li_PHPExcel_CachedObjectStorage.html">PHPExcel_CachedObjectStorage</a><br />
               <a href="../li_PHPExcel_Calculation.html">PHPExcel_Calculation</a><br />
               <a href="../li_PHPExcel_Cell.html">PHPExcel_Cell</a><br />
               <a href="../li_PHPExcel_Reader.html">PHPExcel_Reader</a><br />
               <a href="../li_PHPExcel_Reader_Excel5.html">PHPExcel_Reader_Excel5</a><br />
               <a href="../li_PHPExcel_RichText.html">PHPExcel_RichText</a><br />
+              <a href="../li_PHPExcel_Settings.html">PHPExcel_Settings</a><br />
               <a href="../li_PHPExcel_Shared.html">PHPExcel_Shared</a><br />
               <a href="../li_PHPExcel_Shared_Best_Fit.html">PHPExcel_Shared_Best_Fit</a><br />
               <a href="../li_PHPExcel_Shared_Escher.html">PHPExcel_Shared_Escher</a><br />
@@ -106,7 +107,7 @@ Source Location: /PHPExcel/Calculation.php<br /><br />
 
 <h4>Copyright:</h4>
 <ul>
-  <li>Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)</li>
+  <li>Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)</li>
 </ul>
         
 </td>
@@ -114,21 +115,11 @@ Source Location: /PHPExcel/Calculation.php<br /><br />
 <td valign="top">
 <h3><a href="#class_vars">Variables</a></h3>
 <ul>
+    <li><a href="../PHPExcel_Calculation/PHPExcel_Calculation.html#var$cyclicFormulaCount">$cyclicFormulaCount</a></li>
     <li><a href="../PHPExcel_Calculation/PHPExcel_Calculation.html#var$debugLog">$debugLog</a></li>
-    <li><a href="../PHPExcel_Calculation/PHPExcel_Calculation.html#var$debugLogStack">$debugLogStack</a></li>
     <li><a href="../PHPExcel_Calculation/PHPExcel_Calculation.html#var$formulaError">$formulaError</a></li>
-    <li><a href="../PHPExcel_Calculation/PHPExcel_Calculation.html#var$returnArrayAsType">$returnArrayAsType</a></li>
     <li><a href="../PHPExcel_Calculation/PHPExcel_Calculation.html#var$suppressFormulaErrors">$suppressFormulaErrors</a></li>
     <li><a href="../PHPExcel_Calculation/PHPExcel_Calculation.html#var$writeDebugLog">$writeDebugLog</a></li>
-    <li><a href="../PHPExcel_Calculation/PHPExcel_Calculation.html#var$_binaryOperators">$_binaryOperators</a></li>
-    <li><a href="../PHPExcel_Calculation/PHPExcel_Calculation.html#var$_calculationCache">$_calculationCache</a></li>
-    <li><a href="../PHPExcel_Calculation/PHPExcel_Calculation.html#var$_calculationCacheEnabled">$_calculationCacheEnabled</a></li>
-    <li><a href="../PHPExcel_Calculation/PHPExcel_Calculation.html#var$_calculationCacheExpirationTime">$_calculationCacheExpirationTime</a></li>
-    <li><a href="../PHPExcel_Calculation/PHPExcel_Calculation.html#var$_controlFunctions">$_controlFunctions</a></li>
-    <li><a href="../PHPExcel_Calculation/PHPExcel_Calculation.html#var$_ExcelConstants">$_ExcelConstants</a></li>
-    <li><a href="../PHPExcel_Calculation/PHPExcel_Calculation.html#var$_instance">$_instance</a></li>
-    <li><a href="../PHPExcel_Calculation/PHPExcel_Calculation.html#var$_operators">$_operators</a></li>
-    <li><a href="../PHPExcel_Calculation/PHPExcel_Calculation.html#var$_PHPExcelFunctions">$_PHPExcelFunctions</a></li>
   </ul>
 </td>
 
@@ -154,6 +145,7 @@ Source Location: /PHPExcel/Calculation.php<br /><br />
     <li><a href="../PHPExcel_Calculation/PHPExcel_Calculation.html#methodcalculate">calculate</a></li>
     <li><a href="../PHPExcel_Calculation/PHPExcel_Calculation.html#methodcalculateCellValue">calculateCellValue</a></li>
     <li><a href="../PHPExcel_Calculation/PHPExcel_Calculation.html#methodcalculateFormula">calculateFormula</a></li>
+    <li><a href="../PHPExcel_Calculation/PHPExcel_Calculation.html#method__construct">__construct</a></li>
     <li><a href="../PHPExcel_Calculation/PHPExcel_Calculation.html#methodclearCalculationCache">clearCalculationCache</a></li>
     <li><a href="../PHPExcel_Calculation/PHPExcel_Calculation.html#methoddisableCalculationCache">disableCalculationCache</a></li>
     <li><a href="../PHPExcel_Calculation/PHPExcel_Calculation.html#methodenableCalculationCache">enableCalculationCache</a></li>
@@ -163,6 +155,7 @@ Source Location: /PHPExcel/Calculation.php<br /><br />
     <li><a href="../PHPExcel_Calculation/PHPExcel_Calculation.html#methodgetCalculationCacheEnabled">getCalculationCacheEnabled</a></li>
     <li><a href="../PHPExcel_Calculation/PHPExcel_Calculation.html#methodgetCalculationCacheExpirationTime">getCalculationCacheExpirationTime</a></li>
     <li><a href="../PHPExcel_Calculation/PHPExcel_Calculation.html#methodgetInstance">getInstance</a></li>
+    <li><a href="../PHPExcel_Calculation/PHPExcel_Calculation.html#methodgetLocale">getLocale</a></li>
     <li><a href="../PHPExcel_Calculation/PHPExcel_Calculation.html#methodisImplemented">isImplemented</a></li>
     <li><a href="../PHPExcel_Calculation/PHPExcel_Calculation.html#methodlistFunctionNames">listFunctionNames</a></li>
     <li><a href="../PHPExcel_Calculation/PHPExcel_Calculation.html#methodlistFunctions">listFunctions</a></li>
@@ -170,24 +163,16 @@ Source Location: /PHPExcel/Calculation.php<br /><br />
     <li><a href="../PHPExcel_Calculation/PHPExcel_Calculation.html#methodsetArrayReturnType">setArrayReturnType</a></li>
     <li><a href="../PHPExcel_Calculation/PHPExcel_Calculation.html#methodsetCalculationCacheEnabled">setCalculationCacheEnabled</a></li>
     <li><a href="../PHPExcel_Calculation/PHPExcel_Calculation.html#methodsetCalculationCacheExpirationTime">setCalculationCacheExpirationTime</a></li>
+    <li><a href="../PHPExcel_Calculation/PHPExcel_Calculation.html#methodsetLocale">setLocale</a></li>
     <li><a href="../PHPExcel_Calculation/PHPExcel_Calculation.html#method_calculateFormulaValue">_calculateFormulaValue</a></li>
-    <li><a href="../PHPExcel_Calculation/PHPExcel_Calculation.html#method_checkMatrixOperands">_checkMatrixOperands</a></li>
-    <li><a href="../PHPExcel_Calculation/PHPExcel_Calculation.html#method_convertMatrixReferences">_convertMatrixReferences</a></li>
-    <li><a href="../PHPExcel_Calculation/PHPExcel_Calculation.html#method_executeBinaryComparisonOperation">_executeBinaryComparisonOperation</a></li>
-    <li><a href="../PHPExcel_Calculation/PHPExcel_Calculation.html#method_executeNumericBinaryOperation">_executeNumericBinaryOperation</a></li>
     <li><a href="../PHPExcel_Calculation/PHPExcel_Calculation.html#method_getMatrixDimensions">_getMatrixDimensions</a></li>
-    <li><a href="../PHPExcel_Calculation/PHPExcel_Calculation.html#method_mkMatrix">_mkMatrix</a></li>
-    <li><a href="../PHPExcel_Calculation/PHPExcel_Calculation.html#method_parseFormula">_parseFormula</a></li>
-    <li><a href="../PHPExcel_Calculation/PHPExcel_Calculation.html#method_processTokenStack">_processTokenStack</a></li>
+    <li><a href="../PHPExcel_Calculation/PHPExcel_Calculation.html#method_localeFunc">_localeFunc</a></li>
     <li><a href="../PHPExcel_Calculation/PHPExcel_Calculation.html#method_raiseFormulaError">_raiseFormulaError</a></li>
-    <li><a href="../PHPExcel_Calculation/PHPExcel_Calculation.html#method_resizeMatricesExtend">_resizeMatricesExtend</a></li>
-    <li><a href="../PHPExcel_Calculation/PHPExcel_Calculation.html#method_resizeMatricesShrink">_resizeMatricesShrink</a></li>
-    <li><a href="../PHPExcel_Calculation/PHPExcel_Calculation.html#method_showTypeDetails">_showTypeDetails</a></li>
-    <li><a href="../PHPExcel_Calculation/PHPExcel_Calculation.html#method_showValue">_showValue</a></li>
+    <li><a href="../PHPExcel_Calculation/PHPExcel_Calculation.html#method_translateFormulaToEnglish">_translateFormulaToEnglish</a></li>
+    <li><a href="../PHPExcel_Calculation/PHPExcel_Calculation.html#method_translateFormulaToLocale">_translateFormulaToLocale</a></li>
+    <li><a href="../PHPExcel_Calculation/PHPExcel_Calculation.html#method_translateSeparator">_translateSeparator</a></li>
     <li><a href="../PHPExcel_Calculation/PHPExcel_Calculation.html#method_unwrapResult">_unwrapResult</a></li>
-    <li><a href="../PHPExcel_Calculation/PHPExcel_Calculation.html#method_validateBinaryOperand">_validateBinaryOperand</a></li>
     <li><a href="../PHPExcel_Calculation/PHPExcel_Calculation.html#method_wrapResult">_wrapResult</a></li>
-    <li><a href="../PHPExcel_Calculation/PHPExcel_Calculation.html#method_writeDebug">_writeDebug</a></li>
     <li><a href="../PHPExcel_Calculation/PHPExcel_Calculation.html#method__clone">__clone</a></li>
   </ul>
 </td>
@@ -208,13 +193,13 @@ Source Location: /PHPExcel/Calculation.php<br /><br />
 <a name="class_details"></a>
 <h3>Class Details</h3>
 <div class="tags">
-[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a54">54</a>]<br />
-PHPExcel_Calculation (Singleton)<br /><br /><p>PHPExcel_Calculation (Singleton)</p><br /><br /><br />
+[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a56">56</a>]<br />
+PHPExcel_Calculation (Singleton)<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td><b>copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)</td>
+    <td><b>copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)</td>
   </tr>
 </table>
 </div>
@@ -225,16 +210,16 @@ PHPExcel_Calculation (Singleton)<br /><br /><p>PHPExcel_Calculation (Singleton)<
 <a name="class_vars"></a>
 <h3>Class Variables</h3>
 <div class="tags">
-	<a name="var$returnArrayAsType"></a>
+	<a name="var$cyclicFormulaCount"></a>
 	<p></p>
-	<h4>static $returnArrayAsType = <span class="value">&nbsp;self::RETURN_ARRAY_AS_VALUE</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a79">79</a>]</p>
+	<h4>$cyclicFormulaCount = <span class="value">&nbsp;0</span></h4>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a187">187</a>]</p>
   <br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
   </tr>
 </table>
 </div>
@@ -245,30 +230,6 @@ PHPExcel_Calculation (Singleton)<br /><br /><p>PHPExcel_Calculation (Singleton)<
     <tr>
       <td><b>Type:</b>&nbsp;&nbsp;</td>
       <td>mixed</td>
-    </tr>
-      </table>
-	</div><br /><br />
-	<div class="top">[ <a href="#top">Top</a> ]</div><br />
-	<a name="var$_instance"></a>
-	<p></p>
-	<h4>static $_instance = <span class="value"></span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a87">87</a>]</p>
-  Instance of this class<br /><br /><p>Instance of this class</p><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
-  </tr>
-</table>
-</div>
-
-  <br />
-	<div class="tags">
-  <table border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td><b>Type:</b>&nbsp;&nbsp;</td>
-      <td><a href="../PHPExcel_Calculation/PHPExcel_Calculation.html">PHPExcel_Calculation</a></td>
     </tr>
       </table>
 	</div><br /><br />
@@ -276,11 +237,14 @@ PHPExcel_Calculation (Singleton)<br /><br /><p>PHPExcel_Calculation (Singleton)<
 	<a name="var$debugLog"></a>
 	<p></p>
 	<h4>$debugLog = <span class="value">array()</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a138">138</a>]</p>
-  <br /><br />
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a184">184</a>]</p>
+  The debug log generated by the calculation engine<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>var:</b>&nbsp;&nbsp;</td><td>of string</td>
+  </tr>
   <tr>
     <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
   </tr>
@@ -292,31 +256,7 @@ PHPExcel_Calculation (Singleton)<br /><br /><p>PHPExcel_Calculation (Singleton)<
   <table border="0" cellspacing="0" cellpadding="0">
     <tr>
       <td><b>Type:</b>&nbsp;&nbsp;</td>
-      <td>mixed</td>
-    </tr>
-      </table>
-	</div><br /><br />
-	<div class="top">[ <a href="#top">Top</a> ]</div><br />
-	<a name="var$debugLogStack"></a>
-	<p></p>
-	<h4>$debugLogStack = <span class="value">array()</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a137">137</a>]</p>
-  <br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
-  </tr>
-</table>
-</div>
-
-  <br />
-	<div class="tags">
-  <table border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td><b>Type:</b>&nbsp;&nbsp;</td>
-      <td>mixed</td>
+      <td>array</td>
     </tr>
       </table>
 	</div><br /><br />
@@ -324,8 +264,8 @@ PHPExcel_Calculation (Singleton)<br /><br /><p>PHPExcel_Calculation (Singleton)<
 	<a name="var$formulaError"></a>
 	<p></p>
 	<h4>$formulaError = <span class="value">&nbsp;null</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a135">135</a>]</p>
-  <br /><br />
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a155">155</a>]</p>
+  Error message for any error that was raised/thrown by the calculation engine<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -340,7 +280,7 @@ PHPExcel_Calculation (Singleton)<br /><br /><p>PHPExcel_Calculation (Singleton)<
   <table border="0" cellspacing="0" cellpadding="0">
     <tr>
       <td><b>Type:</b>&nbsp;&nbsp;</td>
-      <td>mixed</td>
+      <td>string</td>
     </tr>
       </table>
 	</div><br /><br />
@@ -348,109 +288,13 @@ PHPExcel_Calculation (Singleton)<br /><br /><p>PHPExcel_Calculation (Singleton)<
 	<a name="var$suppressFormulaErrors"></a>
 	<p></p>
 	<h4>$suppressFormulaErrors = <span class="value">&nbsp;false</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a134">134</a>]</p>
-  <br /><br />
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a146">146</a>]</p>
+  Flag to determine how formula errors should be handled 		If true, then a user error will be triggered 		If false, then an exception will be thrown<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-</div>
-
-  <br />
-	<div class="tags">
-  <table border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td><b>Type:</b>&nbsp;&nbsp;</td>
-      <td>mixed</td>
-    </tr>
-      </table>
-	</div><br /><br />
-	<div class="top">[ <a href="#top">Top</a> ]</div><br />
-	<a name="var$writeDebugLog"></a>
-	<p></p>
-	<h4>$writeDebugLog = <span class="value">&nbsp;false</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a136">136</a>]</p>
-  <br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-</div>
-
-  <br />
-	<div class="tags">
-  <table border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td><b>Type:</b>&nbsp;&nbsp;</td>
-      <td>mixed</td>
-    </tr>
-      </table>
-	</div><br /><br />
-	<div class="top">[ <a href="#top">Top</a> ]</div><br />
-	<a name="var$_binaryOperators"></a>
-	<p></p>
-	<h4>$_binaryOperators = <span class="value">array('+',&nbsp;'-',&nbsp;'*',&nbsp;'/',&nbsp;'^',&nbsp;'&amp;',&nbsp;'&gt;',&nbsp;'&lt;',&nbsp;'=',&nbsp;'&gt;=',&nbsp;'&lt;=',&nbsp;'&lt;&gt;',&nbsp;'|',&nbsp;':')</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a132">132</a>]</p>
-  List of binary operators (those that expect two operands)<br /><br /><p>List of binary operators (those that expect two operands)</p><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
-  </tr>
-</table>
-</div>
-
-  <br />
-	<div class="tags">
-  <table border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td><b>Type:</b>&nbsp;&nbsp;</td>
-      <td>array</td>
-    </tr>
-      </table>
-	</div><br /><br />
-	<div class="top">[ <a href="#top">Top</a> ]</div><br />
-	<a name="var$_calculationCache"></a>
-	<p></p>
-	<h4>$_calculationCache = <span class="value">array&nbsp;()</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a96">96</a>]</p>
-  Calculation cache<br /><br /><p>Calculation cache</p><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
-  </tr>
-</table>
-</div>
-
-  <br />
-	<div class="tags">
-  <table border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td><b>Type:</b>&nbsp;&nbsp;</td>
-      <td>array</td>
-    </tr>
-      </table>
-	</div><br /><br />
-	<div class="top">[ <a href="#top">Top</a> ]</div><br />
-	<a name="var$_calculationCacheEnabled"></a>
-	<p></p>
-	<h4>$_calculationCacheEnabled = <span class="value">&nbsp;true</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a105">105</a>]</p>
-  Calculation cache enabled<br /><br /><p>Calculation cache enabled</p><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
   </tr>
 </table>
 </div>
@@ -465,16 +309,16 @@ PHPExcel_Calculation (Singleton)<br /><br /><p>PHPExcel_Calculation (Singleton)<
       </table>
 	</div><br /><br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
-	<a name="var$_calculationCacheExpirationTime"></a>
+	<a name="var$writeDebugLog"></a>
 	<p></p>
-	<h4>$_calculationCacheExpirationTime = <span class="value">&nbsp;0.01</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a114">114</a>]</p>
-  Calculation cache expiration time<br /><br /><p>Calculation cache expiration time</p><br /><br /><br />
+	<h4>$writeDebugLog = <span class="value">&nbsp;false</span></h4>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a166">166</a>]</p>
+  Flag to determine whether a debug log should be generated by the calculation engine 		If true, then a debug log will be generated 		If false, then a debug log will not be generated<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
   </tr>
 </table>
 </div>
@@ -484,113 +328,7 @@ PHPExcel_Calculation (Singleton)<br /><br /><p>PHPExcel_Calculation (Singleton)<
   <table border="0" cellspacing="0" cellpadding="0">
     <tr>
       <td><b>Type:</b>&nbsp;&nbsp;</td>
-      <td>float</td>
-    </tr>
-      </table>
-	</div><br /><br />
-	<div class="top">[ <a href="#top">Top</a> ]</div><br />
-	<a name="var$_controlFunctions"></a>
-	<p></p>
-	<h4>$_controlFunctions = <span class="value">array(<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'MKMATRIX'&nbsp;&nbsp;&nbsp;=&gt;&nbsp;array('argumentCount'&nbsp;&nbsp;&nbsp;=&gt;&nbsp;&nbsp;&nbsp;'*',<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'functionCall'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&gt;&nbsp;&nbsp;&nbsp;'self::_mkMatrix'<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;))</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a1582">1582</a>]</p>
-  <br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
-  </tr>
-</table>
-</div>
-
-  <br />
-	<div class="tags">
-  <table border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td><b>Type:</b>&nbsp;&nbsp;</td>
-      <td>mixed</td>
-    </tr>
-      </table>
-	</div><br /><br />
-	<div class="top">[ <a href="#top">Top</a> ]</div><br />
-	<a name="var$_ExcelConstants"></a>
-	<p></p>
-	<h4>$_ExcelConstants = <span class="value">array('TRUE'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&gt;&nbsp;True,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'FALSE'&nbsp;&nbsp;&nbsp;=&gt;&nbsp;False,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'NULL'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&gt;&nbsp;Null<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a142">142</a>]</p>
-  <br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
-  </tr>
-</table>
-</div>
-
-  <br />
-	<div class="tags">
-  <table border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td><b>Type:</b>&nbsp;&nbsp;</td>
-      <td>mixed</td>
-    </tr>
-      </table>
-	</div><br /><br />
-	<div class="top">[ <a href="#top">Top</a> ]</div><br />
-	<a name="var$_operators"></a>
-	<p></p>
-	<h4>$_operators = <span class="value">array('+',&nbsp;'-',&nbsp;'*',&nbsp;'/',&nbsp;'^',&nbsp;'&amp;',&nbsp;'%',&nbsp;'~',&nbsp;'&gt;',&nbsp;'&lt;',&nbsp;'=',&nbsp;'&gt;=',&nbsp;'&lt;=',&nbsp;'&lt;&gt;',&nbsp;'|',&nbsp;':')</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a123">123</a>]</p>
-  List of operators that can be used within formulae<br /><br /><p>List of operators that can be used within formulae</p><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
-  </tr>
-</table>
-</div>
-
-  <br />
-	<div class="tags">
-  <table border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td><b>Type:</b>&nbsp;&nbsp;</td>
-      <td>array</td>
-    </tr>
-      </table>
-	</div><br /><br />
-	<div class="top">[ <a href="#top">Top</a> ]</div><br />
-	<a name="var$_PHPExcelFunctions"></a>
-	<p></p>
-	<h4>$_PHPExcelFunctions = <span class="value">array(&nbsp;&nbsp;&nbsp;//&nbsp;PHPExcel&nbsp;functions<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'ABS'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&gt;&nbsp;array('category'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&gt;&nbsp;&nbsp;&nbsp;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'functionCall'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&gt;&nbsp;&nbsp;&nbsp;'abs',<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'argumentCount'&nbsp;&nbsp;&nbsp;=&gt;&nbsp;&nbsp;&nbsp;'1'<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),'ACCRINT'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_FINANCIAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::ACCRINT','argumentCount'=&gt;'4-7'),'ACCRINTM'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_FINANCIAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::ACCRINTM','argumentCount'=&gt;'3-5'),'ACOS'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,'functionCall'=&gt;'acos','argumentCount'=&gt;'1'),'ACOSH'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,'functionCall'=&gt;'acosh','argumentCount'=&gt;'1'),'ADDRESS'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_LOOKUP_AND_REFERENCE,'functionCall'=&gt;'PHPExcel_Calculation_Functions::CELL_ADDRESS','argumentCount'=&gt;'2-5'),'AMORDEGRC'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_FINANCIAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::AMORDEGRC','argumentCount'=&gt;'6,7'),'AMORLINC'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_FINANCIAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::AMORLINC','argumentCount'=&gt;'6,7'),'AND'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_LOGICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::LOGICAL_AND','argumentCount'=&gt;'1+'),'AREAS'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_LOOKUP_AND_REFERENCE,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'1'),'ASC'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_TEXT_AND_DATA,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'1'),'ASIN'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,'functionCall'=&gt;'asin','argumentCount'=&gt;'1'),'ASINH'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,'functionCall'=&gt;'asinh','argumentCount'=&gt;'1'),'ATAN'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,'functionCall'=&gt;'atan','argumentCount'=&gt;'1'),'ATAN2'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,'functionCall'=&gt;'PHPExcel_Calculation_Functions::REVERSE_ATAN2','argumentCount'=&gt;'2'),'ATANH'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,'functionCall'=&gt;'atanh','argumentCount'=&gt;'1'),'AVEDEV'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::AVEDEV','argumentCount'=&gt;'1+'),'AVERAGE'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::AVERAGE','argumentCount'=&gt;'1+'),'AVERAGEA'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::AVERAGEA','argumentCount'=&gt;'1+'),'AVERAGEIF'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'2,3'),'AVERAGEIFS'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'3+'),'BAHTTEXT'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_TEXT_AND_DATA,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'1'),'BESSELI'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_ENGINEERING,'functionCall'=&gt;'PHPExcel_Calculation_Functions::BESSELI','argumentCount'=&gt;'2'),'BESSELJ'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_ENGINEERING,'functionCall'=&gt;'PHPExcel_Calculation_Functions::BESSELJ','argumentCount'=&gt;'2'),'BESSELK'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_ENGINEERING,'functionCall'=&gt;'PHPExcel_Calculation_Functions::BESSELK','argumentCount'=&gt;'2'),'BESSELY'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_ENGINEERING,'functionCall'=&gt;'PHPExcel_Calculation_Functions::BESSELY','argumentCount'=&gt;'2'),'BETADIST'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::BETADIST','argumentCount'=&gt;'3-5'),'BETAINV'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::BETAINV','argumentCount'=&gt;'3-5'),'BIN2DEC'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_ENGINEERING,'functionCall'=&gt;'PHPExcel_Calculation_Functions::BINTODEC','argumentCount'=&gt;'1'),'BIN2HEX'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_ENGINEERING,'functionCall'=&gt;'PHPExcel_Calculation_Functions::BINTOHEX','argumentCount'=&gt;'1,2'),'BIN2OCT'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_ENGINEERING,'functionCall'=&gt;'PHPExcel_Calculation_Functions::BINTOOCT','argumentCount'=&gt;'1,2'),'BINOMDIST'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::BINOMDIST','argumentCount'=&gt;'4'),'CEILING'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,'functionCall'=&gt;'PHPExcel_Calculation_Functions::CEILING','argumentCount'=&gt;'2'),'CELL'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_INFORMATION,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'1,2'),'CHAR'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_TEXT_AND_DATA,'functionCall'=&gt;'PHPExcel_Calculation_Functions::CHARACTER','argumentCount'=&gt;'1'),'CHIDIST'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::CHIDIST','argumentCount'=&gt;'2'),'CHIINV'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::CHIINV','argumentCount'=&gt;'2'),'CHITEST'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'2'),'CHOOSE'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_LOOKUP_AND_REFERENCE,'functionCall'=&gt;'PHPExcel_Calculation_Functions::CHOOSE','argumentCount'=&gt;'2+'),'CLEAN'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_TEXT_AND_DATA,'functionCall'=&gt;'PHPExcel_Calculation_Functions::TRIMNONPRINTABLE','argumentCount'=&gt;'1'),'CODE'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_TEXT_AND_DATA,'functionCall'=&gt;'PHPExcel_Calculation_Functions::ASCIICODE','argumentCount'=&gt;'1'),'COLUMN'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_LOOKUP_AND_REFERENCE,'functionCall'=&gt;'PHPExcel_Calculation_Functions::COLUMN','argumentCount'=&gt;'-1','passByReference'=&gt;array(true)),'COLUMNS'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_LOOKUP_AND_REFERENCE,'functionCall'=&gt;'PHPExcel_Calculation_Functions::COLUMNS','argumentCount'=&gt;'1'),'COMBIN'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,'functionCall'=&gt;'PHPExcel_Calculation_Functions::COMBIN','argumentCount'=&gt;'2'),'COMPLEX'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_ENGINEERING,'functionCall'=&gt;'PHPExcel_Calculation_Functions::COMPLEX','argumentCount'=&gt;'2,3'),'CONCATENATE'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_TEXT_AND_DATA,'functionCall'=&gt;'PHPExcel_Calculation_Functions::CONCATENATE','argumentCount'=&gt;'1+'),'CONFIDENCE'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::CONFIDENCE','argumentCount'=&gt;'3'),'CONVERT'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_ENGINEERING,'functionCall'=&gt;'PHPExcel_Calculation_Functions::CONVERTUOM','argumentCount'=&gt;'3'),'CORREL'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::CORREL','argumentCount'=&gt;'2'),'COS'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,'functionCall'=&gt;'cos','argumentCount'=&gt;'1'),'COSH'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,'functionCall'=&gt;'cosh','argumentCount'=&gt;'1'),'COUNT'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::COUNT','argumentCount'=&gt;'1+'),'COUNTA'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::COUNTA','argumentCount'=&gt;'1+'),'COUNTBLANK'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::COUNTBLANK','argumentCount'=&gt;'1'),'COUNTIF'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::COUNTIF','argumentCount'=&gt;'2'),'COUNTIFS'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'2'),'COUPDAYBS'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_FINANCIAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'3,4'),'COUPDAYS'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_FINANCIAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'3,4'),'COUPDAYSNC'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_FINANCIAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'3,4'),'COUPNCD'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_FINANCIAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'3,4'),'COUPNUM'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_FINANCIAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::COUPNUM','argumentCount'=&gt;'3,4'),'COUPPCD'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_FINANCIAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'3,4'),'COVAR'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::COVAR','argumentCount'=&gt;'2'),'CRITBINOM'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::CRITBINOM','argumentCount'=&gt;'3'),'CUBEKPIMEMBER'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_CUBE,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'?'),'CUBEMEMBER'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_CUBE,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'?'),'CUBEMEMBERPROPERTY'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_CUBE,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'?'),'CUBERANKEDMEMBER'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_CUBE,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'?'),'CUBESET'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_CUBE,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'?'),'CUBESETCOUNT'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_CUBE,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'?'),'CUBEVALUE'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_CUBE,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'?'),'CUMIPMT'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_FINANCIAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::CUMIPMT','argumentCount'=&gt;'6'),'CUMPRINC'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_FINANCIAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::CUMPRINC','argumentCount'=&gt;'6'),'DATE'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_DATE_AND_TIME,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DATE','argumentCount'=&gt;'3'),'DATEDIF'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_DATE_AND_TIME,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DATEDIF','argumentCount'=&gt;'2,3'),'DATEVALUE'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_DATE_AND_TIME,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DATEVALUE','argumentCount'=&gt;'1'),'DAVERAGE'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_DATABASE,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'?'),'DAY'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_DATE_AND_TIME,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DAYOFMONTH','argumentCount'=&gt;'1'),'DAYS360'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_DATE_AND_TIME,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DAYS360','argumentCount'=&gt;'2,3'),'DB'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_FINANCIAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DB','argumentCount'=&gt;'4,5'),'DCOUNT'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_DATABASE,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'?'),'DCOUNTA'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_DATABASE,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'?'),'DDB'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_FINANCIAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DDB','argumentCount'=&gt;'4,5'),'DEC2BIN'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_ENGINEERING,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DECTOBIN','argumentCount'=&gt;'1,2'),'DEC2HEX'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_ENGINEERING,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DECTOHEX','argumentCount'=&gt;'1,2'),'DEC2OCT'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_ENGINEERING,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DECTOOCT','argumentCount'=&gt;'1,2'),'DEGREES'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,'functionCall'=&gt;'rad2deg','argumentCount'=&gt;'1'),'DELTA'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_ENGINEERING,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DELTA','argumentCount'=&gt;'1,2'),'DEVSQ'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DEVSQ','argumentCount'=&gt;'1+'),'DGET'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_DATABASE,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'?'),'DISC'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_FINANCIAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DISC','argumentCount'=&gt;'4,5'),'DMAX'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_DATABASE,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'?'),'DMIN'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_DATABASE,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'?'),'DOLLAR'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_TEXT_AND_DATA,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DOLLAR','argumentCount'=&gt;'1,2'),'DOLLARDE'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_FINANCIAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DOLLARDE','argumentCount'=&gt;'2'),'DOLLARFR'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_FINANCIAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DOLLARFR','argumentCount'=&gt;'2'),'DPRODUCT'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_DATABASE,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'?'),'DSTDEV'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_DATABASE,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'?'),'DSTDEVP'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_DATABASE,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'?'),'DSUM'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_DATABASE,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'?'),'DURATION'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_FINANCIAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'5,6'),'DVAR'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_DATABASE,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'?'),'DVARP'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_DATABASE,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'?'),'EDATE'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_DATE_AND_TIME,'functionCall'=&gt;'PHPExcel_Calculation_Functions::EDATE','argumentCount'=&gt;'2'),'EFFECT'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_FINANCIAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::EFFECT','argumentCount'=&gt;'2'),'EOMONTH'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_DATE_AND_TIME,'functionCall'=&gt;'PHPExcel_Calculation_Functions::EOMONTH','argumentCount'=&gt;'2'),'ERF'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_ENGINEERING,'functionCall'=&gt;'PHPExcel_Calculation_Functions::ERF','argumentCount'=&gt;'1,2'),'ERFC'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_ENGINEERING,'functionCall'=&gt;'PHPExcel_Calculation_Functions::ERFC','argumentCount'=&gt;'1'),'ERROR.TYPE'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_INFORMATION,'functionCall'=&gt;'PHPExcel_Calculation_Functions::ERROR_TYPE','argumentCount'=&gt;'1'),'EVEN'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,'functionCall'=&gt;'PHPExcel_Calculation_Functions::EVEN','argumentCount'=&gt;'1'),'EXACT'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_TEXT_AND_DATA,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'2'),'EXP'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,'functionCall'=&gt;'exp','argumentCount'=&gt;'1'),'EXPONDIST'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::EXPONDIST','argumentCount'=&gt;'3'),'FACT'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,'functionCall'=&gt;'PHPExcel_Calculation_Functions::FACT','argumentCount'=&gt;'1'),'FACTDOUBLE'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,'functionCall'=&gt;'PHPExcel_Calculation_Functions::FACTDOUBLE','argumentCount'=&gt;'1'),'FALSE'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_LOGICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::LOGICAL_FALSE','argumentCount'=&gt;'0'),'FDIST'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'3'),'FIND'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_TEXT_AND_DATA,'functionCall'=&gt;'PHPExcel_Calculation_Functions::SEARCHSENSITIVE','argumentCount'=&gt;'2,3'),'FINDB'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_TEXT_AND_DATA,'functionCall'=&gt;'PHPExcel_Calculation_Functions::SEARCHSENSITIVE','argumentCount'=&gt;'2,3'),'FINV'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'3'),'FISHER'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::FISHER','argumentCount'=&gt;'1'),'FISHERINV'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::FISHERINV','argumentCount'=&gt;'1'),'FIXED'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_TEXT_AND_DATA,'functionCall'=&gt;'PHPExcel_Calculation_Functions::FIXEDFORMAT','argumentCount'=&gt;'1-3'),'FLOOR'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,'functionCall'=&gt;'PHPExcel_Calculation_Functions::FLOOR','argumentCount'=&gt;'2'),'FORECAST'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::FORECAST','argumentCount'=&gt;'3'),'FREQUENCY'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'2'),'FTEST'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'2'),'FV'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_FINANCIAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::FV','argumentCount'=&gt;'3-5'),'FVSCHEDULE'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_FINANCIAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'2'),'GAMMADIST'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::GAMMADIST','argumentCount'=&gt;'4'),'GAMMAINV'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::GAMMAINV','argumentCount'=&gt;'3'),'GAMMALN'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::GAMMALN','argumentCount'=&gt;'1'),'GCD'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,'functionCall'=&gt;'PHPExcel_Calculation_Functions::GCD','argumentCount'=&gt;'1+'),'GEOMEAN'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::GEOMEAN','argumentCount'=&gt;'1+'),'GESTEP'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_ENGINEERING,'functionCall'=&gt;'PHPExcel_Calculation_Functions::GESTEP','argumentCount'=&gt;'1,2'),'GETPIVOTDATA'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_LOOKUP_AND_REFERENCE,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'2+'),'GROWTH'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::GROWTH','argumentCount'=&gt;'1-4'),'HARMEAN'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::HARMEAN','argumentCount'=&gt;'1+'),'HEX2BIN'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_ENGINEERING,'functionCall'=&gt;'PHPExcel_Calculation_Functions::HEXTOBIN','argumentCount'=&gt;'1,2'),'HEX2DEC'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_ENGINEERING,'functionCall'=&gt;'PHPExcel_Calculation_Functions::HEXTODEC','argumentCount'=&gt;'1'),'HEX2OCT'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_ENGINEERING,'functionCall'=&gt;'PHPExcel_Calculation_Functions::HEXTOOCT','argumentCount'=&gt;'1,2'),'HLOOKUP'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_LOOKUP_AND_REFERENCE,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'3,4'),'HOUR'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_DATE_AND_TIME,'functionCall'=&gt;'PHPExcel_Calculation_Functions::HOUROFDAY','argumentCount'=&gt;'1'),'HYPERLINK'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_LOOKUP_AND_REFERENCE,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'1,2'),'HYPGEOMDIST'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::HYPGEOMDIST','argumentCount'=&gt;'4'),'IF'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_LOGICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::STATEMENT_IF','argumentCount'=&gt;'1-3'),'IFERROR'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_LOGICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::STATEMENT_IFERROR','argumentCount'=&gt;'1'),'IMABS'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_ENGINEERING,'functionCall'=&gt;'PHPExcel_Calculation_Functions::IMABS','argumentCount'=&gt;'1'),'IMAGINARY'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_ENGINEERING,'functionCall'=&gt;'PHPExcel_Calculation_Functions::IMAGINARY','argumentCount'=&gt;'1'),'IMARGUMENT'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_ENGINEERING,'functionCall'=&gt;'PHPExcel_Calculation_Functions::IMARGUMENT','argumentCount'=&gt;'1'),'IMCONJUGATE'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_ENGINEERING,'functionCall'=&gt;'PHPExcel_Calculation_Functions::IMCONJUGATE','argumentCount'=&gt;'1'),'IMCOS'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_ENGINEERING,'functionCall'=&gt;'PHPExcel_Calculation_Functions::IMCOS','argumentCount'=&gt;'1'),'IMDIV'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_ENGINEERING,'functionCall'=&gt;'PHPExcel_Calculation_Functions::IMDIV','argumentCount'=&gt;'2'),'IMEXP'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_ENGINEERING,'functionCall'=&gt;'PHPExcel_Calculation_Functions::IMEXP','argumentCount'=&gt;'1'),'IMLN'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_ENGINEERING,'functionCall'=&gt;'PHPExcel_Calculation_Functions::IMLN','argumentCount'=&gt;'1'),'IMLOG10'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_ENGINEERING,'functionCall'=&gt;'PHPExcel_Calculation_Functions::IMLOG10','argumentCount'=&gt;'1'),'IMLOG2'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_ENGINEERING,'functionCall'=&gt;'PHPExcel_Calculation_Functions::IMLOG2','argumentCount'=&gt;'1'),'IMPOWER'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_ENGINEERING,'functionCall'=&gt;'PHPExcel_Calculation_Functions::IMPOWER','argumentCount'=&gt;'2'),'IMPRODUCT'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_ENGINEERING,'functionCall'=&gt;'PHPExcel_Calculation_Functions::IMPRODUCT','argumentCount'=&gt;'1+'),'IMREAL'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_ENGINEERING,'functionCall'=&gt;'PHPExcel_Calculation_Functions::IMREAL','argumentCount'=&gt;'1'),'IMSIN'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_ENGINEERING,'functionCall'=&gt;'PHPExcel_Calculation_Functions::IMSIN','argumentCount'=&gt;'1'),'IMSQRT'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_ENGINEERING,'functionCall'=&gt;'PHPExcel_Calculation_Functions::IMSQRT','argumentCount'=&gt;'1'),'IMSUB'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_ENGINEERING,'functionCall'=&gt;'PHPExcel_Calculation_Functions::IMSUB','argumentCount'=&gt;'2'),'IMSUM'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_ENGINEERING,'functionCall'=&gt;'PHPExcel_Calculation_Functions::IMSUM','argumentCount'=&gt;'1+'),'INDEX'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_LOOKUP_AND_REFERENCE,'functionCall'=&gt;'PHPExcel_Calculation_Functions::INDEX','argumentCount'=&gt;'1-4'),'INDIRECT'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_LOOKUP_AND_REFERENCE,'functionCall'=&gt;'PHPExcel_Calculation_Functions::INDIRECT','argumentCount'=&gt;'1,2','passCellReference'=&gt;true),'INFO'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_INFORMATION,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'1'),'INT'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,'functionCall'=&gt;'PHPExcel_Calculation_Functions::INTVALUE','argumentCount'=&gt;'1'),'INTERCEPT'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::INTERCEPT','argumentCount'=&gt;'2'),'INTRATE'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_FINANCIAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::INTRATE','argumentCount'=&gt;'4,5'),'IPMT'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_FINANCIAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::IPMT','argumentCount'=&gt;'4-6'),'IRR'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_FINANCIAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'1,2'),'ISBLANK'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_INFORMATION,'functionCall'=&gt;'PHPExcel_Calculation_Functions::IS_BLANK','argumentCount'=&gt;'1'),'ISERR'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_INFORMATION,'functionCall'=&gt;'PHPExcel_Calculation_Functions::IS_ERR','argumentCount'=&gt;'1'),'ISERROR'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_INFORMATION,'functionCall'=&gt;'PHPExcel_Calculation_Functions::IS_ERROR','argumentCount'=&gt;'1'),'ISEVEN'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_INFORMATION,'functionCall'=&gt;'PHPExcel_Calculation_Functions::IS_EVEN','argumentCount'=&gt;'1'),'ISLOGICAL'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_INFORMATION,'functionCall'=&gt;'PHPExcel_Calculation_Functions::IS_LOGICAL','argumentCount'=&gt;'1'),'ISNA'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_INFORMATION,'functionCall'=&gt;'PHPExcel_Calculation_Functions::IS_NA','argumentCount'=&gt;'1'),'ISNONTEXT'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_INFORMATION,'functionCall'=&gt;'PHPExcel_Calculation_Functions::IS_NONTEXT','argumentCount'=&gt;'1'),'ISNUMBER'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_INFORMATION,'functionCall'=&gt;'PHPExcel_Calculation_Functions::IS_NUMBER','argumentCount'=&gt;'1'),'ISODD'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_INFORMATION,'functionCall'=&gt;'PHPExcel_Calculation_Functions::IS_ODD','argumentCount'=&gt;'1'),'ISPMT'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_FINANCIAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'4'),'ISREF'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_INFORMATION,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'1'),'ISTEXT'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_INFORMATION,'functionCall'=&gt;'PHPExcel_Calculation_Functions::IS_TEXT','argumentCount'=&gt;'1'),'JIS'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_TEXT_AND_DATA,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'1'),'KURT'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::KURT','argumentCount'=&gt;'1+'),'LARGE'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::LARGE','argumentCount'=&gt;'2'),'LCM'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,'functionCall'=&gt;'PHPExcel_Calculation_Functions::LCM','argumentCount'=&gt;'1+'),'LEFT'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_TEXT_AND_DATA,'functionCall'=&gt;'PHPExcel_Calculation_Functions::LEFT','argumentCount'=&gt;'1,2'),'LEFTB'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_TEXT_AND_DATA,'functionCall'=&gt;'PHPExcel_Calculation_Functions::LEFT','argumentCount'=&gt;'1,2'),'LEN'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_TEXT_AND_DATA,'functionCall'=&gt;'PHPExcel_Calculation_Functions::STRINGLENGTH','argumentCount'=&gt;'1'),'LENB'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_TEXT_AND_DATA,'functionCall'=&gt;'PHPExcel_Calculation_Functions::STRINGLENGTH','argumentCount'=&gt;'1'),'LINEST'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::LINEST','argumentCount'=&gt;'1-4'),'LN'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,'functionCall'=&gt;'log','argumentCount'=&gt;'1'),'LOG'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,'functionCall'=&gt;'PHPExcel_Calculation_Functions::LOG_BASE','argumentCount'=&gt;'1,2'),'LOG10'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,'functionCall'=&gt;'log10','argumentCount'=&gt;'1'),'LOGEST'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::LOGEST','argumentCount'=&gt;'1-4'),'LOGINV'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::LOGINV','argumentCount'=&gt;'3'),'LOGNORMDIST'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::LOGNORMDIST','argumentCount'=&gt;'3'),'LOOKUP'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_LOOKUP_AND_REFERENCE,'functionCall'=&gt;'PHPExcel_Calculation_Functions::LOOKUP','argumentCount'=&gt;'2,3'),'LOWER'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_TEXT_AND_DATA,'functionCall'=&gt;'PHPExcel_Calculation_Functions::LOWERCASE','argumentCount'=&gt;'1'),'MATCH'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_LOOKUP_AND_REFERENCE,'functionCall'=&gt;'PHPExcel_Calculation_Functions::MATCH','argumentCount'=&gt;'2,3'),'MAX'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::MAX','argumentCount'=&gt;'1+'),'MAXA'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::MAXA','argumentCount'=&gt;'1+'),'MAXIF'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'2+'),'MDETERM'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,'functionCall'=&gt;'PHPExcel_Calculation_Functions::MDETERM','argumentCount'=&gt;'1'),'MDURATION'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_FINANCIAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'5,6'),'MEDIAN'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::MEDIAN','argumentCount'=&gt;'1+'),'MEDIANIF'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'2+'),'MID'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_TEXT_AND_DATA,'functionCall'=&gt;'PHPExcel_Calculation_Functions::MID','argumentCount'=&gt;'3'),'MIDB'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_TEXT_AND_DATA,'functionCall'=&gt;'PHPExcel_Calculation_Functions::MID','argumentCount'=&gt;'3'),'MIN'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::MIN','argumentCount'=&gt;'1+'),'MINA'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::MINA','argumentCount'=&gt;'1+'),'MINIF'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'2+'),'MINUTE'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_DATE_AND_TIME,'functionCall'=&gt;'PHPExcel_Calculation_Functions::MINUTEOFHOUR','argumentCount'=&gt;'1'),'MINVERSE'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,'functionCall'=&gt;'PHPExcel_Calculation_Functions::MINVERSE','argumentCount'=&gt;'1'),'MIRR'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_FINANCIAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'3'),'MMULT'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,'functionCall'=&gt;'PHPExcel_Calculation_Functions::MMULT','argumentCount'=&gt;'2'),'MOD'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,'functionCall'=&gt;'PHPExcel_Calculation_Functions::MOD','argumentCount'=&gt;'2'),'MODE'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::MODE','argumentCount'=&gt;'1+'),'MONTH'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_DATE_AND_TIME,'functionCall'=&gt;'PHPExcel_Calculation_Functions::MONTHOFYEAR','argumentCount'=&gt;'1'),'MROUND'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,'functionCall'=&gt;'PHPExcel_Calculation_Functions::MROUND','argumentCount'=&gt;'2'),'MULTINOMIAL'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,'functionCall'=&gt;'PHPExcel_Calculation_Functions::MULTINOMIAL','argumentCount'=&gt;'1+'),'N'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_INFORMATION,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'1'),'NA'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_INFORMATION,'functionCall'=&gt;'PHPExcel_Calculation_Functions::NA','argumentCount'=&gt;'0'),'NEGBINOMDIST'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::NEGBINOMDIST','argumentCount'=&gt;'3'),'NETWORKDAYS'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_DATE_AND_TIME,'functionCall'=&gt;'PHPExcel_Calculation_Functions::NETWORKDAYS','argumentCount'=&gt;'2+'),'NOMINAL'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_FINANCIAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::NOMINAL','argumentCount'=&gt;'2'),'NORMDIST'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::NORMDIST','argumentCount'=&gt;'4'),'NORMINV'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::NORMINV','argumentCount'=&gt;'3'),'NORMSDIST'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::NORMSDIST','argumentCount'=&gt;'1'),'NORMSINV'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::NORMSINV','argumentCount'=&gt;'1'),'NOT'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_LOGICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::LOGICAL_NOT','argumentCount'=&gt;'1'),'NOW'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_DATE_AND_TIME,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DATETIMENOW','argumentCount'=&gt;'0'),'NPER'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_FINANCIAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::NPER','argumentCount'=&gt;'3-5'),'NPV'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_FINANCIAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::NPV','argumentCount'=&gt;'2+'),'OCT2BIN'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_ENGINEERING,'functionCall'=&gt;'PHPExcel_Calculation_Functions::OCTTOBIN','argumentCount'=&gt;'1,2'),'OCT2DEC'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_ENGINEERING,'functionCall'=&gt;'PHPExcel_Calculation_Functions::OCTTODEC','argumentCount'=&gt;'1'),'OCT2HEX'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_ENGINEERING,'functionCall'=&gt;'PHPExcel_Calculation_Functions::OCTTOHEX','argumentCount'=&gt;'1,2'),'ODD'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,'functionCall'=&gt;'PHPExcel_Calculation_Functions::ODD','argumentCount'=&gt;'1'),'ODDFPRICE'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_FINANCIAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'8,9'),'ODDFYIELD'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_FINANCIAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'8,9'),'ODDLPRICE'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_FINANCIAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'7,8'),'ODDLYIELD'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_FINANCIAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'7,8'),'OFFSET'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_LOOKUP_AND_REFERENCE,'functionCall'=&gt;'PHPExcel_Calculation_Functions::OFFSET','argumentCount'=&gt;'3,5','passCellReference'=&gt;true,'passByReference'=&gt;array(true)),'OR'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_LOGICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::LOGICAL_OR','argumentCount'=&gt;'1+'),'PEARSON'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::CORREL','argumentCount'=&gt;'2'),'PERCENTILE'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::PERCENTILE','argumentCount'=&gt;'2'),'PERCENTRANK'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::PERCENTRANK','argumentCount'=&gt;'2,3'),'PERMUT'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::PERMUT','argumentCount'=&gt;'2'),'PHONETIC'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_TEXT_AND_DATA,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'1'),'PI'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,'functionCall'=&gt;'pi','argumentCount'=&gt;'0'),'PMT'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_FINANCIAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::PMT','argumentCount'=&gt;'3-5'),'POISSON'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::POISSON','argumentCount'=&gt;'3'),'POWER'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,'functionCall'=&gt;'PHPExcel_Calculation_Functions::POWER','argumentCount'=&gt;'2'),'PPMT'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_FINANCIAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::PPMT','argumentCount'=&gt;'4-6'),'PRICE'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_FINANCIAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'6,7'),'PRICEDISC'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_FINANCIAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::PRICEDISC','argumentCount'=&gt;'4,5'),'PRICEMAT'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_FINANCIAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::PRICEMAT','argumentCount'=&gt;'5,6'),'PROB'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'3,4'),'PRODUCT'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,'functionCall'=&gt;'PHPExcel_Calculation_Functions::PRODUCT','argumentCount'=&gt;'1+'),'PROPER'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_TEXT_AND_DATA,'functionCall'=&gt;'PHPExcel_Calculation_Functions::PROPERCASE','argumentCount'=&gt;'1'),'PV'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_FINANCIAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::PV','argumentCount'=&gt;'3-5'),'QUARTILE'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::QUARTILE','argumentCount'=&gt;'2'),'QUOTIENT'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,'functionCall'=&gt;'PHPExcel_Calculation_Functions::QUOTIENT','argumentCount'=&gt;'2'),'RADIANS'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,'functionCall'=&gt;'deg2rad','argumentCount'=&gt;'1'),'RAND'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,'functionCall'=&gt;'PHPExcel_Calculation_Functions::RAND','argumentCount'=&gt;'0'),'RANDBETWEEN'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,'functionCall'=&gt;'PHPExcel_Calculation_Functions::RAND','argumentCount'=&gt;'2'),'RANK'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::RANK','argumentCount'=&gt;'2,3'),'RATE'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_FINANCIAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'3-6'),'RECEIVED'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_FINANCIAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::RECEIVED','argumentCount'=&gt;'4-5'),'REPLACE'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_TEXT_AND_DATA,'functionCall'=&gt;'PHPExcel_Calculation_Functions::REPLACE','argumentCount'=&gt;'4'),'REPLACEB'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_TEXT_AND_DATA,'functionCall'=&gt;'PHPExcel_Calculation_Functions::REPLACE','argumentCount'=&gt;'4'),'REPT'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_TEXT_AND_DATA,'functionCall'=&gt;'str_repeat','argumentCount'=&gt;'2'),'RIGHT'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_TEXT_AND_DATA,'functionCall'=&gt;'PHPExcel_Calculation_Functions::RIGHT','argumentCount'=&gt;'1,2'),'RIGHTB'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_TEXT_AND_DATA,'functionCall'=&gt;'PHPExcel_Calculation_Functions::RIGHT','argumentCount'=&gt;'1,2'),'ROMAN'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,'functionCall'=&gt;'PHPExcel_Calculation_Functions::ROMAN','argumentCount'=&gt;'1,2'),'ROUND'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,'functionCall'=&gt;'round','argumentCount'=&gt;'2'),'ROUNDDOWN'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,'functionCall'=&gt;'PHPExcel_Calculation_Functions::ROUNDDOWN','argumentCount'=&gt;'2'),'ROUNDUP'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,'functionCall'=&gt;'PHPExcel_Calculation_Functions::ROUNDUP','argumentCount'=&gt;'2'),'ROW'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_LOOKUP_AND_REFERENCE,'functionCall'=&gt;'PHPExcel_Calculation_Functions::ROW','argumentCount'=&gt;'-1','passByReference'=&gt;array(true)),'ROWS'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_LOOKUP_AND_REFERENCE,'functionCall'=&gt;'PHPExcel_Calculation_Functions::ROWS','argumentCount'=&gt;'1'),'RSQ'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::RSQ','argumentCount'=&gt;'2'),'RTD'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_LOOKUP_AND_REFERENCE,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'1+'),'SEARCH'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_TEXT_AND_DATA,'functionCall'=&gt;'PHPExcel_Calculation_Functions::SEARCHINSENSITIVE','argumentCount'=&gt;'2,3'),'SEARCHB'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_TEXT_AND_DATA,'functionCall'=&gt;'PHPExcel_Calculation_Functions::SEARCHINSENSITIVE','argumentCount'=&gt;'2,3'),'SECOND'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_DATE_AND_TIME,'functionCall'=&gt;'PHPExcel_Calculation_Functions::SECONDOFMINUTE','argumentCount'=&gt;'1'),'SERIESSUM'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,'functionCall'=&gt;'PHPExcel_Calculation_Functions::SERIESSUM','argumentCount'=&gt;'4'),'SIGN'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,'functionCall'=&gt;'PHPExcel_Calculation_Functions::SIGN','argumentCount'=&gt;'1'),'SIN'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,'functionCall'=&gt;'sin','argumentCount'=&gt;'1'),'SINH'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,'functionCall'=&gt;'sinh','argumentCount'=&gt;'1'),'SKEW'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::SKEW','argumentCount'=&gt;'1+'),'SLN'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_FINANCIAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::SLN','argumentCount'=&gt;'3'),'SLOPE'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::SLOPE','argumentCount'=&gt;'2'),'SMALL'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::SMALL','argumentCount'=&gt;'2'),'SQRT'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,'functionCall'=&gt;'sqrt','argumentCount'=&gt;'1'),'SQRTPI'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,'functionCall'=&gt;'PHPExcel_Calculation_Functions::SQRTPI','argumentCount'=&gt;'1'),'STANDARDIZE'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::STANDARDIZE','argumentCount'=&gt;'3'),'STDEV'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::STDEV','argumentCount'=&gt;'1+'),'STDEVA'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::STDEVA','argumentCount'=&gt;'1+'),'STDEVP'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::STDEVP','argumentCount'=&gt;'1+'),'STDEVPA'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::STDEVPA','argumentCount'=&gt;'1+'),'STEYX'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::STEYX','argumentCount'=&gt;'2'),'SUBSTITUTE'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_TEXT_AND_DATA,'functionCall'=&gt;'PHPExcel_Calculation_Functions::SUBSTITUTE','argumentCount'=&gt;'3,4'),'SUBTOTAL'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,'functionCall'=&gt;'PHPExcel_Calculation_Functions::SUBTOTAL','argumentCount'=&gt;'2+'),'SUM'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,'functionCall'=&gt;'PHPExcel_Calculation_Functions::SUM','argumentCount'=&gt;'1+'),'SUMIF'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,'functionCall'=&gt;'PHPExcel_Calculation_Functions::SUMIF','argumentCount'=&gt;'2,3'),'SUMIFS'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'?'),'SUMPRODUCT'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'1+'),'SUMSQ'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,'functionCall'=&gt;'PHPExcel_Calculation_Functions::SUMSQ','argumentCount'=&gt;'1+'),'SUMX2MY2'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,'functionCall'=&gt;'PHPExcel_Calculation_Functions::SUMX2MY2','argumentCount'=&gt;'2'),'SUMX2PY2'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,'functionCall'=&gt;'PHPExcel_Calculation_Functions::SUMX2PY2','argumentCount'=&gt;'2'),'SUMXMY2'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,'functionCall'=&gt;'PHPExcel_Calculation_Functions::SUMXMY2','argumentCount'=&gt;'2'),'SYD'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_FINANCIAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::SYD','argumentCount'=&gt;'4'),'T'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_TEXT_AND_DATA,'functionCall'=&gt;'PHPExcel_Calculation_Functions::RETURNSTRING','argumentCount'=&gt;'1'),'TAN'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,'functionCall'=&gt;'tan','argumentCount'=&gt;'1'),'TANH'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,'functionCall'=&gt;'tanh','argumentCount'=&gt;'1'),'TBILLEQ'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_FINANCIAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::TBILLEQ','argumentCount'=&gt;'3'),'TBILLPRICE'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_FINANCIAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::TBILLPRICE','argumentCount'=&gt;'3'),'TBILLYIELD'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_FINANCIAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::TBILLYIELD','argumentCount'=&gt;'3'),'TDIST'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::TDIST','argumentCount'=&gt;'3'),'TEXT'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_TEXT_AND_DATA,'functionCall'=&gt;'PHPExcel_Calculation_Functions::TEXTFORMAT','argumentCount'=&gt;'2'),'TIME'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_DATE_AND_TIME,'functionCall'=&gt;'PHPExcel_Calculation_Functions::TIME','argumentCount'=&gt;'3'),'TIMEVALUE'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_DATE_AND_TIME,'functionCall'=&gt;'PHPExcel_Calculation_Functions::TIMEVALUE','argumentCount'=&gt;'1'),'TINV'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::TINV','argumentCount'=&gt;'2'),'TODAY'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_DATE_AND_TIME,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DATENOW','argumentCount'=&gt;'0'),'TRANSPOSE'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_LOOKUP_AND_REFERENCE,'functionCall'=&gt;'PHPExcel_Calculation_Functions::TRANSPOSE','argumentCount'=&gt;'1'),'TREND'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::TREND','argumentCount'=&gt;'1-4'),'TRIM'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_TEXT_AND_DATA,'functionCall'=&gt;'PHPExcel_Calculation_Functions::TRIMSPACES','argumentCount'=&gt;'1'),'TRIMMEAN'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::TRIMMEAN','argumentCount'=&gt;'2'),'TRUE'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_LOGICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::LOGICAL_TRUE','argumentCount'=&gt;'0'),'TRUNC'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,'functionCall'=&gt;'PHPExcel_Calculation_Functions::TRUNC','argumentCount'=&gt;'1,2'),'TTEST'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'4'),'TYPE'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_INFORMATION,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'1'),'UPPER'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_TEXT_AND_DATA,'functionCall'=&gt;'PHPExcel_Calculation_Functions::UPPERCASE','argumentCount'=&gt;'1'),'USDOLLAR'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_FINANCIAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'2'),'VALUE'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_TEXT_AND_DATA,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'1'),'VAR'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::VARFunc','argumentCount'=&gt;'1+'),'VARA'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::VARA','argumentCount'=&gt;'1+'),'VARP'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::VARP','argumentCount'=&gt;'1+'),'VARPA'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::VARPA','argumentCount'=&gt;'1+'),'VDB'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_FINANCIAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'5-7'),'VERSION'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_INFORMATION,'functionCall'=&gt;'PHPExcel_Calculation_Functions::VERSION','argumentCount'=&gt;'0'),'VLOOKUP'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_LOOKUP_AND_REFERENCE,'functionCall'=&gt;'PHPExcel_Calculation_Functions::VLOOKUP','argumentCount'=&gt;'3,4'),'WEEKDAY'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_DATE_AND_TIME,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DAYOFWEEK','argumentCount'=&gt;'1,2'),'WEEKNUM'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_DATE_AND_TIME,'functionCall'=&gt;'PHPExcel_Calculation_Functions::WEEKOFYEAR','argumentCount'=&gt;'1,2'),'WEIBULL'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::WEIBULL','argumentCount'=&gt;'4'),'WORKDAY'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_DATE_AND_TIME,'functionCall'=&gt;'PHPExcel_Calculation_Functions::WORKDAY','argumentCount'=&gt;'2+'),'XIRR'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_FINANCIAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'2,3'),'XNPV'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_FINANCIAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'3'),'YEAR'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_DATE_AND_TIME,'functionCall'=&gt;'PHPExcel_Calculation_Functions::YEAR','argumentCount'=&gt;'1'),'YEARFRAC'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_DATE_AND_TIME,'functionCall'=&gt;'PHPExcel_Calculation_Functions::YEARFRAC','argumentCount'=&gt;'2,3'),'YIELD'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_FINANCIAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'6,7'),'YIELDDISC'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_FINANCIAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::YIELDDISC','argumentCount'=&gt;'4,5'),'YIELDMAT'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_FINANCIAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::YIELDMAT','argumentCount'=&gt;'5,6'),'ZTEST'=&gt;array('category'=&gt;PHPExcel_Calculation_Function::CATEGORY_STATISTICAL,'functionCall'=&gt;'PHPExcel_Calculation_Functions::DUMMY','argumentCount'=&gt;'?'))</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a148">148</a>]</p>
-  <br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
-  </tr>
-</table>
-</div>
-
-  <br />
-	<div class="tags">
-  <table border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td><b>Type:</b>&nbsp;&nbsp;</td>
-      <td>mixed</td>
+      <td>boolean</td>
     </tr>
       </table>
 	</div><br /><br />
@@ -603,7 +341,7 @@ PHPExcel_Calculation (Singleton)<br /><br /><p>PHPExcel_Calculation (Singleton)<
 <div class="tags">
   <hr />
 	<a name="methodgetArrayReturnType"></a>
-	<h3>static method getArrayReturnType <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a1641">1641</a>]</span></h3>
+	<h3>static method getArrayReturnType <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a1713">1713</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -612,7 +350,7 @@ PHPExcel_Calculation (Singleton)<br /><br /><p>PHPExcel_Calculation (Singleton)<
     </td></tr></table>
     </td></tr></table><br />
 	
-		Return the Array Return Type (Array or Value of first element in the array)<br /><br /><p>Return the Array Return Type (Array or Value of first element in the array)</p><br /><br /><br />
+		Return the Array Return Type (Array or Value of first element in the array)<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -631,7 +369,7 @@ PHPExcel_Calculation (Singleton)<br /><br /><p>PHPExcel_Calculation (Singleton)<
   </div>
   <hr />
 	<a name="methodgetInstance"></a>
-	<h3>static method getInstance <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a1597">1597</a>]</span></h3>
+	<h3>static method getInstance <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a1669">1669</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -640,7 +378,7 @@ PHPExcel_Calculation (Singleton)<br /><br /><p>PHPExcel_Calculation (Singleton)<
     </td></tr></table>
     </td></tr></table><br />
 	
-		Get an instance of this class<br /><br /><p>Get an instance of this class</p><br /><br /><br />
+		Get an instance of this class<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -656,7 +394,7 @@ PHPExcel_Calculation (Singleton)<br /><br /><p>PHPExcel_Calculation (Singleton)<
   </div>
   <hr />
 	<a name="methodsetArrayReturnType"></a>
-	<h3>static method setArrayReturnType <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a1624">1624</a>]</span></h3>
+	<h3>static method setArrayReturnType <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a1696">1696</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -666,7 +404,7 @@ $returnType)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Set the Array Return Type (Array or Value of first element in the array)<br /><br /><p>Set the Array Return Type (Array or Value of first element in the array)</p><br /><br /><br />
+		Set the Array Return Type (Array or Value of first element in the array)<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -694,92 +432,8 @@ $returnType)</code>
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
   <hr />
-	<a name="method_checkMatrixOperands"></a>
-	<h3>static method _checkMatrixOperands <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a1967">1967</a>]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>static void _checkMatrixOperands(
-mixed
-&$operand1, mixed
-&$operand2, [integer
-$resize = 1])</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		Ensure that paired matrix operands are both matrices and of the same size<br /><br /><p>Ensure that paired matrix operands are both matrices and of the same size</p><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
-	
-        <h4>Parameters:</h4>
-    <div class="tags">
-    <table border="0" cellspacing="0" cellpadding="0">
-          <tr>
-        <td class="type">mixed&nbsp;&nbsp;</td>
-        <td><b>&$operand1</b>&nbsp;&nbsp;</td>
-        <td>First matrix operand</td>
-      </tr>
-          <tr>
-        <td class="type">mixed&nbsp;&nbsp;</td>
-        <td><b>&$operand2</b>&nbsp;&nbsp;</td>
-        <td>Second matrix operand</td>
-      </tr>
-          <tr>
-        <td class="type">integer&nbsp;&nbsp;</td>
-        <td><b>$resize</b>&nbsp;&nbsp;</td>
-        <td>Flag indicating whether the matrices should be resized to match                                        and (if so), whether the smaller dimension should grow or the                                        larger should shrink.<ol><li>= no resize</li><li>= shrink to fit</li><li>= extend to fit</li></ol></td>
-      </tr>
-        </table>
-    </div><br />
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
-	<a name="method_convertMatrixReferences"></a>
-	<h3>static method _convertMatrixReferences <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a2162">2162</a>]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>static void _convertMatrixReferences(
-
-$formula)</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		<br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
-	
-        <h4>Parameters:</h4>
-    <div class="tags">
-    <table border="0" cellspacing="0" cellpadding="0">
-          <tr>
-        <td class="type">&nbsp;&nbsp;</td>
-        <td><b>$formula</b>&nbsp;&nbsp;</td>
-        <td></td>
-      </tr>
-        </table>
-    </div><br />
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
 	<a name="method_getMatrixDimensions"></a>
-	<h3>static method _getMatrixDimensions <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a1995">1995</a>]</span></h3>
+	<h3>static method _getMatrixDimensions <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a2314">2314</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -789,7 +443,7 @@ mixed
     </td></tr></table>
     </td></tr></table><br />
 	
-		Read the dimensions of a matrix, and re-index it with straight numeric keys starting from row 0, column 0<br /><br /><p>Read the dimensions of a matrix, and re-index it with straight numeric keys starting from row 0, column 0</p><br /><br /><br />
+		Read the dimensions of a matrix, and re-index it with straight numeric keys starting from row 0, column 0<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -817,13 +471,14 @@ mixed
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
   <hr />
-	<a name="method_mkMatrix"></a>
-	<h3>static method _mkMatrix <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a2213">2213</a>]</span></h3>
+	<a name="method_localeFunc"></a>
+	<h3>static method _localeFunc <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a1978">1978</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>static void _mkMatrix(
-)</code>
+		<code>static void _localeFunc(
+
+$function)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
@@ -832,34 +487,7 @@ mixed
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
-	
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
-	<a name="method_resizeMatricesExtend"></a>
-	<h3>static method _resizeMatricesExtend <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a2058">2058</a>]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>static void _resizeMatricesExtend(
-mixed
-&$matrix1, mixed
-&$matrix2)</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		Ensure that paired matrix operands are both matrices of the same size<br /><br /><p>Ensure that paired matrix operands are both matrices of the same size</p><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
   </tr>
 </table>
 </div>
@@ -870,38 +498,35 @@ mixed
     <div class="tags">
     <table border="0" cellspacing="0" cellpadding="0">
           <tr>
-        <td class="type">mixed&nbsp;&nbsp;</td>
-        <td><b>&$matrix1</b>&nbsp;&nbsp;</td>
-        <td>First matrix operand</td>
-      </tr>
-          <tr>
-        <td class="type">mixed&nbsp;&nbsp;</td>
-        <td><b>&$matrix2</b>&nbsp;&nbsp;</td>
-        <td>Second matrix operand</td>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$function</b>&nbsp;&nbsp;</td>
+        <td></td>
       </tr>
         </table>
     </div><br />
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
   <hr />
-	<a name="method_resizeMatricesShrink"></a>
-	<h3>static method _resizeMatricesShrink <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a2016">2016</a>]</span></h3>
+	<a name="method_translateSeparator"></a>
+	<h3>static method _translateSeparator <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a1874">1874</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>static void _resizeMatricesShrink(
-mixed
-&$matrix1, mixed
-&$matrix2)</code>
+		<code>static void _translateSeparator(
+
+$fromSeparator, 
+$toSeparator, 
+$formula, 
+&$inBraces)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Ensure that paired matrix operands are both matrices of the same size<br /><br /><p>Ensure that paired matrix operands are both matrices of the same size</p><br /><br /><br />
+		<br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
   </tr>
 </table>
 </div>
@@ -912,86 +537,24 @@ mixed
     <div class="tags">
     <table border="0" cellspacing="0" cellpadding="0">
           <tr>
-        <td class="type">mixed&nbsp;&nbsp;</td>
-        <td><b>&$matrix1</b>&nbsp;&nbsp;</td>
-        <td>First matrix operand</td>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$fromSeparator</b>&nbsp;&nbsp;</td>
+        <td></td>
       </tr>
           <tr>
-        <td class="type">mixed&nbsp;&nbsp;</td>
-        <td><b>&$matrix2</b>&nbsp;&nbsp;</td>
-        <td>Second matrix operand</td>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$toSeparator</b>&nbsp;&nbsp;</td>
+        <td></td>
       </tr>
-        </table>
-    </div><br />
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
-	<a name="method_showTypeDetails"></a>
-	<h3>static method _showTypeDetails <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a2131">2131</a>]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>static mixed _showTypeDetails(
-mixed
-$value)</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		Format type and details of an operand for display in the log (based on operand type)<br /><br /><p>Format type and details of an operand for display in the log (based on operand type)</p><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
-	
-        <h4>Parameters:</h4>
-    <div class="tags">
-    <table border="0" cellspacing="0" cellpadding="0">
           <tr>
-        <td class="type">mixed&nbsp;&nbsp;</td>
-        <td><b>$value</b>&nbsp;&nbsp;</td>
-        <td>First matrix operand</td>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$formula</b>&nbsp;&nbsp;</td>
+        <td></td>
       </tr>
-        </table>
-    </div><br />
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
-	<a name="method_showValue"></a>
-	<h3>static method _showValue <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a2104">2104</a>]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>static mixed _showValue(
-mixed
-$value)</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		Format details of an operand for display in the log (based on operand type)<br /><br /><p>Format details of an operand for display in the log (based on operand type)</p><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
-	
-        <h4>Parameters:</h4>
-    <div class="tags">
-    <table border="0" cellspacing="0" cellpadding="0">
           <tr>
-        <td class="type">mixed&nbsp;&nbsp;</td>
-        <td><b>$value</b>&nbsp;&nbsp;</td>
-        <td>First matrix operand</td>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>&$inBraces</b>&nbsp;&nbsp;</td>
+        <td></td>
       </tr>
         </table>
     </div><br />
@@ -999,7 +562,7 @@ $value)</code>
   </div>
   <hr />
 	<a name="method_unwrapResult"></a>
-	<h3>static method _unwrapResult <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a1745">1745</a>]</span></h3>
+	<h3>static method _unwrapResult <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a2023">2023</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1009,7 +572,7 @@ $value)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Remove quotes used as a wrapper to identify string values<br /><br /><p>Remove quotes used as a wrapper to identify string values</p><br /><br /><br />
+		Remove quotes used as a wrapper to identify string values<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1035,7 +598,7 @@ $value)</code>
   </div>
   <hr />
 	<a name="method_wrapResult"></a>
-	<h3>static method _wrapResult <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a1721">1721</a>]</span></h3>
+	<h3>static method _wrapResult <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a1999">1999</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1045,7 +608,7 @@ $value)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Wrap string values in quotes<br /><br /><p>Wrap string values in quotes</p><br /><br /><br />
+		Wrap string values in quotes<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1072,7 +635,7 @@ $value)</code>
 
   <hr />
 	<a name="methodcalculate"></a>
-	<h3>method calculate <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a1769">1769</a>]</span></h3>
+	<h3>method calculate <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a2047">2047</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1082,7 +645,7 @@ $pCell = null])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Calculate cell value (using formula from a cell ID)<br /><br /><p>Calculate cell value (using formula from a cell ID)	Retained for backward compatibility</p><br /><br /><br />
+		Calculate cell value (using formula from a cell ID) 	Retained for backward compatibility<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1111,7 +674,7 @@ $pCell = null])</code>
   </div>
   <hr />
 	<a name="methodcalculateCellValue"></a>
-	<h3>method calculateCellValue <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a1783">1783</a>]</span></h3>
+	<h3>method calculateCellValue <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a2065">2065</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1122,7 +685,7 @@ $resetLog = true])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Calculate the value of a cell formula<br /><br /><p>Calculate the value of a cell formula</p><br /><br /><br />
+		Calculate the value of a cell formula<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1156,7 +719,7 @@ $resetLog = true])</code>
   </div>
   <hr />
 	<a name="methodcalculateFormula"></a>
-	<h3>method calculateFormula <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a1861">1861</a>]</span></h3>
+	<h3>method calculateFormula <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a2150">2150</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1168,7 +731,7 @@ $pCell = null])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Calculate the value of a formula<br /><br /><p>Calculate the value of a formula</p><br /><br /><br />
+		Calculate the value of a formula<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1206,8 +769,24 @@ $pCell = null])</code>
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
   <hr />
+	<a name="method__construct"></a>
+	<h3>constructor __construct <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a1652">1652</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>PHPExcel_Calculation __construct(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
 	<a name="methodclearCalculationCache"></a>
-	<h3>method clearCalculationCache <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a1688">1688</a>]</span></h3>
+	<h3>method clearCalculationCache <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a1760">1760</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1216,7 +795,7 @@ $pCell = null])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Clear calculation cache<br /><br /><p>Clear calculation cache</p><br /><br /><br />
+		Clear calculation cache<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1232,7 +811,7 @@ $pCell = null])</code>
   </div>
   <hr />
 	<a name="methoddisableCalculationCache"></a>
-	<h3>method disableCalculationCache <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a1680">1680</a>]</span></h3>
+	<h3>method disableCalculationCache <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a1752">1752</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1241,7 +820,7 @@ $pCell = null])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Disable calculation cache<br /><br /><p>Disable calculation cache</p><br /><br /><br />
+		Disable calculation cache<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1257,7 +836,7 @@ $pCell = null])</code>
   </div>
   <hr />
 	<a name="methodenableCalculationCache"></a>
-	<h3>method enableCalculationCache <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a1672">1672</a>]</span></h3>
+	<h3>method enableCalculationCache <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a1744">1744</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1266,7 +845,7 @@ $pCell = null])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Enable calculation cache<br /><br /><p>Enable calculation cache</p><br /><br /><br />
+		Enable calculation cache<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1282,7 +861,7 @@ $pCell = null])</code>
   </div>
   <hr />
 	<a name="methodextractCellRange"></a>
-	<h3>method extractCellRange <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a3045">3045</a>]</span></h3>
+	<h3>method extractCellRange <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a3440">3440</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1294,7 +873,7 @@ $resetLog = true])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Extract range values<br /><br /><p>Extract range values</p><br /><br /><br />
+		Extract range values<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1336,7 +915,7 @@ $resetLog = true])</code>
   </div>
   <hr />
 	<a name="methodextractNamedRange"></a>
-	<h3>method extractNamedRange <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a3101">3101</a>]</span></h3>
+	<h3>method extractNamedRange <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a3495">3495</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1348,7 +927,7 @@ $resetLog = true])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Extract range values<br /><br /><p>Extract range values</p><br /><br /><br />
+		Extract range values<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1390,7 +969,7 @@ $resetLog = true])</code>
   </div>
   <hr />
 	<a name="methodgetCalculationCacheEnabled"></a>
-	<h3>method getCalculationCacheEnabled <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a1652">1652</a>]</span></h3>
+	<h3>method getCalculationCacheEnabled <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a1724">1724</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1399,7 +978,7 @@ $resetLog = true])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Is calculation caching enabled?<br /><br /><p>Is calculation caching enabled?</p><br /><br /><br />
+		Is calculation caching enabled?<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1415,7 +994,7 @@ $resetLog = true])</code>
   </div>
   <hr />
 	<a name="methodgetCalculationCacheExpirationTime"></a>
-	<h3>method getCalculationCacheExpirationTime <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a1698">1698</a>]</span></h3>
+	<h3>method getCalculationCacheExpirationTime <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a1770">1770</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1424,7 +1003,32 @@ $resetLog = true])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Get calculation cache expiration time<br /><br /><p>Get calculation cache expiration time</p><br /><br /><br />
+		Get calculation cache expiration time<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodgetLocale"></a>
+	<h3>method getLocale <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a1792">1792</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>string getLocale(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Get the currently defined locale code<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1440,7 +1044,7 @@ $resetLog = true])</code>
   </div>
   <hr />
 	<a name="methodisImplemented"></a>
-	<h3>method isImplemented <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a3173">3173</a>]</span></h3>
+	<h3>method isImplemented <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a3567">3567</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1450,7 +1054,7 @@ $pFunction = ''])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Is a specific function implemented?<br /><br /><p>Is a specific function implemented?</p><br /><br /><br />
+		Is a specific function implemented?<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1476,7 +1080,7 @@ $pFunction = ''])</code>
   </div>
   <hr />
 	<a name="methodlistFunctionNames"></a>
-	<h3>method listFunctionNames <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a3211">3211</a>]</span></h3>
+	<h3>method listFunctionNames <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a3605">3605</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1485,7 +1089,7 @@ $pFunction = ''])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Get a list of implemented Excel function names<br /><br /><p>Get a list of implemented Excel function names</p><br /><br /><br />
+		Get a list of implemented Excel function names<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1501,7 +1105,7 @@ $pFunction = ''])</code>
   </div>
   <hr />
 	<a name="methodlistFunctions"></a>
-	<h3>method listFunctions <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a3188">3188</a>]</span></h3>
+	<h3>method listFunctions <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a3582">3582</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1510,7 +1114,7 @@ $pFunction = ''])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Get a list of all implemented functions as an array of function objects<br /><br /><p>Get a list of all implemented functions as an array of function objects</p><br /><br /><br />
+		Get a list of all implemented functions as an array of function objects<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1529,7 +1133,7 @@ $pFunction = ''])</code>
   </div>
   <hr />
 	<a name="methodparseFormula"></a>
-	<h3>method parseFormula <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a1840">1840</a>]</span></h3>
+	<h3>method parseFormula <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a2129">2129</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1539,7 +1143,7 @@ $formula)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Validate and parse a formula string<br /><br /><p>Validate and parse a formula string</p><br /><br /><br />
+		Validate and parse a formula string<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1568,7 +1172,7 @@ $formula)</code>
   </div>
   <hr />
 	<a name="methodsetCalculationCacheEnabled"></a>
-	<h3>method setCalculationCacheEnabled <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a1663">1663</a>]</span></h3>
+	<h3>method setCalculationCacheEnabled <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a1735">1735</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1578,7 +1182,7 @@ $pValue = true])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Enable/disable calculation cache<br /><br /><p>Enable/disable calculation cache</p><br /><br /><br />
+		Enable/disable calculation cache<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1604,17 +1208,17 @@ $pValue = true])</code>
   </div>
   <hr />
 	<a name="methodsetCalculationCacheExpirationTime"></a>
-	<h3>method setCalculationCacheExpirationTime <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a1708">1708</a>]</span></h3>
+	<h3>method setCalculationCacheExpirationTime <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a1780">1780</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
 		<code>void setCalculationCacheExpirationTime(
 [float
-$pValue = 0.01])</code>
+$pValue = 2.5])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Set calculation cache expiration time<br /><br /><p>Set calculation cache expiration time</p><br /><br /><br />
+		Set calculation cache expiration time<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1639,8 +1243,44 @@ $pValue = 0.01])</code>
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
   <hr />
+	<a name="methodsetLocale"></a>
+	<h3>method setLocale <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a1802">1802</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>boolean setLocale(
+[
+$locale = 'en_us'])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Set the locale code<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$locale</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
 	<a name="method_calculateFormulaValue"></a>
-	<h3>method _calculateFormulaValue <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a1888">1888</a>]</span></h3>
+	<h3>method _calculateFormulaValue <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a2182">2182</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1652,7 +1292,7 @@ $pCell = null])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Parse a cell formula and calculate its value<br /><br /><p>Parse a cell formula and calculate its value</p><br /><br /><br />
+		Parse a cell formula and calculate its value<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1690,218 +1330,8 @@ $pCell = null])</code>
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
   <hr />
-	<a name="method_executeBinaryComparisonOperation"></a>
-	<h3>method _executeBinaryComparisonOperation <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a2891">2891</a>]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>void _executeBinaryComparisonOperation(
-
-$cellID, 
-$operand1, 
-$operand2, 
-$operation, 
-&$stack)</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		<br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
-	
-        <h4>Parameters:</h4>
-    <div class="tags">
-    <table border="0" cellspacing="0" cellpadding="0">
-          <tr>
-        <td class="type">&nbsp;&nbsp;</td>
-        <td><b>$cellID</b>&nbsp;&nbsp;</td>
-        <td></td>
-      </tr>
-          <tr>
-        <td class="type">&nbsp;&nbsp;</td>
-        <td><b>$operand1</b>&nbsp;&nbsp;</td>
-        <td></td>
-      </tr>
-          <tr>
-        <td class="type">&nbsp;&nbsp;</td>
-        <td><b>$operand2</b>&nbsp;&nbsp;</td>
-        <td></td>
-      </tr>
-          <tr>
-        <td class="type">&nbsp;&nbsp;</td>
-        <td><b>$operation</b>&nbsp;&nbsp;</td>
-        <td></td>
-      </tr>
-          <tr>
-        <td class="type">&nbsp;&nbsp;</td>
-        <td><b>&$stack</b>&nbsp;&nbsp;</td>
-        <td></td>
-      </tr>
-        </table>
-    </div><br />
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
-	<a name="method_executeNumericBinaryOperation"></a>
-	<h3>method _executeNumericBinaryOperation <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a2958">2958</a>]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>void _executeNumericBinaryOperation(
-
-$cellID, 
-$operand1, 
-$operand2, 
-$operation, 
-$matrixFunction, 
-&$stack)</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		<br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
-	
-        <h4>Parameters:</h4>
-    <div class="tags">
-    <table border="0" cellspacing="0" cellpadding="0">
-          <tr>
-        <td class="type">&nbsp;&nbsp;</td>
-        <td><b>$cellID</b>&nbsp;&nbsp;</td>
-        <td></td>
-      </tr>
-          <tr>
-        <td class="type">&nbsp;&nbsp;</td>
-        <td><b>$operand1</b>&nbsp;&nbsp;</td>
-        <td></td>
-      </tr>
-          <tr>
-        <td class="type">&nbsp;&nbsp;</td>
-        <td><b>$operand2</b>&nbsp;&nbsp;</td>
-        <td></td>
-      </tr>
-          <tr>
-        <td class="type">&nbsp;&nbsp;</td>
-        <td><b>$operation</b>&nbsp;&nbsp;</td>
-        <td></td>
-      </tr>
-          <tr>
-        <td class="type">&nbsp;&nbsp;</td>
-        <td><b>$matrixFunction</b>&nbsp;&nbsp;</td>
-        <td></td>
-      </tr>
-          <tr>
-        <td class="type">&nbsp;&nbsp;</td>
-        <td><b>&$stack</b>&nbsp;&nbsp;</td>
-        <td></td>
-      </tr>
-        </table>
-    </div><br />
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
-	<a name="method_parseFormula"></a>
-	<h3>method _parseFormula <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a2219">2219</a>]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>void _parseFormula(
-
-$formula)</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		<br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
-	
-        <h4>Parameters:</h4>
-    <div class="tags">
-    <table border="0" cellspacing="0" cellpadding="0">
-          <tr>
-        <td class="type">&nbsp;&nbsp;</td>
-        <td><b>$formula</b>&nbsp;&nbsp;</td>
-        <td></td>
-      </tr>
-        </table>
-    </div><br />
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
-	<a name="method_processTokenStack"></a>
-	<h3>method _processTokenStack <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a2527">2527</a>]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>void _processTokenStack(
-
-$tokens, [
-$cellID = null], [
-$pCell = null])</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		<br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
-	
-        <h4>Parameters:</h4>
-    <div class="tags">
-    <table border="0" cellspacing="0" cellpadding="0">
-          <tr>
-        <td class="type">&nbsp;&nbsp;</td>
-        <td><b>$tokens</b>&nbsp;&nbsp;</td>
-        <td></td>
-      </tr>
-          <tr>
-        <td class="type">&nbsp;&nbsp;</td>
-        <td><b>$cellID</b>&nbsp;&nbsp;</td>
-        <td></td>
-      </tr>
-          <tr>
-        <td class="type"><a href="../PHPExcel_Cell/PHPExcel_Cell.html">PHPExcel_Cell</a>&nbsp;&nbsp;</td>
-        <td><b>$pCell</b>&nbsp;&nbsp;</td>
-        <td></td>
-      </tr>
-        </table>
-    </div><br />
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
 	<a name="method_raiseFormulaError"></a>
-	<h3>method _raiseFormulaError <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a3029">3029</a>]</span></h3>
+	<h3>method _raiseFormulaError <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a3425">3425</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1916,7 +1346,7 @@ $errorMessage)</code>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>protected</td>
   </tr>
 </table>
 </div>
@@ -1936,16 +1366,14 @@ $errorMessage)</code>
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
   <hr />
-	<a name="method_validateBinaryOperand"></a>
-	<h3>method _validateBinaryOperand <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a2864">2864</a>]</span></h3>
+	<a name="method_translateFormulaToEnglish"></a>
+	<h3>method _translateFormulaToEnglish <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a1953">1953</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>void _validateBinaryOperand(
+		<code>void _translateFormulaToEnglish(
 
-$cellID, 
-&$operand, 
-&$stack)</code>
+$formula)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
@@ -1954,7 +1382,7 @@ $cellID,
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
   </tr>
 </table>
 </div>
@@ -1966,17 +1394,7 @@ $cellID,
     <table border="0" cellspacing="0" cellpadding="0">
           <tr>
         <td class="type">&nbsp;&nbsp;</td>
-        <td><b>$cellID</b>&nbsp;&nbsp;</td>
-        <td></td>
-      </tr>
-          <tr>
-        <td class="type">&nbsp;&nbsp;</td>
-        <td><b>&$operand</b>&nbsp;&nbsp;</td>
-        <td></td>
-      </tr>
-          <tr>
-        <td class="type">&nbsp;&nbsp;</td>
-        <td><b>&$stack</b>&nbsp;&nbsp;</td>
+        <td><b>$formula</b>&nbsp;&nbsp;</td>
         <td></td>
       </tr>
         </table>
@@ -1984,14 +1402,14 @@ $cellID,
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
   <hr />
-	<a name="method_writeDebug"></a>
-	<h3>method _writeDebug <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a3020">3020</a>]</span></h3>
+	<a name="method_translateFormulaToLocale"></a>
+	<h3>method _translateFormulaToLocale <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a1924">1924</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>void _writeDebug(
+		<code>void _translateFormulaToLocale(
 
-$message)</code>
+$formula)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
@@ -2000,7 +1418,7 @@ $message)</code>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
   </tr>
 </table>
 </div>
@@ -2012,7 +1430,7 @@ $message)</code>
     <table border="0" cellspacing="0" cellpadding="0">
           <tr>
         <td class="type">&nbsp;&nbsp;</td>
-        <td><b>$message</b>&nbsp;&nbsp;</td>
+        <td><b>$formula</b>&nbsp;&nbsp;</td>
         <td></td>
       </tr>
         </table>
@@ -2021,7 +1439,7 @@ $message)</code>
   </div>
   <hr />
 	<a name="method__clone"></a>
-	<h3>method __clone <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a1612">1612</a>]</span></h3>
+	<h3>method __clone <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a1684">1684</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -2030,7 +1448,7 @@ $message)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		__clone implementation.<br /><br /><p>__clone implementation. Cloning should not be allowed in a Singleton!</p><br /><br /><br />
+		__clone implementation. Cloning should not be allowed in a Singleton!<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -2050,76 +1468,76 @@ $message)</code>
 </div><br />
 
 <hr />
-<a name="class_constss"></a>
+<a name="class_consts"></a>
 <h3>Class Constants</h3>
 <div class="tags">
 	<a name="constCALCULATION_REGEXP_CELLREF"></a>
 	<p></p>
-	<h4>CALCULATION_REGEXP_CELLREF = <span class="value">&nbsp;'(((\w*)|(\'[^\']*\')|(\&quot;[^\&quot;]*\&quot;))!)?\$?([a-z]+)\$?(\d+)'</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a67">67</a>]</p>
+	<h4>CALCULATION_REGEXP_CELLREF = <span class="value">&nbsp;'(((\w*)|(\'[^\']*\')|(\&quot;[^\&quot;]*\&quot;))!)?\$?([a-z]{1,3})\$?(\d+)'</span></h4>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a69">69</a>]</p>
   
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constCALCULATION_REGEXP_ERROR"></a>
 	<p></p>
 	<h4>CALCULATION_REGEXP_ERROR = <span class="value">&nbsp;'\#[A-Z][A-Z0_\/]*[!\?]?'</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a71">71</a>]</p>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a73">73</a>]</p>
   
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constCALCULATION_REGEXP_FUNCTION"></a>
 	<p></p>
 	<h4>CALCULATION_REGEXP_FUNCTION = <span class="value">&nbsp;'@?([A-Z][A-Z0-9\.]*)[\s]*\('</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a65">65</a>]</p>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a67">67</a>]</p>
   
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constCALCULATION_REGEXP_NAMEDRANGE"></a>
 	<p></p>
 	<h4>CALCULATION_REGEXP_NAMEDRANGE = <span class="value">&nbsp;'(((\w*)|(\'.*\')|(\&quot;.*\&quot;))!)?([_A-Z][_A-Z0-9]*)'</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a69">69</a>]</p>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a71">71</a>]</p>
   
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constCALCULATION_REGEXP_NUMBER"></a>
 	<p></p>
 	<h4>CALCULATION_REGEXP_NUMBER = <span class="value">&nbsp;'[-+]?\d*\.?\d+(e[-+]?\d+)?'</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a59">59</a>]</p>
-  Regular Expressions<br /><br /><p>Regular Expressions</p><br />
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a61">61</a>]</p>
+  Regular Expressions<br /><br />
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constCALCULATION_REGEXP_OPENBRACE"></a>
 	<p></p>
 	<h4>CALCULATION_REGEXP_OPENBRACE = <span class="value">&nbsp;'\('</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a63">63</a>]</p>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a65">65</a>]</p>
   
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constCALCULATION_REGEXP_STRING"></a>
 	<p></p>
 	<h4>CALCULATION_REGEXP_STRING = <span class="value">&nbsp;'&quot;(?:[^&quot;]|&quot;&quot;)*&quot;'</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a61">61</a>]</p>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a63">63</a>]</p>
   
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constRETURN_ARRAY_AS_ARRAY"></a>
 	<p></p>
 	<h4>RETURN_ARRAY_AS_ARRAY = <span class="value">&nbsp;'array'</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a77">77</a>]</p>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a79">79</a>]</p>
   
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constRETURN_ARRAY_AS_ERROR"></a>
 	<p></p>
 	<h4>RETURN_ARRAY_AS_ERROR = <span class="value">&nbsp;'error'</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a75">75</a>]</p>
-  constants<br /><br /><p>constants</p><br />
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a77">77</a>]</p>
+  constants<br /><br />
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constRETURN_ARRAY_AS_VALUE"></a>
 	<p></p>
 	<h4>RETURN_ARRAY_AS_VALUE = <span class="value">&nbsp;'value'</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a76">76</a>]</p>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Calculation__PHPExcelCalculation.php.html#a78">78</a>]</p>
   
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
@@ -2127,7 +1545,7 @@ $message)</code>
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Mon, 02 Nov 2009 08:38:29 +0100 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.1</a>
+		    Documentation generated on Tue, 01 Jun 2010 17:02:27 +0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>

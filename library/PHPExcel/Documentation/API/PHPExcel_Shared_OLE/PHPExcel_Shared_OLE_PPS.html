@@ -13,7 +13,7 @@
   <tr>
     <td class="header_menu">
         
-                                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                            
                                                                                                                                                       		  [ <a href="../classtrees_PHPExcel_Shared_OLE.html" class="menu">class tree: PHPExcel_Shared_OLE</a> ]
 		  [ <a href="../elementindex_PHPExcel_Shared_OLE.html" class="menu">index: PHPExcel_Shared_OLE</a> ]
 		  	    [ <a href="../elementindex.html" class="menu">all elements</a> ]
@@ -29,16 +29,17 @@
 			<p><a href="../todolist.html">Todo List</a></p>
 	</div>
       <b>Packages:</b><br />
-              <a href="../li_default.html">default</a><br />
+              <a href="../li_PHPExcel.html">PHPExcel</a><br />
               <a href="../li_com-tecnick-tcpdf.html">com-tecnick-tcpdf</a><br />
               <a href="../li_JAMA.html">JAMA</a><br />
               <a href="../li_Math_Stats.html">Math_Stats</a><br />
-              <a href="../li_PHPExcel.html">PHPExcel</a><br />
+              <a href="../li_PHPExcel_CachedObjectStorage.html">PHPExcel_CachedObjectStorage</a><br />
               <a href="../li_PHPExcel_Calculation.html">PHPExcel_Calculation</a><br />
               <a href="../li_PHPExcel_Cell.html">PHPExcel_Cell</a><br />
               <a href="../li_PHPExcel_Reader.html">PHPExcel_Reader</a><br />
               <a href="../li_PHPExcel_Reader_Excel5.html">PHPExcel_Reader_Excel5</a><br />
               <a href="../li_PHPExcel_RichText.html">PHPExcel_RichText</a><br />
+              <a href="../li_PHPExcel_Settings.html">PHPExcel_Settings</a><br />
               <a href="../li_PHPExcel_Shared.html">PHPExcel_Shared</a><br />
               <a href="../li_PHPExcel_Shared_Best_Fit.html">PHPExcel_Shared_Best_Fit</a><br />
               <a href="../li_PHPExcel_Shared_Escher.html">PHPExcel_Shared_Escher</a><br />
@@ -54,13 +55,13 @@
       	  <div class="package">
 			<a href="../PHPExcel_Shared_OLE/_PHPExcel---Shared---OLE---ChainedBlockStream.php.html">		ChainedBlockStream.php
 		</a><br>
+			<a href="../PHPExcel_Shared_OLE/_PHPExcel---Shared---OLE---PPS---File.php.html">		File.php
+		</a><br>
 			<a href="../PHPExcel_Shared_OLE/_PHPExcel---Shared---OLE.php.html">		OLE.php
 		</a><br>
-			<a href="../PHPExcel_Shared_OLE/_PHPExcel---Shared---OLE---OLE_File.php.html">		OLE_File.php
+			<a href="../PHPExcel_Shared_OLE/_PHPExcel---Shared---OLE---PPS.php.html">		PPS.php
 		</a><br>
-			<a href="../PHPExcel_Shared_OLE/_PHPExcel---Shared---OLE---OLE_PPS.php.html">		OLE_PPS.php
-		</a><br>
-			<a href="../PHPExcel_Shared_OLE/_PHPExcel---Shared---OLE---OLE_Root.php.html">		OLE_Root.php
+			<a href="../PHPExcel_Shared_OLE/_PHPExcel---Shared---OLE---PPS---Root.php.html">		Root.php
 		</a><br>
 	  </div><br />
       
@@ -78,7 +79,7 @@
       <table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
 
 <h1>Class: PHPExcel_Shared_OLE_PPS</h1>
-Source Location: /PHPExcel/Shared/OLE/OLE_PPS.php<br /><br />
+Source Location: /PHPExcel/Shared/OLE/PPS.php<br /><br />
 
 
 <table width="100%" border="0">
@@ -90,12 +91,12 @@ Source Location: /PHPExcel/Shared/OLE/OLE_PPS.php<br /><br />
 <h4>Author(s):</h4>
 <ul>
           <li>Xavier Noguer &lt;<a href="mailto:xnoguer@php.net">xnoguer@php.net</a>&gt;</li>
-      </ul>
+            </ul>
 
 
 
 
-    
+        
 
         
 </td>
@@ -159,13 +160,16 @@ Source Location: /PHPExcel/Shared/OLE/OLE_PPS.php<br /><br />
 <a name="class_details"></a>
 <h3>Class Details</h3>
 <div class="tags">
-[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEOLE_PPS.php.html#a40">40</a>]<br />
-Class for creating PPS's for OLE containers<br /><br /><p>Class for creating PPS's for OLE containers</p><br /><br /><br />
+[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEPPS.php.html#a30">30</a>]<br />
+Class for creating PPS's for OLE containers<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td><b>author:</b>&nbsp;&nbsp;</td><td>Xavier Noguer &lt;<a href="mailto:xnoguer@php.net">xnoguer@php.net</a>&gt;</td>
+  </tr>
+  <tr>
+    <td><b>filesource:</b>&nbsp;&nbsp;</td><td><a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEPPS.php.html">Source Code for this file</a></td>
   </tr>
 </table>
 </div>
@@ -179,8 +183,8 @@ Class for creating PPS's for OLE containers<br /><br /><p>Class for creating PPS
 	<a name="var$children"></a>
 	<p></p>
 	<h4>$children = <span class="value">array()</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEOLE_PPS.php.html#a112">112</a>]</p>
-  Array of child PPS's (only used by Root and Dir PPS's)<br /><br /><p>Array of child PPS's (only used by Root and Dir PPS's)</p><br /><br /><br />
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEPPS.php.html#a102">102</a>]</p>
+  Array of child PPS's (only used by Root and Dir PPS's)<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -203,8 +207,8 @@ Class for creating PPS's for OLE containers<br /><br /><p>Class for creating PPS
 	<a name="var$DirPps"></a>
 	<p></p>
 	<h4>$DirPps = <span class="value"></span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEOLE_PPS.php.html#a76">76</a>]</p>
-  The index of it's first child if this is a Dir or Root PPS<br /><br /><p>The index of it's first child if this is a Dir or Root PPS</p><br /><br /><br />
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEPPS.php.html#a66">66</a>]</p>
+  The index of it's first child if this is a Dir or Root PPS<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -227,8 +231,8 @@ Class for creating PPS's for OLE containers<br /><br /><p>Class for creating PPS
 	<a name="var$Name"></a>
 	<p></p>
 	<h4>$Name = <span class="value"></span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEOLE_PPS.php.html#a52">52</a>]</p>
-  The PPS name (in Unicode)<br /><br /><p>The PPS name (in Unicode)</p><br /><br /><br />
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEPPS.php.html#a42">42</a>]</p>
+  The PPS name (in Unicode)<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -251,8 +255,8 @@ Class for creating PPS's for OLE containers<br /><br /><p>Class for creating PPS
 	<a name="var$NextPps"></a>
 	<p></p>
 	<h4>$NextPps = <span class="value"></span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEOLE_PPS.php.html#a70">70</a>]</p>
-  The index of the next PPS<br /><br /><p>The index of the next PPS</p><br /><br /><br />
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEPPS.php.html#a60">60</a>]</p>
+  The index of the next PPS<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -275,8 +279,8 @@ Class for creating PPS's for OLE containers<br /><br /><p>Class for creating PPS
 	<a name="var$No"></a>
 	<p></p>
 	<h4>$No = <span class="value"></span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEOLE_PPS.php.html#a46">46</a>]</p>
-  The PPS index<br /><br /><p>The PPS index</p><br /><br /><br />
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEPPS.php.html#a36">36</a>]</p>
+  The PPS index<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -299,8 +303,8 @@ Class for creating PPS's for OLE containers<br /><br /><p>Class for creating PPS
 	<a name="var$ole"></a>
 	<p></p>
 	<h4>$ole = <span class="value"></span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEOLE_PPS.php.html#a118">118</a>]</p>
-  Pointer to OLE container<br /><br /><p>Pointer to OLE container</p><br /><br /><br />
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEPPS.php.html#a108">108</a>]</p>
+  Pointer to OLE container<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -323,8 +327,8 @@ Class for creating PPS's for OLE containers<br /><br /><p>Class for creating PPS
 	<a name="var$PrevPps"></a>
 	<p></p>
 	<h4>$PrevPps = <span class="value"></span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEOLE_PPS.php.html#a64">64</a>]</p>
-  The index of the previous PPS<br /><br /><p>The index of the previous PPS</p><br /><br /><br />
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEPPS.php.html#a54">54</a>]</p>
+  The index of the previous PPS<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -347,8 +351,8 @@ Class for creating PPS's for OLE containers<br /><br /><p>Class for creating PPS
 	<a name="var$Size"></a>
 	<p></p>
 	<h4>$Size = <span class="value"></span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEOLE_PPS.php.html#a100">100</a>]</p>
-  The size of the PPS's data (in bytes)<br /><br /><p>The size of the PPS's data (in bytes)</p><br /><br /><br />
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEPPS.php.html#a90">90</a>]</p>
+  The size of the PPS's data (in bytes)<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -371,8 +375,8 @@ Class for creating PPS's for OLE containers<br /><br /><p>Class for creating PPS
 	<a name="var$Time1st"></a>
 	<p></p>
 	<h4>$Time1st = <span class="value"></span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEOLE_PPS.php.html#a82">82</a>]</p>
-  A timestamp<br /><br /><p>A timestamp</p><br /><br /><br />
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEPPS.php.html#a72">72</a>]</p>
+  A timestamp<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -395,8 +399,8 @@ Class for creating PPS's for OLE containers<br /><br /><p>Class for creating PPS
 	<a name="var$Time2nd"></a>
 	<p></p>
 	<h4>$Time2nd = <span class="value"></span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEOLE_PPS.php.html#a88">88</a>]</p>
-  A timestamp<br /><br /><p>A timestamp</p><br /><br /><br />
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEPPS.php.html#a78">78</a>]</p>
+  A timestamp<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -419,8 +423,8 @@ Class for creating PPS's for OLE containers<br /><br /><p>Class for creating PPS
 	<a name="var$Type"></a>
 	<p></p>
 	<h4>$Type = <span class="value"></span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEOLE_PPS.php.html#a58">58</a>]</p>
-  The PPS type.<br /><br /><p>The PPS type. Dir, Root or File</p><br /><br /><br />
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEPPS.php.html#a48">48</a>]</p>
+  The PPS type. Dir, Root or File<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -443,8 +447,8 @@ Class for creating PPS's for OLE containers<br /><br /><p>Class for creating PPS
 	<a name="var$_data"></a>
 	<p></p>
 	<h4>$_data = <span class="value"></span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEOLE_PPS.php.html#a106">106</a>]</p>
-  The PPS's data (only used if it's not using a temporary file)<br /><br /><p>The PPS's data (only used if it's not using a temporary file)</p><br /><br /><br />
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEPPS.php.html#a96">96</a>]</p>
+  The PPS's data (only used if it's not using a temporary file)<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -467,8 +471,8 @@ Class for creating PPS's for OLE containers<br /><br /><p>Class for creating PPS
 	<a name="var$_StartBlock"></a>
 	<p></p>
 	<h4>$_StartBlock = <span class="value"></span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEOLE_PPS.php.html#a94">94</a>]</p>
-  Starting block (small or big) for this PPS's data  inside the container<br /><br /><p>Starting block (small or big) for this PPS's data  inside the container</p><br /><br /><br />
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEPPS.php.html#a84">84</a>]</p>
+  Starting block (small or big) for this PPS's data  inside the container<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -497,7 +501,7 @@ Class for creating PPS's for OLE containers<br /><br /><p>Class for creating PPS
 
   <hr />
 	<a name="method__construct"></a>
-	<h3>constructor __construct <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEOLE_PPS.php.html#a135">135</a>]</span></h3>
+	<h3>constructor __construct <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEPPS.php.html#a125">125</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -516,7 +520,7 @@ $children)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		The constructor<br /><br /><p>The constructor</p><br /><br /><br />
+		The constructor<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -597,7 +601,7 @@ $children)</code>
   </div>
   <hr />
 	<a name="method_DataLen"></a>
-	<h3>method _DataLen <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEOLE_PPS.php.html#a160">160</a>]</span></h3>
+	<h3>method _DataLen <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEPPS.php.html#a150">150</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -606,7 +610,7 @@ $children)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Returns the amount of data saved for this PPS<br /><br /><p>Returns the amount of data saved for this PPS</p><br /><br /><br />
+		Returns the amount of data saved for this PPS<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -625,7 +629,7 @@ $children)</code>
   </div>
   <hr />
 	<a name="method_getPpsWk"></a>
-	<h3>method _getPpsWk <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEOLE_PPS.php.html#a180">180</a>]</span></h3>
+	<h3>method _getPpsWk <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEPPS.php.html#a170">170</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -634,7 +638,7 @@ $children)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Returns a string with the PPS's WK (What is a WK?)<br /><br /><p>Returns a string with the PPS's WK (What is a WK?)</p><br /><br /><br />
+		Returns a string with the PPS's WK (What is a WK?)<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -653,7 +657,7 @@ $children)</code>
   </div>
   <hr />
 	<a name="method_savePpsSetPnt"></a>
-	<h3>method _savePpsSetPnt <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEOLE_PPS.php.html#a215">215</a>]</span></h3>
+	<h3>method _savePpsSetPnt <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEPPS.php.html#a205">205</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -663,7 +667,7 @@ array
     </td></tr></table>
     </td></tr></table><br />
 	
-		Updates index and pointers to previous, next and children PPS's for this PPS.<br /><br /><p>Updates index and pointers to previous, next and children PPS's for this PPS. I don't think it'll work with Dir PPS's.</p><br /><br /><br />
+		Updates index and pointers to previous, next and children PPS's for this  PPS. I don't think it'll work with Dir PPS's.<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -684,7 +688,7 @@ array
           <tr>
         <td class="type">array&nbsp;&nbsp;</td>
         <td><b>&$pps_array</b>&nbsp;&nbsp;</td>
-        <td>Reference to the array of PPS's for the whole OLE                          container</td>
+        <td>Reference to the array of PPS's for the whole OLE                           container</td>
       </tr>
         </table>
     </div><br />
@@ -695,7 +699,7 @@ array
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Mon, 02 Nov 2009 08:43:36 +0100 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.1</a>
+		    Documentation generated on Tue, 01 Jun 2010 17:05:44 +0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>

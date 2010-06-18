@@ -90,12 +90,12 @@ CATEGORY_FINANCIAL
 	ACCRINTM                PHPExcel_Calculation_Functions::ACCRINTM
 	AMORDEGRC               PHPExcel_Calculation_Functions::AMORDEGRC
 	AMORLINC                PHPExcel_Calculation_Functions::AMORLINC
-	COUPDAYBS               ***  Not yet Implemented
-	COUPDAYS                ***  Not yet Implemented
-	COUPDAYSNC              ***  Not yet Implemented
-	COUPNCD                 ***  Not yet Implemented
+	COUPDAYBS               PHPExcel_Calculation_Functions::COUPDAYBS
+	COUPDAYS                PHPExcel_Calculation_Functions::COUPDAYS
+	COUPDAYSNC              PHPExcel_Calculation_Functions::COUPDAYSNC
+	COUPNCD                 PHPExcel_Calculation_Functions::COUPNCD
 	COUPNUM                 PHPExcel_Calculation_Functions::COUPNUM
-	COUPPCD                 ***  Not yet Implemented
+	COUPPCD                 PHPExcel_Calculation_Functions::COUPPCD
 	CUMIPMT                 PHPExcel_Calculation_Functions::CUMIPMT
 	CUMPRINC                PHPExcel_Calculation_Functions::CUMPRINC
 	DB                      PHPExcel_Calculation_Functions::DB
@@ -106,13 +106,13 @@ CATEGORY_FINANCIAL
 	DURATION                ***  Not yet Implemented
 	EFFECT                  PHPExcel_Calculation_Functions::EFFECT
 	FV                      PHPExcel_Calculation_Functions::FV
-	FVSCHEDULE              ***  Not yet Implemented
+	FVSCHEDULE              PHPExcel_Calculation_Functions::FVSCHEDULE
 	INTRATE                 PHPExcel_Calculation_Functions::INTRATE
 	IPMT                    PHPExcel_Calculation_Functions::IPMT
-	IRR                     ***  Not yet Implemented
-	ISPMT                   ***  Not yet Implemented
+	IRR                     PHPExcel_Calculation_Functions::IRR
+	ISPMT                   PHPExcel_Calculation_Functions::ISPMT
 	MDURATION               ***  Not yet Implemented
-	MIRR                    ***  Not yet Implemented
+	MIRR                    PHPExcel_Calculation_Functions::MIRR
 	NOMINAL                 PHPExcel_Calculation_Functions::NOMINAL
 	NPER                    PHPExcel_Calculation_Functions::NPER
 	NPV                     PHPExcel_Calculation_Functions::NPV
@@ -122,11 +122,11 @@ CATEGORY_FINANCIAL
 	ODDLYIELD               ***  Not yet Implemented
 	PMT                     PHPExcel_Calculation_Functions::PMT
 	PPMT                    PHPExcel_Calculation_Functions::PPMT
-	PRICE                   ***  Not yet Implemented
+	PRICE                   PHPExcel_Calculation_Functions::PRICE
 	PRICEDISC               PHPExcel_Calculation_Functions::PRICEDISC
 	PRICEMAT                PHPExcel_Calculation_Functions::PRICEMAT
 	PV                      PHPExcel_Calculation_Functions::PV
-	RATE                    ***  Not yet Implemented
+	RATE                    PHPExcel_Calculation_Functions::RATE
 	RECEIVED                PHPExcel_Calculation_Functions::RECEIVED
 	SLN                     PHPExcel_Calculation_Functions::SLN
 	SYD                     PHPExcel_Calculation_Functions::SYD
@@ -135,8 +135,8 @@ CATEGORY_FINANCIAL
 	TBILLYIELD              PHPExcel_Calculation_Functions::TBILLYIELD
 	USDOLLAR                ***  Not yet Implemented
 	VDB                     ***  Not yet Implemented
-	XIRR                    ***  Not yet Implemented
-	XNPV                    ***  Not yet Implemented
+	XIRR                    PHPExcel_Calculation_Functions::XIRR
+	XNPV                    PHPExcel_Calculation_Functions::XNPV
 	YIELD                   ***  Not yet Implemented
 	YIELDDISC               PHPExcel_Calculation_Functions::YIELDDISC
 	YIELDMAT                PHPExcel_Calculation_Functions::YIELDMAT
@@ -156,9 +156,9 @@ CATEGORY_INFORMATION
 	ISODD                   PHPExcel_Calculation_Functions::IS_ODD
 	ISREF                   ***  Not yet Implemented
 	ISTEXT                  PHPExcel_Calculation_Functions::IS_TEXT
-	N                       ***  Not yet Implemented
+	N                       PHPExcel_Calculation_Functions::N
 	NA                      PHPExcel_Calculation_Functions::NA
-	TYPE                    ***  Not yet Implemented
+	TYPE                    PHPExcel_Calculation_Functions::TYPE
 	VERSION                 PHPExcel_Calculation_Functions::VERSION
 
 CATEGORY_LOGICAL
@@ -178,7 +178,7 @@ CATEGORY_LOOKUP_AND_REFERENCE
 	COLUMNS                 PHPExcel_Calculation_Functions::COLUMNS
 	GETPIVOTDATA            ***  Not yet Implemented
 	HLOOKUP                 ***  Not yet Implemented
-	HYPERLINK               ***  Not yet Implemented
+	HYPERLINK               PHPExcel_Calculation_Functions::HYPERLINK
 	INDEX                   PHPExcel_Calculation_Functions::INDEX
 	INDIRECT                PHPExcel_Calculation_Functions::INDIRECT
 	LOOKUP                  PHPExcel_Calculation_Functions::LOOKUP
@@ -243,7 +243,7 @@ CATEGORY_MATH_AND_TRIG
 	SUM                     PHPExcel_Calculation_Functions::SUM
 	SUMIF                   PHPExcel_Calculation_Functions::SUMIF
 	SUMIFS                  ***  Not yet Implemented
-	SUMPRODUCT              ***  Not yet Implemented
+	SUMPRODUCT              PHPExcel_Calculation_Functions::SUMPRODUCT
 	SUMSQ                   PHPExcel_Calculation_Functions::SUMSQ
 	SUMX2MY2                PHPExcel_Calculation_Functions::SUMX2MY2
 	SUMX2PY2                PHPExcel_Calculation_Functions::SUMX2PY2
@@ -338,7 +338,7 @@ CATEGORY_STATISTICAL
 	VARP                    PHPExcel_Calculation_Functions::VARP
 	VARPA                   PHPExcel_Calculation_Functions::VARPA
 	WEIBULL                 PHPExcel_Calculation_Functions::WEIBULL
-	ZTEST                   ***  Not yet Implemented
+	ZTEST                   PHPExcel_Calculation_Functions::ZTEST
 
 CATEGORY_TEXT_AND_DATA
 	ASC                     ***  Not yet Implemented

@@ -1,7 +1,7 @@
 **************************************************************************************
 * PHPExcel
 *
-* Copyright (c) 2006 - 2009 PHPExcel
+* Copyright (c) 2006 - 2010 PHPExcel
 *
 * This library is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Lesser General Public
@@ -17,13 +17,176 @@
 * License along with this library; if not, write to the Free Software
 * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 *
-* @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+* @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
 * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt    LGPL
-* @version    1.7.1, 2009-11-02
+* @version    1.7.3c, 2010-06-01
 **************************************************************************************
 
 
-Fixed in SVN:
+2010-06-01 (v1.7.3c):
+- Bugfix:   (MB) Work item 13012 - Fatal error: Class 'ZipArchive' not found... ...Reader/Excel2007.php on line 217
+- Bugfix:   (MBaker) Work item 13398 - PHPExcel_Writer_Excel2007 error after 1.7.3b
+
+
+2010-05-31 (v1.7.3b):
+- Bugfix:   (MBaker) Work item 12903 - Infinite loop when reading
+- Bugfix:   (MB) Work item 13381 - Wrong method chaining on PHPExcel_Worksheet class
+
+
+2010-05-17 (v1.7.3):
+- General:  (ET) Applied patch 4990 (modified)
+- General:  (MB) Applied patch 5568 (modified)
+- General:  (MB) Applied patch 5943
+- General:  (MB) Work item 13042 - Upgrade build script to use Phing
+- General:  (ET) Work item 11586 - Replacing var with public/private
+- General:  (MBaker) Applied Anthony's Sterling's Class Autoloader to reduce memory overhead by "Lazy Loading" of classes
+- General:  (MBaker) Modification to functions that accept a date parameter to support string values containing ordinals as per Excel (English language only)
+- General:  (MBaker) Modify PHPExcel_Style_NumberFormat::toFormattedString() to handle dates that fall outside of PHP's 32-bit date range
+- General:  (MBaker) Applied patch 5207
+- General:  (ET) Work item 11970 - PHPExcel developer documentation: Set page margins
+- Feature:  (ET) Work item 11038 - Special characters and accents in SYLK reader
+- Feature:  (MBaker) Work Item  2346 - Implement more Excel calculation functions
+            -   Implemented the COUPDAYS(), COUPDAYBS(), COUPDAYSNC(), COUPNCD(), COUPPCD() and PRICE() Financial functions
+            -   Implemented the N() and TYPE() Information functions
+            -	Implemented the HYPERLINK() Lookup and Reference function
+- Feature:  (ET) Work item 11526 - Horizontal page break support in PHPExcel_Writer_PDF
+- Feature:  (ET) Work item 11529 - Introduce method setActiveSheetIndexByName()
+- Feature:  (ET) Work item 11550 - AdvancedValueBinder.php: Automatically wrap text when there is new line in string (ALT+"Enter")
+- Feature:  (ET) Work item 10300 - Data validation support in PHPExcel_Reader_Excel5 and PHPExcel_Writer_Excel5
+- Feature:  (MB) Work item 11616 - Improve autosize calculation
+- Feature:  (MBaker) Methods to translate locale-specific function names in formulae
+			- Language implementations for Czech (cs), Danish (da), German (de), English (uk), Spanish (es), Finnish (fi), French (fr), Hungarian (hu), Italian (it), Dutch (nl), Norwegian (no), Polish (pl), Portuguese (pt), Brazilian Portuguese (pt_br), Russian (ru) and Swedish (sv)
+- Feature:  (ET) Work item 9759 - Implement document properties in Excel5 reader/writer
+			- Fixed so far for PHPExcel_Reader_Excel5
+- Feature:  (ET) Work item 11849 - Show/hide row and column headers in worksheet
+- Feature:  (ET) Work item 11919 - Can't set font on writing PDF (by key)
+- Feature:  (ET) Work item 12096 - Thousands scale (1000^n) support in PHPExcel_Style_NumberFormat::toFormattedString
+- Feature:  (ET) Work item  6911 - Implement repeating rows in PDF and HTML writer
+- Feature:  (ET) Work item 12289 - Sheet tabs in PHPExcel_Writer_HTML
+- Feature:  (MB) Work item 13041 - Add Wincache CachedObjectProvider
+- Feature:  (MBaker) Configure PDF Writer paper size based on Excel Page Settings value, and provided methods to override paper size and page orientation with the writer
+			- Note PHPExcel defaults to Letter size, while the previous PDF writer enforced A4 size, so PDF writer will now default to Letter
+- Feature:  (MBaker) Initial implementation of cell caching: allowing larger workbooks to be managed, but at a cost in speed
+- Feature:  (MBaker) Added an identify() method to the IO Factory that identifies the reader which will be used to load a particular file without actually loading it.
+- Bugfix:   (MBaker) Work item 10979 - Warning messages with INDEX function having 2 arguments
+- Bugfix:   (ET) Work item 11473 - setValue('=') should result in string instead of formula
+- Bugfix:   (MBaker) Work item 11471 - method _raiseFormulaError should no be private
+- Bugfix:   (ET) Work item 11485 - Fatal error: Call to undefined function mb_substr() in ...Classes\PHPExcel\Reader\Excel5.php on line 2903
+- Bugfix:   (ET) Work item 11487 - getBold(), getItallic(), getStrikeThrough() not always working with PHPExcel_Reader_Excel2007
+- Bugfix:   (ET) Work item 11492 - AdvancedValueBinder.php not working correctly for $cell->setValue('hh:mm:ss')
+- Bugfix:   (MBaker) Fixed leap year handling for the YEARFRAC() Date/Time function when basis ia 1 (Actual/actual)
+- Bugfix:   (MBaker) Work item 11490 - Warning messages
+			- Calculation Engine code modified to enforce strict standards for pass by reference
+- Bugfix:   (ET) Work item 11483 - PHPExcel_Cell_AdvancedValueBinder doesnt work for dates in far future
+- Bugfix:   (ET) Work item 11528 - MSODRAWING bug with long CONTINUE record in PHPExcel_Reader_Excel5
+- Bugfix:   (ET) Work item 11571 - PHPExcel_Reader_Excel2007 reads print titles as named range when there is more than one sheet
+- Bugfix:   (ET) Work item 11561 - missing @return in phpdocblock in reader classes
+- Bugfix:   (ET) Work item 11576 - AdvancedValueBinder.php: String sometimes becomes a date when it shouldn't
+- Bugfix:   (ET) Work item 11588 - Small numbers escape treatment in PHPExcel_Style_NumberFormat::toFormattedString()
+- Bugfix:   (ET) Work item 11590 - Blank styled cells are not blank in output by HTML writer due to &nbsp;
+- Bugfix:   (MBaker) Work item 11587 - Calculation engine bug: Existing, blank cell + number gives #NUM
+- Bugfix:   (ET) Work item 11608 - AutoSize only measures length of first line in cell with multiple lines (ALT+Enter)
+- Bugfix:   (ET) Work item 11608 - Fatal error running Tests/12serializedfileformat.php (PHPExcel 1.7.2)
+- Bugfix:   (MBaker) Fixed various errors in the WORKDAY() and NETWORKDAYS() Date/Time functions (particularly related to holidays)
+- Bugfix:   (ET) Work item 11660 - Uncaught exception 'Exception' with message 'Valid scale is between 10 and 400.' in Classes/PHPExcel/Worksheet/SheetView.php:115
+- Bugfix:   (ET) Work item 11551 - "Unrecognized token 39 in formula" with PHPExcel_Reader_Excel5 (occuring with add-in functions)
+- Bugfix:   (ET) Work item 11668 - Excel2007 reader not reading PHPExcel_Style_Conditional::CONDITION_EXPRESSION
+- Bugfix:   (MBaker) Fix to the BESSELI(), BESSELJ(), BESSELK(), BESSELY() and COMPLEX() Engineering functions to use correct default values for parameters
+- Bugfix:   (MBaker) Work item 11525 - DATEVALUE function not working for pure time values + allow DATEVALUE() function to handle partial dates (e.g. "1-Jun" or "12/2010")
+- Bugfix:   (MBaker) Fix for empty quoted strings in formulae
+- Bugfix:   (MBaker) Trap for division by zero in Bessel functions
+- Bugfix:   (MBaker) Fix to OOCalc Reader to convert semi-colon (;) argument separator in formulae to a comma (,)
+- Bugfix:   (ET) Work item 11693 - PHPExcel_Writer_Excel5_Parser cannot parse formula like =SUM(C$5:C5)
+- Bugfix:   (MBaker) Fix to OOCalc Reader to handle dates that fall outside 32-bit PHP's date range
+- Bugfix:   (ET) Work item 11692 - File->sys_get_temp_dir() can fail in safe mode
+- Bugfix:   (ET) Work item 11727 - Sheet references in Excel5 writer do not work when referenced sheet title contains non-Latin symbols
+- Bugfix:   (ET) Work item 11743 - Bug in HTML writer can result in missing rows in output
+- Bugfix:   (ET) Work item 11674 - setShowGridLines(true) not working with PHPExcel_Writer_PDF
+- Bugfix:   (ET) Work item 11836 - PHPExcel_Worksheet_RowIterator initial position incorrect
+- Bugfix:   (ET) Work item 11835 - PHPExcel_Worksheet_HeaderFooterDrawing Strict Exception thrown (by jshaw86)
+- Bugfix:   (ET) Work item 11850 - Parts of worksheet lost when there are embedded charts (Excel5 reader)
+- Bugfix:   (MBaker) VLOOKUP() function error when lookup value is passed as a cell reference rather than an absolute value
+- Bugfix:   (ET) Work item 12041 - First segment of Rich-Text not read correctly by PHPExcel_Reader_Excel2007
+- Bugfix:   (MBaker) Work item 12048 - Fatal Error with getCell('name') when name matches the pattern for a cell reference
+- Bugfix:   (ET) Work item 12039 - excel5 writer appears to be swapping image locations
+- Bugfix:   (ET) Work item 11954 - Undefined index: host in ZipStreamWrapper.php, line 94 and line 101
+- Bugfix:   (ET) Work item 11672 - BIFF8 File Format problem (too short COLINFO record)
+- Bugfix:   (ET) Work item 12121 - Column width sometimes changed after read/write with Excel2007 reader/writer
+- Bugfix:   (ET) Work item 11964 - Worksheet.php throws a fatal error when styling is turned off via setReadDataOnly on the reader
+- Bugfix:   (MBaker) Work item 11851 - Checking for Circular References in Formulae
+			- Calculation Engine code now traps for cyclic references, raising an error or throwing an exception, or allows 1 or more iterations through cyclic references, based on a configuration setting
+- Bugfix:   (ET) Work item 12244 - PNG transparency using Excel2007 writer
+- Bugfix:   (ET) Work item 12221 - Custom readfilter error when cell formulas reference excluded cells (Excel5 reader)
+- Bugfix:   (ET) Work item 12288 - Protection problem in XLS
+- Bugfix:   (ET) Work item 12300 - getColumnDimension()->setAutoSize() incorrect on cells with Number Formatting
+- Bugfix:   (ET) Work item 12378 - Notices reading Excel file with Add-in funcitons (PHPExcel_Reader_Excel5)
+- Bugfix:   (ET) Work item 12380 - Excel5 reader not reading formulas with deleted sheet references
+- Bugfix:   (ET) Work item 12404 - Named range (defined name) scope problems for in PHPExcel
+- Bugfix:   (ET) Work item 12423 - PHP Parse error: syntax error, unexpected T_PUBLIC in PHPExcel/Calculation.php on line 3482
+- Bugfix:   (ET) Work item 12505 - Named ranges don't appear in name box using Excel5 writer
+- Bugfix:   (ET) Work item 12509 - Many merged cells + autoSize column -> slows down the writer
+- Bugfix:   (ET) Work item 12539 - Incorrect fallback order comment in Shared/Strings.php ConvertEncoding()
+- Bugfix:   (ET) Work item 12538 - IBM AIX iconv() will not work, should revert to mbstring etc. instead
+- Bugfix:   (ET) Work item 12568 - Excel5 writer and mbstring functions overload
+- Bugfix:   (MBaker) Work item 12672 - OFFSET needs to flattenSingleValue the $rows and $columns args
+- Bugfix:   (MBaker) Work item 12546 - Formula with DMAX(): Notice: Undefined offset: 2 in ...\PHPExcel\Calculation.php on line 2365
+			- Note that the Database functions have not yet been implemented
+- Bugfix:   (MBaker) Work item 12839 - Call to a member function getParent() on a non-object in Classes\\PHPExcel\\Calculation.php Title is required
+- Bugfix:   (MBaker) Work item 12935 - Cyclic Reference in Formula
+- Bugfix:   (MBaker) Work item 13025 - Memory error...data validation?
+
+
+2010/01/11 (v1.7.2):
+- General:  (ET) Applied patch 4362
+- General:  (ET) Applied patch 4363 (modified)
+- General:  (MBaker) Work item 10874 - 1.7.1 Extremely Slow - Refactored PHPExcel_Calculation_Functions::flattenArray() method and set calculation cache timer default to 2.5 seconds
+- General:  (MBaker) Allow formulae to contain line breaks
+- General:  (ET) Work item 10910 - split() function deprecated in PHP 5.3.0
+- General:  (ET) sys_get_temp_dir() requires PHP 5.2.1, not PHP 5.2 [provide fallback function for PHP 5.2.0]
+- General:  (MBaker) Applied patch 4640 - Implementation of the ISPMT() Financial function by Matt Groves
+- General:  (MBaker) Work item 11052 - Put the example of formula with more arguments in documentation
+- General:  (MBaker) Improved accuracy for the GAMMAINV() Statistical Function
+- Feature:  (ET) Work item 10409 - XFEXT record support to fix colors change from Excel5 reader, and copy/paste color change with Excel5 writer
+            - Excel5 reader reads RGB color information in XFEXT records for borders, font color and fill color
+- Feature:  (MBaker) Work Item  2346 - Implement more Excel calculation functions
+            -   Implemented the FVSCHEDULE(), XNPV(), IRR(), MIRR(), XIRR() and RATE() Financial functions
+            -   Implemented the SUMPRODUCT() Mathematical function
+            -   Implemented the ZTEST() Statistical Function
+- Feature:  (ET) Work item 10919 - Multiple print areas in one sheet
+- Feature:  (ET) Work item 10930 - Store calculated values in output by PHPExcel_Writer_Excel5
+- Feature:  (ET) Work item 10939 - Sheet protection options in Excel5 reader/writer
+- Feature:  (MBaker) Modification of the COUNT(), AVERAGE(), AVERAGEA(), DEVSQ, AVEDEV(), STDEV(), STDEVA(), STDEVP(), STDEVPA(), VARA() and VARPA() SKEW() and KURT() functions to correctly handle boolean values depending on whether they're passed in as values, values within a matrix or values within a range of cells.
+- Feature:  (ET) Work item  9932 - Cell range selection
+- Feature:  (MB) Work item 10266 - Root-relative path handling
+- Feature:  (ET) Work item 11315 - Named Ranges not working with PHPExcel_Writer_Excel5
+- Bugfix:   (MB) Work item 11206 - Excel2007 Reader fails to load Apache POI generated Excel
+- Bugfix:   (MB) Work item 11154 - Number format is broken when system's thousands separator is empty
+- Bugfix:   (MB) Work item 11401 - ReferenceHelper::updateNamedFormulas throws errors if oldName is empty
+- Bugfix:   (MB) Work item 11296 - parse_url() fails to parse path to an image in xlsx
+- Bugfix:   (ET) Work item 10876 - Workaround for iconv_substr() bug in PHP 5.2.0
+- Bugfix:   (ET) Work item 10877 - 1 pixel error for image width and height with PHPExcel_Writer_Excel5
+- Bugfix:   (MBaker) Fix to GEOMEAN() Statistical function
+- Bugfix:   (ET) Work item 10884 - setValue('-') and setValue('.') sets numeric 0 instead of 1-character string
+- Bugfix:   (ET) Work item 10885 - Row height sometimes much too low after read with PHPExcel_Reader_Excel5
+- Bugfix:   (ET) Work item 10888 - Diagonal border. Miscellaneous missing support.
+            - Constant PHPExcel_Style_Borders::DIAGONAL_BOTH added to support double-diagonal (cross)
+            - PHPExcel_Reader_Excel2007 not always reading diagonal borders (only recognizes 'true' and not '1')
+            - PHPExcel_Reader_Excel5 support for diagonal borders
+            - PHPExcel_Writer_Excel5 support for diagonal borders
+- Bugfix:   (ET) Work item 10894 - Session bug: Fatal error: Call to a member function bindValue() on a non-object in ...\Classes\PHPExcel\Cell.php on line 217
+- Bugfix:   (ET) Work item 10896 - Colors messed up saving twice with same instance of PHPExcel_Writer_Excel5 (regression since 1.7.0)
+- Bugfix:   (ET) Work item 10917 - Method PHPExcel_Worksheet::setDefaultStyle is not working
+- Bugfix:   (ET) Work item 10897 - PHPExcel_Reader_CSV::canRead() sometimes says false when it shouldn't
+- Bugfix:   (ET) Work item 10922 - Changes in workbook not picked up between two saves with PHPExcel_Writer_Excel2007
+- Bugfix:   (ET) Work item 10913 - Decimal and thousands separators missing in HTML and PDF output
+- Bugfix:   (ET) Work item 10936 - Notices with PHPExcel_Reader_Excel5 and named array constants
+- Bugfix:   (MBaker) Work item 10938 - Calculation engine limitation on 32-bit platform with integers > 2147483647
+- Bugfix:   (ET) Work item 10959 - Shared(?) formulae containing absolute cell references not read correctly using Excel5 Reader
+- Bugfix:   (MBaker) Work item 10962 - Warning messages with intersection operator involving single cell
+- Bugfix:   (ET) Work item 10980 - Infinite loop in Excel5 reader caused by zero-length string in SST
+- Bugfix:   (ET) Work item 10983 - Remove unnecessary cell sorting to improve speed by approx. 18% in HTML and PDF writers
+- Bugfix:   (MBaker) Work item 10977 - Cannot read A1 cell content - OO_Reader
+- Bugfix:   (ET) Work item 11000 - Transliteration failed, invalid encoding
 
 
 2009/11/02 (v1.7.1):

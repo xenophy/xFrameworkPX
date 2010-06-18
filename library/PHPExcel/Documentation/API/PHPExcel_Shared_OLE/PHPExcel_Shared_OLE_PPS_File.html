@@ -13,7 +13,7 @@
   <tr>
     <td class="header_menu">
         
-                                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                            
                                                                                                                                                       		  [ <a href="../classtrees_PHPExcel_Shared_OLE.html" class="menu">class tree: PHPExcel_Shared_OLE</a> ]
 		  [ <a href="../elementindex_PHPExcel_Shared_OLE.html" class="menu">index: PHPExcel_Shared_OLE</a> ]
 		  	    [ <a href="../elementindex.html" class="menu">all elements</a> ]
@@ -29,16 +29,17 @@
 			<p><a href="../todolist.html">Todo List</a></p>
 	</div>
       <b>Packages:</b><br />
-              <a href="../li_default.html">default</a><br />
+              <a href="../li_PHPExcel.html">PHPExcel</a><br />
               <a href="../li_com-tecnick-tcpdf.html">com-tecnick-tcpdf</a><br />
               <a href="../li_JAMA.html">JAMA</a><br />
               <a href="../li_Math_Stats.html">Math_Stats</a><br />
-              <a href="../li_PHPExcel.html">PHPExcel</a><br />
+              <a href="../li_PHPExcel_CachedObjectStorage.html">PHPExcel_CachedObjectStorage</a><br />
               <a href="../li_PHPExcel_Calculation.html">PHPExcel_Calculation</a><br />
               <a href="../li_PHPExcel_Cell.html">PHPExcel_Cell</a><br />
               <a href="../li_PHPExcel_Reader.html">PHPExcel_Reader</a><br />
               <a href="../li_PHPExcel_Reader_Excel5.html">PHPExcel_Reader_Excel5</a><br />
               <a href="../li_PHPExcel_RichText.html">PHPExcel_RichText</a><br />
+              <a href="../li_PHPExcel_Settings.html">PHPExcel_Settings</a><br />
               <a href="../li_PHPExcel_Shared.html">PHPExcel_Shared</a><br />
               <a href="../li_PHPExcel_Shared_Best_Fit.html">PHPExcel_Shared_Best_Fit</a><br />
               <a href="../li_PHPExcel_Shared_Escher.html">PHPExcel_Shared_Escher</a><br />
@@ -54,13 +55,13 @@
       	  <div class="package">
 			<a href="../PHPExcel_Shared_OLE/_PHPExcel---Shared---OLE---ChainedBlockStream.php.html">		ChainedBlockStream.php
 		</a><br>
+			<a href="../PHPExcel_Shared_OLE/_PHPExcel---Shared---OLE---PPS---File.php.html">		File.php
+		</a><br>
 			<a href="../PHPExcel_Shared_OLE/_PHPExcel---Shared---OLE.php.html">		OLE.php
 		</a><br>
-			<a href="../PHPExcel_Shared_OLE/_PHPExcel---Shared---OLE---OLE_File.php.html">		OLE_File.php
+			<a href="../PHPExcel_Shared_OLE/_PHPExcel---Shared---OLE---PPS.php.html">		PPS.php
 		</a><br>
-			<a href="../PHPExcel_Shared_OLE/_PHPExcel---Shared---OLE---OLE_PPS.php.html">		OLE_PPS.php
-		</a><br>
-			<a href="../PHPExcel_Shared_OLE/_PHPExcel---Shared---OLE---OLE_Root.php.html">		OLE_Root.php
+			<a href="../PHPExcel_Shared_OLE/_PHPExcel---Shared---OLE---PPS---Root.php.html">		Root.php
 		</a><br>
 	  </div><br />
       
@@ -78,7 +79,7 @@
       <table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
 
 <h1>Class: PHPExcel_Shared_OLE_PPS_File</h1>
-Source Location: /PHPExcel/Shared/OLE/OLE_File.php<br /><br />
+Source Location: /PHPExcel/Shared/OLE/PPS/File.php<br /><br />
 
 
 <table width="100%" border="0">
@@ -92,22 +93,16 @@ Source Location: /PHPExcel/Shared/OLE/OLE_File.php<br /><br />
 <h4>Author(s):</h4>
 <ul>
           <li>Xavier Noguer &lt;<a href="mailto:xnoguer@php.net">xnoguer@php.net</a>&gt;</li>
-      </ul>
+            </ul>
 
 
 
 
-    
+        
 
         
 </td>
 
-<td valign="top">
-<h3><a href="#class_vars">Variables</a></h3>
-<ul>
-    <li><a href="../PHPExcel_Shared_OLE/PHPExcel_Shared_OLE_PPS_File.html#var$_tmp_dir">$_tmp_dir</a></li>
-  </ul>
-</td>
 
 
 <td valign="top">
@@ -117,7 +112,6 @@ Source Location: /PHPExcel/Shared/OLE/OLE_File.php<br /><br />
     <li><a href="../PHPExcel_Shared_OLE/PHPExcel_Shared_OLE_PPS_File.html#methodappend">append</a></li>
     <li><a href="../PHPExcel_Shared_OLE/PHPExcel_Shared_OLE_PPS_File.html#methodgetStream">getStream</a></li>
     <li><a href="../PHPExcel_Shared_OLE/PHPExcel_Shared_OLE_PPS_File.html#methodinit">init</a></li>
-    <li><a href="../PHPExcel_Shared_OLE/PHPExcel_Shared_OLE_PPS_File.html#methodsetTempDir">setTempDir</a></li>
   </ul>
 </td>
 
@@ -243,7 +237,7 @@ Source Location: /PHPExcel/Shared/OLE/OLE_File.php<br /><br />
     <a href="../PHPExcel_Shared_OLE/PHPExcel_Shared_OLE_PPS.html#method_savePpsSetPnt">PHPExcel_Shared_OLE_PPS::_savePpsSetPnt()</a>
   </dt>
   <dd>
-    Updates index and pointers to previous, next and children PPS's for this PPS.
+    Updates index and pointers to previous, next and children PPS's for this  PPS. I don't think it'll work with Dir PPS's.
   </dd>
   </dl>
 </div>
@@ -255,48 +249,22 @@ Source Location: /PHPExcel/Shared/OLE/OLE_File.php<br /><br />
 <a name="class_details"></a>
 <h3>Class Details</h3>
 <div class="tags">
-[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEOLE_File.php.html#a40">40</a>]<br />
-Class for creating File PPS's for OLE containers<br /><br /><p>Class for creating File PPS's for OLE containers</p><br /><br /><br />
+[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEPPSFile.php.html#a30">30</a>]<br />
+Class for creating File PPS's for OLE containers<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td><b>author:</b>&nbsp;&nbsp;</td><td>Xavier Noguer &lt;<a href="mailto:xnoguer@php.net">xnoguer@php.net</a>&gt;</td>
   </tr>
+  <tr>
+    <td><b>filesource:</b>&nbsp;&nbsp;</td><td><a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEPPSFile.php.html">Source Code for this file</a></td>
+  </tr>
 </table>
 </div>
 </div><br /><br />
 <div class="top">[ <a href="#top">Top</a> ]</div><br />
 
-<hr />
-<a name="class_vars"></a>
-<h3>Class Variables</h3>
-<div class="tags">
-	<a name="var$_tmp_dir"></a>
-	<p></p>
-	<h4>$_tmp_dir = <span class="value"></span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEOLE_File.php.html#a46">46</a>]</p>
-  The temporary dir for storing the OLE file<br /><br /><p>The temporary dir for storing the OLE file</p><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-</div>
-
-  <br />
-	<div class="tags">
-  <table border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td><b>Type:</b>&nbsp;&nbsp;</td>
-      <td>string</td>
-    </tr>
-      </table>
-	</div><br /><br />
-	<div class="top">[ <a href="#top">Top</a> ]</div><br />
-</div><br />
 
 <hr />
 <a name="class_methods"></a>
@@ -305,7 +273,7 @@ Class for creating File PPS's for OLE containers<br /><br /><p>Class for creatin
 
   <hr />
 	<a name="method__construct"></a>
-	<h3>constructor __construct <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEOLE_File.php.html#a55">55</a>]</span></h3>
+	<h3>constructor __construct <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEPPSFile.php.html#a39">39</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -315,7 +283,7 @@ $name)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		The constructor<br /><br /><p>The constructor</p><br /><br /><br />
+		The constructor<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -344,7 +312,7 @@ $name)</code>
   </div>
   <hr />
 	<a name="methodappend"></a>
-	<h3>method append <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEOLE_File.php.html#a113">113</a>]</span></h3>
+	<h3>method append <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEPPSFile.php.html#a71">71</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -354,7 +322,7 @@ $data)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Append data to PPS<br /><br /><p>Append data to PPS</p><br /><br /><br />
+		Append data to PPS<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -380,7 +348,7 @@ $data)</code>
   </div>
   <hr />
 	<a name="methodgetStream"></a>
-	<h3>method getStream <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEOLE_File.php.html#a126">126</a>]</span></h3>
+	<h3>method getStream <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEPPSFile.php.html#a80">80</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -389,7 +357,7 @@ $data)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Returns a stream for reading this file using fread() etc.<br /><br /><p>Returns a stream for reading this file using fread() etc.</p><br /><br /><br />
+		Returns a stream for reading this file using fread() etc.<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -408,7 +376,7 @@ $data)</code>
   </div>
   <hr />
 	<a name="methodinit"></a>
-	<h3>method init <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEOLE_File.php.html#a93">93</a>]</span></h3>
+	<h3>method init <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEPPSFile.php.html#a60">60</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -417,7 +385,7 @@ $data)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Initialization method.<br /><br /><p>Initialization method. Has to be called right after OLE_PPS_File().</p><br /><br /><br />
+		Initialization method. Has to be called right after OLE_PPS_File().<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -434,51 +402,12 @@ $data)</code>
 	
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
-  <hr />
-	<a name="methodsetTempDir"></a>
-	<h3>method setTempDir <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEOLE_File.php.html#a78">78</a>]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>true setTempDir(
-string
-$dir)</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		Sets the temp dir used for storing the OLE file<br /><br /><p>Sets the temp dir used for storing the OLE file</p><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>return:</b>&nbsp;&nbsp;</td><td>if given dir is valid, false otherwise</td>
-  </tr>
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
-	
-        <h4>Parameters:</h4>
-    <div class="tags">
-    <table border="0" cellspacing="0" cellpadding="0">
-          <tr>
-        <td class="type">string&nbsp;&nbsp;</td>
-        <td><b>$dir</b>&nbsp;&nbsp;</td>
-        <td>The dir to be used as temp dir</td>
-      </tr>
-        </table>
-    </div><br />
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
 </div><br />
 
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Mon, 02 Nov 2009 08:43:34 +0100 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.1</a>
+		    Documentation generated on Tue, 01 Jun 2010 17:03:46 +0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>

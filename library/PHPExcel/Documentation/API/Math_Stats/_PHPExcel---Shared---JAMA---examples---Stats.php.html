@@ -14,7 +14,7 @@
     <td class="header_menu">
         
                                                                                                 
-                                                                                                                                                                                                                                                                                                                                                              		  [ <a href="../classtrees_Math_Stats.html" class="menu">class tree: Math_Stats</a> ]
+                                                                                                                                                                                                                                                                                                                                                                                  		  [ <a href="../classtrees_Math_Stats.html" class="menu">class tree: Math_Stats</a> ]
 		  [ <a href="../elementindex_Math_Stats.html" class="menu">index: Math_Stats</a> ]
 		  	    [ <a href="../elementindex.html" class="menu">all elements</a> ]
     </td>
@@ -29,16 +29,17 @@
 			<p><a href="../todolist.html">Todo List</a></p>
 	</div>
       <b>Packages:</b><br />
-              <a href="../li_default.html">default</a><br />
+              <a href="../li_PHPExcel.html">PHPExcel</a><br />
               <a href="../li_com-tecnick-tcpdf.html">com-tecnick-tcpdf</a><br />
               <a href="../li_JAMA.html">JAMA</a><br />
               <a href="../li_Math_Stats.html">Math_Stats</a><br />
-              <a href="../li_PHPExcel.html">PHPExcel</a><br />
+              <a href="../li_PHPExcel_CachedObjectStorage.html">PHPExcel_CachedObjectStorage</a><br />
               <a href="../li_PHPExcel_Calculation.html">PHPExcel_Calculation</a><br />
               <a href="../li_PHPExcel_Cell.html">PHPExcel_Cell</a><br />
               <a href="../li_PHPExcel_Reader.html">PHPExcel_Reader</a><br />
               <a href="../li_PHPExcel_Reader_Excel5.html">PHPExcel_Reader_Excel5</a><br />
               <a href="../li_PHPExcel_RichText.html">PHPExcel_RichText</a><br />
+              <a href="../li_PHPExcel_Settings.html">PHPExcel_Settings</a><br />
               <a href="../li_PHPExcel_Shared.html">PHPExcel_Shared</a><br />
               <a href="../li_PHPExcel_Shared_Best_Fit.html">PHPExcel_Shared_Best_Fit</a><br />
               <a href="../li_PHPExcel_Shared_Escher.html">PHPExcel_Shared_Escher</a><br />
@@ -104,7 +105,7 @@ include_once('PEAR.php') [line <a href="../__filesource/fsource_Math_Stats__PHPE
     </td></tr></table>
     </td></tr></table>
 
-    STATS_BASIC to generate the basic descriptive statistics<br /><br /><p>STATS_BASIC to generate the basic descriptive statistics</p><br />    <br />
+    STATS_BASIC to generate the basic descriptive statistics<br /><br />    <br />
 		</div>
 	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
   <hr />
@@ -117,7 +118,7 @@ include_once('PEAR.php') [line <a href="../__filesource/fsource_Math_Stats__PHPE
     </td></tr></table>
     </td></tr></table>
 
-    STATS_DATA_CUMMULATIVE for an associative array of frequency values,<br /><br /><p>STATS_DATA_CUMMULATIVE for an associative array of frequency values, where in each array entry, the index is the data point and the value the count (frequency): e.g. $data = array(3=&gt;4, 2.3=&gt;5, 1.25=&gt;6, 0.5=&gt;3)</p><br />    <br />
+    STATS_DATA_CUMMULATIVE for an associative array of frequency values,<br /><br /><p>where in each array entry, the index is the data point and the  value the count (frequency):  e.g. $data = array(3=&gt;4, 2.3=&gt;5, 1.25=&gt;6, 0.5=&gt;3)</p><br />    <br />
 		</div>
 	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
   <hr />
@@ -130,7 +131,7 @@ include_once('PEAR.php') [line <a href="../__filesource/fsource_Math_Stats__PHPE
     </td></tr></table>
     </td></tr></table>
 
-    STATS_DATA_SIMPLE for an array of numeric values.<br /><br /><p>STATS_DATA_SIMPLE for an array of numeric values. This is the default. e.g. $data = array(2,3,4,5,1,1,6);</p><br />    <br />
+    STATS_DATA_SIMPLE for an array of numeric values. This is the default.<br /><br /><p>e.g. $data = array(2,3,4,5,1,1,6);</p><br />    <br />
 		</div>
 	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
   <hr />
@@ -143,7 +144,7 @@ include_once('PEAR.php') [line <a href="../__filesource/fsource_Math_Stats__PHPE
     </td></tr></table>
     </td></tr></table>
 
-    STATS_FULL to generate also higher moments, mode, median, etc.<br /><br /><p>STATS_FULL to generate also higher moments, mode, median, etc.</p><br />    <br />
+    STATS_FULL to generate also higher moments, mode, median, etc.<br /><br />    <br />
 		</div>
 	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
   <hr />
@@ -156,7 +157,7 @@ include_once('PEAR.php') [line <a href="../__filesource/fsource_Math_Stats__PHPE
     </td></tr></table>
     </td></tr></table>
 
-    STATS_IGNORE_NULL, ignore null values and prune them from the data.<br /><br /><p>STATS_IGNORE_NULL, ignore null values and prune them from the data. Any non-numeric value is considered a null in this context.</p><br />    <br />
+    STATS_IGNORE_NULL, ignore null values and prune them from the data.<br /><br /><p>Any non-numeric value is considered a null in this context.</p><br />    <br />
 		</div>
 	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
   <hr />
@@ -169,7 +170,7 @@ include_once('PEAR.php') [line <a href="../__filesource/fsource_Math_Stats__PHPE
     </td></tr></table>
     </td></tr></table>
 
-    STATS_REJECT_NULL, reject data sets with null values.<br /><br /><p>STATS_REJECT_NULL, reject data sets with null values. This is the default. Any non-numeric value is considered a null in this context.</p><br />    <br />
+    STATS_REJECT_NULL, reject data sets with null values. This is the default.<br /><br /><p>Any non-numeric value is considered a null in this context.</p><br />    <br />
 		</div>
 	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
   <hr />
@@ -182,14 +183,14 @@ include_once('PEAR.php') [line <a href="../__filesource/fsource_Math_Stats__PHPE
     </td></tr></table>
     </td></tr></table>
 
-    STATS_USE_NULL_AS_ZERO, assign the value of 0 (zero) to null values.<br /><br /><p>STATS_USE_NULL_AS_ZERO, assign the value of 0 (zero) to null values. Any non-numeric value is considered a null in this context.</p><br />    <br />
+    STATS_USE_NULL_AS_ZERO, assign the value of 0 (zero) to null values.<br /><br /><p>Any non-numeric value is considered a null in this context.</p><br />    <br />
 		</div>
 	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
 <br />
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Mon, 02 Nov 2009 08:44:43 +0100 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.1</a>
+		    Documentation generated on Tue, 01 Jun 2010 17:06:04 +0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>

@@ -13,7 +13,7 @@
   <tr>
     <td class="header_menu">
         
-                                                                                                                                                                                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                                                                                                                                                                                                                
                                                   		  [ <a href="../classtrees_PHPExcel_Writer_Excel5.html" class="menu">class tree: PHPExcel_Writer_Excel5</a> ]
 		  [ <a href="../elementindex_PHPExcel_Writer_Excel5.html" class="menu">index: PHPExcel_Writer_Excel5</a> ]
 		  	    [ <a href="../elementindex.html" class="menu">all elements</a> ]
@@ -29,16 +29,17 @@
 			<p><a href="../todolist.html">Todo List</a></p>
 	</div>
       <b>Packages:</b><br />
-              <a href="../li_default.html">default</a><br />
+              <a href="../li_PHPExcel.html">PHPExcel</a><br />
               <a href="../li_com-tecnick-tcpdf.html">com-tecnick-tcpdf</a><br />
               <a href="../li_JAMA.html">JAMA</a><br />
               <a href="../li_Math_Stats.html">Math_Stats</a><br />
-              <a href="../li_PHPExcel.html">PHPExcel</a><br />
+              <a href="../li_PHPExcel_CachedObjectStorage.html">PHPExcel_CachedObjectStorage</a><br />
               <a href="../li_PHPExcel_Calculation.html">PHPExcel_Calculation</a><br />
               <a href="../li_PHPExcel_Cell.html">PHPExcel_Cell</a><br />
               <a href="../li_PHPExcel_Reader.html">PHPExcel_Reader</a><br />
               <a href="../li_PHPExcel_Reader_Excel5.html">PHPExcel_Reader_Excel5</a><br />
               <a href="../li_PHPExcel_RichText.html">PHPExcel_RichText</a><br />
+              <a href="../li_PHPExcel_Settings.html">PHPExcel_Settings</a><br />
               <a href="../li_PHPExcel_Shared.html">PHPExcel_Shared</a><br />
               <a href="../li_PHPExcel_Shared_Best_Fit.html">PHPExcel_Shared_Best_Fit</a><br />
               <a href="../li_PHPExcel_Shared_Escher.html">PHPExcel_Shared_Escher</a><br />
@@ -63,7 +64,7 @@
 <li><div class="src-line"><a name="a2"></a><span class="src-doc">/**</span></div></li>
 <li><div class="src-line"><a name="a3"></a><span class="src-doc">&nbsp;*&nbsp;PHPExcel</span></div></li>
 <li><div class="src-line"><a name="a4"></a><span class="src-doc">&nbsp;*</span></div></li>
-<li><div class="src-line"><a name="a5"></a><span class="src-doc">&nbsp;*&nbsp;Copyright&nbsp;(c)&nbsp;2006&nbsp;-&nbsp;2009&nbsp;PHPExcel</span></div></li>
+<li><div class="src-line"><a name="a5"></a><span class="src-doc">&nbsp;*&nbsp;Copyright&nbsp;(c)&nbsp;2006&nbsp;-&nbsp;2010&nbsp;PHPExcel</span></div></li>
 <li><div class="src-line"><a name="a6"></a><span class="src-doc">&nbsp;*</span></div></li>
 <li><div class="src-line"><a name="a7"></a><span class="src-doc">&nbsp;*&nbsp;This&nbsp;library&nbsp;is&nbsp;free&nbsp;software;&nbsp;you&nbsp;can&nbsp;redistribute&nbsp;it&nbsp;and/or</span></div></li>
 <li><div class="src-line"><a name="a8"></a><span class="src-doc">&nbsp;*&nbsp;modify&nbsp;it&nbsp;under&nbsp;the&nbsp;terms&nbsp;of&nbsp;the&nbsp;GNU&nbsp;Lesser&nbsp;General&nbsp;Public</span></div></li>
@@ -81,9 +82,9 @@
 <li><div class="src-line"><a name="a20"></a><span class="src-doc">&nbsp;*</span></div></li>
 <li><div class="src-line"><a name="a21"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@category</span><span class="src-doc">&nbsp;&nbsp;&nbsp;PHPExcel</span></div></li>
 <li><div class="src-line"><a name="a22"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@package</span><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;PHPExcel_Writer_Excel5</span></div></li>
-<li><div class="src-line"><a name="a23"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@copyright</span><span class="src-doc">&nbsp;&nbsp;Copyright&nbsp;(c)&nbsp;2006&nbsp;-&nbsp;2009&nbsp;PHPExcel&nbsp;(http://www.codeplex.com/PHPExcel)</span></div></li>
+<li><div class="src-line"><a name="a23"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@copyright</span><span class="src-doc">&nbsp;&nbsp;Copyright&nbsp;(c)&nbsp;2006&nbsp;-&nbsp;2010&nbsp;PHPExcel&nbsp;(http://www.codeplex.com/PHPExcel)</span></div></li>
 <li><div class="src-line"><a name="a24"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@license</span><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt&nbsp;&nbsp;&nbsp;&nbsp;LGPL</span></div></li>
-<li><div class="src-line"><a name="a25"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@version</span><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;1.7.1,&nbsp;2009-11-02</span></div></li>
+<li><div class="src-line"><a name="a25"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@version</span><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;1.7.3c,&nbsp;2010-06-01</span></div></li>
 <li><div class="src-line"><a name="a26"></a><span class="src-doc">&nbsp;*/</span></div></li>
 <li><div class="src-line"><a name="a27"></a>&nbsp;</div></li>
 <li><div class="src-line"><a name="a28"></a><span class="src-comm">//&nbsp;Original&nbsp;file&nbsp;header&nbsp;of&nbsp;PEAR::Spreadsheet_Excel_Writer_BIFFwriter&nbsp;(used&nbsp;as&nbsp;the&nbsp;base&nbsp;for&nbsp;this&nbsp;class):</span></div></li>
@@ -126,7 +127,7 @@
 <li><div class="src-line"><a name="a65"></a><span class="src-doc">&nbsp;*</span></div></li>
 <li><div class="src-line"><a name="a66"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@category</span><span class="src-doc">&nbsp;&nbsp;&nbsp;PHPExcel</span></div></li>
 <li><div class="src-line"><a name="a67"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@package</span><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;PHPExcel_Writer_Excel5</span></div></li>
-<li><div class="src-line"><a name="a68"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@copyright</span><span class="src-doc">&nbsp;&nbsp;Copyright&nbsp;(c)&nbsp;2006&nbsp;-&nbsp;2009&nbsp;PHPExcel&nbsp;(http://www.codeplex.com/PHPExcel)</span></div></li>
+<li><div class="src-line"><a name="a68"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@copyright</span><span class="src-doc">&nbsp;&nbsp;Copyright&nbsp;(c)&nbsp;2006&nbsp;-&nbsp;2010&nbsp;PHPExcel&nbsp;(http://www.codeplex.com/PHPExcel)</span></div></li>
 <li><div class="src-line"><a name="a69"></a><span class="src-doc">&nbsp;*/</span></div></li>
 <li><div class="src-line"><a name="a70"></a><span class="src-key">class&nbsp;</span><a href="../PHPExcel_Writer_Excel5/PHPExcel_Writer_Excel5_BIFFwriter.html">PHPExcel_Writer_Excel5_BIFFwriter</a></div></li>
 <li><div class="src-line"><a name="a71"></a><span class="src-sym">{</span></div></li>
@@ -134,7 +135,7 @@
 <li><div class="src-line"><a name="a73"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;The&nbsp;BIFF/Excel&nbsp;version&nbsp;(5).</span></div></li>
 <li><div class="src-line"><a name="a74"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@var&nbsp;</span><span class="src-doc-type">integer&nbsp;</span></div></li>
 <li><div class="src-line"><a name="a75"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
-<li><div class="src-line"><a name="a76"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">var&nbsp;</span><a href="../PHPExcel_Writer_Excel5/PHPExcel_Writer_Excel5_BIFFwriter.html#var$_BIFF_version">$_BIFF_version</a>&nbsp;=&nbsp;<span class="src-num">0x0500</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a76"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><a href="../PHPExcel_Writer_Excel5/PHPExcel_Writer_Excel5_BIFFwriter.html#var$_BIFF_version">$_BIFF_version</a>&nbsp;=&nbsp;<span class="src-num">0x0500</span><span class="src-sym">;</span></div></li>
 <li><div class="src-line"><a name="a77"></a>&nbsp;</div></li>
 <li><div class="src-line"><a name="a78"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
 <li><div class="src-line"><a name="a79"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;The&nbsp;byte&nbsp;order&nbsp;of&nbsp;this&nbsp;architecture.&nbsp;0&nbsp;=&gt;&nbsp;little&nbsp;endian,&nbsp;1&nbsp;=&gt;&nbsp;big&nbsp;endian</span></div></li>
@@ -146,20 +147,20 @@
 <li><div class="src-line"><a name="a85"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;The&nbsp;string&nbsp;containing&nbsp;the&nbsp;data&nbsp;of&nbsp;the&nbsp;BIFF&nbsp;stream</span></div></li>
 <li><div class="src-line"><a name="a86"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@var&nbsp;</span><span class="src-doc-type">string&nbsp;</span></div></li>
 <li><div class="src-line"><a name="a87"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
-<li><div class="src-line"><a name="a88"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">var&nbsp;</span><a href="../PHPExcel_Writer_Excel5/PHPExcel_Writer_Excel5_BIFFwriter.html#var$_data">$_data</a><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a88"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><a href="../PHPExcel_Writer_Excel5/PHPExcel_Writer_Excel5_BIFFwriter.html#var$_data">$_data</a><span class="src-sym">;</span></div></li>
 <li><div class="src-line"><a name="a89"></a>&nbsp;</div></li>
 <li><div class="src-line"><a name="a90"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
 <li><div class="src-line"><a name="a91"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;The&nbsp;size&nbsp;of&nbsp;the&nbsp;data&nbsp;in&nbsp;bytes.&nbsp;Should&nbsp;be&nbsp;the&nbsp;same&nbsp;as&nbsp;strlen($this-&gt;_data)</span></div></li>
 <li><div class="src-line"><a name="a92"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@var&nbsp;</span><span class="src-doc-type">integer&nbsp;</span></div></li>
 <li><div class="src-line"><a name="a93"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
-<li><div class="src-line"><a name="a94"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">var&nbsp;</span><a href="../PHPExcel_Writer_Excel5/PHPExcel_Writer_Excel5_BIFFwriter.html#var$_datasize">$_datasize</a><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a94"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><a href="../PHPExcel_Writer_Excel5/PHPExcel_Writer_Excel5_BIFFwriter.html#var$_datasize">$_datasize</a><span class="src-sym">;</span></div></li>
 <li><div class="src-line"><a name="a95"></a>&nbsp;</div></li>
 <li><div class="src-line"><a name="a96"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
 <li><div class="src-line"><a name="a97"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;The&nbsp;maximum&nbsp;length&nbsp;for&nbsp;a&nbsp;BIFF&nbsp;record&nbsp;(excluding&nbsp;record&nbsp;header&nbsp;and&nbsp;length&nbsp;field).&nbsp;See&nbsp;_addContinue()</span></div></li>
 <li><div class="src-line"><a name="a98"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@var&nbsp;</span><span class="src-doc-type">integer&nbsp;</span></div></li>
 <li><div class="src-line"><a name="a99"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@see</span><span class="src-doc">&nbsp;_addContinue()</span></div></li>
 <li><div class="src-line"><a name="a100"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
-<li><div class="src-line"><a name="a101"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">var&nbsp;</span><a href="../PHPExcel_Writer_Excel5/PHPExcel_Writer_Excel5_BIFFwriter.html#var$_limit">$_limit</a><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a101"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><a href="../PHPExcel_Writer_Excel5/PHPExcel_Writer_Excel5_BIFFwriter.html#var$_limit">$_limit</a><span class="src-sym">;</span></div></li>
 <li><div class="src-line"><a name="a102"></a>&nbsp;</div></li>
 <li><div class="src-line"><a name="a103"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
 <li><div class="src-line"><a name="a104"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Constructor</span></div></li>
@@ -204,10 +205,10 @@
 <li><div class="src-line"><a name="a143"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@param&nbsp;</span><span class="src-doc-type">string&nbsp;</span><span class="src-doc-var">$data&nbsp;</span><span class="src-doc">binary&nbsp;data&nbsp;to&nbsp;append</span></div></li>
 <li><div class="src-line"><a name="a144"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@access</span><span class="src-doc">&nbsp;private</span></div></li>
 <li><div class="src-line"><a name="a145"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
-<li><div class="src-line"><a name="a146"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">function&nbsp;</span><a href="../PHPExcel_Writer_Excel5/PHPExcel_Writer_Excel5_BIFFwriter.html#method_append">_append</a><span class="src-sym">(</span><span class="src-var">$data</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a146"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">function&nbsp;</span><span class="src-id">_append</span><span class="src-sym">(</span><span class="src-var">$data</span><span class="src-sym">)</span></div></li>
 <li><div class="src-line"><a name="a147"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">{</span></div></li>
 <li><div class="src-line"><a name="a148"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">if&nbsp;</span><span class="src-sym">(</span><span class="src-id">strlen</span><span class="src-sym">(</span><span class="src-var">$data</span><span class="src-sym">)&nbsp;</span>-&nbsp;<span class="src-num">4&nbsp;</span>&gt;&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><a href="../PHPExcel_Writer_Excel5/PHPExcel_Writer_Excel5_BIFFwriter.html#var$_limit">_limit</a><span class="src-sym">)&nbsp;</span><span class="src-sym">{</span></div></li>
-<li><div class="src-line"><a name="a149"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$data&nbsp;</span>=&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><a href="../PHPExcel_Writer_Excel5/PHPExcel_Writer_Excel5_BIFFwriter.html#method_addContinue">_addContinue</a><span class="src-sym">(</span><span class="src-var">$data</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a149"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$data&nbsp;</span>=&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-id">_addContinue</span><span class="src-sym">(</span><span class="src-var">$data</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
 <li><div class="src-line"><a name="a150"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
 <li><div class="src-line"><a name="a151"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><a href="../PHPExcel_Writer_Excel5/PHPExcel_Writer_Excel5_BIFFwriter.html#var$_data">_data</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><a href="../PHPExcel_Writer_Excel5/PHPExcel_Writer_Excel5_BIFFwriter.html#var$_data">_data</a>.<span class="src-var">$data</span><span class="src-sym">;</span></div></li>
 <li><div class="src-line"><a name="a152"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><a href="../PHPExcel_Writer_Excel5/PHPExcel_Writer_Excel5_BIFFwriter.html#var$_datasize">_datasize</a>&nbsp;+=&nbsp;<a href="http://www.php.net/strlen">strlen</a><span class="src-sym">(</span><span class="src-var">$data</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
@@ -222,7 +223,7 @@
 <li><div class="src-line"><a name="a161"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><span class="src-key">function&nbsp;</span><a href="../PHPExcel_Writer_Excel5/PHPExcel_Writer_Excel5_BIFFwriter.html#methodwriteData">writeData</a><span class="src-sym">(</span><span class="src-var">$data</span><span class="src-sym">)</span></div></li>
 <li><div class="src-line"><a name="a162"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">{</span></div></li>
 <li><div class="src-line"><a name="a163"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">if&nbsp;</span><span class="src-sym">(</span><a href="http://www.php.net/strlen">strlen</a><span class="src-sym">(</span><span class="src-var">$data</span><span class="src-sym">)&nbsp;</span>-&nbsp;<span class="src-num">4&nbsp;</span>&gt;&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><a href="../PHPExcel_Writer_Excel5/PHPExcel_Writer_Excel5_BIFFwriter.html#var$_limit">_limit</a><span class="src-sym">)&nbsp;</span><span class="src-sym">{</span></div></li>
-<li><div class="src-line"><a name="a164"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$data&nbsp;</span>=&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><a href="../PHPExcel_Writer_Excel5/PHPExcel_Writer_Excel5_BIFFwriter.html#method_addContinue">_addContinue</a><span class="src-sym">(</span><span class="src-var">$data</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a164"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$data&nbsp;</span>=&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-id">_addContinue</span><span class="src-sym">(</span><span class="src-var">$data</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
 <li><div class="src-line"><a name="a165"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
 <li><div class="src-line"><a name="a166"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><a href="../PHPExcel_Writer_Excel5/PHPExcel_Writer_Excel5_BIFFwriter.html#var$_datasize">_datasize</a>&nbsp;+=&nbsp;<a href="http://www.php.net/strlen">strlen</a><span class="src-sym">(</span><span class="src-var">$data</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
 <li><div class="src-line"><a name="a167"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
@@ -237,7 +238,7 @@
 <li><div class="src-line"><a name="a176"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x0010&nbsp;Worksheet.</span></div></li>
 <li><div class="src-line"><a name="a177"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@access</span><span class="src-doc">&nbsp;private</span></div></li>
 <li><div class="src-line"><a name="a178"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
-<li><div class="src-line"><a name="a179"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">function&nbsp;</span><a href="../PHPExcel_Writer_Excel5/PHPExcel_Writer_Excel5_BIFFwriter.html#method_storeBof">_storeBof</a><span class="src-sym">(</span><span class="src-var">$type</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a179"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">function&nbsp;</span><span class="src-id">_storeBof</span><span class="src-sym">(</span><span class="src-var">$type</span><span class="src-sym">)</span></div></li>
 <li><div class="src-line"><a name="a180"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">{</span></div></li>
 <li><div class="src-line"><a name="a181"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$record&nbsp;&nbsp;</span>=&nbsp;<span class="src-num">0x0809</span><span class="src-sym">;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="src-comm">//&nbsp;Record&nbsp;identifier</span></div></li>
 <li><div class="src-line"><a name="a182"></a>&nbsp;</div></li>
@@ -261,7 +262,7 @@
 <li><div class="src-line"><a name="a200"></a>&nbsp;</div></li>
 <li><div class="src-line"><a name="a201"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$header&nbsp;&nbsp;</span>=&nbsp;<a href="http://www.php.net/pack">pack</a><span class="src-sym">(</span><span class="src-str">&quot;vv&quot;</span><span class="src-sym">,&nbsp;&nbsp;&nbsp;</span><span class="src-var">$record</span><span class="src-sym">,&nbsp;</span><span class="src-var">$length</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
 <li><div class="src-line"><a name="a202"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$data&nbsp;&nbsp;&nbsp;&nbsp;</span>=&nbsp;<a href="http://www.php.net/pack">pack</a><span class="src-sym">(</span><span class="src-str">&quot;vvvv&quot;</span><span class="src-sym">,&nbsp;</span><span class="src-var">$version</span><span class="src-sym">,&nbsp;</span><span class="src-var">$type</span><span class="src-sym">,&nbsp;</span><span class="src-var">$build</span><span class="src-sym">,&nbsp;</span><span class="src-var">$year</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
-<li><div class="src-line"><a name="a203"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><a href="../PHPExcel_Writer_Excel5/PHPExcel_Writer_Excel5_BIFFwriter.html#method_append">_append</a><span class="src-sym">(</span><span class="src-var">$header&nbsp;</span>.&nbsp;<span class="src-var">$data&nbsp;</span>.&nbsp;<span class="src-var">$unknown</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a203"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-id">_append</span><span class="src-sym">(</span><span class="src-var">$header&nbsp;</span>.&nbsp;<span class="src-var">$data&nbsp;</span>.&nbsp;<span class="src-var">$unknown</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
 <li><div class="src-line"><a name="a204"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
 <li><div class="src-line"><a name="a205"></a>&nbsp;</div></li>
 <li><div class="src-line"><a name="a206"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
@@ -269,12 +270,12 @@
 <li><div class="src-line"><a name="a208"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span></div></li>
 <li><div class="src-line"><a name="a209"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@access</span><span class="src-doc">&nbsp;private</span></div></li>
 <li><div class="src-line"><a name="a210"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
-<li><div class="src-line"><a name="a211"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">function&nbsp;</span><a href="../PHPExcel_Writer_Excel5/PHPExcel_Writer_Excel5_BIFFwriter.html#method_storeEof">_storeEof</a><span class="src-sym">(</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a211"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">function&nbsp;</span><span class="src-id">_storeEof</span><span class="src-sym">(</span><span class="src-sym">)</span></div></li>
 <li><div class="src-line"><a name="a212"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">{</span></div></li>
 <li><div class="src-line"><a name="a213"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$record&nbsp;&nbsp;&nbsp;&nbsp;</span>=&nbsp;<span class="src-num">0x000A</span><span class="src-sym">;&nbsp;&nbsp;&nbsp;</span><span class="src-comm">//&nbsp;Record&nbsp;identifier</span></div></li>
 <li><div class="src-line"><a name="a214"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$length&nbsp;&nbsp;&nbsp;&nbsp;</span>=&nbsp;<span class="src-num">0x0000</span><span class="src-sym">;&nbsp;&nbsp;&nbsp;</span><span class="src-comm">//&nbsp;Number&nbsp;of&nbsp;bytes&nbsp;to&nbsp;follow</span></div></li>
 <li><div class="src-line"><a name="a215"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$header&nbsp;&nbsp;&nbsp;&nbsp;</span>=&nbsp;<a href="http://www.php.net/pack">pack</a><span class="src-sym">(</span><span class="src-str">&quot;vv&quot;</span><span class="src-sym">,&nbsp;</span><span class="src-var">$record</span><span class="src-sym">,&nbsp;</span><span class="src-var">$length</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
-<li><div class="src-line"><a name="a216"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><a href="../PHPExcel_Writer_Excel5/PHPExcel_Writer_Excel5_BIFFwriter.html#method_append">_append</a><span class="src-sym">(</span><span class="src-var">$header</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a216"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-id">_append</span><span class="src-sym">(</span><span class="src-var">$header</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
 <li><div class="src-line"><a name="a217"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
 <li><div class="src-line"><a name="a218"></a>&nbsp;</div></li>
 <li><div class="src-line"><a name="a219"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
@@ -302,7 +303,7 @@
 <li><div class="src-line"><a name="a241"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@return&nbsp;</span><span class="src-doc-type">string&nbsp;</span><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;very&nbsp;convenient&nbsp;string&nbsp;of&nbsp;continue&nbsp;blocks</span></div></li>
 <li><div class="src-line"><a name="a242"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@access</span><span class="src-doc">&nbsp;private</span></div></li>
 <li><div class="src-line"><a name="a243"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
-<li><div class="src-line"><a name="a244"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">function&nbsp;</span><a href="../PHPExcel_Writer_Excel5/PHPExcel_Writer_Excel5_BIFFwriter.html#method_addContinue">_addContinue</a><span class="src-sym">(</span><span class="src-var">$data</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a244"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">function&nbsp;</span><span class="src-id">_addContinue</span><span class="src-sym">(</span><span class="src-var">$data</span><span class="src-sym">)</span></div></li>
 <li><div class="src-line"><a name="a245"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">{</span></div></li>
 <li><div class="src-line"><a name="a246"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$limit&nbsp;&nbsp;</span>=&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><a href="../PHPExcel_Writer_Excel5/PHPExcel_Writer_Excel5_BIFFwriter.html#var$_limit">_limit</a><span class="src-sym">;</span></div></li>
 <li><div class="src-line"><a name="a247"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$record&nbsp;</span>=&nbsp;<span class="src-num">0x003C</span><span class="src-sym">;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="src-comm">//&nbsp;Record&nbsp;identifier</span></div></li>
@@ -333,7 +334,7 @@
 </div>
         <div class="credit">
 		    <hr />
-		    Documentation generated on Mon, 02 Nov 2009 08:38:03 +0100 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.1</a>
+		    Documentation generated on Tue, 01 Jun 2010 17:02:11 +0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>

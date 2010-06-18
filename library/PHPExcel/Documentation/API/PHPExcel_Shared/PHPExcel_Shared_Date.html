@@ -13,7 +13,7 @@
   <tr>
     <td class="header_menu">
         
-                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                                                
                                                                                                                                                                                                                   		  [ <a href="../classtrees_PHPExcel_Shared.html" class="menu">class tree: PHPExcel_Shared</a> ]
 		  [ <a href="../elementindex_PHPExcel_Shared.html" class="menu">index: PHPExcel_Shared</a> ]
 		  	    [ <a href="../elementindex.html" class="menu">all elements</a> ]
@@ -29,16 +29,17 @@
 			<p><a href="../todolist.html">Todo List</a></p>
 	</div>
       <b>Packages:</b><br />
-              <a href="../li_default.html">default</a><br />
+              <a href="../li_PHPExcel.html">PHPExcel</a><br />
               <a href="../li_com-tecnick-tcpdf.html">com-tecnick-tcpdf</a><br />
               <a href="../li_JAMA.html">JAMA</a><br />
               <a href="../li_Math_Stats.html">Math_Stats</a><br />
-              <a href="../li_PHPExcel.html">PHPExcel</a><br />
+              <a href="../li_PHPExcel_CachedObjectStorage.html">PHPExcel_CachedObjectStorage</a><br />
               <a href="../li_PHPExcel_Calculation.html">PHPExcel_Calculation</a><br />
               <a href="../li_PHPExcel_Cell.html">PHPExcel_Cell</a><br />
               <a href="../li_PHPExcel_Reader.html">PHPExcel_Reader</a><br />
               <a href="../li_PHPExcel_Reader_Excel5.html">PHPExcel_Reader_Excel5</a><br />
               <a href="../li_PHPExcel_RichText.html">PHPExcel_RichText</a><br />
+              <a href="../li_PHPExcel_Settings.html">PHPExcel_Settings</a><br />
               <a href="../li_PHPExcel_Shared.html">PHPExcel_Shared</a><br />
               <a href="../li_PHPExcel_Shared_Best_Fit.html">PHPExcel_Shared_Best_Fit</a><br />
               <a href="../li_PHPExcel_Shared_Escher.html">PHPExcel_Shared_Escher</a><br />
@@ -52,6 +53,8 @@
             <br /><br />
                         <b>Files:</b><br />
       	  <div class="package">
+			<a href="../PHPExcel_Shared/_PHPExcel---Shared---CodePage.php.html">		CodePage.php
+		</a><br>
 			<a href="../PHPExcel_Shared/_PHPExcel---Shared---Date.php.html">		Date.php
 		</a><br>
 			<a href="../PHPExcel_Shared/_PHPExcel---Shared---Drawing.php.html">		Drawing.php
@@ -66,8 +69,6 @@
 		</a><br>
 			<a href="../PHPExcel_Shared/_PHPExcel---Shared---PasswordHasher.php.html">		PasswordHasher.php
 		</a><br>
-			<a href="../PHPExcel_Shared/_PHPExcel---Shared---PDF.php.html">		PDF.php
-		</a><br>
 			<a href="../PHPExcel_Shared/_PHPExcel---Shared---String.php.html">		String.php
 		</a><br>
 			<a href="../PHPExcel_Shared/_PHPExcel---Shared---XMLWriter.php.html">		XMLWriter.php
@@ -79,7 +80,8 @@
       
             <b>Classes:</b><br />
         <div class="package">
-		    		<a href="../PHPExcel_Shared/PHPExcel_Shared_Date.html">PHPExcel_Shared_Date</a><br />
+		    		<a href="../PHPExcel_Shared/PHPExcel_Shared_CodePage.html">PHPExcel_Shared_CodePage</a><br />
+	    		<a href="../PHPExcel_Shared/PHPExcel_Shared_Date.html">PHPExcel_Shared_Date</a><br />
 	    		<a href="../PHPExcel_Shared/PHPExcel_Shared_Drawing.html">PHPExcel_Shared_Drawing</a><br />
 	    		<a href="../PHPExcel_Shared/PHPExcel_Shared_Excel5.html">PHPExcel_Shared_Excel5</a><br />
 	    		<a href="../PHPExcel_Shared/PHPExcel_Shared_File.html">PHPExcel_Shared_File</a><br />
@@ -116,7 +118,7 @@ Source Location: /PHPExcel/Shared/Date.php<br /><br />
 
 <h4>Copyright:</h4>
 <ul>
-  <li>Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)</li>
+  <li>Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)</li>
 </ul>
         
 </td>
@@ -125,8 +127,6 @@ Source Location: /PHPExcel/Shared/Date.php<br /><br />
 <h3><a href="#class_vars">Variables</a></h3>
 <ul>
     <li><a href="../PHPExcel_Shared/PHPExcel_Shared_Date.html#var$dateTimeObjectType">$dateTimeObjectType</a></li>
-    <li><a href="../PHPExcel_Shared/PHPExcel_Shared_Date.html#var$ExcelBaseDate">$ExcelBaseDate</a></li>
-    <li><a href="../PHPExcel_Shared/PHPExcel_Shared_Date.html#var$possibleDateFormatCharacters">$possibleDateFormatCharacters</a></li>
   </ul>
 </td>
 
@@ -150,6 +150,7 @@ Source Location: /PHPExcel/Shared/Date.php<br /><br />
     <li><a href="../PHPExcel_Shared/PHPExcel_Shared_Date.html#methodisDateTimeFormatCode">isDateTimeFormatCode</a></li>
     <li><a href="../PHPExcel_Shared/PHPExcel_Shared_Date.html#methodPHPToExcel">PHPToExcel</a></li>
     <li><a href="../PHPExcel_Shared/PHPExcel_Shared_Date.html#methodsetExcelCalendar">setExcelCalendar</a></li>
+    <li><a href="../PHPExcel_Shared/PHPExcel_Shared_Date.html#methodstringToExcel">stringToExcel</a></li>
   </ul>
 </td>
 
@@ -169,13 +170,13 @@ Source Location: /PHPExcel/Shared/Date.php<br /><br />
 <a name="class_details"></a>
 <h3>Class Details</h3>
 <div class="tags">
-[line <a href="../__filesource/fsource_PHPExcel_Shared__PHPExcelSharedDate.php.html#a52">52</a>]<br />
-PHPExcel_Shared_Date<br /><br /><p>PHPExcel_Shared_Date</p><br /><br /><br />
+[line <a href="../__filesource/fsource_PHPExcel_Shared__PHPExcelSharedDate.php.html#a37">37</a>]<br />
+PHPExcel_Shared_Date<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td><b>copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)</td>
+    <td><b>copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)</td>
   </tr>
 </table>
 </div>
@@ -189,61 +190,13 @@ PHPExcel_Shared_Date<br /><br /><p>PHPExcel_Shared_Date</p><br /><br /><br />
 	<a name="var$dateTimeObjectType"></a>
 	<p></p>
 	<h4>static $dateTimeObjectType = <span class="value">&nbsp;'DateTime'</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Shared__PHPExcelSharedDate.php.html#a60">60</a>]</p>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Shared__PHPExcelSharedDate.php.html#a45">45</a>]</p>
   <br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-</div>
-
-  <br />
-	<div class="tags">
-  <table border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td><b>Type:</b>&nbsp;&nbsp;</td>
-      <td>mixed</td>
-    </tr>
-      </table>
-	</div><br /><br />
-	<div class="top">[ <a href="#top">Top</a> ]</div><br />
-	<a name="var$ExcelBaseDate"></a>
-	<p></p>
-	<h4>static $ExcelBaseDate = <span class="value">&nbsp;self::CALENDAR_WINDOWS_1900</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Shared__PHPExcelSharedDate.php.html#a58">58</a>]</p>
-  <br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
-  </tr>
-</table>
-</div>
-
-  <br />
-	<div class="tags">
-  <table border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td><b>Type:</b>&nbsp;&nbsp;</td>
-      <td>mixed</td>
-    </tr>
-      </table>
-	</div><br /><br />
-	<div class="top">[ <a href="#top">Top</a> ]</div><br />
-	<a name="var$possibleDateFormatCharacters"></a>
-	<p></p>
-	<h4>static $possibleDateFormatCharacters = <span class="value">&nbsp;'ymdHis'</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Shared__PHPExcelSharedDate.php.html#a238">238</a>]</p>
-  <br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
   </tr>
 </table>
 </div>
@@ -266,7 +219,7 @@ PHPExcel_Shared_Date<br /><br /><p>PHPExcel_Shared_Date</p><br /><br /><br />
 <div class="tags">
   <hr />
 	<a name="methodExcelToPHP"></a>
-	<h3>static method ExcelToPHP <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared__PHPExcelSharedDate.php.html#a95">95</a>]</span></h3>
+	<h3>static method ExcelToPHP <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared__PHPExcelSharedDate.php.html#a80">80</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -276,7 +229,7 @@ $dateValue = 0])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Convert a date from Excel to PHP<br /><br /><p>Convert a date from Excel to PHP</p><br /><br /><br />
+		Convert a date from Excel to PHP<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -305,7 +258,7 @@ $dateValue = 0])</code>
   </div>
   <hr />
 	<a name="methodExcelToPHPObject"></a>
-	<h3>static method ExcelToPHPObject <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared__PHPExcelSharedDate.php.html#a131">131</a>]</span></h3>
+	<h3>static method ExcelToPHPObject <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared__PHPExcelSharedDate.php.html#a116">116</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -315,7 +268,7 @@ $dateValue = 0])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Convert a date from Excel to a PHP Date/Time object<br /><br /><p>Convert a date from Excel to a PHP Date/Time object</p><br /><br /><br />
+		Convert a date from Excel to a PHP Date/Time object<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -344,7 +297,7 @@ $dateValue = 0])</code>
   </div>
   <hr />
 	<a name="methodFormattedPHPToExcel"></a>
-	<h3>static method FormattedPHPToExcel <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared__PHPExcelSharedDate.php.html#a183">183</a>]</span></h3>
+	<h3>static method FormattedPHPToExcel <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared__PHPExcelSharedDate.php.html#a168">168</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -359,7 +312,7 @@ $seconds = 0])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		FormattedPHPToExcel<br /><br /><p>FormattedPHPToExcel</p><br /><br /><br />
+		FormattedPHPToExcel<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -413,7 +366,7 @@ $seconds = 0])</code>
   </div>
   <hr />
 	<a name="methodgetExcelCalendar"></a>
-	<h3>static method getExcelCalendar <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared__PHPExcelSharedDate.php.html#a84">84</a>]</span></h3>
+	<h3>static method getExcelCalendar <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared__PHPExcelSharedDate.php.html#a69">69</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -422,7 +375,7 @@ $seconds = 0])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Return the Excel calendar (Windows 1900 or Mac 1904)<br /><br /><p>Return the Excel calendar (Windows 1900 or Mac 1904)</p><br /><br /><br />
+		Return the Excel calendar (Windows 1900 or Mac 1904)<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -441,7 +394,7 @@ $seconds = 0])</code>
   </div>
   <hr />
 	<a name="methodisDateTime"></a>
-	<h3>static method isDateTime <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared__PHPExcelSharedDate.php.html#a222">222</a>]</span></h3>
+	<h3>static method isDateTime <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared__PHPExcelSharedDate.php.html#a207">207</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -451,7 +404,7 @@ $pCell)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Is a given cell a date/time?<br /><br /><p>Is a given cell a date/time?</p><br /><br /><br />
+		Is a given cell a date/time?<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -477,7 +430,7 @@ $pCell)</code>
   </div>
   <hr />
 	<a name="methodisDateTimeFormat"></a>
-	<h3>static method isDateTimeFormat <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared__PHPExcelSharedDate.php.html#a233">233</a>]</span></h3>
+	<h3>static method isDateTimeFormat <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared__PHPExcelSharedDate.php.html#a218">218</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -487,7 +440,7 @@ $pFormat)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Is a given number format a date/time?<br /><br /><p>Is a given number format a date/time?</p><br /><br /><br />
+		Is a given number format a date/time?<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -513,7 +466,7 @@ $pFormat)</code>
   </div>
   <hr />
 	<a name="methodisDateTimeFormatCode"></a>
-	<h3>static method isDateTimeFormatCode <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared__PHPExcelSharedDate.php.html#a246">246</a>]</span></h3>
+	<h3>static method isDateTimeFormatCode <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared__PHPExcelSharedDate.php.html#a231">231</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -523,7 +476,7 @@ $pFormatCode = ''])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Is a given number format code a date/time?<br /><br /><p>Is a given number format code a date/time?</p><br /><br /><br />
+		Is a given number format code a date/time?<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -549,7 +502,7 @@ $pFormatCode = ''])</code>
   </div>
   <hr />
 	<a name="methodPHPToExcel"></a>
-	<h3>static method PHPToExcel <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared__PHPExcelSharedDate.php.html#a153">153</a>]</span></h3>
+	<h3>static method PHPToExcel <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared__PHPExcelSharedDate.php.html#a138">138</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -559,12 +512,12 @@ $dateValue = 0])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Convert a date from PHP to Excel<br /><br /><p>Convert a date from PHP to Excel</p><br /><br /><br />
+		Convert a date from PHP to Excel<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td><b>return:</b>&nbsp;&nbsp;</td><td>Excel date/time value                                        or boolean False on failure</td>
+    <td><b>return:</b>&nbsp;&nbsp;</td><td>Excel date/time value                                         or boolean False on failure</td>
   </tr>
   <tr>
     <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
@@ -588,7 +541,7 @@ $dateValue = 0])</code>
   </div>
   <hr />
 	<a name="methodsetExcelCalendar"></a>
-	<h3>static method setExcelCalendar <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared__PHPExcelSharedDate.php.html#a69">69</a>]</span></h3>
+	<h3>static method setExcelCalendar <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared__PHPExcelSharedDate.php.html#a54">54</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -598,7 +551,7 @@ $baseDate)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Set the Excel calendar (Windows 1900 or Mac 1904)<br /><br /><p>Set the Excel calendar (Windows 1900 or Mac 1904)</p><br /><br /><br />
+		Set the Excel calendar (Windows 1900 or Mac 1904)<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -625,32 +578,71 @@ $baseDate)</code>
     </div><br />
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
+  <hr />
+	<a name="methodstringToExcel"></a>
+	<h3>static method stringToExcel <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared__PHPExcelSharedDate.php.html#a275">275</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>static float|false stringToExcel(
+[string
+$dateValue = ''])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Convert a date/time string to Excel time<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>return:</b>&nbsp;&nbsp;</td><td>Excel date/time serial value</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$dateValue</b>&nbsp;&nbsp;</td>
+        <td>Examples: '2009-12-31', '2009-12-31 15:59', '2009-12-31 15:59:10'</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
 
 </div><br />
 
 <hr />
-<a name="class_constss"></a>
+<a name="class_consts"></a>
 <h3>Class Constants</h3>
 <div class="tags">
 	<a name="constCALENDAR_MAC_1904"></a>
 	<p></p>
 	<h4>CALENDAR_MAC_1904 = <span class="value">&nbsp;1904</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Shared__PHPExcelSharedDate.php.html#a56">56</a>]</p>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Shared__PHPExcelSharedDate.php.html#a41">41</a>]</p>
   
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constCALENDAR_WINDOWS_1900"></a>
 	<p></p>
 	<h4>CALENDAR_WINDOWS_1900 = <span class="value">&nbsp;1900</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Shared__PHPExcelSharedDate.php.html#a55">55</a>]</p>
-  constants<br /><br /><p>constants</p><br />
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Shared__PHPExcelSharedDate.php.html#a40">40</a>]</p>
+  constants<br /><br />
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 </div><br />
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Mon, 02 Nov 2009 08:39:12 +0100 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.1</a>
+		    Documentation generated on Tue, 01 Jun 2010 17:02:44 +0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>

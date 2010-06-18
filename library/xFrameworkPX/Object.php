@@ -358,6 +358,54 @@ class xFrameworkPX_Object
     }
 
     // }}}
+    // {{{ requireLibrary
+
+    /**
+     * 使用するライブラリをRequire
+     *
+     * @param string $path 使用するライブラリのパス
+     * @return void
+     */
+    public function requireLibrary($path)
+    {
+
+        switch (1) {
+
+            // PHPExcel
+            case preg_match('/PHPExcel/i', $path):
+                $loader = spl_autoload_functions();
+
+                // autoload初期化
+                if ($loader) {
+
+                    foreach ($loader as $callback) {
+                        spl_autoload_unregister($callback);
+                    }
+
+                }
+
+                require_once($path);
+
+                // autoload再登録
+                if ($loader) {
+
+                    foreach ($loader as $callback) {
+                        spl_autoload_register($callback);
+                    }
+
+                }
+
+                break;
+
+            // その他
+            default:
+                require_once($path);
+                break;
+        }
+
+    }
+
+    // }}}
 
 }
 

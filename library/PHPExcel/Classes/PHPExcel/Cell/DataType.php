@@ -2,7 +2,7 @@
 /**
  * PHPExcel
  *
- * Copyright (c) 2006 - 2009 PHPExcel
+ * Copyright (c) 2006 - 2010 PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,22 +20,10 @@
  *
  * @category   PHPExcel
  * @package    PHPExcel_Cell
- * @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.1, 2009-11-02
+ * @version    1.7.3c, 2010-06-01
  */
-
-
-/** PHPExcel root directory */
-if (!defined('PHPEXCEL_ROOT')) {
-	/**
-	 * @ignore
-	 */
-	define('PHPEXCEL_ROOT', dirname(__FILE__) . '/../../');
-}
-
-/** PHPExcel_Cell_DefaultValueBinder */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Cell/DefaultValueBinder.php';
 
 
 /**
@@ -43,7 +31,7 @@ require_once PHPEXCEL_ROOT . 'PHPExcel/Cell/DefaultValueBinder.php';
  *
  * @category   PHPExcel
  * @package    PHPExcel_Cell
- * @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  */
 class PHPExcel_Cell_DataType
 {
@@ -71,7 +59,7 @@ class PHPExcel_Cell_DataType
 	public static function getErrorCodes() {
 		return self::$_errorCodes;
 	}
-	
+
 	/**
 	 * DataType for value
 	 *

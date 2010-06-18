@@ -14,7 +14,7 @@
     <td class="header_menu">
         
                                                                                                                                                                                 
-                                                                                                                                                                                                                                                                              		  [ <a href="../classtrees_PHPExcel_Reader.html" class="menu">class tree: PHPExcel_Reader</a> ]
+                                                                                                                                                                                                                                                                                                  		  [ <a href="../classtrees_PHPExcel_Reader.html" class="menu">class tree: PHPExcel_Reader</a> ]
 		  [ <a href="../elementindex_PHPExcel_Reader.html" class="menu">index: PHPExcel_Reader</a> ]
 		  	    [ <a href="../elementindex.html" class="menu">all elements</a> ]
     </td>
@@ -29,16 +29,17 @@
 			<p><a href="../todolist.html">Todo List</a></p>
 	</div>
       <b>Packages:</b><br />
-              <a href="../li_default.html">default</a><br />
+              <a href="../li_PHPExcel.html">PHPExcel</a><br />
               <a href="../li_com-tecnick-tcpdf.html">com-tecnick-tcpdf</a><br />
               <a href="../li_JAMA.html">JAMA</a><br />
               <a href="../li_Math_Stats.html">Math_Stats</a><br />
-              <a href="../li_PHPExcel.html">PHPExcel</a><br />
+              <a href="../li_PHPExcel_CachedObjectStorage.html">PHPExcel_CachedObjectStorage</a><br />
               <a href="../li_PHPExcel_Calculation.html">PHPExcel_Calculation</a><br />
               <a href="../li_PHPExcel_Cell.html">PHPExcel_Cell</a><br />
               <a href="../li_PHPExcel_Reader.html">PHPExcel_Reader</a><br />
               <a href="../li_PHPExcel_Reader_Excel5.html">PHPExcel_Reader_Excel5</a><br />
               <a href="../li_PHPExcel_RichText.html">PHPExcel_RichText</a><br />
+              <a href="../li_PHPExcel_Settings.html">PHPExcel_Settings</a><br />
               <a href="../li_PHPExcel_Shared.html">PHPExcel_Shared</a><br />
               <a href="../li_PHPExcel_Shared_Best_Fit.html">PHPExcel_Shared_Best_Fit</a><br />
               <a href="../li_PHPExcel_Shared_Escher.html">PHPExcel_Shared_Escher</a><br />
@@ -63,7 +64,7 @@
 <li><div class="src-line"><a name="a2"></a><span class="src-doc">/**</span></div></li>
 <li><div class="src-line"><a name="a3"></a><span class="src-doc">&nbsp;*&nbsp;PHPExcel</span></div></li>
 <li><div class="src-line"><a name="a4"></a><span class="src-doc">&nbsp;*</span></div></li>
-<li><div class="src-line"><a name="a5"></a><span class="src-doc">&nbsp;*&nbsp;Copyright&nbsp;(c)&nbsp;2006&nbsp;-&nbsp;2009&nbsp;PHPExcel</span></div></li>
+<li><div class="src-line"><a name="a5"></a><span class="src-doc">&nbsp;*&nbsp;Copyright&nbsp;(c)&nbsp;2006&nbsp;-&nbsp;2010&nbsp;PHPExcel</span></div></li>
 <li><div class="src-line"><a name="a6"></a><span class="src-doc">&nbsp;*</span></div></li>
 <li><div class="src-line"><a name="a7"></a><span class="src-doc">&nbsp;*&nbsp;This&nbsp;library&nbsp;is&nbsp;free&nbsp;software;&nbsp;you&nbsp;can&nbsp;redistribute&nbsp;it&nbsp;and/or</span></div></li>
 <li><div class="src-line"><a name="a8"></a><span class="src-doc">&nbsp;*&nbsp;modify&nbsp;it&nbsp;under&nbsp;the&nbsp;terms&nbsp;of&nbsp;the&nbsp;GNU&nbsp;Lesser&nbsp;General&nbsp;Public</span></div></li>
@@ -81,9 +82,9 @@
 <li><div class="src-line"><a name="a20"></a><span class="src-doc">&nbsp;*</span></div></li>
 <li><div class="src-line"><a name="a21"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@category</span><span class="src-doc">&nbsp;&nbsp;&nbsp;PHPExcel</span></div></li>
 <li><div class="src-line"><a name="a22"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@package</span><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;PHPExcel_Reader</span></div></li>
-<li><div class="src-line"><a name="a23"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@copyright</span><span class="src-doc">&nbsp;&nbsp;Copyright&nbsp;(c)&nbsp;2006&nbsp;-&nbsp;2009&nbsp;PHPExcel&nbsp;(http://www.codeplex.com/PHPExcel)</span></div></li>
+<li><div class="src-line"><a name="a23"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@copyright</span><span class="src-doc">&nbsp;&nbsp;Copyright&nbsp;(c)&nbsp;2006&nbsp;-&nbsp;2010&nbsp;PHPExcel&nbsp;(http://www.codeplex.com/PHPExcel)</span></div></li>
 <li><div class="src-line"><a name="a24"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@license</span><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt&nbsp;&nbsp;&nbsp;&nbsp;LGPL</span></div></li>
-<li><div class="src-line"><a name="a25"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@version</span><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;1.7.1,&nbsp;2009-11-02</span></div></li>
+<li><div class="src-line"><a name="a25"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@version</span><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;1.7.3c,&nbsp;2010-06-01</span></div></li>
 <li><div class="src-line"><a name="a26"></a><span class="src-doc">&nbsp;*/</span></div></li>
 <li><div class="src-line"><a name="a27"></a>&nbsp;</div></li>
 <li><div class="src-line"><a name="a28"></a>&nbsp;</div></li>
@@ -92,7 +93,7 @@
 <li><div class="src-line"><a name="a31"></a><span class="src-doc">&nbsp;*</span></div></li>
 <li><div class="src-line"><a name="a32"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@category</span><span class="src-doc">&nbsp;&nbsp;&nbsp;PHPExcel</span></div></li>
 <li><div class="src-line"><a name="a33"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@package</span><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;PHPExcel_Reader</span></div></li>
-<li><div class="src-line"><a name="a34"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@copyright</span><span class="src-doc">&nbsp;&nbsp;Copyright&nbsp;(c)&nbsp;2006&nbsp;-&nbsp;2009&nbsp;PHPExcel&nbsp;(http://www.codeplex.com/PHPExcel)</span></div></li>
+<li><div class="src-line"><a name="a34"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@copyright</span><span class="src-doc">&nbsp;&nbsp;Copyright&nbsp;(c)&nbsp;2006&nbsp;-&nbsp;2010&nbsp;PHPExcel&nbsp;(http://www.codeplex.com/PHPExcel)</span></div></li>
 <li><div class="src-line"><a name="a35"></a><span class="src-doc">&nbsp;*/</span></div></li>
 <li><div class="src-line"><a name="a36"></a><span class="src-key">interface&nbsp;</span><a href="../PHPExcel_Reader/PHPExcel_Reader_IReader.html">PHPExcel_Reader_IReader</a></div></li>
 <li><div class="src-line"><a name="a37"></a><span class="src-sym">{</span></div></li>
@@ -116,7 +117,7 @@
 </div>
         <div class="credit">
 		    <hr />
-		    Documentation generated on Mon, 02 Nov 2009 08:42:42 +0100 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.1</a>
+		    Documentation generated on Tue, 01 Jun 2010 17:05:02 +0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>

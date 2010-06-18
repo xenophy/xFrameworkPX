@@ -2,7 +2,7 @@
 /**
  * PHPExcel
  *
- * Copyright (c) 2006 - 2009 PHPExcel
+ * Copyright (c) 2006 - 2010 PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,9 +20,9 @@
  *
  * @category   PHPExcel
  * @package    PHPExcel_Reader
- * @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.1, 2009-11-02
+ * @version    1.7.3c, 2010-06-01
  */
 
 
@@ -32,42 +32,37 @@ if (!defined('PHPEXCEL_ROOT')) {
 	 * @ignore
 	 */
 	define('PHPEXCEL_ROOT', dirname(__FILE__) . '/../../');
+	require(PHPEXCEL_ROOT . 'PHPExcel/Autoloader.php');
+	PHPExcel_Autoloader::Register();
+	PHPExcel_Shared_ZipStreamWrapper::register();
+	// check mbstring.func_overload
+	if (ini_get('mbstring.func_overload') & 2) {
+		throw new Exception('Multibyte function overloading in PHP must be disabled for string functions (2).');
+	}
 }
-
-/** PHPExcel */
-require_once PHPEXCEL_ROOT . 'PHPExcel.php';
-
-/** PHPExcel_Reader_IReader */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Reader/IReader.php';
-
-/** PHPExcel_Worksheet */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Worksheet.php';
-
-/** PHPExcel_Cell */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Cell.php';
-
-/** PHPExcel_Calculation */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Calculation.php';
-
- /** PHPExcel_Reader_DefaultReadFilter */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Reader/DefaultReadFilter.php';
-
 
 /**
  * PHPExcel_Reader_OOCalc
  *
  * @category   PHPExcel
  * @package    PHPExcel_Reader
- * @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  */
 class PHPExcel_Reader_OOCalc implements PHPExcel_Reader_IReader
 {
 	/**
-	 * Input encoding
+	 * Read data only?
 	 *
-	 * @var string
+	 * @var boolean
 	 */
-	private $_inputEncoding;
+	private $_readDataOnly = false;
+
+	/**
+	 * Restict which sheets should be loaded?
+	 *
+	 * @var array
+	 */
+	private $_loadSheetsOnly = null;
 
 	/**
 	 * Sheet index to read
@@ -90,6 +85,81 @@ class PHPExcel_Reader_OOCalc implements PHPExcel_Reader_IReader
 	 */
 	private $_readFilter = null;
 
+
+	/**
+	 * Read data only?
+	 *
+	 * @return boolean
+	 */
+	public function getReadDataOnly() {
+		return $this->_readDataOnly;
+	}
+
+	/**
+	 * Set read data only
+	 *
+	 * @param boolean $pValue
+	 * @return PHPExcel_Reader_Excel2007
+	 */
+	public function setReadDataOnly($pValue = false) {
+		$this->_readDataOnly = $pValue;
+		return $this;
+	}
+
+	/**
+	 * Get which sheets to load
+	 *
+	 * @return mixed
+	 */
+	public function getLoadSheetsOnly()
+	{
+		return $this->_loadSheetsOnly;
+	}
+
+	/**
+	 * Set which sheets to load
+	 *
+	 * @param mixed $value
+	 * @return PHPExcel_Reader_Excel2007
+	 */
+	public function setLoadSheetsOnly($value = null)
+	{
+		$this->_loadSheetsOnly = is_array($value) ?
+			$value : array($value);
+		return $this;
+	}
+
+	/**
+	 * Set all sheets to load
+	 *
+	 * @return PHPExcel_Reader_Excel2007
+	 */
+	public function setLoadAllSheets()
+	{
+		$this->_loadSheetsOnly = null;
+		return $this;
+	}
+
+	/**
+	 * Read filter
+	 *
+	 * @return PHPExcel_Reader_IReadFilter
+	 */
+	public function getReadFilter() {
+		return $this->_readFilter;
+	}
+
+	/**
+	 * Set read filter
+	 *
+	 * @param PHPExcel_Reader_IReadFilter $pValue
+	 * @return PHPExcel_Reader_Excel2007
+	 */
+	public function setReadFilter(PHPExcel_Reader_IReadFilter $pValue) {
+		$this->_readFilter = $pValue;
+		return $this;
+	}
+
 	/**
 	 * Create a new PHPExcel_Reader_OOCalc
 	 */
@@ -106,6 +176,11 @@ class PHPExcel_Reader_OOCalc implements PHPExcel_Reader_IReader
 	 */
 	public function canRead($pFilename)
 	{
+		// Check if zip class exists
+		if (!class_exists('ZipArchive')) {
+			return false;
+		}
+
 		// Check if file exists
 		if (!file_exists($pFilename)) {
 			throw new Exception("Could not open " . $pFilename . " for reading! File does not exist.");
@@ -129,6 +204,7 @@ class PHPExcel_Reader_OOCalc implements PHPExcel_Reader_IReader
 	 * Loads PHPExcel from file
 	 *
 	 * @param 	string 		$pFilename
+	 * @return 	PHPExcel
 	 * @throws 	Exception
 	 */
 	public function load($pFilename)
@@ -139,25 +215,6 @@ class PHPExcel_Reader_OOCalc implements PHPExcel_Reader_IReader
 		// Load into this instance
 		return $this->loadIntoExisting($pFilename, $objPHPExcel);
 	}
-
-	/**
-	 * Read filter
-	 *
-	 * @return PHPExcel_Reader_IReadFilter
-	 */
-	public function getReadFilter() {
-		return $this->_readFilter;
-	}
-
-	/**
-	 * Set read filter
-	 *
-	 * @param PHPExcel_Reader_IReadFilter $pValue
-	 */
-	public function setReadFilter(PHPExcel_Reader_IReadFilter $pValue) {
-		$this->_readFilter = $pValue;
-	}
-
 
 	private static function identifyFixedStyleValue($styleList,&$styleAttributeValue) {
 		$styleAttributeValue = strtolower($styleAttributeValue);
@@ -175,6 +232,7 @@ class PHPExcel_Reader_OOCalc implements PHPExcel_Reader_IReader
 	 *
 	 * @param 	string 		$pFilename
 	 * @param	PHPExcel	$objPHPExcel
+	 * @return 	PHPExcel
 	 * @throws 	Exception
 	 */
 	public function loadIntoExisting($pFilename, PHPExcel $objPHPExcel)
@@ -255,14 +313,24 @@ class PHPExcel_Reader_OOCalc implements PHPExcel_Reader_IReader
 			foreach($workbook->body->spreadsheet as $workbookData) {
 				$workbookData = $workbookData->children($namespacesContent['table']);
 				$worksheetID = 0;
-				foreach($workbookData->table as $worksheetData) {
-//					echo '<h2>Worksheet '.$worksheetData['name'].'</h2>';
+				foreach($workbookData->table as $worksheetDataSet) {
+					$worksheetData = $worksheetDataSet->children($namespacesContent['table']);
+//					print_r($worksheetData);
+//					echo '<br />';
+					$worksheetDataAttributes = $worksheetDataSet->attributes($namespacesContent['table']);
+//					print_r($worksheetDataAttributes);
+//					echo '<br />';
+					if ((isset($this->_loadSheetsOnly)) && (isset($worksheetDataAttributes['name'])) &&
+						(!in_array($worksheetDataAttributes['name'], $this->_loadSheetsOnly))) {
+						continue;
+					}
+
+//					echo '<h2>Worksheet '.$worksheetDataAttributes['name'].'</h2>';
 					// Create new Worksheet
 					$objPHPExcel->createSheet();
 					$objPHPExcel->setActiveSheetIndex($worksheetID);
-					$worksheetData = $worksheetData->children($namespacesContent['table']);
-					if (isset($worksheetData['name'])) {
-						$worksheetName = $worksheetData['name'];
+					if (isset($worksheetDataAttributes['name'])) {
+						$worksheetName = (string) $worksheetDataAttributes['name'];
 						$objPHPExcel->getActiveSheet()->setTitle($worksheetName);
 					}
 
@@ -282,9 +350,11 @@ class PHPExcel_Reader_OOCalc implements PHPExcel_Reader_IReader
 //									print_r($cellDataOfficeAttributes);
 //									echo '<br />Table Attributes: ';
 //									print_r($cellDataTableAttributes);
+//									echo '<br />Cell Data Text';
+//									print_r($cellDataText);
 //									echo '<br />';
 //
-									$type = $formatting = null;
+									$type = $formatting = $hyperlink = null;
 									$hasCalculatedValue = false;
 									$cellDataFormula = '';
 									if (isset($cellDataTableAttributes['formula'])) {
@@ -293,10 +363,16 @@ class PHPExcel_Reader_OOCalc implements PHPExcel_Reader_IReader
 									}
 
 									if (isset($cellDataText->p)) {
+//										echo 'Value Type is '.$cellDataOfficeAttributes['value-type'].'<br />';
 										switch ($cellDataOfficeAttributes['value-type']) {
 											case 'string' :
 													$type = PHPExcel_Cell_DataType::TYPE_STRING;
 													$dataValue = $cellDataText->p;
+													if (isset($dataValue->a)) {
+														$dataValue = $dataValue->a;
+														$cellXLinkAttributes = $dataValue->attributes($namespacesContent['xlink']);
+														$hyperlink = $cellXLinkAttributes['href'];
+													}
 													break;
 											case 'boolean' :
 													$type = PHPExcel_Cell_DataType::TYPE_BOOL;
@@ -311,7 +387,9 @@ class PHPExcel_Reader_OOCalc implements PHPExcel_Reader_IReader
 													break;
 											case 'date' :
 													$type = PHPExcel_Cell_DataType::TYPE_NUMERIC;
-													$dataValue = PHPExcel_Shared_Date::PHPToExcel(strtotime($cellDataOfficeAttributes['date-value']));
+													$dateObj = date_create($cellDataOfficeAttributes['date-value']);
+													list($year,$month,$day,$hour,$minute,$second) = explode(' ',$dateObj->format('Y m d H i s'));
+													$dataValue = PHPExcel_Shared_Date::FormattedPHPToExcel($year,$month,$day,$hour,$minute,$second);
 													if ($dataValue != floor($dataValue)) {
 														$formatting = PHPExcel_Style_NumberFormat::FORMAT_DATE_XLSX15.' '.PHPExcel_Style_NumberFormat::FORMAT_DATE_TIME4;
 													} else {
@@ -324,6 +402,10 @@ class PHPExcel_Reader_OOCalc implements PHPExcel_Reader_IReader
 													$formatting = PHPExcel_Style_NumberFormat::FORMAT_DATE_TIME4;
 													break;
 										}
+//										echo 'Data value is '.$dataValue.'<br />';
+//										if (!is_null($hyperlink)) {
+//											echo 'Hyperlink is '.$hyperlink.'<br />';
+//										}
 									}
 
 									if ($hasCalculatedValue) {
@@ -336,6 +418,7 @@ class PHPExcel_Reader_OOCalc implements PHPExcel_Reader_IReader
 											if (($key % 2) == 0) {
 												$value = preg_replace('/\[\.(.*):\.(.*)\]/Ui','$1:$2',$value);
 												$value = preg_replace('/\[\.(.*)\]/Ui','$1',$value);
+												$value = PHPExcel_Calculation::_translateSeparator(';',',',$value);
 											}
 										}
 										unset($value);
@@ -347,12 +430,15 @@ class PHPExcel_Reader_OOCalc implements PHPExcel_Reader_IReader
 									if (!is_null($type)) {
 										$objPHPExcel->getActiveSheet()->getCell($columnID.$rowID)->setValueExplicit((($hasCalculatedValue) ? $cellDataFormula : $dataValue),$type);
 										if ($hasCalculatedValue) {
-//											echo 'Forumla result is '.$cellValue.'<br />';
+//											echo 'Forumla result is '.$dataValue.'<br />';
 											$objPHPExcel->getActiveSheet()->getCell($columnID.$rowID)->setCalculatedValue($dataValue);
 										}
 										if (($cellDataOfficeAttributes['value-type'] == 'date') ||
 											($cellDataOfficeAttributes['value-type'] == 'time')) {
 											$objPHPExcel->getActiveSheet()->getStyle($columnID.$rowID)->getNumberFormat()->setFormatCode($formatting);
+										}
+										if (!is_null($hyperlink)) {
+											$objPHPExcel->getActiveSheet()->getCell($columnID.$rowID)->getHyperlink()->setUrl($hyperlink);
 										}
 									}
 

@@ -16,7 +16,7 @@
 // | Authors: Jesus M. Castagnetto <jmcastagnetto@php.net>                |
 // +----------------------------------------------------------------------+
 //
-// $Id: Stats.php 409 2009-11-27 12:36:20Z kotsutsumi $
+// $Id: Stats.php,v 1.15 2003/06/01 11:40:30 jmcastagnetto Exp $
 //
 
 include_once 'PEAR.php';
@@ -126,7 +126,7 @@ class Base {/*{{{*/
      * @access  private
      * @var array
      */
-    var $_data = null;
+    public $_data = null;
 
     /**
      * Expanded data set. Only set when cummulative data
@@ -135,7 +135,7 @@ class Base {/*{{{*/
      * @access  private
      * @var array
      */
-    var $_dataExpanded = null;
+    public $_dataExpanded = null;
 
     /**
      * Flag for data type, one of STATS_DATA_SIMPLE or
@@ -144,7 +144,7 @@ class Base {/*{{{*/
      * @access  private
      * @var int
      */
-    var $_dataOption = null;
+    public $_dataOption = null;
 
     /**
      * Flag for null handling options. One of STATS_REJECT_NULL,
@@ -153,7 +153,7 @@ class Base {/*{{{*/
      * @access  private
      * @var int
      */
-    var $_nullOption;
+    public $_nullOption;
 
     /**
      * Array for caching result values, should be reset
@@ -162,7 +162,7 @@ class Base {/*{{{*/
      * @access private
      * @var array
      */
-    var $_calculatedValues = array();
+    public $_calculatedValues = array();
 
     /*}}}*/
 

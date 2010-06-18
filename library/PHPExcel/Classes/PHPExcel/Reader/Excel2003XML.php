@@ -2,7 +2,7 @@
 /**
  * PHPExcel
  *
- * Copyright (c) 2006 - 2009 PHPExcel
+ * Copyright (c) 2006 - 2010 PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,9 +20,9 @@
  *
  * @category   PHPExcel
  * @package    PHPExcel_Reader
- * @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.1, 2009-11-02
+ * @version    1.7.3c, 2010-06-01
  */
 
 
@@ -32,42 +32,37 @@ if (!defined('PHPEXCEL_ROOT')) {
 	 * @ignore
 	 */
 	define('PHPEXCEL_ROOT', dirname(__FILE__) . '/../../');
+	require(PHPEXCEL_ROOT . 'PHPExcel/Autoloader.php');
+	PHPExcel_Autoloader::Register();
+	PHPExcel_Shared_ZipStreamWrapper::register();
+	// check mbstring.func_overload
+	if (ini_get('mbstring.func_overload') & 2) {
+		throw new Exception('Multibyte function overloading in PHP must be disabled for string functions (2).');
+	}
 }
-
-/** PHPExcel */
-require_once PHPEXCEL_ROOT . 'PHPExcel.php';
-
-/** PHPExcel_Reader_IReader */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Reader/IReader.php';
-
-/** PHPExcel_Worksheet */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Worksheet.php';
-
-/** PHPExcel_Cell */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Cell.php';
-
-/** PHPExcel_Calculation */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Calculation.php';
-
- /** PHPExcel_Reader_DefaultReadFilter */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Reader/DefaultReadFilter.php';
-
 
 /**
  * PHPExcel_Reader_Excel2003XML
  *
  * @category   PHPExcel
  * @package    PHPExcel_Reader
- * @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  */
 class PHPExcel_Reader_Excel2003XML implements PHPExcel_Reader_IReader
 {
 	/**
-	 * Input encoding
+	 * Read data only?
 	 *
-	 * @var string
+	 * @var boolean
 	 */
-	private $_inputEncoding;
+	private $_readDataOnly = false;
+
+	/**
+	 * Restict which sheets should be loaded?
+	 *
+	 * @var array
+	 */
+	private $_loadSheetsOnly = null;
 
 	/**
 	 * Sheet index to read
@@ -89,6 +84,81 @@ class PHPExcel_Reader_Excel2003XML implements PHPExcel_Reader_IReader
 	 * @var PHPExcel_Reader_IReadFilter
 	 */
 	private $_readFilter = null;
+
+
+	/**
+	 * Read data only?
+	 *
+	 * @return boolean
+	 */
+	public function getReadDataOnly() {
+		return $this->_readDataOnly;
+	}
+
+	/**
+	 * Set read data only
+	 *
+	 * @param boolean $pValue
+	 * @return PHPExcel_Reader_Excel2007
+	 */
+	public function setReadDataOnly($pValue = false) {
+		$this->_readDataOnly = $pValue;
+		return $this;
+	}
+
+	/**
+	 * Get which sheets to load
+	 *
+	 * @return mixed
+	 */
+	public function getLoadSheetsOnly()
+	{
+		return $this->_loadSheetsOnly;
+	}
+
+	/**
+	 * Set which sheets to load
+	 *
+	 * @param mixed $value
+	 * @return PHPExcel_Reader_Excel2007
+	 */
+	public function setLoadSheetsOnly($value = null)
+	{
+		$this->_loadSheetsOnly = is_array($value) ?
+			$value : array($value);
+		return $this;
+	}
+
+	/**
+	 * Set all sheets to load
+	 *
+	 * @return PHPExcel_Reader_Excel2007
+	 */
+	public function setLoadAllSheets()
+	{
+		$this->_loadSheetsOnly = null;
+		return $this;
+	}
+
+	/**
+	 * Read filter
+	 *
+	 * @return PHPExcel_Reader_IReadFilter
+	 */
+	public function getReadFilter() {
+		return $this->_readFilter;
+	}
+
+	/**
+	 * Set read filter
+	 *
+	 * @param PHPExcel_Reader_IReadFilter $pValue
+	 * @return PHPExcel_Reader_Excel2007
+	 */
+	public function setReadFilter(PHPExcel_Reader_IReadFilter $pValue) {
+		$this->_readFilter = $pValue;
+		return $this;
+	}
 
 	/**
 	 * Create a new PHPExcel_Reader_Excel2003XML
@@ -154,6 +224,7 @@ class PHPExcel_Reader_Excel2003XML implements PHPExcel_Reader_IReader
 	 * Loads PHPExcel from file
 	 *
 	 * @param 	string 		$pFilename
+	 * @return 	PHPExcel
 	 * @throws 	Exception
 	 */
 	public function load($pFilename)
@@ -164,25 +235,6 @@ class PHPExcel_Reader_Excel2003XML implements PHPExcel_Reader_IReader
 		// Load into this instance
 		return $this->loadIntoExisting($pFilename, $objPHPExcel);
 	}
-
-	/**
-	 * Read filter
-	 *
-	 * @return PHPExcel_Reader_IReadFilter
-	 */
-	public function getReadFilter() {
-		return $this->_readFilter;
-	}
-
-	/**
-	 * Set read filter
-	 *
-	 * @param PHPExcel_Reader_IReadFilter $pValue
-	 */
-	public function setReadFilter(PHPExcel_Reader_IReadFilter $pValue) {
-		$this->_readFilter = $pValue;
-	}
-
 
 	private static function identifyFixedStyleValue($styleList,&$styleAttributeValue) {
 		$styleAttributeValue = strtolower($styleAttributeValue);
@@ -225,6 +277,7 @@ class PHPExcel_Reader_Excel2003XML implements PHPExcel_Reader_IReader
 	 *
 	 * @param 	string 		$pFilename
 	 * @param	PHPExcel	$objPHPExcel
+	 * @return 	PHPExcel
 	 * @throws 	Exception
 	 */
 	public function loadIntoExisting($pFilename, PHPExcel $objPHPExcel)
@@ -435,12 +488,17 @@ class PHPExcel_Reader_Excel2003XML implements PHPExcel_Reader_IReader
 
 		$worksheetID = 0;
 		foreach($xml->Worksheet as $worksheet) {
+			$worksheet_ss = $worksheet->attributes($namespaces['ss']);
+			if ((isset($this->_loadSheetsOnly)) && (isset($worksheet_ss['Name'])) &&
+				(!in_array($worksheet_ss['Name'], $this->_loadSheetsOnly))) {
+				continue;
+			}
+
 			// Create new Worksheet
 			$objPHPExcel->createSheet();
 			$objPHPExcel->setActiveSheetIndex($worksheetID);
-			$worksheet_ss = $worksheet->attributes($namespaces['ss']);
 			if (isset($worksheet_ss['Name'])) {
-				$worksheetName = $worksheet_ss['Name'];
+				$worksheetName = (string) $worksheet_ss['Name'];
 				$objPHPExcel->getActiveSheet()->setTitle($worksheetName);
 			}
 
@@ -592,7 +650,7 @@ class PHPExcel_Reader_Excel2003XML implements PHPExcel_Reader_IReader
 //							print_r($this->_styles[$style]);
 //							echo '<br />';
 							if (!$objPHPExcel->getActiveSheet()->cellExists($columnID.$rowID)) {
-								$objPHPExcel->getActiveSheet()->setCellValue($columnID.$rowID,NULL);
+								$objPHPExcel->getActiveSheet()->getCell($columnID.$rowID)->setValue(NULL);
 							}
 							$objPHPExcel->getActiveSheet()->getStyle($cellRange)->applyFromArray($this->_styles[$style]);
 						}

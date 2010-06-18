@@ -2,7 +2,7 @@
 /**
  * PHPExcel
  *
- * Copyright (C) 2006 - 2009 PHPExcel
+ * Copyright (C) 2006 - 2010 PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,9 +20,9 @@
  *
  * @category   PHPExcel
  * @package    PHPExcel
- * @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.1, 2009-11-02
+ * @version    1.7.3c, 2010-06-01
  */
 
 /** Error reporting */
@@ -31,8 +31,6 @@ error_reporting(E_ALL);
 /** PHPExcel */
 require_once '../Classes/PHPExcel.php';
 
-/** PHPExcel_Calculation */
-require_once '../Classes/PHPExcel/Calculation.php';
 
 // List functions
 echo date('H:i:s') . " List implemented functions\n";
@@ -237,6 +235,7 @@ echo 'Value of B38 [=DATEDIF( DATE(2007, 12, 21), DATE(2007, 12, 22), "D" )]: ' 
 echo 'Value of B39 [=DATEVALUE("01-Feb-2006 10:06 AM")]: ' . $objPHPExcel->getActiveSheet()->getCell('B39')->getCalculatedValue() . "\r\n";
 echo 'Value of B40 [=DAY( DATE(2006, 1, 2) )]: ' . $objPHPExcel->getActiveSheet()->getCell('B40')->getCalculatedValue() . "\r\n";
 echo 'Value of B41 [=DAYS360( DATE(2002, 2, 3), DATE(2005, 5, 31) )]: ' . $objPHPExcel->getActiveSheet()->getCell('B41')->getCalculatedValue() . "\r\n";
+
 
 // Echo memory peak usage
 echo date('H:i:s') . " Peak memory usage: " . (memory_get_peak_usage(true) / 1024 / 1024) . " MB\r\n";

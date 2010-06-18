@@ -13,7 +13,7 @@
   <tr>
     <td class="header_menu">
         
-                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                                                
                                                                                                                                                                                                                   		  [ <a href="../classtrees_PHPExcel_Shared.html" class="menu">class tree: PHPExcel_Shared</a> ]
 		  [ <a href="../elementindex_PHPExcel_Shared.html" class="menu">index: PHPExcel_Shared</a> ]
 		  	    [ <a href="../elementindex.html" class="menu">all elements</a> ]
@@ -29,16 +29,17 @@
 			<p><a href="../todolist.html">Todo List</a></p>
 	</div>
       <b>Packages:</b><br />
-              <a href="../li_default.html">default</a><br />
+              <a href="../li_PHPExcel.html">PHPExcel</a><br />
               <a href="../li_com-tecnick-tcpdf.html">com-tecnick-tcpdf</a><br />
               <a href="../li_JAMA.html">JAMA</a><br />
               <a href="../li_Math_Stats.html">Math_Stats</a><br />
-              <a href="../li_PHPExcel.html">PHPExcel</a><br />
+              <a href="../li_PHPExcel_CachedObjectStorage.html">PHPExcel_CachedObjectStorage</a><br />
               <a href="../li_PHPExcel_Calculation.html">PHPExcel_Calculation</a><br />
               <a href="../li_PHPExcel_Cell.html">PHPExcel_Cell</a><br />
               <a href="../li_PHPExcel_Reader.html">PHPExcel_Reader</a><br />
               <a href="../li_PHPExcel_Reader_Excel5.html">PHPExcel_Reader_Excel5</a><br />
               <a href="../li_PHPExcel_RichText.html">PHPExcel_RichText</a><br />
+              <a href="../li_PHPExcel_Settings.html">PHPExcel_Settings</a><br />
               <a href="../li_PHPExcel_Shared.html">PHPExcel_Shared</a><br />
               <a href="../li_PHPExcel_Shared_Best_Fit.html">PHPExcel_Shared_Best_Fit</a><br />
               <a href="../li_PHPExcel_Shared_Escher.html">PHPExcel_Shared_Escher</a><br />
@@ -52,6 +53,8 @@
             <br /><br />
                         <b>Files:</b><br />
       	  <div class="package">
+			<a href="../PHPExcel_Shared/_PHPExcel---Shared---CodePage.php.html">		CodePage.php
+		</a><br>
 			<a href="../PHPExcel_Shared/_PHPExcel---Shared---Date.php.html">		Date.php
 		</a><br>
 			<a href="../PHPExcel_Shared/_PHPExcel---Shared---Drawing.php.html">		Drawing.php
@@ -66,8 +69,6 @@
 		</a><br>
 			<a href="../PHPExcel_Shared/_PHPExcel---Shared---PasswordHasher.php.html">		PasswordHasher.php
 		</a><br>
-			<a href="../PHPExcel_Shared/_PHPExcel---Shared---PDF.php.html">		PDF.php
-		</a><br>
 			<a href="../PHPExcel_Shared/_PHPExcel---Shared---String.php.html">		String.php
 		</a><br>
 			<a href="../PHPExcel_Shared/_PHPExcel---Shared---XMLWriter.php.html">		XMLWriter.php
@@ -79,7 +80,8 @@
       
             <b>Classes:</b><br />
         <div class="package">
-		    		<a href="../PHPExcel_Shared/PHPExcel_Shared_Date.html">PHPExcel_Shared_Date</a><br />
+		    		<a href="../PHPExcel_Shared/PHPExcel_Shared_CodePage.html">PHPExcel_Shared_CodePage</a><br />
+	    		<a href="../PHPExcel_Shared/PHPExcel_Shared_Date.html">PHPExcel_Shared_Date</a><br />
 	    		<a href="../PHPExcel_Shared/PHPExcel_Shared_Drawing.html">PHPExcel_Shared_Drawing</a><br />
 	    		<a href="../PHPExcel_Shared/PHPExcel_Shared_Excel5.html">PHPExcel_Shared_Excel5</a><br />
 	    		<a href="../PHPExcel_Shared/PHPExcel_Shared_File.html">PHPExcel_Shared_File</a><br />
@@ -116,7 +118,7 @@ Source Location: /PHPExcel/Shared/Drawing.php<br /><br />
 
 <h4>Copyright:</h4>
 <ul>
-  <li>Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)</li>
+  <li>Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)</li>
 </ul>
         
 </td>
@@ -130,6 +132,7 @@ Source Location: /PHPExcel/Shared/Drawing.php<br /><br />
     <li><a href="../PHPExcel_Shared/PHPExcel_Shared_Drawing.html#methodcellDimensionToPixels">cellDimensionToPixels</a></li>
     <li><a href="../PHPExcel_Shared/PHPExcel_Shared_Drawing.html#methoddegreesToAngle">degreesToAngle</a></li>
     <li><a href="../PHPExcel_Shared/PHPExcel_Shared_Drawing.html#methodEMUToPixels">EMUToPixels</a></li>
+    <li><a href="../PHPExcel_Shared/PHPExcel_Shared_Drawing.html#methodimagecreatefrombmp">imagecreatefrombmp</a></li>
     <li><a href="../PHPExcel_Shared/PHPExcel_Shared_Drawing.html#methodpixelsToCellDimension">pixelsToCellDimension</a></li>
     <li><a href="../PHPExcel_Shared/PHPExcel_Shared_Drawing.html#methodpixelsToEMU">pixelsToEMU</a></li>
     <li><a href="../PHPExcel_Shared/PHPExcel_Shared_Drawing.html#methodpixelsToPoints">pixelsToPoints</a></li>
@@ -153,13 +156,13 @@ Source Location: /PHPExcel/Shared/Drawing.php<br /><br />
 <a name="class_details"></a>
 <h3>Class Details</h3>
 <div class="tags">
-[line <a href="../__filesource/fsource_PHPExcel_Shared__PHPExcelSharedDrawing.php.html#a48">48</a>]<br />
-PHPExcel_Shared_Drawing<br /><br /><p>PHPExcel_Shared_Drawing</p><br /><br /><br />
+[line <a href="../__filesource/fsource_PHPExcel_Shared__PHPExcelSharedDrawing.php.html#a36">36</a>]<br />
+PHPExcel_Shared_Drawing<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td><b>copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)</td>
+    <td><b>copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)</td>
   </tr>
 </table>
 </div>
@@ -173,7 +176,7 @@ PHPExcel_Shared_Drawing<br /><br /><p>PHPExcel_Shared_Drawing</p><br /><br /><br
 <div class="tags">
   <hr />
 	<a name="methodangleToDegrees"></a>
-	<h3>static method angleToDegrees <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared__PHPExcelSharedDrawing.php.html#a176">176</a>]</span></h3>
+	<h3>static method angleToDegrees <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared__PHPExcelSharedDrawing.php.html#a164">164</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -183,7 +186,7 @@ $pValue = 0])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Convert angle to degrees<br /><br /><p>Convert angle to degrees</p><br /><br /><br />
+		Convert angle to degrees<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -212,7 +215,7 @@ $pValue = 0])</code>
   </div>
   <hr />
 	<a name="methodcellDimensionToPixels"></a>
-	<h3>static method cellDimensionToPixels <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared__PHPExcelSharedDrawing.php.html#a111">111</a>]</span></h3>
+	<h3>static method cellDimensionToPixels <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared__PHPExcelSharedDrawing.php.html#a99">99</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -223,7 +226,7 @@ $pDefaultFont)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Convert column width from (intrinsic) Excel units to pixels<br /><br /><p>Convert column width from (intrinsic) Excel units to pixels</p><br /><br /><br />
+		Convert column width from (intrinsic) Excel units to pixels<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -257,7 +260,7 @@ $pDefaultFont)</code>
   </div>
   <hr />
 	<a name="methoddegreesToAngle"></a>
-	<h3>static method degreesToAngle <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared__PHPExcelSharedDrawing.php.html#a166">166</a>]</span></h3>
+	<h3>static method degreesToAngle <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared__PHPExcelSharedDrawing.php.html#a154">154</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -267,7 +270,7 @@ $pValue = 0])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Convert degrees to angle<br /><br /><p>Convert degrees to angle</p><br /><br /><br />
+		Convert degrees to angle<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -296,7 +299,7 @@ $pValue = 0])</code>
   </div>
   <hr />
 	<a name="methodEMUToPixels"></a>
-	<h3>static method EMUToPixels <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared__PHPExcelSharedDrawing.php.html#a66">66</a>]</span></h3>
+	<h3>static method EMUToPixels <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared__PHPExcelSharedDrawing.php.html#a54">54</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -306,7 +309,7 @@ $pValue = 0])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Convert EMU to pixels<br /><br /><p>Convert EMU to pixels</p><br /><br /><br />
+		Convert EMU to pixels<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -334,8 +337,53 @@ $pValue = 0])</code>
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
   <hr />
+	<a name="methodimagecreatefrombmp"></a>
+	<h3>static method imagecreatefrombmp <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared__PHPExcelSharedDrawing.php.html#a179">179</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>static resource imagecreatefrombmp(
+
+$p_sFile, string
+$filename)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Create a new image from file. By alexander at alexauto dot nl<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>link:</b>&nbsp;&nbsp;</td><td><a href="http://www.php.net/manual/en/function.imagecreatefromwbmp.php#86214">http://www.php.net/manual/en/function.imagecreatefromwbmp.php#86214</a></td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$filename</b>&nbsp;&nbsp;</td>
+        <td>Path to Windows DIB (BMP) image</td>
+      </tr>
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$p_sFile</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
 	<a name="methodpixelsToCellDimension"></a>
-	<h3>static method pixelsToCellDimension <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared__PHPExcelSharedDrawing.php.html#a83">83</a>]</span></h3>
+	<h3>static method pixelsToCellDimension <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared__PHPExcelSharedDrawing.php.html#a71">71</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -346,7 +394,7 @@ $pDefaultFont)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Convert pixels to column width.<br /><br /><p>Convert pixels to column width. Exact algorithm not known. By inspection of a real Excel file using Calibri 11, one finds 1000px ~ 142.85546875 This gives a conversion factor of 7. Also, we assume that pixels and font size are proportional.</p><br /><br /><br />
+		Convert pixels to column width. Exact algorithm not known.<br /><br /><p>By inspection of a real Excel file using Calibri 11, one finds 1000px ~ 142.85546875  This gives a conversion factor of 7. Also, we assume that pixels and font size are proportional.</p><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -380,7 +428,7 @@ $pDefaultFont)</code>
   </div>
   <hr />
 	<a name="methodpixelsToEMU"></a>
-	<h3>static method pixelsToEMU <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared__PHPExcelSharedDrawing.php.html#a56">56</a>]</span></h3>
+	<h3>static method pixelsToEMU <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared__PHPExcelSharedDrawing.php.html#a44">44</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -390,7 +438,7 @@ $pValue = 0])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Convert pixels to EMU<br /><br /><p>Convert pixels to EMU</p><br /><br /><br />
+		Convert pixels to EMU<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -419,7 +467,7 @@ $pValue = 0])</code>
   </div>
   <hr />
 	<a name="methodpixelsToPoints"></a>
-	<h3>static method pixelsToPoints <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared__PHPExcelSharedDrawing.php.html#a142">142</a>]</span></h3>
+	<h3>static method pixelsToPoints <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared__PHPExcelSharedDrawing.php.html#a130">130</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -429,7 +477,7 @@ $pValue = 0])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Convert pixels to points<br /><br /><p>Convert pixels to points</p><br /><br /><br />
+		Convert pixels to points<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -458,7 +506,7 @@ $pValue = 0])</code>
   </div>
   <hr />
 	<a name="methodpointsToPixels"></a>
-	<h3>static method pointsToPixels <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared__PHPExcelSharedDrawing.php.html#a152">152</a>]</span></h3>
+	<h3>static method pointsToPixels <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared__PHPExcelSharedDrawing.php.html#a140">140</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -468,7 +516,7 @@ $pValue = 0])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Convert points to pixels<br /><br /><p>Convert points to pixels</p><br /><br /><br />
+		Convert points to pixels<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -501,7 +549,7 @@ $pValue = 0])</code>
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Mon, 02 Nov 2009 08:39:31 +0100 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.1</a>
+		    Documentation generated on Tue, 01 Jun 2010 17:02:51 +0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>

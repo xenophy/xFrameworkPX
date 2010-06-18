@@ -13,7 +13,7 @@
   <tr>
     <td class="header_menu">
         
-                                                                                                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                                                                                                                                
                                                                                                                                   		  [ <a href="../classtrees_PHPExcel_Style.html" class="menu">class tree: PHPExcel_Style</a> ]
 		  [ <a href="../elementindex_PHPExcel_Style.html" class="menu">index: PHPExcel_Style</a> ]
 		  	    [ <a href="../elementindex.html" class="menu">all elements</a> ]
@@ -29,16 +29,17 @@
 			<p><a href="../todolist.html">Todo List</a></p>
 	</div>
       <b>Packages:</b><br />
-              <a href="../li_default.html">default</a><br />
+              <a href="../li_PHPExcel.html">PHPExcel</a><br />
               <a href="../li_com-tecnick-tcpdf.html">com-tecnick-tcpdf</a><br />
               <a href="../li_JAMA.html">JAMA</a><br />
               <a href="../li_Math_Stats.html">Math_Stats</a><br />
-              <a href="../li_PHPExcel.html">PHPExcel</a><br />
+              <a href="../li_PHPExcel_CachedObjectStorage.html">PHPExcel_CachedObjectStorage</a><br />
               <a href="../li_PHPExcel_Calculation.html">PHPExcel_Calculation</a><br />
               <a href="../li_PHPExcel_Cell.html">PHPExcel_Cell</a><br />
               <a href="../li_PHPExcel_Reader.html">PHPExcel_Reader</a><br />
               <a href="../li_PHPExcel_Reader_Excel5.html">PHPExcel_Reader_Excel5</a><br />
               <a href="../li_PHPExcel_RichText.html">PHPExcel_RichText</a><br />
+              <a href="../li_PHPExcel_Settings.html">PHPExcel_Settings</a><br />
               <a href="../li_PHPExcel_Shared.html">PHPExcel_Shared</a><br />
               <a href="../li_PHPExcel_Shared_Best_Fit.html">PHPExcel_Shared_Best_Fit</a><br />
               <a href="../li_PHPExcel_Shared_Escher.html">PHPExcel_Shared_Escher</a><br />
@@ -114,7 +115,7 @@ Source Location: /PHPExcel/Style/NumberFormat.php<br /><br />
 
 <h4>Copyright:</h4>
 <ul>
-  <li>Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)</li>
+  <li>Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)</li>
 </ul>
                 <p class="implements">
             Implements interfaces:
@@ -124,22 +125,6 @@ Source Location: /PHPExcel/Style/NumberFormat.php<br /><br />
         
 </td>
 
-<td valign="top">
-<h3><a href="#class_vars">Variables</a></h3>
-<ul>
-    <li><a href="../PHPExcel_Style/PHPExcel_Style_NumberFormat.html#var$_builtInFormatCode">$_builtInFormatCode</a></li>
-    <li><a href="../PHPExcel_Style/PHPExcel_Style_NumberFormat.html#var$_builtInFormats">$_builtInFormats</a></li>
-    <li><a href="../PHPExcel_Style/PHPExcel_Style_NumberFormat.html#var$_dateFormatReplacements">$_dateFormatReplacements</a></li>
-    <li><a href="../PHPExcel_Style/PHPExcel_Style_NumberFormat.html#var$_dateFormatReplacements12">$_dateFormatReplacements12</a></li>
-    <li><a href="../PHPExcel_Style/PHPExcel_Style_NumberFormat.html#var$_dateFormatReplacements24">$_dateFormatReplacements24</a></li>
-    <li><a href="../PHPExcel_Style/PHPExcel_Style_NumberFormat.html#var$_flippedBuiltInFormats">$_flippedBuiltInFormats</a></li>
-    <li><a href="../PHPExcel_Style/PHPExcel_Style_NumberFormat.html#var$_formatCode">$_formatCode</a></li>
-    <li><a href="../PHPExcel_Style/PHPExcel_Style_NumberFormat.html#var$_hashIndex">$_hashIndex</a></li>
-    <li><a href="../PHPExcel_Style/PHPExcel_Style_NumberFormat.html#var$_isSupervisor">$_isSupervisor</a></li>
-    <li><a href="../PHPExcel_Style/PHPExcel_Style_NumberFormat.html#var$_parent">$_parent</a></li>
-    <li><a href="../PHPExcel_Style/PHPExcel_Style_NumberFormat.html#var$_parentPropertyName">$_parentPropertyName</a></li>
-  </ul>
-</td>
 
 <td valign="top">
 <h3><a href="#class_consts">Constants</a></h3>
@@ -187,21 +172,18 @@ Source Location: /PHPExcel/Style/NumberFormat.php<br /><br />
     <li><a href="../PHPExcel_Style/PHPExcel_Style_NumberFormat.html#methodbindParent">bindParent</a></li>
     <li><a href="../PHPExcel_Style/PHPExcel_Style_NumberFormat.html#methodbuiltInFormatCode">builtInFormatCode</a></li>
     <li><a href="../PHPExcel_Style/PHPExcel_Style_NumberFormat.html#methodbuiltInFormatCodeIndex">builtInFormatCodeIndex</a></li>
-    <li><a href="../PHPExcel_Style/PHPExcel_Style_NumberFormat.html#methodfillBuiltInFormatCodes">fillBuiltInFormatCodes</a></li>
     <li><a href="../PHPExcel_Style/PHPExcel_Style_NumberFormat.html#method__construct">__construct</a></li>
+    <li><a href="../PHPExcel_Style/PHPExcel_Style_NumberFormat.html#methodgetActiveCell">getActiveCell</a></li>
     <li><a href="../PHPExcel_Style/PHPExcel_Style_NumberFormat.html#methodgetActiveSheet">getActiveSheet</a></li>
     <li><a href="../PHPExcel_Style/PHPExcel_Style_NumberFormat.html#methodgetBuiltInFormatCode">getBuiltInFormatCode</a></li>
     <li><a href="../PHPExcel_Style/PHPExcel_Style_NumberFormat.html#methodgetFormatCode">getFormatCode</a></li>
     <li><a href="../PHPExcel_Style/PHPExcel_Style_NumberFormat.html#methodgetHashCode">getHashCode</a></li>
-    <li><a href="../PHPExcel_Style/PHPExcel_Style_NumberFormat.html#methodgetHashIndex">getHashIndex</a></li>
     <li><a href="../PHPExcel_Style/PHPExcel_Style_NumberFormat.html#methodgetIsSupervisor">getIsSupervisor</a></li>
+    <li><a href="../PHPExcel_Style/PHPExcel_Style_NumberFormat.html#methodgetSelectedCells">getSelectedCells</a></li>
     <li><a href="../PHPExcel_Style/PHPExcel_Style_NumberFormat.html#methodgetSharedComponent">getSharedComponent</a></li>
     <li><a href="../PHPExcel_Style/PHPExcel_Style_NumberFormat.html#methodgetStyleArray">getStyleArray</a></li>
-    <li><a href="../PHPExcel_Style/PHPExcel_Style_NumberFormat.html#methodgetXActiveCell">getXActiveCell</a></li>
-    <li><a href="../PHPExcel_Style/PHPExcel_Style_NumberFormat.html#methodgetXSelectedCells">getXSelectedCells</a></li>
     <li><a href="../PHPExcel_Style/PHPExcel_Style_NumberFormat.html#methodsetBuiltInFormatCode">setBuiltInFormatCode</a></li>
     <li><a href="../PHPExcel_Style/PHPExcel_Style_NumberFormat.html#methodsetFormatCode">setFormatCode</a></li>
-    <li><a href="../PHPExcel_Style/PHPExcel_Style_NumberFormat.html#methodsetHashIndex">setHashIndex</a></li>
     <li><a href="../PHPExcel_Style/PHPExcel_Style_NumberFormat.html#methodtoFormattedString">toFormattedString</a></li>
     <li><a href="../PHPExcel_Style/PHPExcel_Style_NumberFormat.html#method__clone">__clone</a></li>
   </ul>
@@ -223,330 +205,19 @@ Source Location: /PHPExcel/Style/NumberFormat.php<br /><br />
 <a name="class_details"></a>
 <h3>Class Details</h3>
 <div class="tags">
-[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a54">54</a>]<br />
-PHPExcel_Style_NumberFormat<br /><br /><p>PHPExcel_Style_NumberFormat</p><br /><br /><br />
+[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a36">36</a>]<br />
+PHPExcel_Style_NumberFormat<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td><b>copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)</td>
+    <td><b>copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)</td>
   </tr>
 </table>
 </div>
 </div><br /><br />
 <div class="top">[ <a href="#top">Top</a> ]</div><br />
 
-<hr />
-<a name="class_vars"></a>
-<h3>Class Variables</h3>
-<div class="tags">
-	<a name="var$_builtInFormats"></a>
-	<p></p>
-	<h4>static $_builtInFormats = <span class="value"></span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a101">101</a>]</p>
-  Excel built-in number formats<br /><br /><p>Excel built-in number formats</p><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
-  </tr>
-</table>
-</div>
-
-  <br />
-	<div class="tags">
-  <table border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td><b>Type:</b>&nbsp;&nbsp;</td>
-      <td>array</td>
-    </tr>
-      </table>
-	</div><br /><br />
-	<div class="top">[ <a href="#top">Top</a> ]</div><br />
-	<a name="var$_dateFormatReplacements"></a>
-	<p></p>
-	<h4>static $_dateFormatReplacements = <span class="value">array(<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;first&nbsp;remove&nbsp;escapes&nbsp;related&nbsp;to&nbsp;non-format&nbsp;characters<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'\\'&nbsp;&nbsp;&nbsp;=&gt;&nbsp;'',<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;12-hour&nbsp;suffix<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'am/pm'&nbsp;&nbsp;&nbsp;=&gt;&nbsp;'A',<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;4-digit&nbsp;year<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'yyyy'&nbsp;&nbsp;&nbsp;=&gt;&nbsp;'Y',<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;2-digit&nbsp;year<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'yy'&nbsp;&nbsp;&nbsp;=&gt;&nbsp;'y',<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;first&nbsp;letter&nbsp;of&nbsp;month&nbsp;-&nbsp;no&nbsp;php&nbsp;equivalent<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'mmmmm'&nbsp;&nbsp;&nbsp;=&gt;&nbsp;'M',<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;full&nbsp;month&nbsp;name<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'mmmm'&nbsp;&nbsp;&nbsp;=&gt;&nbsp;'F',<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;short&nbsp;month&nbsp;name<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'mmm'&nbsp;&nbsp;&nbsp;=&gt;&nbsp;'M',<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;mm&nbsp;is&nbsp;minutes&nbsp;if&nbsp;time&nbsp;or&nbsp;month&nbsp;w/leading&nbsp;zero<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;':mm'&nbsp;&nbsp;&nbsp;=&gt;&nbsp;':i',<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;month&nbsp;leading&nbsp;zero<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'mm'&nbsp;&nbsp;&nbsp;=&gt;&nbsp;'m',<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;month&nbsp;no&nbsp;leading&nbsp;zero<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'m'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&gt;&nbsp;'n',<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;full&nbsp;day&nbsp;of&nbsp;week&nbsp;name<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'dddd'&nbsp;&nbsp;&nbsp;=&gt;&nbsp;'l',<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;short&nbsp;day&nbsp;of&nbsp;week&nbsp;name<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'ddd'&nbsp;&nbsp;&nbsp;=&gt;&nbsp;'D',<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;days&nbsp;leading&nbsp;zero<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'dd'&nbsp;&nbsp;&nbsp;=&gt;&nbsp;'d',<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;days&nbsp;no&nbsp;leading&nbsp;zero<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'d'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&gt;&nbsp;'j',<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;seconds<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'ss'&nbsp;&nbsp;&nbsp;=&gt;&nbsp;'s',<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;fractional&nbsp;seconds&nbsp;-&nbsp;no&nbsp;php&nbsp;equivalent<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.s'&nbsp;&nbsp;&nbsp;=&gt;&nbsp;''<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a494">494</a>]</p>
-  <br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
-  </tr>
-</table>
-</div>
-
-  <br />
-	<div class="tags">
-  <table border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td><b>Type:</b>&nbsp;&nbsp;</td>
-      <td>mixed</td>
-    </tr>
-      </table>
-	</div><br /><br />
-	<div class="top">[ <a href="#top">Top</a> ]</div><br />
-	<a name="var$_dateFormatReplacements12"></a>
-	<p></p>
-	<h4>static $_dateFormatReplacements12 = <span class="value">array(<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'hh'&nbsp;&nbsp;&nbsp;=&gt;&nbsp;'h',<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'h'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&gt;&nbsp;'g'<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a532">532</a>]</p>
-  <br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
-  </tr>
-</table>
-</div>
-
-  <br />
-	<div class="tags">
-  <table border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td><b>Type:</b>&nbsp;&nbsp;</td>
-      <td>mixed</td>
-    </tr>
-      </table>
-	</div><br /><br />
-	<div class="top">[ <a href="#top">Top</a> ]</div><br />
-	<a name="var$_dateFormatReplacements24"></a>
-	<p></p>
-	<h4>static $_dateFormatReplacements24 = <span class="value">array(<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'hh'&nbsp;&nbsp;&nbsp;=&gt;&nbsp;'H',<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'h'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&gt;&nbsp;'G'<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a528">528</a>]</p>
-  <br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
-  </tr>
-</table>
-</div>
-
-  <br />
-	<div class="tags">
-  <table border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td><b>Type:</b>&nbsp;&nbsp;</td>
-      <td>mixed</td>
-    </tr>
-      </table>
-	</div><br /><br />
-	<div class="top">[ <a href="#top">Top</a> ]</div><br />
-	<a name="var$_flippedBuiltInFormats"></a>
-	<p></p>
-	<h4>static $_flippedBuiltInFormats = <span class="value"></span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a108">108</a>]</p>
-  Excel built-in number formats (flipped, for faster lookups)<br /><br /><p>Excel built-in number formats (flipped, for faster lookups)</p><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
-  </tr>
-</table>
-</div>
-
-  <br />
-	<div class="tags">
-  <table border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td><b>Type:</b>&nbsp;&nbsp;</td>
-      <td>array</td>
-    </tr>
-      </table>
-	</div><br /><br />
-	<div class="top">[ <a href="#top">Top</a> ]</div><br />
-	<a name="var$_builtInFormatCode"></a>
-	<p></p>
-	<h4>$_builtInFormatCode = <span class="value"></span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a122">122</a>]</p>
-  Built-in format Code<br /><br /><p>Built-in format Code</p><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
-  </tr>
-</table>
-</div>
-
-  <br />
-	<div class="tags">
-  <table border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td><b>Type:</b>&nbsp;&nbsp;</td>
-      <td>string</td>
-    </tr>
-      </table>
-	</div><br /><br />
-	<div class="top">[ <a href="#top">Top</a> ]</div><br />
-	<a name="var$_formatCode"></a>
-	<p></p>
-	<h4>$_formatCode = <span class="value"></span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a115">115</a>]</p>
-  Format Code<br /><br /><p>Format Code</p><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
-  </tr>
-</table>
-</div>
-
-  <br />
-	<div class="tags">
-  <table border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td><b>Type:</b>&nbsp;&nbsp;</td>
-      <td>string</td>
-    </tr>
-      </table>
-	</div><br /><br />
-	<div class="top">[ <a href="#top">Top</a> ]</div><br />
-	<a name="var$_hashIndex"></a>
-	<p></p>
-	<h4>$_hashIndex = <span class="value"></span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a454">454</a>]</p>
-  Hash index<br /><br /><p>Hash index</p><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
-  </tr>
-</table>
-</div>
-
-  <br />
-	<div class="tags">
-  <table border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td><b>Type:</b>&nbsp;&nbsp;</td>
-      <td>string</td>
-    </tr>
-      </table>
-	</div><br /><br />
-	<div class="top">[ <a href="#top">Top</a> ]</div><br />
-	<a name="var$_isSupervisor"></a>
-	<p></p>
-	<h4>$_isSupervisor = <span class="value"></span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a136">136</a>]</p>
-  Supervisor?<br /><br /><p>Supervisor?</p><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
-  </tr>
-</table>
-</div>
-
-  <br />
-	<div class="tags">
-  <table border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td><b>Type:</b>&nbsp;&nbsp;</td>
-      <td>boolean</td>
-    </tr>
-      </table>
-	</div><br /><br />
-	<div class="top">[ <a href="#top">Top</a> ]</div><br />
-	<a name="var$_parent"></a>
-	<p></p>
-	<h4>$_parent = <span class="value"></span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a143">143</a>]</p>
-  Parent.<br /><br /><p>Parent. Only used for supervisor</p><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
-  </tr>
-</table>
-</div>
-
-  <br />
-	<div class="tags">
-  <table border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td><b>Type:</b>&nbsp;&nbsp;</td>
-      <td><a href="../PHPExcel_Style/PHPExcel_Style.html">PHPExcel_Style</a></td>
-    </tr>
-      </table>
-	</div><br /><br />
-	<div class="top">[ <a href="#top">Top</a> ]</div><br />
-	<a name="var$_parentPropertyName"></a>
-	<p></p>
-	<h4>$_parentPropertyName = <span class="value"></span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a129">129</a>]</p>
-  Parent Borders<br /><br /><p>Parent Borders</p><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>var:</b>&nbsp;&nbsp;</td><td>string</td>
-  </tr>
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
-  </tr>
-</table>
-</div>
-
-  <br />
-	<div class="tags">
-  <table border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td><b>Type:</b>&nbsp;&nbsp;</td>
-      <td>_parentPropertyName</td>
-    </tr>
-      </table>
-	</div><br /><br />
-	<div class="top">[ <a href="#top">Top</a> ]</div><br />
-</div><br />
 
 <hr />
 <a name="class_methods"></a>
@@ -554,7 +225,7 @@ PHPExcel_Style_NumberFormat<br /><br /><p>PHPExcel_Style_NumberFormat</p><br /><
 <div class="tags">
   <hr />
 	<a name="methodbuiltInFormatCode"></a>
-	<h3>static method builtInFormatCode <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a400">400</a>]</span></h3>
+	<h3>static method builtInFormatCode <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a387">387</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -564,7 +235,7 @@ $pIndex)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Get built-in format code<br /><br /><p>Get built-in format code</p><br /><br /><br />
+		Get built-in format code<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -590,7 +261,7 @@ $pIndex)</code>
   </div>
   <hr />
 	<a name="methodbuiltInFormatCodeIndex"></a>
-	<h3>static method builtInFormatCodeIndex <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a421">421</a>]</span></h3>
+	<h3>static method builtInFormatCodeIndex <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a409">409</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -600,7 +271,7 @@ $formatCode)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Get built-in format code index<br /><br /><p>Get built-in format code index</p><br /><br /><br />
+		Get built-in format code index<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -625,33 +296,8 @@ $formatCode)</code>
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
   <hr />
-	<a name="methodfillBuiltInFormatCodes"></a>
-	<h3>static method fillBuiltInFormatCodes <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a332">332</a>]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>static void fillBuiltInFormatCodes(
-)</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		Fill built-in format codes<br /><br /><p>Fill built-in format codes</p><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
-	
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
 	<a name="methodtoFormattedString"></a>
-	<h3>static method toFormattedString <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a545">545</a>]</span></h3>
+	<h3>static method toFormattedString <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a505">505</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -663,7 +309,7 @@ $callBack = null])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Convert a value in a pre-defined format to a PHP string<br /><br /><p>Convert a value in a pre-defined format to a PHP string</p><br /><br /><br />
+		Convert a value in a pre-defined format to a PHP string<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -703,7 +349,7 @@ $callBack = null])</code>
 
   <hr />
 	<a name="methodapplyFromArray"></a>
-	<h3>method applyFromArray <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a248">248</a>]</span></h3>
+	<h3>method applyFromArray <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a230">230</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -713,8 +359,7 @@ $pStyles = null])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Apply styles from array<br /><br /><p>Apply styles from array
- <ol><li><div class="src-line">&nbsp;<span class="src-var">$objPHPExcel</span><span class="src-sym">-&gt;</span><a href="../PHPExcel_Style/PHPExcel_Style_NumberFormat.html#methodgetActiveSheet">getActiveSheet</a><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><span class="src-id">getStyle</span><span class="src-sym">(</span><span class="src-str">'B2'</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><span class="src-id">getNumberFormat</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><a href="../PHPExcel_Style/PHPExcel_Style_NumberFormat.html#methodapplyFromArray">applyFromArray</a><span class="src-sym">(</span></div></li>
+		Apply styles from array<br /><br /><p><ol><li><div class="src-line">&nbsp;<span class="src-var">$objPHPExcel</span><span class="src-sym">-&gt;</span><a href="../PHPExcel_Style/PHPExcel_Style_NumberFormat.html#methodgetActiveSheet">getActiveSheet</a><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><span class="src-id">getStyle</span><span class="src-sym">(</span><span class="src-str">'B2'</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><span class="src-id">getNumberFormat</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><a href="../PHPExcel_Style/PHPExcel_Style_NumberFormat.html#methodapplyFromArray">applyFromArray</a><span class="src-sym">(</span></div></li>
 <li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">array</span><span class="src-sym">(</span></div></li>
 <li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">'code'&nbsp;</span>=&gt;&nbsp;<span class="src-id"><a href="../PHPExcel_Style/PHPExcel_Style_NumberFormat.html">PHPExcel_Style_NumberFormat</a></span><span class="src-sym">::</span><span class="src-id">FORMAT_CURRENCY_EUR_SIMPLE</span></div></li>
 <li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">)</span></div></li>
@@ -748,7 +393,7 @@ $pStyles = null])</code>
   </div>
   <hr />
 	<a name="methodbindParent"></a>
-	<h3>method bindParent <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a164">164</a>]</span></h3>
+	<h3>method bindParent <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a146">146</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -758,7 +403,7 @@ $parent)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Bind parent.<br /><br /><p>Bind parent. Only used for supervisor</p><br /><br /><br />
+		Bind parent. Only used for supervisor<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -784,7 +429,7 @@ $parent)</code>
   </div>
   <hr />
 	<a name="method__construct"></a>
-	<h3>constructor __construct <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a148">148</a>]</span></h3>
+	<h3>constructor __construct <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a130">130</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -794,7 +439,7 @@ $isSupervisor = false])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Create a new PHPExcel_Style_NumberFormat<br /><br /><p>Create a new PHPExcel_Style_NumberFormat</p><br /><br /><br />
+		Create a new PHPExcel_Style_NumberFormat<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -819,8 +464,36 @@ $isSupervisor = false])</code>
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
   <hr />
+	<a name="methodgetActiveCell"></a>
+	<h3>method getActiveCell <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a199">199</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>string getActiveCell(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Get the currently active cell coordinate in currently active sheet.<br /><br /><p>Only used for supervisor</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>return:</b>&nbsp;&nbsp;</td><td>E.g. 'A1'</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
 	<a name="methodgetActiveSheet"></a>
-	<h3>method getActiveSheet <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a195">195</a>]</span></h3>
+	<h3>method getActiveSheet <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a177">177</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -829,7 +502,7 @@ $isSupervisor = false])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Get the currently active sheet.<br /><br /><p>Get the currently active sheet. Only used for supervisor</p><br /><br /><br />
+		Get the currently active sheet. Only used for supervisor<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -845,7 +518,7 @@ $isSupervisor = false])</code>
   </div>
   <hr />
 	<a name="methodgetBuiltInFormatCode"></a>
-	<h3>method getBuiltInFormatCode <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a304">304</a>]</span></h3>
+	<h3>method getBuiltInFormatCode <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a289">289</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -854,7 +527,7 @@ $isSupervisor = false])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Get Built-In Format Code<br /><br /><p>Get Built-In Format Code</p><br /><br /><br />
+		Get Built-In Format Code<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -870,7 +543,7 @@ $isSupervisor = false])</code>
   </div>
   <hr />
 	<a name="methodgetFormatCode"></a>
-	<h3>method getFormatCode <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a268">268</a>]</span></h3>
+	<h3>method getFormatCode <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a251">251</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -879,7 +552,7 @@ $isSupervisor = false])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Get Format Code<br /><br /><p>Get Format Code</p><br /><br /><br />
+		Get Format Code<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -895,7 +568,7 @@ $isSupervisor = false])</code>
   </div>
   <hr />
 	<a name="methodgetHashCode"></a>
-	<h3>method getHashCode <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a438">438</a>]</span></h3>
+	<h3>method getHashCode <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a427">427</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -904,7 +577,7 @@ $isSupervisor = false])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Get hash code<br /><br /><p>Get hash code</p><br /><br /><br />
+		Get hash code<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -922,25 +595,20 @@ $isSupervisor = false])</code>
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
   <hr />
-	<a name="methodgetHashIndex"></a>
-	<h3>method getHashIndex <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a464">464</a>]</span></h3>
+	<a name="methodgetIsSupervisor"></a>
+	<h3>method getIsSupervisor <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a156">156</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>string getHashIndex(
+		<code>boolean getIsSupervisor(
 )</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Get hash index
- Note that this index may vary during script execution! Only reliable moment is while doing a write of a workbook and when changes are not allowed.<br /><br /><p>Get hash index
- Note that this index may vary during script execution! Only reliable moment is while doing a write of a workbook and when changes are not allowed.</p><br /><br /><br />
+		Is this a supervisor or a real style component?<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>return:</b>&nbsp;&nbsp;</td><td>Hash index</td>
-  </tr>
   <tr>
     <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
   </tr>
@@ -952,20 +620,23 @@ $isSupervisor = false])</code>
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
   <hr />
-	<a name="methodgetIsSupervisor"></a>
-	<h3>method getIsSupervisor <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a174">174</a>]</span></h3>
+	<a name="methodgetSelectedCells"></a>
+	<h3>method getSelectedCells <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a188">188</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>boolean getIsSupervisor(
+		<code>string getSelectedCells(
 )</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Is this a supervisor or a real style component?<br /><br /><p>Is this a supervisor or a real style component?</p><br /><br /><br />
+		Get the currently active cell coordinate in currently active sheet.<br /><br /><p>Only used for supervisor</p><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>return:</b>&nbsp;&nbsp;</td><td>E.g. 'A1'</td>
+  </tr>
   <tr>
     <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
   </tr>
@@ -978,7 +649,7 @@ $isSupervisor = false])</code>
   </div>
   <hr />
 	<a name="methodgetSharedComponent"></a>
-	<h3>method getSharedComponent <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a185">185</a>]</span></h3>
+	<h3>method getSharedComponent <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a167">167</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -987,7 +658,7 @@ $isSupervisor = false])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Get the shared style component for the currently active cell in currently active sheet.<br /><br /><p>Get the shared style component for the currently active cell in currently active sheet. Only used for style supervisor</p><br /><br /><br />
+		Get the shared style component for the currently active cell in currently active sheet.<br /><br /><p>Only used for style supervisor</p><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1003,7 +674,7 @@ $isSupervisor = false])</code>
   </div>
   <hr />
 	<a name="methodgetStyleArray"></a>
-	<h3>method getStyleArray <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a228">228</a>]</span></h3>
+	<h3>method getStyleArray <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a210">210</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1013,7 +684,7 @@ $array)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Build style array from subcomponents<br /><br /><p>Build style array from subcomponents</p><br /><br /><br />
+		Build style array from subcomponents<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1038,64 +709,8 @@ $array)</code>
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
   <hr />
-	<a name="methodgetXActiveCell"></a>
-	<h3>method getXActiveCell <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a217">217</a>]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>string getXActiveCell(
-)</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		Get the currently active cell coordinate in currently active sheet.<br /><br /><p>Get the currently active cell coordinate in currently active sheet. Only used for supervisor</p><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>return:</b>&nbsp;&nbsp;</td><td>E.g. 'A1'</td>
-  </tr>
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
-	
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
-	<a name="methodgetXSelectedCells"></a>
-	<h3>method getXSelectedCells <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a206">206</a>]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>string getXSelectedCells(
-)</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		Get the currently active cell coordinate in currently active sheet.<br /><br /><p>Get the currently active cell coordinate in currently active sheet. Only used for supervisor</p><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>return:</b>&nbsp;&nbsp;</td><td>E.g. 'A1'</td>
-  </tr>
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
-	
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
 	<a name="methodsetBuiltInFormatCode"></a>
-	<h3>method setBuiltInFormatCode <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a317">317</a>]</span></h3>
+	<h3>method setBuiltInFormatCode <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a303">303</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1105,7 +720,7 @@ $pValue = 0])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Set Built-In Format Code<br /><br /><p>Set Built-In Format Code</p><br /><br /><br />
+		Set Built-In Format Code<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1131,7 +746,7 @@ $pValue = 0])</code>
   </div>
   <hr />
 	<a name="methodsetFormatCode"></a>
-	<h3>method setFormatCode <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a285">285</a>]</span></h3>
+	<h3>method setFormatCode <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a269">269</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1141,7 +756,7 @@ $pValue = PHPExcel_Style_NumberFormat::FORMAT_GENERAL])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Set Format Code<br /><br /><p>Set Format Code</p><br /><br /><br />
+		Set Format Code<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1166,46 +781,8 @@ $pValue = PHPExcel_Style_NumberFormat::FORMAT_GENERAL])</code>
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
   <hr />
-	<a name="methodsetHashIndex"></a>
-	<h3>method setHashIndex <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a476">476</a>]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>void setHashIndex(
-string
-$value)</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		Set hash index
- Note that this index may vary during script execution! Only reliable moment is while doing a write of a workbook and when changes are not allowed.<br /><br /><p>Set hash index
- Note that this index may vary during script execution! Only reliable moment is while doing a write of a workbook and when changes are not allowed.</p><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
-	
-        <h4>Parameters:</h4>
-    <div class="tags">
-    <table border="0" cellspacing="0" cellpadding="0">
-          <tr>
-        <td class="type">string&nbsp;&nbsp;</td>
-        <td><b>$value</b>&nbsp;&nbsp;</td>
-        <td>Hash index</td>
-      </tr>
-        </table>
-    </div><br />
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
 	<a name="method__clone"></a>
-	<h3>method __clone <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a483">483</a>]</span></h3>
+	<h3>method __clone <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a442">442</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1214,7 +791,7 @@ $value)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Implement PHP __clone to create a deep clone, not just a shallow copy.<br /><br /><p>Implement PHP __clone to create a deep clone, not just a shallow copy.</p><br /><br /><br />
+		Implement PHP __clone to create a deep clone, not just a shallow copy.<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1231,237 +808,237 @@ $value)</code>
 </div><br />
 
 <hr />
-<a name="class_constss"></a>
+<a name="class_consts"></a>
 <h3>Class Constants</h3>
 <div class="tags">
 	<a name="constFORMAT_CURRENCY_EUR_SIMPLE"></a>
 	<p></p>
 	<h4>FORMAT_CURRENCY_EUR_SIMPLE = <span class="value">&nbsp;'[$EUR&nbsp;]#,##0.00_-'</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a94">94</a>]</p>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a76">76</a>]</p>
   
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constFORMAT_CURRENCY_USD"></a>
 	<p></p>
 	<h4>FORMAT_CURRENCY_USD = <span class="value">&nbsp;'$#,##0_-'</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a93">93</a>]</p>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a75">75</a>]</p>
   
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constFORMAT_CURRENCY_USD_SIMPLE"></a>
 	<p></p>
 	<h4>FORMAT_CURRENCY_USD_SIMPLE = <span class="value">&nbsp;'&quot;$&quot;#,##0.00_-'</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a92">92</a>]</p>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a74">74</a>]</p>
   
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constFORMAT_DATE_DATETIME"></a>
 	<p></p>
 	<h4>FORMAT_DATE_DATETIME = <span class="value">&nbsp;'d/m/y&nbsp;h:mm'</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a81">81</a>]</p>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a63">63</a>]</p>
   
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constFORMAT_DATE_DDMMYYYY"></a>
 	<p></p>
 	<h4>FORMAT_DATE_DDMMYYYY = <span class="value">&nbsp;'dd/mm/yy'</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a71">71</a>]</p>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a53">53</a>]</p>
   
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constFORMAT_DATE_DMMINUS"></a>
 	<p></p>
 	<h4>FORMAT_DATE_DMMINUS = <span class="value">&nbsp;'d-m'</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a74">74</a>]</p>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a56">56</a>]</p>
   
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constFORMAT_DATE_DMYMINUS"></a>
 	<p></p>
 	<h4>FORMAT_DATE_DMYMINUS = <span class="value">&nbsp;'d-m-y'</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a73">73</a>]</p>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a55">55</a>]</p>
   
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constFORMAT_DATE_DMYSLASH"></a>
 	<p></p>
 	<h4>FORMAT_DATE_DMYSLASH = <span class="value">&nbsp;'d/m/y'</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a72">72</a>]</p>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a54">54</a>]</p>
   
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constFORMAT_DATE_MYMINUS"></a>
 	<p></p>
 	<h4>FORMAT_DATE_MYMINUS = <span class="value">&nbsp;'m-y'</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a75">75</a>]</p>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a57">57</a>]</p>
   
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constFORMAT_DATE_TIME1"></a>
 	<p></p>
 	<h4>FORMAT_DATE_TIME1 = <span class="value">&nbsp;'h:mm&nbsp;AM/PM'</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a82">82</a>]</p>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a64">64</a>]</p>
   
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constFORMAT_DATE_TIME2"></a>
 	<p></p>
 	<h4>FORMAT_DATE_TIME2 = <span class="value">&nbsp;'h:mm:ss&nbsp;AM/PM'</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a83">83</a>]</p>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a65">65</a>]</p>
   
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constFORMAT_DATE_TIME3"></a>
 	<p></p>
 	<h4>FORMAT_DATE_TIME3 = <span class="value">&nbsp;'h:mm'</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a84">84</a>]</p>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a66">66</a>]</p>
   
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constFORMAT_DATE_TIME4"></a>
 	<p></p>
 	<h4>FORMAT_DATE_TIME4 = <span class="value">&nbsp;'h:mm:ss'</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a85">85</a>]</p>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a67">67</a>]</p>
   
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constFORMAT_DATE_TIME5"></a>
 	<p></p>
 	<h4>FORMAT_DATE_TIME5 = <span class="value">&nbsp;'mm:ss'</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a86">86</a>]</p>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a68">68</a>]</p>
   
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constFORMAT_DATE_TIME6"></a>
 	<p></p>
 	<h4>FORMAT_DATE_TIME6 = <span class="value">&nbsp;'h:mm:ss'</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a87">87</a>]</p>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a69">69</a>]</p>
   
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constFORMAT_DATE_TIME7"></a>
 	<p></p>
 	<h4>FORMAT_DATE_TIME7 = <span class="value">&nbsp;'i:s.S'</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a88">88</a>]</p>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a70">70</a>]</p>
   
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constFORMAT_DATE_TIME8"></a>
 	<p></p>
 	<h4>FORMAT_DATE_TIME8 = <span class="value">&nbsp;'h:mm:ss;@'</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a89">89</a>]</p>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a71">71</a>]</p>
   
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constFORMAT_DATE_XLSX14"></a>
 	<p></p>
 	<h4>FORMAT_DATE_XLSX14 = <span class="value">&nbsp;'mm-dd-yy'</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a76">76</a>]</p>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a58">58</a>]</p>
   
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constFORMAT_DATE_XLSX15"></a>
 	<p></p>
 	<h4>FORMAT_DATE_XLSX15 = <span class="value">&nbsp;'d-mmm-yy'</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a77">77</a>]</p>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a59">59</a>]</p>
   
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constFORMAT_DATE_XLSX16"></a>
 	<p></p>
 	<h4>FORMAT_DATE_XLSX16 = <span class="value">&nbsp;'d-mmm'</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a78">78</a>]</p>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a60">60</a>]</p>
   
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constFORMAT_DATE_XLSX17"></a>
 	<p></p>
 	<h4>FORMAT_DATE_XLSX17 = <span class="value">&nbsp;'mmm-yy'</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a79">79</a>]</p>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a61">61</a>]</p>
   
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constFORMAT_DATE_XLSX22"></a>
 	<p></p>
 	<h4>FORMAT_DATE_XLSX22 = <span class="value">&nbsp;'m/d/yy&nbsp;h:mm'</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a80">80</a>]</p>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a62">62</a>]</p>
   
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constFORMAT_DATE_YYYYMMDD"></a>
 	<p></p>
 	<h4>FORMAT_DATE_YYYYMMDD = <span class="value">&nbsp;'yy-mm-dd'</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a70">70</a>]</p>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a52">52</a>]</p>
   
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constFORMAT_DATE_YYYYMMDD2"></a>
 	<p></p>
 	<h4>FORMAT_DATE_YYYYMMDD2 = <span class="value">&nbsp;'yyyy-mm-dd'</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a69">69</a>]</p>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a51">51</a>]</p>
   
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constFORMAT_DATE_YYYYMMDDSLASH"></a>
 	<p></p>
 	<h4>FORMAT_DATE_YYYYMMDDSLASH = <span class="value">&nbsp;'yy/mm/dd;@'</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a90">90</a>]</p>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a72">72</a>]</p>
   
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constFORMAT_GENERAL"></a>
 	<p></p>
 	<h4>FORMAT_GENERAL = <span class="value">&nbsp;'General'</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a57">57</a>]</p>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a39">39</a>]</p>
   
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constFORMAT_NUMBER"></a>
 	<p></p>
 	<h4>FORMAT_NUMBER = <span class="value">&nbsp;'0'</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a61">61</a>]</p>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a43">43</a>]</p>
   
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constFORMAT_NUMBER_00"></a>
 	<p></p>
 	<h4>FORMAT_NUMBER_00 = <span class="value">&nbsp;'0.00'</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a62">62</a>]</p>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a44">44</a>]</p>
   
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constFORMAT_NUMBER_COMMA_SEPARATED1"></a>
 	<p></p>
 	<h4>FORMAT_NUMBER_COMMA_SEPARATED1 = <span class="value">&nbsp;'#,##0.00'</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a63">63</a>]</p>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a45">45</a>]</p>
   
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constFORMAT_NUMBER_COMMA_SEPARATED2"></a>
 	<p></p>
 	<h4>FORMAT_NUMBER_COMMA_SEPARATED2 = <span class="value">&nbsp;'#,##0.00_-'</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a64">64</a>]</p>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a46">46</a>]</p>
   
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constFORMAT_PERCENTAGE"></a>
 	<p></p>
 	<h4>FORMAT_PERCENTAGE = <span class="value">&nbsp;'0%'</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a66">66</a>]</p>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a48">48</a>]</p>
   
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constFORMAT_PERCENTAGE_00"></a>
 	<p></p>
 	<h4>FORMAT_PERCENTAGE_00 = <span class="value">&nbsp;'0.00%'</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a67">67</a>]</p>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a49">49</a>]</p>
   
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constFORMAT_TEXT"></a>
 	<p></p>
 	<h4>FORMAT_TEXT = <span class="value">&nbsp;'@'</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a59">59</a>]</p>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleNumberFormat.php.html#a41">41</a>]</p>
   
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
@@ -1469,7 +1046,7 @@ $value)</code>
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Mon, 02 Nov 2009 08:43:23 +0100 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.1</a>
+		    Documentation generated on Tue, 01 Jun 2010 17:05:19 +0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>

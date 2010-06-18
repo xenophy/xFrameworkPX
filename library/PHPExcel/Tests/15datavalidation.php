@@ -2,27 +2,27 @@
 /**
  * PHPExcel
  *
- * Copyright (C) 2006 - 2009 PHPExcel
+ * Copyright (C) 2006 - 2010 PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
  *
  * @category   PHPExcel
  * @package    PHPExcel
- * @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.1, 2009-11-02
+ * @version    1.7.3c, 2010-06-01
  */
 
 /** Error reporting */
@@ -31,8 +31,6 @@ error_reporting(E_ALL);
 /** PHPExcel */
 require_once '../Classes/PHPExcel.php';
 
-/** PHPExcel_IOFactory */
-require_once '../Classes/PHPExcel/IOFactory.php';
 
 // Create new PHPExcel object
 echo date('H:i:s') . " Create new PHPExcel object\n";
@@ -74,7 +72,6 @@ $objValidation->setPromptTitle('Allowed input');
 $objValidation->setPrompt('Only numbers between 10 and 20 are allowed.');
 $objValidation->setFormula1(10);
 $objValidation->setFormula2(20);
-$objPHPExcel->getActiveSheet()->getCell('B3')->setDataValidation($objValidation);
 
 $objValidation = $objPHPExcel->getActiveSheet()->getCell('B5')->getDataValidation();
 $objValidation->setType( PHPExcel_Cell_DataValidation::TYPE_LIST );
@@ -88,13 +85,12 @@ $objValidation->setError('Value is not in list.');
 $objValidation->setPromptTitle('Pick from list');
 $objValidation->setPrompt('Please pick a value from the drop-down list.');
 $objValidation->setFormula1('"Item A,Item B,Item C"');	// Make sure to put the list items between " and "  !!!
-$objPHPExcel->getActiveSheet()->getCell('B5')->setDataValidation($objValidation);
 
 
 // Set active sheet index to the first sheet, so Excel opens this as the first sheet
 $objPHPExcel->setActiveSheetIndex(0);
 
-		
+
 // Save Excel 2007 file
 echo date('H:i:s') . " Write to Excel2007 format\n";
 $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');

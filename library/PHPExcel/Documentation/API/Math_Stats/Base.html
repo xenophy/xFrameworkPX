@@ -14,7 +14,7 @@
     <td class="header_menu">
         
                                                                                                 
-                                                                                                                                                                                                                                                                                                                                                              		  [ <a href="../classtrees_Math_Stats.html" class="menu">class tree: Math_Stats</a> ]
+                                                                                                                                                                                                                                                                                                                                                                                  		  [ <a href="../classtrees_Math_Stats.html" class="menu">class tree: Math_Stats</a> ]
 		  [ <a href="../elementindex_Math_Stats.html" class="menu">index: Math_Stats</a> ]
 		  	    [ <a href="../elementindex.html" class="menu">all elements</a> ]
     </td>
@@ -29,16 +29,17 @@
 			<p><a href="../todolist.html">Todo List</a></p>
 	</div>
       <b>Packages:</b><br />
-              <a href="../li_default.html">default</a><br />
+              <a href="../li_PHPExcel.html">PHPExcel</a><br />
               <a href="../li_com-tecnick-tcpdf.html">com-tecnick-tcpdf</a><br />
               <a href="../li_JAMA.html">JAMA</a><br />
               <a href="../li_Math_Stats.html">Math_Stats</a><br />
-              <a href="../li_PHPExcel.html">PHPExcel</a><br />
+              <a href="../li_PHPExcel_CachedObjectStorage.html">PHPExcel_CachedObjectStorage</a><br />
               <a href="../li_PHPExcel_Calculation.html">PHPExcel_Calculation</a><br />
               <a href="../li_PHPExcel_Cell.html">PHPExcel_Cell</a><br />
               <a href="../li_PHPExcel_Reader.html">PHPExcel_Reader</a><br />
               <a href="../li_PHPExcel_Reader_Excel5.html">PHPExcel_Reader_Excel5</a><br />
               <a href="../li_PHPExcel_RichText.html">PHPExcel_RichText</a><br />
+              <a href="../li_PHPExcel_Settings.html">PHPExcel_Settings</a><br />
               <a href="../li_PHPExcel_Shared.html">PHPExcel_Shared</a><br />
               <a href="../li_PHPExcel_Shared_Best_Fit.html">PHPExcel_Shared_Best_Fit</a><br />
               <a href="../li_PHPExcel_Shared_Escher.html">PHPExcel_Shared_Escher</a><br />
@@ -152,12 +153,6 @@ Source Location: /PHPExcel/Shared/JAMA/examples/Stats.php<br /><br />
     <li><a href="../Math_Stats/Base.html#methodsumN">sumN</a></li>
     <li><a href="../Math_Stats/Base.html#methodvariance">variance</a></li>
     <li><a href="../Math_Stats/Base.html#methodvarianceWithMean">varianceWithMean</a></li>
-    <li><a href="../Math_Stats/Base.html#method_validate">_validate</a></li>
-    <li><a href="../Math_Stats/Base.html#method__calcAbsoluteDeviation">__calcAbsoluteDeviation</a></li>
-    <li><a href="../Math_Stats/Base.html#method__calcVariance">__calcVariance</a></li>
-    <li><a href="../Math_Stats/Base.html#method__format">__format</a></li>
-    <li><a href="../Math_Stats/Base.html#method__sumabsdev">__sumabsdev</a></li>
-    <li><a href="../Math_Stats/Base.html#method__sumdiff">__sumdiff</a></li>
   </ul>
 </td>
 
@@ -178,12 +173,7 @@ Source Location: /PHPExcel/Shared/JAMA/examples/Stats.php<br /><br />
 <h3>Class Details</h3>
 <div class="tags">
 [line <a href="../__filesource/fsource_Math_Stats__PHPExcelSharedJAMAexamplesStats.php.html#a119">119</a>]<br />
-A class to calculate descriptive statistics from a data set.<br /><br /><p>A class to calculate descriptive statistics from a data set. Data sets can be simple arrays of data, or a cummulative hash. The second form is useful when passing large data set, for example the data set:
- <pre> $data1 = array (1,2,1,1,1,1,3,3,4.1,3,2,2,4.1,1,1,2,3,3,2,2,1,1,2,2);</pre>
- can be epxressed more compactly as:
- <pre> $data2 = array('1'=>9, '2'=>8, '3'=>5, '4.1'=>2);</pre>
- Example of use:
- <pre> include_once 'Math/Stats.php';
+A class to calculate descriptive statistics from a data set.<br /><br /><p>Data sets can be simple arrays of data, or a cummulative hash.  The second form is useful when passing large data set,  for example the data set:</p><p><pre> $data1 = array (1,2,1,1,1,1,3,3,4.1,3,2,2,4.1,1,1,2,3,3,2,2,1,1,2,2);</pre></p><p>can be epxressed more compactly as:</p><p><pre> $data2 = array('1'=>9, '2'=>8, '3'=>5, '4.1'=>2);</pre></p><p>Example of use:</p><p><pre> include_once 'Math/Stats.php';
  $s = new Math_Stats();
  $s->setData($data1);
  // or
@@ -201,8 +191,7 @@ A class to calculate descriptive statistics from a data set.<br /><br /><p>A cla
  // and then assuming nulls == 0
  $s->setNullOption(STATS_USE_NULL_AS_ZERO);
  $s->setData($data3);
- $stats3 = $s->calcFull();</pre>
- Originally this class was part of NumPHP (Numeric PHP package)</p><br /><br /><br />
+ $stats3 = $s->calcFull();</pre></p><p>Originally this class was part of NumPHP (Numeric PHP package)</p><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -228,12 +217,12 @@ A class to calculate descriptive statistics from a data set.<br /><br /><p>A cla
 	<p></p>
 	<h4>$_calculatedValues = <span class="value">array()</span></h4>
 	<p>[line <a href="../__filesource/fsource_Math_Stats__PHPExcelSharedJAMAexamplesStats.php.html#a165">165</a>]</p>
-  Array for caching result values, should be reset<br /><br /><p>Array for caching result values, should be reset when using setData()</p><br /><br /><br />
+  Array for caching result values, should be reset  when using setData()<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
   </tr>
 </table>
 </div>
@@ -252,12 +241,12 @@ A class to calculate descriptive statistics from a data set.<br /><br /><p>A cla
 	<p></p>
 	<h4>$_data = <span class="value">&nbsp;null</span></h4>
 	<p>[line <a href="../__filesource/fsource_Math_Stats__PHPExcelSharedJAMAexamplesStats.php.html#a129">129</a>]</p>
-  The simple or cummulative data set.<br /><br /><p>The simple or cummulative data set. Null by default.</p><br /><br /><br />
+  The simple or cummulative data set.<br /><br /><p>Null by default.</p><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
   </tr>
 </table>
 </div>
@@ -276,12 +265,12 @@ A class to calculate descriptive statistics from a data set.<br /><br /><p>A cla
 	<p></p>
 	<h4>$_dataExpanded = <span class="value">&nbsp;null</span></h4>
 	<p>[line <a href="../__filesource/fsource_Math_Stats__PHPExcelSharedJAMAexamplesStats.php.html#a138">138</a>]</p>
-  Expanded data set. is being used.<br /><br /><p>Expanded data set. Only set when cummulative data is being used. Null by default.</p><br /><br /><br />
+  Expanded data set. Only set when cummulative data  is being used. Null by default.<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
   </tr>
 </table>
 </div>
@@ -300,12 +289,12 @@ A class to calculate descriptive statistics from a data set.<br /><br /><p>A cla
 	<p></p>
 	<h4>$_dataOption = <span class="value">&nbsp;null</span></h4>
 	<p>[line <a href="../__filesource/fsource_Math_Stats__PHPExcelSharedJAMAexamplesStats.php.html#a147">147</a>]</p>
-  Flag for data type, one of STATS_DATA_SIMPLE or STATS_DATA_CUMMULATIVE.<br /><br /><p>Flag for data type, one of STATS_DATA_SIMPLE or STATS_DATA_CUMMULATIVE. Null by default.</p><br /><br /><br />
+  Flag for data type, one of STATS_DATA_SIMPLE or  STATS_DATA_CUMMULATIVE. Null by default.<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
   </tr>
 </table>
 </div>
@@ -324,12 +313,12 @@ A class to calculate descriptive statistics from a data set.<br /><br /><p>A cla
 	<p></p>
 	<h4>$_nullOption = <span class="value"></span></h4>
 	<p>[line <a href="../__filesource/fsource_Math_Stats__PHPExcelSharedJAMAexamplesStats.php.html#a156">156</a>]</p>
-  Flag for null handling options.<br /><br /><p>Flag for null handling options. One of STATS_REJECT_NULL, STATS_IGNORE_NULL or STATS_USE_NULL_AS_ZERO</p><br /><br /><br />
+  Flag for null handling options. One of STATS_REJECT_NULL,  STATS_IGNORE_NULL or STATS_USE_NULL_AS_ZERO<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
   </tr>
 </table>
 </div>
@@ -362,7 +351,7 @@ A class to calculate descriptive statistics from a data set.<br /><br /><p>A cla
     </td></tr></table>
     </td></tr></table><br />
 	
-		Calculates the absolute deviation of the data points in the set<br /><br /><p>Calculates the absolute deviation of the data points in the set Handles cummulative data sets correctly</p><br /><br /><br />
+		Calculates the absolute deviation of the data points in the set  Handles cummulative data sets correctly<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -376,7 +365,7 @@ A class to calculate descriptive statistics from a data set.<br /><br /><p>A cla
     <td><b>see:</b>&nbsp;&nbsp;</td><td><a href="../Math_Stats/Base.html#methodcount">Base::count()</a></td>
   </tr>
   <tr>
-    <td><b>see:</b>&nbsp;&nbsp;</td><td><a href="../Math_Stats/Base.html#method__sumabsdev">Base::__sumabsdev()</a></td>
+    <td><b>see:</b>&nbsp;&nbsp;</td><td>__sumabsdev()</td>
   </tr>
   <tr>
     <td><b>see:</b>&nbsp;&nbsp;</td><td><a href="../Math_Stats/Base.html#methodcalc">Base::calc()</a></td>
@@ -403,7 +392,7 @@ $mean)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Calculates the absolute deviation of the data points in the set given a fixed mean (average) value. or calc().<br /><br /><p>Calculates the absolute deviation of the data points in the set given a fixed mean (average) value. Not used in calcBasic(), calcFull() or calc(). Handles cummulative data sets correctly</p><br /><br /><br />
+		Calculates the absolute deviation of the data points in the set  given a fixed mean (average) value. Not used in calcBasic(), calcFull()  or calc().<br /><br /><p>Handles cummulative data sets correctly</p><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -414,7 +403,7 @@ $mean)</code>
     <td><b>see:</b>&nbsp;&nbsp;</td><td><a href="../Math_Stats/Base.html#methodabsDev">Base::absDev()</a></td>
   </tr>
   <tr>
-    <td><b>see:</b>&nbsp;&nbsp;</td><td><a href="../Math_Stats/Base.html#method__sumabsdev">Base::__sumabsdev()</a></td>
+    <td><b>see:</b>&nbsp;&nbsp;</td><td>__sumabsdev()</td>
   </tr>
   <tr>
     <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
@@ -449,7 +438,7 @@ $returnErrorObject = true])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Calculates the basic or full statistics for the data set<br /><br /><p>Calculates the basic or full statistics for the data set</p><br /><br /><br />
+		Calculates the basic or full statistics for the data set<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -481,7 +470,7 @@ $returnErrorObject = true])</code>
           <tr>
         <td class="type">boolean&nbsp;&nbsp;</td>
         <td><b>$returnErrorObject</b>&nbsp;&nbsp;</td>
-        <td>whether the raw PEAR_Error (when true, default),                  or only the error message will be returned (when false), if an error happens.</td>
+        <td>whether the raw PEAR_Error (when true, default),                   or only the error message will be returned (when false), if an error happens.</td>
       </tr>
         </table>
     </div><br />
@@ -499,7 +488,7 @@ $returnErrorObject = true])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Calculates a basic set of statistics<br /><br /><p>Calculates a basic set of statistics</p><br /><br /><br />
+		Calculates a basic set of statistics<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -526,7 +515,7 @@ $returnErrorObject = true])</code>
           <tr>
         <td class="type">boolean&nbsp;&nbsp;</td>
         <td><b>$returnErrorObject</b>&nbsp;&nbsp;</td>
-        <td>whether the raw PEAR_Error (when true, default),                  or only the error message will be returned (when false), if an error happens.</td>
+        <td>whether the raw PEAR_Error (when true, default),                   or only the error message will be returned (when false), if an error happens.</td>
       </tr>
         </table>
     </div><br />
@@ -544,7 +533,7 @@ $returnErrorObject = true])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Calculates a full set of statistics<br /><br /><p>Calculates a full set of statistics</p><br /><br /><br />
+		Calculates a full set of statistics<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -571,7 +560,7 @@ $returnErrorObject = true])</code>
           <tr>
         <td class="type">boolean&nbsp;&nbsp;</td>
         <td><b>$returnErrorObject</b>&nbsp;&nbsp;</td>
-        <td>whether the raw PEAR_Error (when true, default),                  or only the error message will be returned (when false), if an error happens.</td>
+        <td>whether the raw PEAR_Error (when true, default),                   or only the error message will be returned (when false), if an error happens.</td>
       </tr>
         </table>
     </div><br />
@@ -588,7 +577,7 @@ $returnErrorObject = true])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Transforms the data by substracting each entry from the mean.<br /><br /><p>Transforms the data by substracting each entry from the mean. This will reset all pre-calculated values to their original (unset) defaults.</p><br /><br /><br />
+		Transforms the data by substracting each entry from the mean.<br /><br /><p>This will reset all pre-calculated values to their original (unset) defaults.</p><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -622,7 +611,7 @@ $returnErrorObject = true])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Calculates the coefficient of variation of a data set.<br /><br /><p>Calculates the coefficient of variation of a data set. The coefficient of variation measures the spread of a set of data as a proportion of its mean. It is often expressed as a percentage. Handles cummulative data sets correctly</p><br /><br /><br />
+		Calculates the coefficient of variation of a data set.<br /><br /><p>The coefficient of variation measures the spread of a set of data  as a proportion of its mean. It is often expressed as a percentage.  Handles cummulative data sets correctly</p><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -659,7 +648,7 @@ $returnErrorObject = true])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Calculates the number of data points in the set<br /><br /><p>Calculates the number of data points in the set Handles cummulative data sets correctly</p><br /><br /><br />
+		Calculates the number of data points in the set  Handles cummulative data sets correctly<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -690,7 +679,7 @@ $returnErrorObject = true])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Calculates the value frequency table of a data set.<br /><br /><p>Calculates the value frequency table of a data set. Handles cummulative data sets correctly</p><br /><br /><br />
+		Calculates the value frequency table of a data set.<br /><br /><p>Handles cummulative data sets correctly</p><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -727,7 +716,7 @@ $returnErrorObject = true])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Calculates the geometrical mean of the data points in the set<br /><br /><p>Calculates the geometrical mean of the data points in the set Handles cummulative data sets correctly</p><br /><br /><br />
+		Calculates the geometrical mean of the data points in the set  Handles cummulative data sets correctly<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -765,7 +754,7 @@ $expanded = false])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Returns the data which might have been modified according to the current null handling options.<br /><br /><p>Returns the data which might have been modified according to the current null handling options.</p><br /><br /><br />
+		Returns the data which might have been modified  according to the current null handling options.<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -773,7 +762,7 @@ $expanded = false])</code>
     <td><b>return:</b>&nbsp;&nbsp;</td><td>array of data on success, a PEAR_Error object otherwise</td>
   </tr>
   <tr>
-    <td><b>see:</b>&nbsp;&nbsp;</td><td><a href="../Math_Stats/Base.html#method_validate">Base::_validate()</a></td>
+    <td><b>see:</b>&nbsp;&nbsp;</td><td>_validate()</td>
   </tr>
   <tr>
     <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
@@ -806,7 +795,7 @@ $expanded = false])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Calculates the harmonic mean of the data points in the set<br /><br /><p>Calculates the harmonic mean of the data points in the set Handles cummulative data sets correctly</p><br /><br /><br />
+		Calculates the harmonic mean of the data points in the set  Handles cummulative data sets correctly<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -840,9 +829,7 @@ $expanded = false])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		The interquartile mean is defined as the mean of the values left<br /><br /><p>The interquartile mean is defined as the mean of the values left after discarding the lower 25% and top 25% ranked values, i.e.:
-  interquart mean = mean(&lt;P(25),P(75)&gt;)
-  where: P = percentile</p><br /><br /><br />
+		The interquartile mean is defined as the mean of the values left  after discarding the lower 25% and top 25% ranked values, i.e.:<br /><br /><p>interquart mean = mean(&lt;P(25),P(75)&gt;)</p><p>where: P = percentile</p><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -876,9 +863,7 @@ $expanded = false])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		The interquartile range is the distance between the 75th and 25th percentiles. and thus is not affected by outliers or extreme values.<br /><br /><p>The interquartile range is the distance between the 75th and 25th percentiles. Basically the range of the middle 50% of the data set, and thus is not affected by outliers or extreme values.
-  interquart range = P(75) - P(25)
-  where: P = percentile</p><br /><br /><br />
+		The interquartile range is the distance between the 75th and 25th  percentiles. Basically the range of the middle 50% of the data set,  and thus is not affected by outliers or extreme values.<br /><br /><p>interquart range = P(75) - P(25)</p><p>where: P = percentile</p><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -909,7 +894,7 @@ $expanded = false])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Calculates the kurtosis of the data distribution in the set The kurtosis measures the degrees of peakedness of a distribution.<br /><br /><p>Calculates the kurtosis of the data distribution in the set The kurtosis measures the degrees of peakedness of a distribution. It is also called the &quot;excess&quot; or &quot;excess coefficient&quot;, and is a normalized form of the fourth central moment of a distribution. A normal distributions has kurtosis = 0 A narrow and peaked (leptokurtic) distribution has a kurtosis &gt; 0 A flat and wide (platykurtic) distribution has a kurtosis &lt; 0 Handles cummulative data sets correctly</p><br /><br /><br />
+		Calculates the kurtosis of the data distribution in the set  The kurtosis measures the degrees of peakedness of a distribution.<br /><br /><p>It is also called the &quot;excess&quot; or &quot;excess coefficient&quot;, and is  a normalized form of the fourth central moment of a distribution.  A normal distributions has kurtosis = 0  A narrow and peaked (leptokurtic) distribution has a  kurtosis &gt; 0  A flat and wide (platykurtic) distribution has a kurtosis &lt; 0  Handles cummulative data sets correctly</p><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -926,7 +911,7 @@ $expanded = false])</code>
     <td><b>see:</b>&nbsp;&nbsp;</td><td><a href="../Math_Stats/Base.html#methodcount">Base::count()</a></td>
   </tr>
   <tr>
-    <td><b>see:</b>&nbsp;&nbsp;</td><td><a href="../Math_Stats/Base.html#method__sumdiff">Base::__sumdiff()</a></td>
+    <td><b>see:</b>&nbsp;&nbsp;</td><td>__sumdiff()</td>
   </tr>
   <tr>
     <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
@@ -950,7 +935,7 @@ $nullOption = STATS_REJECT_NULL])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Constructor for the class<br /><br /><p>Constructor for the class</p><br /><br /><br />
+		Constructor for the class<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -985,7 +970,7 @@ $nullOption = STATS_REJECT_NULL])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Calculates the maximum of a data set.<br /><br /><p>Calculates the maximum of a data set. Handles cummulative data sets correctly</p><br /><br /><br />
+		Calculates the maximum of a data set.<br /><br /><p>Handles cummulative data sets correctly</p><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1019,7 +1004,7 @@ $nullOption = STATS_REJECT_NULL])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Calculates the mean (average) of the data points in the set<br /><br /><p>Calculates the mean (average) of the data points in the set Handles cummulative data sets correctly</p><br /><br /><br />
+		Calculates the mean (average) of the data points in the set  Handles cummulative data sets correctly<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1056,7 +1041,7 @@ $nullOption = STATS_REJECT_NULL])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Calculates the median of a data set.<br /><br /><p>Calculates the median of a data set. The median is the value such that half of the points are below it in a sorted data set. If the number of values is odd, it is the middle item. If the number of values is even, is the average of the two middle items. Handles cummulative data sets correctly</p><br /><br /><br />
+		Calculates the median of a data set.<br /><br /><p>The median is the value such that half of the points are below it  in a sorted data set.  If the number of values is odd, it is the middle item.  If the number of values is even, is the average of the two middle items.  Handles cummulative data sets correctly</p><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1090,7 +1075,7 @@ $nullOption = STATS_REJECT_NULL])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Calculates the midrange of a data set.<br /><br /><p>Calculates the midrange of a data set. The midrange is the average of the minimum and maximum of the data set. Handles cummulative data sets correctly</p><br /><br /><br />
+		Calculates the midrange of a data set.<br /><br /><p>The midrange is the average of the minimum and maximum of the data set.  Handles cummulative data sets correctly</p><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1127,7 +1112,7 @@ $nullOption = STATS_REJECT_NULL])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Calculates the minimum of a data set.<br /><br /><p>Calculates the minimum of a data set. Handles cummulative data sets correctly</p><br /><br /><br />
+		Calculates the minimum of a data set.<br /><br /><p>Handles cummulative data sets correctly</p><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1161,7 +1146,7 @@ $nullOption = STATS_REJECT_NULL])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Calculates the mode of a data set.<br /><br /><p>Calculates the mode of a data set. The mode is the value with the highest frequency in the data set. There can be more than one mode. Handles cummulative data sets correctly</p><br /><br /><br />
+		Calculates the mode of a data set.<br /><br /><p>The mode is the value with the highest frequency in the data set.  There can be more than one mode.  Handles cummulative data sets correctly</p><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1196,9 +1181,7 @@ $p)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		The pth percentile is the value such that p% of the a sorted data set is smaller than it, and (100 - p)% of the data is larger.<br /><br /><p>The pth percentile is the value such that p% of the a sorted data set is smaller than it, and (100 - p)% of the data is larger.
- A quick algorithm to pick the appropriate value from a sorted data set is as follows:
-<ul><li>Count the number of values: n</li><li>Calculate the position of the value in the data list: i = p * (n + 1)</li><li>if i is an integer, return the data at that position</li><li>if i &lt; 1, return the minimum of the data set</li><li>if i &gt; n, return the maximum of the data set</li><li>otherwise, average the entries at adjacent positions to i</li></ul> The median is the 50th percentile value.</p><br /><br /><br />
+		The pth percentile is the value such that p% of the a sorted data set  is smaller than it, and (100 - p)% of the data is larger.<br /><br /><p>A quick algorithm to pick the appropriate value from a sorted data  set is as follows:</p><p><ul><li>Count the number of values: n</li><li>Calculate the position of the value in the data list: i = p * (n + 1)</li><li>if i is an integer, return the data at that position</li><li>if i &lt; 1, return the minimum of the data set</li><li>if i &gt; n, return the maximum of the data set</li><li>otherwise, average the entries at adjacent positions to i</li></ul>  The median is the 50th percentile value.</p><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1245,7 +1228,7 @@ $p)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Calculates PROD { (xi) }, (the product of all observations)<br /><br /><p>Calculates PROD { (xi) }, (the product of all observations) Handles cummulative data sets correctly</p><br /><br /><br />
+		Calculates PROD { (xi) }, (the product of all observations)  Handles cummulative data sets correctly<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1277,7 +1260,7 @@ $n)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Calculates PROD { (xi)^n }, which is the product of all observations<br /><br /><p>Calculates PROD { (xi)^n }, which is the product of all observations Handles cummulative data sets correctly</p><br /><br /><br />
+		Calculates PROD { (xi)^n }, which is the product of all observations  Handles cummulative data sets correctly<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1318,9 +1301,7 @@ $n)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		The quartile deviation is half of the interquartile range value<br /><br /><p>The quartile deviation is half of the interquartile range value
-  quart dev = (P(75) - P(25)) / 2
-  where: P = percentile</p><br /><br /><br />
+		The quartile deviation is half of the interquartile range value<br /><br /><p>quart dev = (P(75) - P(25)) / 2</p><p>where: P = percentile</p><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1354,7 +1335,7 @@ $n)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		The quartiles are defined as the values that divide a sorted data set into four equal-sized subsets, and correspond to the 25th, 50th, and 75th percentiles.<br /><br /><p>The quartiles are defined as the values that divide a sorted data set into four equal-sized subsets, and correspond to the 25th, 50th, and 75th percentiles.</p><br /><br /><br />
+		The quartiles are defined as the values that divide a sorted  data set into four equal-sized subsets, and correspond to the  25th, 50th, and 75th percentiles.<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1385,9 +1366,7 @@ $n)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		The quartile skewness coefficient (also known as Bowley Skewness),<br /><br /><p>The quartile skewness coefficient (also known as Bowley Skewness), is defined as follows:
-  quart skewness coeff = (P(25) - 2*P(50) + P(75)) / (P(75) - P(25))
-  where: P = percentile</p><br /><br /><br />
+		The quartile skewness coefficient (also known as Bowley Skewness),  is defined as follows:<br /><br /><p>quart skewness coeff = (P(25) - 2*P(50) + P(75)) / (P(75) - P(25))</p><p>where: P = percentile</p><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1421,9 +1400,7 @@ $n)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		The quartile variation coefficient is defines as follows:<br /><br /><p>The quartile variation coefficient is defines as follows:
-  quart var coeff = 100 * (P(75) - P(25)) / (P(75) + P(25))
-  where: P = percentile</p><br /><br /><br />
+		The quartile variation coefficient is defines as follows:<br /><br /><p>quart var coeff = 100 * (P(75) - P(25)) / (P(75) + P(25))</p><p>where: P = percentile</p><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1457,7 +1434,7 @@ $n)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Calculates the range of the data set = max - min<br /><br /><p>Calculates the range of the data set = max - min</p><br /><br /><br />
+		Calculates the range of the data set = max - min<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1486,10 +1463,7 @@ $n)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Calculates the nth central moment (m{n}) of a data set.<br /><br /><p>Calculates the nth central moment (m{n}) of a data set.
- The definition of a sample central moment is:
-     m{n} = 1/N * SUM { (xi - avg)^n }
- where: N = sample size, avg = sample mean.</p><br /><br /><br />
+		Calculates the nth central moment (m{n}) of a data set.<br /><br /><p>The definition of a sample central moment is:</p><p>m{n} = 1/N * SUM { (xi - avg)^n }</p><p>where: N = sample size, avg = sample mean.</p><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1528,10 +1502,7 @@ $n)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Calculates the nth raw moment (m{n}) of a data set.<br /><br /><p>Calculates the nth raw moment (m{n}) of a data set.
- The definition of a sample central moment is:
-     m{n} = 1/N * SUM { xi^n }
- where: N = sample size, avg = sample mean.</p><br /><br /><br />
+		Calculates the nth raw moment (m{n}) of a data set.<br /><br /><p>The definition of a sample central moment is:</p><p>m{n} = 1/N * SUM { xi^n }</p><p>where: N = sample size, avg = sample mean.</p><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1571,7 +1542,7 @@ $opt = STATS_DATA_SIMPLE])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Sets and verifies the data, checking for nulls and using<br /><br /><p>Sets and verifies the data, checking for nulls and using the current null handling option</p><br /><br /><br />
+		Sets and verifies the data, checking for nulls and using  the current null handling option<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1615,7 +1586,7 @@ $nullOption)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Sets the null handling option.<br /><br /><p>Sets the null handling option. Must be called before assigning a new data set containing null values</p><br /><br /><br />
+		Sets the null handling option.<br /><br /><p>Must be called before assigning a new data set containing null values</p><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1623,7 +1594,7 @@ $nullOption)</code>
     <td><b>return:</b>&nbsp;&nbsp;</td><td>true on success, a PEAR_Error object otherwise</td>
   </tr>
   <tr>
-    <td><b>see:</b>&nbsp;&nbsp;</td><td><a href="../Math_Stats/Base.html#method_validate">Base::_validate()</a></td>
+    <td><b>see:</b>&nbsp;&nbsp;</td><td>_validate()</td>
   </tr>
   <tr>
     <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
@@ -1656,7 +1627,7 @@ $nullOption)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Calculates the skewness of the data distribution in the set The skewness measures the degree of asymmetry of a distribution, and is related to the third central moment of a distribution.<br /><br /><p>Calculates the skewness of the data distribution in the set The skewness measures the degree of asymmetry of a distribution, and is related to the third central moment of a distribution. A normal distribution has a skewness = 0 A distribution with a tail off towards the high end of the scale (positive skew) has a skewness &gt; 0 A distribution with a tail off towards the low end of the scale (negative skew) has a skewness &lt; 0 Handles cummulative data sets correctly</p><br /><br /><br />
+		Calculates the skewness of the data distribution in the set  The skewness measures the degree of asymmetry of a distribution,  and is related to the third central moment of a distribution.<br /><br /><p>A normal distribution has a skewness = 0  A distribution with a tail off towards the high end of the scale  (positive skew) has a skewness &gt; 0  A distribution with a tail off towards the low end of the scale  (negative skew) has a skewness &lt; 0  Handles cummulative data sets correctly</p><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1673,7 +1644,7 @@ $nullOption)</code>
     <td><b>see:</b>&nbsp;&nbsp;</td><td><a href="../Math_Stats/Base.html#methodcount">Base::count()</a></td>
   </tr>
   <tr>
-    <td><b>see:</b>&nbsp;&nbsp;</td><td><a href="../Math_Stats/Base.html#method__sumdiff">Base::__sumdiff()</a></td>
+    <td><b>see:</b>&nbsp;&nbsp;</td><td>__sumdiff()</td>
   </tr>
   <tr>
     <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
@@ -1696,9 +1667,7 @@ $nullOption)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Calculates the standard error of the mean.<br /><br /><p>Calculates the standard error of the mean. It is the standard deviation of the sampling distribution of the mean. The formula is:
- S.E. Mean = SD / (N)^(1/2)
- This formula does not assume a normal distribution, and shows that the size of the standard error of the mean is inversely proportional to the square root of the sample size.</p><br /><br /><br />
+		Calculates the standard error of the mean.<br /><br /><p>It is the standard deviation of the sampling distribution of  the mean. The formula is:</p><p>S.E. Mean = SD / (N)^(1/2)</p><p>This formula does not assume a normal distribution, and shows  that the size of the standard error of the mean is inversely  proportional to the square root of the sample size.</p><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1735,7 +1704,7 @@ $nullOption)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Calculates the standard deviation (unbiased) of the data points in the set<br /><br /><p>Calculates the standard deviation (unbiased) of the data points in the set Handles cummulative data sets correctly</p><br /><br /><br />
+		Calculates the standard deviation (unbiased) of the data points in the set  Handles cummulative data sets correctly<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1770,7 +1739,7 @@ $mean)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Calculates the standard deviation (unbiased) of the data points in the set given a fixed mean (average) value. or calc().<br /><br /><p>Calculates the standard deviation (unbiased) of the data points in the set given a fixed mean (average) value. Not used in calcBasic(), calcFull() or calc(). Handles cummulative data sets correctly</p><br /><br /><br />
+		Calculates the standard deviation (unbiased) of the data points in the set  given a fixed mean (average) value. Not used in calcBasic(), calcFull()  or calc().<br /><br /><p>Handles cummulative data sets correctly</p><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1814,7 +1783,7 @@ $mean)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Transforms the data by substracting each entry from the mean and dividing by its standard deviation. values to their original (unset) defaults.<br /><br /><p>Transforms the data by substracting each entry from the mean and dividing by its standard deviation. This will reset all pre-calculated values to their original (unset) defaults.</p><br /><br /><br />
+		Transforms the data by substracting each entry from the mean and  dividing by its standard deviation. This will reset all pre-calculated  values to their original (unset) defaults.<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1851,7 +1820,7 @@ $mean)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Calculates SUM { xi }<br /><br /><p>Calculates SUM { xi } Handles cummulative data sets correctly</p><br /><br /><br />
+		Calculates SUM { xi }  Handles cummulative data sets correctly<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1888,7 +1857,7 @@ $mean)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Calculates SUM { (xi)^2 }<br /><br /><p>Calculates SUM { (xi)^2 } Handles cummulative data sets correctly</p><br /><br /><br />
+		Calculates SUM { (xi)^2 }  Handles cummulative data sets correctly<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1926,7 +1895,7 @@ $n)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Calculates SUM { (xi)^n }<br /><br /><p>Calculates SUM { (xi)^n } Handles cummulative data sets correctly</p><br /><br /><br />
+		Calculates SUM { (xi)^n }  Handles cummulative data sets correctly<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1973,7 +1942,7 @@ $n)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Calculates the variance (unbiased) of the data points in the set<br /><br /><p>Calculates the variance (unbiased) of the data points in the set Handles cummulative data sets correctly</p><br /><br /><br />
+		Calculates the variance (unbiased) of the data points in the set  Handles cummulative data sets correctly<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1984,7 +1953,7 @@ $n)</code>
     <td><b>see:</b>&nbsp;&nbsp;</td><td><a href="../Math_Stats/Base.html#methodcount">Base::count()</a></td>
   </tr>
   <tr>
-    <td><b>see:</b>&nbsp;&nbsp;</td><td><a href="../Math_Stats/Base.html#method__sumdiff">Base::__sumdiff()</a></td>
+    <td><b>see:</b>&nbsp;&nbsp;</td><td>__sumdiff()</td>
   </tr>
   <tr>
     <td><b>see:</b>&nbsp;&nbsp;</td><td><a href="../Math_Stats/Base.html#methodcalc">Base::calc()</a></td>
@@ -2011,7 +1980,7 @@ $mean)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Calculates the variance (unbiased) of the data points in the set given a fixed mean (average) value. or calc().<br /><br /><p>Calculates the variance (unbiased) of the data points in the set given a fixed mean (average) value. Not used in calcBasic(), calcFull() or calc(). Handles cummulative data sets correctly</p><br /><br /><br />
+		Calculates the variance (unbiased) of the data points in the set  given a fixed mean (average) value. Not used in calcBasic(), calcFull()  or calc().<br /><br /><p>Handles cummulative data sets correctly</p><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -2025,7 +1994,7 @@ $mean)</code>
     <td><b>see:</b>&nbsp;&nbsp;</td><td><a href="../Math_Stats/Base.html#methodcount">Base::count()</a></td>
   </tr>
   <tr>
-    <td><b>see:</b>&nbsp;&nbsp;</td><td><a href="../Math_Stats/Base.html#method__sumdiff">Base::__sumdiff()</a></td>
+    <td><b>see:</b>&nbsp;&nbsp;</td><td>__sumdiff()</td>
   </tr>
   <tr>
     <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
@@ -2047,286 +2016,12 @@ $mean)</code>
     </div><br />
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
-  <hr />
-	<a name="method_validate"></a>
-	<h3>method _validate <span class="smalllinenumber">[line <a href="../__filesource/fsource_Math_Stats__PHPExcelSharedJAMAexamplesStats.php.html#a1562">1562</a>]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>mixed _validate(
-)</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		Utility function to validate the data and modify it<br /><br /><p>Utility function to validate the data and modify it according to the current null handling option</p><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>return:</b>&nbsp;&nbsp;</td><td>true on success, a PEAR_Error object otherwise</td>
-  </tr>
-  <tr>
-    <td><b>see:</b>&nbsp;&nbsp;</td><td><a href="../Math_Stats/Base.html#methodsetData">Base::setData()</a></td>
-  </tr>
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
-	
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
-	<a name="method__calcAbsoluteDeviation"></a>
-	<h3>method __calcAbsoluteDeviation <span class="smalllinenumber">[line <a href="../__filesource/fsource_Math_Stats__PHPExcelSharedJAMAexamplesStats.php.html#a1488">1488</a>]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>mixed __calcAbsoluteDeviation(
-[$mean
-$mean = null])</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		Utility function to calculate the absolute deviation with or without<br /><br /><p>Utility function to calculate the absolute deviation with or without a fixed mean</p><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>return:</b>&nbsp;&nbsp;</td><td>a numeric value on success, a PEAR_Error otherwise</td>
-  </tr>
-  <tr>
-    <td><b>see:</b>&nbsp;&nbsp;</td><td><a href="../Math_Stats/Base.html#methodabsDevWithMean">Base::absDevWithMean()</a></td>
-  </tr>
-  <tr>
-    <td><b>see:</b>&nbsp;&nbsp;</td><td><a href="../Math_Stats/Base.html#methodabsDev">Base::absDev()</a></td>
-  </tr>
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
-	
-        <h4>Parameters:</h4>
-    <div class="tags">
-    <table border="0" cellspacing="0" cellpadding="0">
-          <tr>
-        <td class="type">$mean&nbsp;&nbsp;</td>
-        <td><b>$mean</b>&nbsp;&nbsp;</td>
-        <td>the fixed mean to use, null as default</td>
-      </tr>
-        </table>
-    </div><br />
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
-	<a name="method__calcVariance"></a>
-	<h3>method __calcVariance <span class="smalllinenumber">[line <a href="../__filesource/fsource_Math_Stats__PHPExcelSharedJAMAexamplesStats.php.html#a1460">1460</a>]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>mixed __calcVariance(
-[$mean
-$mean = null])</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		Utility function to calculate the variance with or without<br /><br /><p>Utility function to calculate the variance with or without a fixed mean</p><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>return:</b>&nbsp;&nbsp;</td><td>a numeric value on success, a PEAR_Error otherwise</td>
-  </tr>
-  <tr>
-    <td><b>see:</b>&nbsp;&nbsp;</td><td><a href="../Math_Stats/Base.html#methodvarianceWithMean">Base::varianceWithMean()</a></td>
-  </tr>
-  <tr>
-    <td><b>see:</b>&nbsp;&nbsp;</td><td><a href="../Math_Stats/Base.html#methodvariance">Base::variance()</a></td>
-  </tr>
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
-	
-        <h4>Parameters:</h4>
-    <div class="tags">
-    <table border="0" cellspacing="0" cellpadding="0">
-          <tr>
-        <td class="type">$mean&nbsp;&nbsp;</td>
-        <td><b>$mean</b>&nbsp;&nbsp;</td>
-        <td>the fixed mean to use, null as default</td>
-      </tr>
-        </table>
-    </div><br />
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
-	<a name="method__format"></a>
-	<h3>method __format <span class="smalllinenumber">[line <a href="../__filesource/fsource_Math_Stats__PHPExcelSharedJAMAexamplesStats.php.html#a1545">1545</a>]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>mixed __format(
-mixed
-$v, [
-$useErrorObject = true], boolean
-$returnErrorObject)</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		Utility function to format a PEAR_Error to be used by calc(),<br /><br /><p>Utility function to format a PEAR_Error to be used by calc(), calcBasic() and calcFull()</p><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>return:</b>&nbsp;&nbsp;</td><td>if the value is a PEAR_Error object, and $useErrorObject              is false, then a string with the error message will be returned,              otherwise the value will not be modified and returned as passed.</td>
-  </tr>
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
-	
-        <h4>Parameters:</h4>
-    <div class="tags">
-    <table border="0" cellspacing="0" cellpadding="0">
-          <tr>
-        <td class="type">mixed&nbsp;&nbsp;</td>
-        <td><b>$v</b>&nbsp;&nbsp;</td>
-        <td>value to be formatted</td>
-      </tr>
-          <tr>
-        <td class="type">boolean&nbsp;&nbsp;</td>
-        <td><b>$returnErrorObject</b>&nbsp;&nbsp;</td>
-        <td>whether the raw PEAR_Error (when true, default),                  or only the error message will be returned (when false)</td>
-      </tr>
-          <tr>
-        <td class="type">&nbsp;&nbsp;</td>
-        <td><b>$useErrorObject</b>&nbsp;&nbsp;</td>
-        <td></td>
-      </tr>
-        </table>
-    </div><br />
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
-	<a name="method__sumabsdev"></a>
-	<h3>method __sumabsdev <span class="smalllinenumber">[line <a href="../__filesource/fsource_Math_Stats__PHPExcelSharedJAMAexamplesStats.php.html#a1513">1513</a>]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>mixed __sumabsdev(
-[optional
-$mean = null])</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		Utility function to calculate: SUM { | xi - mean | }<br /><br /><p>Utility function to calculate: SUM { | xi - mean | }</p><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>return:</b>&nbsp;&nbsp;</td><td>the sum on success, a PEAR_Error object otherwise</td>
-  </tr>
-  <tr>
-    <td><b>see:</b>&nbsp;&nbsp;</td><td><a href="../Math_Stats/Base.html#methodabsDevWithMean">Base::absDevWithMean()</a></td>
-  </tr>
-  <tr>
-    <td><b>see:</b>&nbsp;&nbsp;</td><td><a href="../Math_Stats/Base.html#methodabsDev">Base::absDev()</a></td>
-  </tr>
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
-	
-        <h4>Parameters:</h4>
-    <div class="tags">
-    <table border="0" cellspacing="0" cellpadding="0">
-          <tr>
-        <td class="type">optional&nbsp;&nbsp;</td>
-        <td><b>$mean</b>&nbsp;&nbsp;</td>
-        <td>double   $mean   the mean value for the set or population</td>
-      </tr>
-        </table>
-    </div><br />
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
-	<a name="method__sumdiff"></a>
-	<h3>method __sumdiff <span class="smalllinenumber">[line <a href="../__filesource/fsource_Math_Stats__PHPExcelSharedJAMAexamplesStats.php.html#a1428">1428</a>]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>mixed __sumdiff(
-numeric
-$power, [optional
-$mean = null])</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		Utility function to calculate: SUM { (xi - mean)^n }<br /><br /><p>Utility function to calculate: SUM { (xi - mean)^n }</p><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>return:</b>&nbsp;&nbsp;</td><td>the sum on success, a PEAR_Error object otherwise</td>
-  </tr>
-  <tr>
-    <td><b>see:</b>&nbsp;&nbsp;</td><td>kurtosis();</td>
-  </tr>
-  <tr>
-    <td><b>see:</b>&nbsp;&nbsp;</td><td>skewness();</td>
-  </tr>
-  <tr>
-    <td><b>see:</b>&nbsp;&nbsp;</td><td>variaceWithMean();</td>
-  </tr>
-  <tr>
-    <td><b>see:</b>&nbsp;&nbsp;</td><td><a href="../Math_Stats/Base.html#methodstDev">Base::stDev()</a></td>
-  </tr>
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
-	
-        <h4>Parameters:</h4>
-    <div class="tags">
-    <table border="0" cellspacing="0" cellpadding="0">
-          <tr>
-        <td class="type">numeric&nbsp;&nbsp;</td>
-        <td><b>$power</b>&nbsp;&nbsp;</td>
-        <td>the exponent</td>
-      </tr>
-          <tr>
-        <td class="type">optional&nbsp;&nbsp;</td>
-        <td><b>$mean</b>&nbsp;&nbsp;</td>
-        <td>double   $mean   the data set mean value</td>
-      </tr>
-        </table>
-    </div><br />
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
 </div><br />
 
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Mon, 02 Nov 2009 08:44:50 +0100 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.1</a>
+		    Documentation generated on Tue, 01 Jun 2010 17:06:08 +0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>

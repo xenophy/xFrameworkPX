@@ -13,7 +13,7 @@
   <tr>
     <td class="header_menu">
         
-                                                                                                                                                                                                                                                                                    
+                                                                                                                                                                                                                                                                                                        
                                                                                                                                                                           		  [ <a href="../classtrees_PHPExcel_Shared_Escher.html" class="menu">class tree: PHPExcel_Shared_Escher</a> ]
 		  [ <a href="../elementindex_PHPExcel_Shared_Escher.html" class="menu">index: PHPExcel_Shared_Escher</a> ]
 		  	    [ <a href="../elementindex.html" class="menu">all elements</a> ]
@@ -29,16 +29,17 @@
 			<p><a href="../todolist.html">Todo List</a></p>
 	</div>
       <b>Packages:</b><br />
-              <a href="../li_default.html">default</a><br />
+              <a href="../li_PHPExcel.html">PHPExcel</a><br />
               <a href="../li_com-tecnick-tcpdf.html">com-tecnick-tcpdf</a><br />
               <a href="../li_JAMA.html">JAMA</a><br />
               <a href="../li_Math_Stats.html">Math_Stats</a><br />
-              <a href="../li_PHPExcel.html">PHPExcel</a><br />
+              <a href="../li_PHPExcel_CachedObjectStorage.html">PHPExcel_CachedObjectStorage</a><br />
               <a href="../li_PHPExcel_Calculation.html">PHPExcel_Calculation</a><br />
               <a href="../li_PHPExcel_Cell.html">PHPExcel_Cell</a><br />
               <a href="../li_PHPExcel_Reader.html">PHPExcel_Reader</a><br />
               <a href="../li_PHPExcel_Reader_Excel5.html">PHPExcel_Reader_Excel5</a><br />
               <a href="../li_PHPExcel_RichText.html">PHPExcel_RichText</a><br />
+              <a href="../li_PHPExcel_Settings.html">PHPExcel_Settings</a><br />
               <a href="../li_PHPExcel_Shared.html">PHPExcel_Shared</a><br />
               <a href="../li_PHPExcel_Shared_Best_Fit.html">PHPExcel_Shared_Best_Fit</a><br />
               <a href="../li_PHPExcel_Shared_Escher.html">PHPExcel_Shared_Escher</a><br />
@@ -63,7 +64,7 @@
 <li><div class="src-line"><a name="a2"></a><span class="src-doc">/**</span></div></li>
 <li><div class="src-line"><a name="a3"></a><span class="src-doc">&nbsp;*&nbsp;PHPExcel</span></div></li>
 <li><div class="src-line"><a name="a4"></a><span class="src-doc">&nbsp;*</span></div></li>
-<li><div class="src-line"><a name="a5"></a><span class="src-doc">&nbsp;*&nbsp;Copyright&nbsp;(c)&nbsp;2006&nbsp;-&nbsp;2009&nbsp;PHPExcel</span></div></li>
+<li><div class="src-line"><a name="a5"></a><span class="src-doc">&nbsp;*&nbsp;Copyright&nbsp;(c)&nbsp;2006&nbsp;-&nbsp;2010&nbsp;PHPExcel</span></div></li>
 <li><div class="src-line"><a name="a6"></a><span class="src-doc">&nbsp;*</span></div></li>
 <li><div class="src-line"><a name="a7"></a><span class="src-doc">&nbsp;*&nbsp;This&nbsp;library&nbsp;is&nbsp;free&nbsp;software;&nbsp;you&nbsp;can&nbsp;redistribute&nbsp;it&nbsp;and/or</span></div></li>
 <li><div class="src-line"><a name="a8"></a><span class="src-doc">&nbsp;*&nbsp;modify&nbsp;it&nbsp;under&nbsp;the&nbsp;terms&nbsp;of&nbsp;the&nbsp;GNU&nbsp;Lesser&nbsp;General&nbsp;Public</span></div></li>
@@ -81,9 +82,9 @@
 <li><div class="src-line"><a name="a20"></a><span class="src-doc">&nbsp;*</span></div></li>
 <li><div class="src-line"><a name="a21"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@category</span><span class="src-doc">&nbsp;&nbsp;&nbsp;PHPExcel</span></div></li>
 <li><div class="src-line"><a name="a22"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@package</span><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;PHPExcel_Shared_Escher</span></div></li>
-<li><div class="src-line"><a name="a23"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@copyright</span><span class="src-doc">&nbsp;&nbsp;Copyright&nbsp;(c)&nbsp;2006&nbsp;-&nbsp;2009&nbsp;PHPExcel&nbsp;(http://www.codeplex.com/PHPExcel)</span></div></li>
+<li><div class="src-line"><a name="a23"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@copyright</span><span class="src-doc">&nbsp;&nbsp;Copyright&nbsp;(c)&nbsp;2006&nbsp;-&nbsp;2010&nbsp;PHPExcel&nbsp;(http://www.codeplex.com/PHPExcel)</span></div></li>
 <li><div class="src-line"><a name="a24"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@license</span><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt&nbsp;&nbsp;&nbsp;&nbsp;LGPL</span></div></li>
-<li><div class="src-line"><a name="a25"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@version</span><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;1.7.1,&nbsp;2009-11-02</span></div></li>
+<li><div class="src-line"><a name="a25"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@version</span><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;1.7.3c,&nbsp;2010-06-01</span></div></li>
 <li><div class="src-line"><a name="a26"></a><span class="src-doc">&nbsp;*/</span></div></li>
 <li><div class="src-line"><a name="a27"></a>&nbsp;</div></li>
 <li><div class="src-line"><a name="a28"></a><span class="src-doc">/**</span></div></li>
@@ -91,7 +92,7 @@
 <li><div class="src-line"><a name="a30"></a><span class="src-doc">&nbsp;*</span></div></li>
 <li><div class="src-line"><a name="a31"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@category</span><span class="src-doc">&nbsp;&nbsp;&nbsp;PHPExcel</span></div></li>
 <li><div class="src-line"><a name="a32"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@package</span><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;PHPExcel_Shared_Escher</span></div></li>
-<li><div class="src-line"><a name="a33"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@copyright</span><span class="src-doc">&nbsp;&nbsp;Copyright&nbsp;(c)&nbsp;2006&nbsp;-&nbsp;2009&nbsp;PHPExcel&nbsp;(http://www.codeplex.com/PHPExcel)</span></div></li>
+<li><div class="src-line"><a name="a33"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@copyright</span><span class="src-doc">&nbsp;&nbsp;Copyright&nbsp;(c)&nbsp;2006&nbsp;-&nbsp;2010&nbsp;PHPExcel&nbsp;(http://www.codeplex.com/PHPExcel)</span></div></li>
 <li><div class="src-line"><a name="a34"></a><span class="src-doc">&nbsp;*/</span></div></li>
 <li><div class="src-line"><a name="a35"></a><span class="src-key">class&nbsp;</span><a href="../PHPExcel_Shared_Escher/PHPExcel_Shared_Escher_DggContainer.html">PHPExcel_Shared_Escher_DggContainer</a></div></li>
 <li><div class="src-line"><a name="a36"></a><span class="src-sym">{</span></div></li>
@@ -100,35 +101,35 @@
 <li><div class="src-line"><a name="a39"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span></div></li>
 <li><div class="src-line"><a name="a40"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@var&nbsp;</span><span class="src-doc-type">int&nbsp;</span></div></li>
 <li><div class="src-line"><a name="a41"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
-<li><div class="src-line"><a name="a42"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">private&nbsp;</span><a href="../PHPExcel_Shared_Escher/PHPExcel_Shared_Escher_DggContainer.html#var$_spIdMax">$_spIdMax</a><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a42"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">private&nbsp;</span><span class="src-var">$_spIdMax</span><span class="src-sym">;</span></div></li>
 <li><div class="src-line"><a name="a43"></a>&nbsp;</div></li>
 <li><div class="src-line"><a name="a44"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
 <li><div class="src-line"><a name="a45"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Total&nbsp;number&nbsp;of&nbsp;drawings&nbsp;saved</span></div></li>
 <li><div class="src-line"><a name="a46"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span></div></li>
 <li><div class="src-line"><a name="a47"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@var&nbsp;</span><span class="src-doc-type">int&nbsp;</span></div></li>
 <li><div class="src-line"><a name="a48"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
-<li><div class="src-line"><a name="a49"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">private&nbsp;</span><a href="../PHPExcel_Shared_Escher/PHPExcel_Shared_Escher_DggContainer.html#var$_cDgSaved">$_cDgSaved</a><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a49"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">private&nbsp;</span><span class="src-var">$_cDgSaved</span><span class="src-sym">;</span></div></li>
 <li><div class="src-line"><a name="a50"></a>&nbsp;</div></li>
 <li><div class="src-line"><a name="a51"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
 <li><div class="src-line"><a name="a52"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Total&nbsp;number&nbsp;of&nbsp;shapes&nbsp;saved&nbsp;(including&nbsp;group&nbsp;shapes)</span></div></li>
 <li><div class="src-line"><a name="a53"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span></div></li>
 <li><div class="src-line"><a name="a54"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@var&nbsp;</span><span class="src-doc-type">int&nbsp;</span></div></li>
 <li><div class="src-line"><a name="a55"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
-<li><div class="src-line"><a name="a56"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">private&nbsp;</span><a href="../PHPExcel_Shared_Escher/PHPExcel_Shared_Escher_DggContainer.html#var$_cSpSaved">$_cSpSaved</a><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a56"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">private&nbsp;</span><span class="src-var">$_cSpSaved</span><span class="src-sym">;</span></div></li>
 <li><div class="src-line"><a name="a57"></a>&nbsp;</div></li>
 <li><div class="src-line"><a name="a58"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
 <li><div class="src-line"><a name="a59"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;BLIP&nbsp;Store&nbsp;Container</span></div></li>
 <li><div class="src-line"><a name="a60"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span></div></li>
 <li><div class="src-line"><a name="a61"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@var&nbsp;</span><span class="src-doc-type">PHPExcel_Shared_Escher_DggContainer_BstoreContainer&nbsp;</span></div></li>
 <li><div class="src-line"><a name="a62"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
-<li><div class="src-line"><a name="a63"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">private&nbsp;</span><a href="../PHPExcel_Shared_Escher/PHPExcel_Shared_Escher_DggContainer.html#var$_bstoreContainer">$_bstoreContainer</a><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a63"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">private&nbsp;</span><span class="src-var">$_bstoreContainer</span><span class="src-sym">;</span></div></li>
 <li><div class="src-line"><a name="a64"></a>&nbsp;</div></li>
 <li><div class="src-line"><a name="a65"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
 <li><div class="src-line"><a name="a66"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Array&nbsp;of&nbsp;options&nbsp;for&nbsp;the&nbsp;drawing&nbsp;group</span></div></li>
 <li><div class="src-line"><a name="a67"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span></div></li>
 <li><div class="src-line"><a name="a68"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@var&nbsp;</span><span class="src-doc-type">array&nbsp;</span></div></li>
 <li><div class="src-line"><a name="a69"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
-<li><div class="src-line"><a name="a70"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">private&nbsp;</span><a href="../PHPExcel_Shared_Escher/PHPExcel_Shared_Escher_DggContainer.html#var$_OPT">$_OPT</a>&nbsp;=&nbsp;<span class="src-key">array</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a70"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">private&nbsp;</span><span class="src-var">$_OPT&nbsp;</span>=&nbsp;<span class="src-key">array</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
 <li><div class="src-line"><a name="a71"></a>&nbsp;</div></li>
 <li><div class="src-line"><a name="a72"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
 <li><div class="src-line"><a name="a73"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Get&nbsp;maximum&nbsp;shape&nbsp;index&nbsp;of&nbsp;all&nbsp;shapes&nbsp;in&nbsp;all&nbsp;drawings&nbsp;(plus&nbsp;one)</span></div></li>
@@ -137,7 +138,7 @@
 <li><div class="src-line"><a name="a76"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
 <li><div class="src-line"><a name="a77"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><span class="src-key">function&nbsp;</span><a href="../PHPExcel_Shared_Escher/PHPExcel_Shared_Escher_DggContainer.html#methodgetSpIdMax">getSpIdMax</a><span class="src-sym">(</span><span class="src-sym">)</span></div></li>
 <li><div class="src-line"><a name="a78"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">{</span></div></li>
-<li><div class="src-line"><a name="a79"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">return&nbsp;</span><span class="src-var">$this</span><span class="src-sym">-&gt;</span><a href="../PHPExcel_Shared_Escher/PHPExcel_Shared_Escher_DggContainer.html#var$_spIdMax">_spIdMax</a><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a79"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">return&nbsp;</span><span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-var">_spIdMax</span><span class="src-sym">;</span></div></li>
 <li><div class="src-line"><a name="a80"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
 <li><div class="src-line"><a name="a81"></a>&nbsp;</div></li>
 <li><div class="src-line"><a name="a82"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
@@ -147,7 +148,7 @@
 <li><div class="src-line"><a name="a86"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
 <li><div class="src-line"><a name="a87"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><span class="src-key">function&nbsp;</span><a href="../PHPExcel_Shared_Escher/PHPExcel_Shared_Escher_DggContainer.html#methodsetSpIdMax">setSpIdMax</a><span class="src-sym">(</span><span class="src-var">$value</span><span class="src-sym">)</span></div></li>
 <li><div class="src-line"><a name="a88"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">{</span></div></li>
-<li><div class="src-line"><a name="a89"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><a href="../PHPExcel_Shared_Escher/PHPExcel_Shared_Escher_DggContainer.html#var$_spIdMax">_spIdMax</a>&nbsp;=&nbsp;<span class="src-var">$value</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a89"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-var">_spIdMax&nbsp;</span>=&nbsp;<span class="src-var">$value</span><span class="src-sym">;</span></div></li>
 <li><div class="src-line"><a name="a90"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
 <li><div class="src-line"><a name="a91"></a>&nbsp;</div></li>
 <li><div class="src-line"><a name="a92"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
@@ -157,7 +158,7 @@
 <li><div class="src-line"><a name="a96"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
 <li><div class="src-line"><a name="a97"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><span class="src-key">function&nbsp;</span><a href="../PHPExcel_Shared_Escher/PHPExcel_Shared_Escher_DggContainer.html#methodgetCDgSaved">getCDgSaved</a><span class="src-sym">(</span><span class="src-sym">)</span></div></li>
 <li><div class="src-line"><a name="a98"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">{</span></div></li>
-<li><div class="src-line"><a name="a99"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">return&nbsp;</span><span class="src-var">$this</span><span class="src-sym">-&gt;</span><a href="../PHPExcel_Shared_Escher/PHPExcel_Shared_Escher_DggContainer.html#var$_cDgSaved">_cDgSaved</a><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a99"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">return&nbsp;</span><span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-var">_cDgSaved</span><span class="src-sym">;</span></div></li>
 <li><div class="src-line"><a name="a100"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
 <li><div class="src-line"><a name="a101"></a>&nbsp;</div></li>
 <li><div class="src-line"><a name="a102"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
@@ -167,7 +168,7 @@
 <li><div class="src-line"><a name="a106"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
 <li><div class="src-line"><a name="a107"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><span class="src-key">function&nbsp;</span><a href="../PHPExcel_Shared_Escher/PHPExcel_Shared_Escher_DggContainer.html#methodsetCDgSaved">setCDgSaved</a><span class="src-sym">(</span><span class="src-var">$value</span><span class="src-sym">)</span></div></li>
 <li><div class="src-line"><a name="a108"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">{</span></div></li>
-<li><div class="src-line"><a name="a109"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><a href="../PHPExcel_Shared_Escher/PHPExcel_Shared_Escher_DggContainer.html#var$_cDgSaved">_cDgSaved</a>&nbsp;=&nbsp;<span class="src-var">$value</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a109"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-var">_cDgSaved&nbsp;</span>=&nbsp;<span class="src-var">$value</span><span class="src-sym">;</span></div></li>
 <li><div class="src-line"><a name="a110"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
 <li><div class="src-line"><a name="a111"></a>&nbsp;</div></li>
 <li><div class="src-line"><a name="a112"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
@@ -177,7 +178,7 @@
 <li><div class="src-line"><a name="a116"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
 <li><div class="src-line"><a name="a117"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><span class="src-key">function&nbsp;</span><a href="../PHPExcel_Shared_Escher/PHPExcel_Shared_Escher_DggContainer.html#methodgetCSpSaved">getCSpSaved</a><span class="src-sym">(</span><span class="src-sym">)</span></div></li>
 <li><div class="src-line"><a name="a118"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">{</span></div></li>
-<li><div class="src-line"><a name="a119"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">return&nbsp;</span><span class="src-var">$this</span><span class="src-sym">-&gt;</span><a href="../PHPExcel_Shared_Escher/PHPExcel_Shared_Escher_DggContainer.html#var$_cSpSaved">_cSpSaved</a><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a119"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">return&nbsp;</span><span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-var">_cSpSaved</span><span class="src-sym">;</span></div></li>
 <li><div class="src-line"><a name="a120"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
 <li><div class="src-line"><a name="a121"></a>&nbsp;</div></li>
 <li><div class="src-line"><a name="a122"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
@@ -187,7 +188,7 @@
 <li><div class="src-line"><a name="a126"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
 <li><div class="src-line"><a name="a127"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><span class="src-key">function&nbsp;</span><a href="../PHPExcel_Shared_Escher/PHPExcel_Shared_Escher_DggContainer.html#methodsetCSpSaved">setCSpSaved</a><span class="src-sym">(</span><span class="src-var">$value</span><span class="src-sym">)</span></div></li>
 <li><div class="src-line"><a name="a128"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">{</span></div></li>
-<li><div class="src-line"><a name="a129"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><a href="../PHPExcel_Shared_Escher/PHPExcel_Shared_Escher_DggContainer.html#var$_cSpSaved">_cSpSaved</a>&nbsp;=&nbsp;<span class="src-var">$value</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a129"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-var">_cSpSaved&nbsp;</span>=&nbsp;<span class="src-var">$value</span><span class="src-sym">;</span></div></li>
 <li><div class="src-line"><a name="a130"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
 <li><div class="src-line"><a name="a131"></a>&nbsp;</div></li>
 <li><div class="src-line"><a name="a132"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
@@ -197,7 +198,7 @@
 <li><div class="src-line"><a name="a136"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
 <li><div class="src-line"><a name="a137"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><span class="src-key">function&nbsp;</span><a href="../PHPExcel_Shared_Escher/PHPExcel_Shared_Escher_DggContainer.html#methodgetBstoreContainer">getBstoreContainer</a><span class="src-sym">(</span><span class="src-sym">)</span></div></li>
 <li><div class="src-line"><a name="a138"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">{</span></div></li>
-<li><div class="src-line"><a name="a139"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">return&nbsp;</span><span class="src-var">$this</span><span class="src-sym">-&gt;</span><a href="../PHPExcel_Shared_Escher/PHPExcel_Shared_Escher_DggContainer.html#var$_bstoreContainer">_bstoreContainer</a><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a139"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">return&nbsp;</span><span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-var">_bstoreContainer</span><span class="src-sym">;</span></div></li>
 <li><div class="src-line"><a name="a140"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
 <li><div class="src-line"><a name="a141"></a>&nbsp;</div></li>
 <li><div class="src-line"><a name="a142"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
@@ -207,7 +208,7 @@
 <li><div class="src-line"><a name="a146"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
 <li><div class="src-line"><a name="a147"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><span class="src-key">function&nbsp;</span><a href="../PHPExcel_Shared_Escher/PHPExcel_Shared_Escher_DggContainer.html#methodsetBstoreContainer">setBstoreContainer</a><span class="src-sym">(</span><span class="src-var">$bstoreContainer</span><span class="src-sym">)</span></div></li>
 <li><div class="src-line"><a name="a148"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">{</span></div></li>
-<li><div class="src-line"><a name="a149"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><a href="../PHPExcel_Shared_Escher/PHPExcel_Shared_Escher_DggContainer.html#var$_bstoreContainer">_bstoreContainer</a>&nbsp;=&nbsp;<span class="src-var">$bstoreContainer</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a149"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-var">_bstoreContainer&nbsp;</span>=&nbsp;<span class="src-var">$bstoreContainer</span><span class="src-sym">;</span></div></li>
 <li><div class="src-line"><a name="a150"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
 <li><div class="src-line"><a name="a151"></a>&nbsp;</div></li>
 <li><div class="src-line"><a name="a152"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
@@ -218,7 +219,7 @@
 <li><div class="src-line"><a name="a157"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
 <li><div class="src-line"><a name="a158"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><span class="src-key">function&nbsp;</span><a href="../PHPExcel_Shared_Escher/PHPExcel_Shared_Escher_DggContainer.html#methodsetOPT">setOPT</a><span class="src-sym">(</span><span class="src-var">$property</span><span class="src-sym">,&nbsp;</span><span class="src-var">$value</span><span class="src-sym">)</span></div></li>
 <li><div class="src-line"><a name="a159"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">{</span></div></li>
-<li><div class="src-line"><a name="a160"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><a href="../PHPExcel_Shared_Escher/PHPExcel_Shared_Escher_DggContainer.html#var$_OPT">_OPT</a><span class="src-sym">[</span><span class="src-var">$property</span><span class="src-sym">]&nbsp;</span>=&nbsp;<span class="src-var">$value</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a160"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-var">_OPT</span><span class="src-sym">[</span><span class="src-var">$property</span><span class="src-sym">]&nbsp;</span>=&nbsp;<span class="src-var">$value</span><span class="src-sym">;</span></div></li>
 <li><div class="src-line"><a name="a161"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
 <li><div class="src-line"><a name="a162"></a>&nbsp;</div></li>
 <li><div class="src-line"><a name="a163"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
@@ -229,8 +230,8 @@
 <li><div class="src-line"><a name="a168"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
 <li><div class="src-line"><a name="a169"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><span class="src-key">function&nbsp;</span><a href="../PHPExcel_Shared_Escher/PHPExcel_Shared_Escher_DggContainer.html#methodgetOPT">getOPT</a><span class="src-sym">(</span><span class="src-var">$property</span><span class="src-sym">)</span></div></li>
 <li><div class="src-line"><a name="a170"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">{</span></div></li>
-<li><div class="src-line"><a name="a171"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">if&nbsp;</span><span class="src-sym">(</span>isset<span class="src-sym">(</span><span class="src-var">$this</span><span class="src-sym">-&gt;</span><a href="../PHPExcel_Shared_Escher/PHPExcel_Shared_Escher_DggContainer.html#var$_OPT">_OPT</a><span class="src-sym">[</span><span class="src-var">$property</span><span class="src-sym">]</span><span class="src-sym">))&nbsp;</span><span class="src-sym">{</span></div></li>
-<li><div class="src-line"><a name="a172"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">return&nbsp;</span><span class="src-var">$this</span><span class="src-sym">-&gt;</span><a href="../PHPExcel_Shared_Escher/PHPExcel_Shared_Escher_DggContainer.html#var$_OPT">_OPT</a><span class="src-sym">[</span><span class="src-var">$property</span><span class="src-sym">]</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a171"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">if&nbsp;</span><span class="src-sym">(</span>isset<span class="src-sym">(</span><span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-var">_OPT</span><span class="src-sym">[</span><span class="src-var">$property</span><span class="src-sym">]</span><span class="src-sym">))&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a172"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">return&nbsp;</span><span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-var">_OPT</span><span class="src-sym">[</span><span class="src-var">$property</span><span class="src-sym">]</span><span class="src-sym">;</span></div></li>
 <li><div class="src-line"><a name="a173"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
 <li><div class="src-line"><a name="a174"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">return&nbsp;</span><span class="src-id">null</span><span class="src-sym">;</span></div></li>
 <li><div class="src-line"><a name="a175"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
@@ -240,7 +241,7 @@
 </div>
         <div class="credit">
 		    <hr />
-		    Documentation generated on Mon, 02 Nov 2009 08:39:21 +0100 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.1</a>
+		    Documentation generated on Tue, 01 Jun 2010 17:02:45 +0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>

@@ -2,7 +2,7 @@
 /**
  * PHPExcel
  *
- * Copyright (c) 2006 - 2009 PHPExcel
+ * Copyright (c) 2006 - 2010 PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,34 +20,17 @@
  *
  * @category   PHPExcel
  * @package    PHPExcel_Shared
- * @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.1, 2009-11-02
+ * @version    1.7.3c, 2010-06-01
  */
-
-/** PHPExcel root directory */
-if (!defined('PHPEXCEL_ROOT')) {
-	/**
-	 * @ignore
-	 */
-	define('PHPEXCEL_ROOT', dirname(__FILE__) . '/../../');
-}
-
-/** PHPExcel_Cell */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Cell.php';
-
-/** PHPExcel_Shared_Drawing */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Shared/Drawing.php';
-
-/** PHPExcel_Shared_Font */
-require_once PHPEXCEL_ROOT . 'PHPExcel/Shared/Font.php';
 
 /**
  * PHPExcel_Shared_Excel5
  *
  * @category   PHPExcel
  * @package    PHPExcel_Shared
- * @copyright  Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)
  */
 class PHPExcel_Shared_Excel5
 {
@@ -264,7 +247,7 @@ class PHPExcel_Shared_Excel5
 		list($column, $row) = PHPExcel_Cell::coordinateFromString($coordinates);
 		$col_start = PHPExcel_Cell::columnIndexFromString($column) - 1;
 		$row_start = $row - 1;
-		
+
 		$x1 = $offsetX;
 		$y1 = $offsetY;
 
@@ -313,8 +296,8 @@ class PHPExcel_Shared_Excel5
 		// Convert the pixel values to the percentage value expected by Excel
 		$x1 = $x1	 / self::sizeCol($sheet, PHPExcel_Cell::stringFromColumnIndex($col_start))   * 1024;
 		$y1 = $y1	 / self::sizeRow($sheet, $row_start + 1)   *  256;
-		$x2 = $width  / self::sizeCol($sheet, PHPExcel_Cell::stringFromColumnIndex($col_end))	 * 1024; // Distance to right side of object
-		$y2 = $height / self::sizeRow($sheet, $row_end + 1)	 *  256; // Distance to bottom of object
+		$x2 = ($width + 1)  / self::sizeCol($sheet, PHPExcel_Cell::stringFromColumnIndex($col_end))	 * 1024; // Distance to right side of object
+		$y2 = ($height + 1) / self::sizeRow($sheet, $row_end + 1)	 *  256; // Distance to bottom of object
 
 		$startCoordinates = PHPExcel_Cell::stringFromColumnIndex($col_start) . ($row_start + 1);
 		$endCoordinates = PHPExcel_Cell::stringFromColumnIndex($col_end) . ($row_end + 1);

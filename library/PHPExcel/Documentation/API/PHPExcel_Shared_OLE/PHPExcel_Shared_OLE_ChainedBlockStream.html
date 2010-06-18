@@ -13,7 +13,7 @@
   <tr>
     <td class="header_menu">
         
-                                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                            
                                                                                                                                                       		  [ <a href="../classtrees_PHPExcel_Shared_OLE.html" class="menu">class tree: PHPExcel_Shared_OLE</a> ]
 		  [ <a href="../elementindex_PHPExcel_Shared_OLE.html" class="menu">index: PHPExcel_Shared_OLE</a> ]
 		  	    [ <a href="../elementindex.html" class="menu">all elements</a> ]
@@ -29,16 +29,17 @@
 			<p><a href="../todolist.html">Todo List</a></p>
 	</div>
       <b>Packages:</b><br />
-              <a href="../li_default.html">default</a><br />
+              <a href="../li_PHPExcel.html">PHPExcel</a><br />
               <a href="../li_com-tecnick-tcpdf.html">com-tecnick-tcpdf</a><br />
               <a href="../li_JAMA.html">JAMA</a><br />
               <a href="../li_Math_Stats.html">Math_Stats</a><br />
-              <a href="../li_PHPExcel.html">PHPExcel</a><br />
+              <a href="../li_PHPExcel_CachedObjectStorage.html">PHPExcel_CachedObjectStorage</a><br />
               <a href="../li_PHPExcel_Calculation.html">PHPExcel_Calculation</a><br />
               <a href="../li_PHPExcel_Cell.html">PHPExcel_Cell</a><br />
               <a href="../li_PHPExcel_Reader.html">PHPExcel_Reader</a><br />
               <a href="../li_PHPExcel_Reader_Excel5.html">PHPExcel_Reader_Excel5</a><br />
               <a href="../li_PHPExcel_RichText.html">PHPExcel_RichText</a><br />
+              <a href="../li_PHPExcel_Settings.html">PHPExcel_Settings</a><br />
               <a href="../li_PHPExcel_Shared.html">PHPExcel_Shared</a><br />
               <a href="../li_PHPExcel_Shared_Best_Fit.html">PHPExcel_Shared_Best_Fit</a><br />
               <a href="../li_PHPExcel_Shared_Escher.html">PHPExcel_Shared_Escher</a><br />
@@ -54,13 +55,13 @@
       	  <div class="package">
 			<a href="../PHPExcel_Shared_OLE/_PHPExcel---Shared---OLE---ChainedBlockStream.php.html">		ChainedBlockStream.php
 		</a><br>
+			<a href="../PHPExcel_Shared_OLE/_PHPExcel---Shared---OLE---PPS---File.php.html">		File.php
+		</a><br>
 			<a href="../PHPExcel_Shared_OLE/_PHPExcel---Shared---OLE.php.html">		OLE.php
 		</a><br>
-			<a href="../PHPExcel_Shared_OLE/_PHPExcel---Shared---OLE---OLE_File.php.html">		OLE_File.php
+			<a href="../PHPExcel_Shared_OLE/_PHPExcel---Shared---OLE---PPS.php.html">		PPS.php
 		</a><br>
-			<a href="../PHPExcel_Shared_OLE/_PHPExcel---Shared---OLE---OLE_PPS.php.html">		OLE_PPS.php
-		</a><br>
-			<a href="../PHPExcel_Shared_OLE/_PHPExcel---Shared---OLE---OLE_Root.php.html">		OLE_Root.php
+			<a href="../PHPExcel_Shared_OLE/_PHPExcel---Shared---OLE---PPS---Root.php.html">		Root.php
 		</a><br>
 	  </div><br />
       
@@ -86,8 +87,7 @@ Source Location: /PHPExcel/Shared/OLE/ChainedBlockStream.php<br /><br />
 
 <h3><a href="#class_details">Class Overview</a></h3>
 <pre></pre><br />
-<div class="description">PHPExcel_Shared_OLE_ChainedBlockStream
- Stream wrapper for reading data stored in an OLE file. for PHP's stream_wrapper_register(). wrapper, use PHPExcel_Shared_OLE_PPS_File::getStream().</div><br /><br />
+<div class="description">PHPExcel_Shared_OLE_ChainedBlockStream</div><br /><br />
 
 
 
@@ -137,10 +137,8 @@ Source Location: /PHPExcel/Shared/OLE/ChainedBlockStream.php<br /><br />
 <a name="class_details"></a>
 <h3>Class Details</h3>
 <div class="tags">
-[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEChainedBlockStream.php.html#a48">48</a>]<br />
-PHPExcel_Shared_OLE_ChainedBlockStream
- Stream wrapper for reading data stored in an OLE file. for PHP's stream_wrapper_register(). wrapper, use PHPExcel_Shared_OLE_PPS_File::getStream().<br /><br /><p>PHPExcel_Shared_OLE_ChainedBlockStream
- Stream wrapper for reading data stored in an OLE file. Implements methods for PHP's stream_wrapper_register(). For creating streams using this wrapper, use PHPExcel_Shared_OLE_PPS_File::getStream().</p><br /></div><br /><br />
+[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEChainedBlockStream.php.html#a38">38</a>]<br />
+PHPExcel_Shared_OLE_ChainedBlockStream<br /><br /><p>Stream wrapper for reading data stored in an OLE file. Implements methods  for PHP's stream_wrapper_register(). For creating streams using this  wrapper, use PHPExcel_Shared_OLE_PPS_File::getStream().</p><br /></div><br /><br />
 <div class="top">[ <a href="#top">Top</a> ]</div><br />
 
 <hr />
@@ -150,8 +148,8 @@ PHPExcel_Shared_OLE_ChainedBlockStream
 	<a name="var$data"></a>
 	<p></p>
 	<h4>$data = <span class="value"></span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEChainedBlockStream.php.html#a66">66</a>]</p>
-  The binary data of the file.<br /><br /><p>The binary data of the file.</p><br /><br /><br />
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEChainedBlockStream.php.html#a56">56</a>]</p>
+  The binary data of the file.<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -174,8 +172,8 @@ PHPExcel_Shared_OLE_ChainedBlockStream
 	<a name="var$ole"></a>
 	<p></p>
 	<h4>$ole = <span class="value"></span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEChainedBlockStream.php.html#a54">54</a>]</p>
-  The OLE container of the file that is being read.<br /><br /><p>The OLE container of the file that is being read.</p><br /><br /><br />
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEChainedBlockStream.php.html#a44">44</a>]</p>
+  The OLE container of the file that is being read.<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -198,8 +196,8 @@ PHPExcel_Shared_OLE_ChainedBlockStream
 	<a name="var$params"></a>
 	<p></p>
 	<h4>$params = <span class="value"></span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEChainedBlockStream.php.html#a60">60</a>]</p>
-  Parameters specified by fopen().<br /><br /><p>Parameters specified by fopen().</p><br /><br /><br />
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEChainedBlockStream.php.html#a50">50</a>]</p>
+  Parameters specified by fopen().<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -222,8 +220,8 @@ PHPExcel_Shared_OLE_ChainedBlockStream
 	<a name="var$pos"></a>
 	<p></p>
 	<h4>$pos = <span class="value"></span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEChainedBlockStream.php.html#a72">72</a>]</p>
-  The file pointer.<br /><br /><p>The file pointer.</p><br /><br /><br />
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEChainedBlockStream.php.html#a62">62</a>]</p>
+  The file pointer.<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -255,7 +253,7 @@ PHPExcel_Shared_OLE_ChainedBlockStream
 
   <hr />
 	<a name="methodstream_close"></a>
-	<h3>method stream_close <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEChainedBlockStream.php.html#a144">144</a>]</span></h3>
+	<h3>method stream_close <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEChainedBlockStream.php.html#a134">134</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -264,7 +262,7 @@ PHPExcel_Shared_OLE_ChainedBlockStream
     </td></tr></table>
     </td></tr></table><br />
 	
-		Implements support for fclose().<br /><br /><p>Implements support for fclose().</p><br /><br /><br />
+		Implements support for fclose().<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -280,7 +278,7 @@ PHPExcel_Shared_OLE_ChainedBlockStream
   </div>
   <hr />
 	<a name="methodstream_eof"></a>
-	<h3>method stream_eof <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEChainedBlockStream.php.html#a169">169</a>]</span></h3>
+	<h3>method stream_eof <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEChainedBlockStream.php.html#a159">159</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -289,7 +287,7 @@ PHPExcel_Shared_OLE_ChainedBlockStream
     </td></tr></table>
     </td></tr></table><br />
 	
-		Implements support for feof().<br /><br /><p>Implements support for feof().</p><br /><br /><br />
+		Implements support for feof().<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -308,7 +306,7 @@ PHPExcel_Shared_OLE_ChainedBlockStream
   </div>
   <hr />
 	<a name="methodstream_open"></a>
-	<h3>method stream_open <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEChainedBlockStream.php.html#a84">84</a>]</span></h3>
+	<h3>method stream_open <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEChainedBlockStream.php.html#a74">74</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -321,7 +319,7 @@ $options, string
     </td></tr></table>
     </td></tr></table><br />
 	
-		Implements support for fopen().<br /><br /><p>Implements support for fopen(). For creating streams using this wrapper, use OLE_PPS_File::getStream().</p><br /><br /><br />
+		Implements support for fopen().<br /><br /><p>For creating streams using this wrapper, use OLE_PPS_File::getStream().</p><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -342,7 +340,7 @@ $options, string
           <tr>
         <td class="type">string&nbsp;&nbsp;</td>
         <td><b>$path</b>&nbsp;&nbsp;</td>
-        <td>resource name including scheme, e.g.                 ole-chainedblockstream://oleInstanceId=1</td>
+        <td>resource name including scheme, e.g.                  ole-chainedblockstream://oleInstanceId=1</td>
       </tr>
           <tr>
         <td class="type">string&nbsp;&nbsp;</td>
@@ -365,7 +363,7 @@ $options, string
   </div>
   <hr />
 	<a name="methodstream_read"></a>
-	<h3>method stream_read <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEChainedBlockStream.php.html#a155">155</a>]</span></h3>
+	<h3>method stream_read <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEChainedBlockStream.php.html#a145">145</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -375,7 +373,7 @@ $count)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Implements support for fread(), fgets() etc.<br /><br /><p>Implements support for fread(), fgets() etc.</p><br /><br /><br />
+		Implements support for fread(), fgets() etc.<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -401,7 +399,7 @@ $count)</code>
   </div>
   <hr />
 	<a name="methodstream_seek"></a>
-	<h3>method stream_seek <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEChainedBlockStream.php.html#a197">197</a>]</span></h3>
+	<h3>method stream_seek <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEChainedBlockStream.php.html#a187">187</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -412,7 +410,7 @@ $whence)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Implements support for fseek().<br /><br /><p>Implements support for fseek().</p><br /><br /><br />
+		Implements support for fseek().<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -443,7 +441,7 @@ $whence)</code>
   </div>
   <hr />
 	<a name="methodstream_stat"></a>
-	<h3>method stream_stat <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEChainedBlockStream.php.html#a216">216</a>]</span></h3>
+	<h3>method stream_stat <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEChainedBlockStream.php.html#a206">206</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -452,7 +450,7 @@ $whence)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Implements support for fstat(). &quot;size&quot;.<br /><br /><p>Implements support for fstat(). Currently the only supported field is &quot;size&quot;.</p><br /><br /><br />
+		Implements support for fstat(). Currently the only supported field is  &quot;size&quot;.<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -468,7 +466,7 @@ $whence)</code>
   </div>
   <hr />
 	<a name="methodstream_tell"></a>
-	<h3>method stream_tell <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEChainedBlockStream.php.html#a186">186</a>]</span></h3>
+	<h3>method stream_tell <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Shared_OLE__PHPExcelSharedOLEChainedBlockStream.php.html#a176">176</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -477,7 +475,7 @@ $whence)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Returns the position of the file pointer, i. stream.<br /><br /><p>Returns the position of the file pointer, i.e. its offset into the file stream. Implements support for ftell().</p><br /><br /><br />
+		Returns the position of the file pointer, i.e. its offset into the file  stream. Implements support for ftell().<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -496,7 +494,7 @@ $whence)</code>
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Mon, 02 Nov 2009 08:38:41 +0100 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.1</a>
+		    Documentation generated on Tue, 01 Jun 2010 17:02:31 +0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>

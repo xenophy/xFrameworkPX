@@ -13,7 +13,7 @@
   <tr>
     <td class="header_menu">
         
-                                                                                                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                                                                                                                                
                                                                                                                                   		  [ <a href="../classtrees_PHPExcel_Style.html" class="menu">class tree: PHPExcel_Style</a> ]
 		  [ <a href="../elementindex_PHPExcel_Style.html" class="menu">index: PHPExcel_Style</a> ]
 		  	    [ <a href="../elementindex.html" class="menu">all elements</a> ]
@@ -29,16 +29,17 @@
 			<p><a href="../todolist.html">Todo List</a></p>
 	</div>
       <b>Packages:</b><br />
-              <a href="../li_default.html">default</a><br />
+              <a href="../li_PHPExcel.html">PHPExcel</a><br />
               <a href="../li_com-tecnick-tcpdf.html">com-tecnick-tcpdf</a><br />
               <a href="../li_JAMA.html">JAMA</a><br />
               <a href="../li_Math_Stats.html">Math_Stats</a><br />
-              <a href="../li_PHPExcel.html">PHPExcel</a><br />
+              <a href="../li_PHPExcel_CachedObjectStorage.html">PHPExcel_CachedObjectStorage</a><br />
               <a href="../li_PHPExcel_Calculation.html">PHPExcel_Calculation</a><br />
               <a href="../li_PHPExcel_Cell.html">PHPExcel_Cell</a><br />
               <a href="../li_PHPExcel_Reader.html">PHPExcel_Reader</a><br />
               <a href="../li_PHPExcel_Reader_Excel5.html">PHPExcel_Reader_Excel5</a><br />
               <a href="../li_PHPExcel_RichText.html">PHPExcel_RichText</a><br />
+              <a href="../li_PHPExcel_Settings.html">PHPExcel_Settings</a><br />
               <a href="../li_PHPExcel_Shared.html">PHPExcel_Shared</a><br />
               <a href="../li_PHPExcel_Shared_Best_Fit.html">PHPExcel_Shared_Best_Fit</a><br />
               <a href="../li_PHPExcel_Shared_Escher.html">PHPExcel_Shared_Escher</a><br />
@@ -114,7 +115,7 @@ Source Location: /PHPExcel/Style/Conditional.php<br /><br />
 
 <h4>Copyright:</h4>
 <ul>
-  <li>Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)</li>
+  <li>Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)</li>
 </ul>
                 <p class="implements">
             Implements interfaces:
@@ -124,17 +125,6 @@ Source Location: /PHPExcel/Style/Conditional.php<br /><br />
         
 </td>
 
-<td valign="top">
-<h3><a href="#class_vars">Variables</a></h3>
-<ul>
-    <li><a href="../PHPExcel_Style/PHPExcel_Style_Conditional.html#var$_condition">$_condition</a></li>
-    <li><a href="../PHPExcel_Style/PHPExcel_Style_Conditional.html#var$_conditionType">$_conditionType</a></li>
-    <li><a href="../PHPExcel_Style/PHPExcel_Style_Conditional.html#var$_hashIndex">$_hashIndex</a></li>
-    <li><a href="../PHPExcel_Style/PHPExcel_Style_Conditional.html#var$_operatorType">$_operatorType</a></li>
-    <li><a href="../PHPExcel_Style/PHPExcel_Style_Conditional.html#var$_style">$_style</a></li>
-    <li><a href="../PHPExcel_Style/PHPExcel_Style_Conditional.html#var$_text">$_text</a></li>
-  </ul>
-</td>
 
 <td valign="top">
 <h3><a href="#class_consts">Constants</a></h3>
@@ -161,20 +151,18 @@ Source Location: /PHPExcel/Style/Conditional.php<br /><br />
 <td valign="top">
 <h3><a href="#class_methods">Methods</a></h3>
 <ul>
-    <li><a href="../PHPExcel_Style/PHPExcel_Style_Conditional.html#method__construct">__construct</a></li>
     <li><a href="../PHPExcel_Style/PHPExcel_Style_Conditional.html#methodaddCondition">addCondition</a></li>
+    <li><a href="../PHPExcel_Style/PHPExcel_Style_Conditional.html#method__construct">__construct</a></li>
     <li><a href="../PHPExcel_Style/PHPExcel_Style_Conditional.html#methodgetCondition">getCondition</a></li>
     <li><a href="../PHPExcel_Style/PHPExcel_Style_Conditional.html#methodgetConditions">getConditions</a></li>
     <li><a href="../PHPExcel_Style/PHPExcel_Style_Conditional.html#methodgetConditionType">getConditionType</a></li>
     <li><a href="../PHPExcel_Style/PHPExcel_Style_Conditional.html#methodgetHashCode">getHashCode</a></li>
-    <li><a href="../PHPExcel_Style/PHPExcel_Style_Conditional.html#methodgetHashIndex">getHashIndex</a></li>
     <li><a href="../PHPExcel_Style/PHPExcel_Style_Conditional.html#methodgetOperatorType">getOperatorType</a></li>
     <li><a href="../PHPExcel_Style/PHPExcel_Style_Conditional.html#methodgetStyle">getStyle</a></li>
     <li><a href="../PHPExcel_Style/PHPExcel_Style_Conditional.html#methodgetText">getText</a></li>
     <li><a href="../PHPExcel_Style/PHPExcel_Style_Conditional.html#methodsetCondition">setCondition</a></li>
     <li><a href="../PHPExcel_Style/PHPExcel_Style_Conditional.html#methodsetConditions">setConditions</a></li>
     <li><a href="../PHPExcel_Style/PHPExcel_Style_Conditional.html#methodsetConditionType">setConditionType</a></li>
-    <li><a href="../PHPExcel_Style/PHPExcel_Style_Conditional.html#methodsetHashIndex">setHashIndex</a></li>
     <li><a href="../PHPExcel_Style/PHPExcel_Style_Conditional.html#methodsetOperatorType">setOperatorType</a></li>
     <li><a href="../PHPExcel_Style/PHPExcel_Style_Conditional.html#methodsetStyle">setStyle</a></li>
     <li><a href="../PHPExcel_Style/PHPExcel_Style_Conditional.html#methodsetText">setText</a></li>
@@ -198,168 +186,19 @@ Source Location: /PHPExcel/Style/Conditional.php<br /><br />
 <a name="class_details"></a>
 <h3>Class Details</h3>
 <div class="tags">
-[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a51">51</a>]<br />
-PHPExcel_Style_Conditional<br /><br /><p>PHPExcel_Style_Conditional</p><br /><br /><br />
+[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a36">36</a>]<br />
+PHPExcel_Style_Conditional<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td><b>copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)</td>
+    <td><b>copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)</td>
   </tr>
 </table>
 </div>
 </div><br /><br />
 <div class="top">[ <a href="#top">Top</a> ]</div><br />
 
-<hr />
-<a name="class_vars"></a>
-<h3>Class Variables</h3>
-<div class="tags">
-	<a name="var$_condition"></a>
-	<p></p>
-	<h4>$_condition = <span class="value">array()</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a99">99</a>]</p>
-  Condition<br /><br /><p>Condition</p><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
-  </tr>
-</table>
-</div>
-
-  <br />
-	<div class="tags">
-  <table border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td><b>Type:</b>&nbsp;&nbsp;</td>
-      <td>string[]</td>
-    </tr>
-      </table>
-	</div><br /><br />
-	<div class="top">[ <a href="#top">Top</a> ]</div><br />
-	<a name="var$_conditionType"></a>
-	<p></p>
-	<h4>$_conditionType = <span class="value"></span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a78">78</a>]</p>
-  Condition type<br /><br /><p>Condition type</p><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
-  </tr>
-</table>
-</div>
-
-  <br />
-	<div class="tags">
-  <table border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td><b>Type:</b>&nbsp;&nbsp;</td>
-      <td>int</td>
-    </tr>
-      </table>
-	</div><br /><br />
-	<div class="top">[ <a href="#top">Top</a> ]</div><br />
-	<a name="var$_hashIndex"></a>
-	<p></p>
-	<h4>$_hashIndex = <span class="value"></span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a284">284</a>]</p>
-  Hash index<br /><br /><p>Hash index</p><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
-  </tr>
-</table>
-</div>
-
-  <br />
-	<div class="tags">
-  <table border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td><b>Type:</b>&nbsp;&nbsp;</td>
-      <td>string</td>
-    </tr>
-      </table>
-	</div><br /><br />
-	<div class="top">[ <a href="#top">Top</a> ]</div><br />
-	<a name="var$_operatorType"></a>
-	<p></p>
-	<h4>$_operatorType = <span class="value"></span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a85">85</a>]</p>
-  Operator type<br /><br /><p>Operator type</p><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
-  </tr>
-</table>
-</div>
-
-  <br />
-	<div class="tags">
-  <table border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td><b>Type:</b>&nbsp;&nbsp;</td>
-      <td>int</td>
-    </tr>
-      </table>
-	</div><br /><br />
-	<div class="top">[ <a href="#top">Top</a> ]</div><br />
-	<a name="var$_style"></a>
-	<p></p>
-	<h4>$_style = <span class="value"></span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a106">106</a>]</p>
-  Style<br /><br /><p>Style</p><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
-  </tr>
-</table>
-</div>
-
-  <br />
-	<div class="tags">
-  <table border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td><b>Type:</b>&nbsp;&nbsp;</td>
-      <td><a href="../PHPExcel_Style/PHPExcel_Style.html">PHPExcel_Style</a></td>
-    </tr>
-      </table>
-	</div><br /><br />
-	<div class="top">[ <a href="#top">Top</a> ]</div><br />
-	<a name="var$_text"></a>
-	<p></p>
-	<h4>$_text = <span class="value"></span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a92">92</a>]</p>
-  Text<br /><br /><p>Text</p><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
-  </tr>
-</table>
-</div>
-
-  <br />
-	<div class="tags">
-  <table border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td><b>Type:</b>&nbsp;&nbsp;</td>
-      <td>string</td>
-    </tr>
-      </table>
-	</div><br /><br />
-	<div class="top">[ <a href="#top">Top</a> ]</div><br />
-</div><br />
 
 <hr />
 <a name="class_methods"></a>
@@ -367,33 +206,8 @@ PHPExcel_Style_Conditional<br /><br /><p>PHPExcel_Style_Conditional</p><br /><br
 <div class="tags">
 
   <hr />
-	<a name="method__construct"></a>
-	<h3>constructor __construct <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a111">111</a>]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>PHPExcel_Style_Conditional __construct(
-)</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		Create a new PHPExcel_Style_Conditional<br /><br /><p>Create a new PHPExcel_Style_Conditional</p><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
-	
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
 	<a name="methodaddCondition"></a>
-	<h3>method addCondition <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a238">238</a>]</span></h3>
+	<h3>method addCondition <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a223">223</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -403,7 +217,7 @@ $pValue = ''])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Add Condition<br /><br /><p>Add Condition</p><br /><br /><br />
+		Add Condition<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -428,8 +242,33 @@ $pValue = ''])</code>
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
   <hr />
+	<a name="method__construct"></a>
+	<h3>constructor __construct <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a96">96</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>PHPExcel_Style_Conditional __construct(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Create a new PHPExcel_Style_Conditional<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
 	<a name="methodgetCondition"></a>
-	<h3>method getCondition <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a187">187</a>]</span></h3>
+	<h3>method getCondition <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a172">172</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -438,7 +277,7 @@ $pValue = ''])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Get Condition<br /><br /><p>Get Condition</p><br /><br /><br />
+		Get Condition<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -457,7 +296,7 @@ $pValue = ''])</code>
   </div>
   <hr />
 	<a name="methodgetConditions"></a>
-	<h3>method getConditions <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a214">214</a>]</span></h3>
+	<h3>method getConditions <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a199">199</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -466,7 +305,7 @@ $pValue = ''])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Get Conditions<br /><br /><p>Get Conditions</p><br /><br /><br />
+		Get Conditions<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -482,7 +321,7 @@ $pValue = ''])</code>
   </div>
   <hr />
 	<a name="methodgetConditionType"></a>
-	<h3>method getConditionType <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a126">126</a>]</span></h3>
+	<h3>method getConditionType <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a111">111</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -491,7 +330,7 @@ $pValue = ''])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Get Condition type<br /><br /><p>Get Condition type</p><br /><br /><br />
+		Get Condition type<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -507,7 +346,7 @@ $pValue = ''])</code>
   </div>
   <hr />
 	<a name="methodgetHashCode"></a>
-	<h3>method getHashCode <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a269">269</a>]</span></h3>
+	<h3>method getHashCode <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a254">254</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -516,7 +355,7 @@ $pValue = ''])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Get hash code<br /><br /><p>Get hash code</p><br /><br /><br />
+		Get hash code<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -534,38 +373,8 @@ $pValue = ''])</code>
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
   <hr />
-	<a name="methodgetHashIndex"></a>
-	<h3>method getHashIndex <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a294">294</a>]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>string getHashIndex(
-)</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		Get hash index
- Note that this index may vary during script execution! Only reliable moment is while doing a write of a workbook and when changes are not allowed.<br /><br /><p>Get hash index
- Note that this index may vary during script execution! Only reliable moment is while doing a write of a workbook and when changes are not allowed.</p><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>return:</b>&nbsp;&nbsp;</td><td>Hash index</td>
-  </tr>
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
-	
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
 	<a name="methodgetOperatorType"></a>
-	<h3>method getOperatorType <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a146">146</a>]</span></h3>
+	<h3>method getOperatorType <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a131">131</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -574,7 +383,7 @@ $pValue = ''])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Get Operator type<br /><br /><p>Get Operator type</p><br /><br /><br />
+		Get Operator type<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -590,7 +399,7 @@ $pValue = ''])</code>
   </div>
   <hr />
 	<a name="methodgetStyle"></a>
-	<h3>method getStyle <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a248">248</a>]</span></h3>
+	<h3>method getStyle <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a233">233</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -599,7 +408,7 @@ $pValue = ''])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Get Style<br /><br /><p>Get Style</p><br /><br /><br />
+		Get Style<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -615,7 +424,7 @@ $pValue = ''])</code>
   </div>
   <hr />
 	<a name="methodgetText"></a>
-	<h3>method getText <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a166">166</a>]</span></h3>
+	<h3>method getText <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a151">151</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -624,7 +433,7 @@ $pValue = ''])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Get text<br /><br /><p>Get text</p><br /><br /><br />
+		Get text<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -640,7 +449,7 @@ $pValue = ''])</code>
   </div>
   <hr />
 	<a name="methodsetCondition"></a>
-	<h3>method setCondition <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a202">202</a>]</span></h3>
+	<h3>method setCondition <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a187">187</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -650,7 +459,7 @@ $pValue = ''])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Set Condition<br /><br /><p>Set Condition</p><br /><br /><br />
+		Set Condition<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -679,7 +488,7 @@ $pValue = ''])</code>
   </div>
   <hr />
 	<a name="methodsetConditions"></a>
-	<h3>method setConditions <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a224">224</a>]</span></h3>
+	<h3>method setConditions <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a209">209</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -689,7 +498,7 @@ $pValue)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Set Conditions<br /><br /><p>Set Conditions</p><br /><br /><br />
+		Set Conditions<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -715,7 +524,7 @@ $pValue)</code>
   </div>
   <hr />
 	<a name="methodsetConditionType"></a>
-	<h3>method setConditionType <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a136">136</a>]</span></h3>
+	<h3>method setConditionType <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a121">121</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -725,7 +534,7 @@ $pValue = PHPExcel_Style_Conditional::CONDITION_NONE])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Set Condition type<br /><br /><p>Set Condition type</p><br /><br /><br />
+		Set Condition type<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -750,46 +559,8 @@ $pValue = PHPExcel_Style_Conditional::CONDITION_NONE])</code>
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
   <hr />
-	<a name="methodsetHashIndex"></a>
-	<h3>method setHashIndex <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a306">306</a>]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>void setHashIndex(
-string
-$value)</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		Set hash index
- Note that this index may vary during script execution! Only reliable moment is while doing a write of a workbook and when changes are not allowed.<br /><br /><p>Set hash index
- Note that this index may vary during script execution! Only reliable moment is while doing a write of a workbook and when changes are not allowed.</p><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
-	
-        <h4>Parameters:</h4>
-    <div class="tags">
-    <table border="0" cellspacing="0" cellpadding="0">
-          <tr>
-        <td class="type">string&nbsp;&nbsp;</td>
-        <td><b>$value</b>&nbsp;&nbsp;</td>
-        <td>Hash index</td>
-      </tr>
-        </table>
-    </div><br />
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
 	<a name="methodsetOperatorType"></a>
-	<h3>method setOperatorType <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a156">156</a>]</span></h3>
+	<h3>method setOperatorType <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a141">141</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -799,7 +570,7 @@ $pValue = PHPExcel_Style_Conditional::OPERATOR_NONE])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Set Operator type<br /><br /><p>Set Operator type</p><br /><br /><br />
+		Set Operator type<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -825,7 +596,7 @@ $pValue = PHPExcel_Style_Conditional::OPERATOR_NONE])</code>
   </div>
   <hr />
 	<a name="methodsetStyle"></a>
-	<h3>method setStyle <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a259">259</a>]</span></h3>
+	<h3>method setStyle <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a244">244</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -835,7 +606,7 @@ $pValue = null])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Set Style<br /><br /><p>Set Style</p><br /><br /><br />
+		Set Style<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -864,7 +635,7 @@ $pValue = null])</code>
   </div>
   <hr />
 	<a name="methodsetText"></a>
-	<h3>method setText <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a176">176</a>]</span></h3>
+	<h3>method setText <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a161">161</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -874,7 +645,7 @@ $value = null])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Set text<br /><br /><p>Set text</p><br /><br /><br />
+		Set text<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -900,7 +671,7 @@ $value = null])</code>
   </div>
   <hr />
 	<a name="method__clone"></a>
-	<h3>method __clone <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a313">313</a>]</span></h3>
+	<h3>method __clone <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a267">267</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -909,7 +680,7 @@ $value = null])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Implement PHP __clone to create a deep clone, not just a shallow copy.<br /><br /><p>Implement PHP __clone to create a deep clone, not just a shallow copy.</p><br /><br /><br />
+		Implement PHP __clone to create a deep clone, not just a shallow copy.<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -926,118 +697,118 @@ $value = null])</code>
 </div><br />
 
 <hr />
-<a name="class_constss"></a>
+<a name="class_consts"></a>
 <h3>Class Constants</h3>
 <div class="tags">
 	<a name="constCONDITION_CELLIS"></a>
 	<p></p>
 	<h4>CONDITION_CELLIS = <span class="value">&nbsp;'cellIs'</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a55">55</a>]</p>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a40">40</a>]</p>
   
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constCONDITION_CONTAINSTEXT"></a>
 	<p></p>
 	<h4>CONDITION_CONTAINSTEXT = <span class="value">&nbsp;'containsText'</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a56">56</a>]</p>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a41">41</a>]</p>
   
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constCONDITION_EXPRESSION"></a>
 	<p></p>
 	<h4>CONDITION_EXPRESSION = <span class="value">&nbsp;'expression'</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a57">57</a>]</p>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a42">42</a>]</p>
   
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constCONDITION_NONE"></a>
 	<p></p>
 	<h4>CONDITION_NONE = <span class="value">&nbsp;'none'</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a54">54</a>]</p>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a39">39</a>]</p>
   
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constOPERATOR_BEGINSWITH"></a>
 	<p></p>
 	<h4>OPERATOR_BEGINSWITH = <span class="value">&nbsp;'beginsWith'</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a61">61</a>]</p>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a46">46</a>]</p>
   
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constOPERATOR_BETWEEN"></a>
 	<p></p>
 	<h4>OPERATOR_BETWEEN = <span class="value">&nbsp;'between'</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a71">71</a>]</p>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a56">56</a>]</p>
   
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constOPERATOR_CONTAINSTEXT"></a>
 	<p></p>
 	<h4>OPERATOR_CONTAINSTEXT = <span class="value">&nbsp;'containsText'</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a69">69</a>]</p>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a54">54</a>]</p>
   
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constOPERATOR_ENDSWITH"></a>
 	<p></p>
 	<h4>OPERATOR_ENDSWITH = <span class="value">&nbsp;'endsWith'</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a62">62</a>]</p>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a47">47</a>]</p>
   
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constOPERATOR_EQUAL"></a>
 	<p></p>
 	<h4>OPERATOR_EQUAL = <span class="value">&nbsp;'equal'</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a63">63</a>]</p>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a48">48</a>]</p>
   
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constOPERATOR_GREATERTHAN"></a>
 	<p></p>
 	<h4>OPERATOR_GREATERTHAN = <span class="value">&nbsp;'greaterThan'</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a64">64</a>]</p>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a49">49</a>]</p>
   
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constOPERATOR_GREATERTHANOREQUAL"></a>
 	<p></p>
 	<h4>OPERATOR_GREATERTHANOREQUAL = <span class="value">&nbsp;'greaterThanOrEqual'</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a65">65</a>]</p>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a50">50</a>]</p>
   
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constOPERATOR_LESSTHAN"></a>
 	<p></p>
 	<h4>OPERATOR_LESSTHAN = <span class="value">&nbsp;'lessThan'</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a66">66</a>]</p>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a51">51</a>]</p>
   
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constOPERATOR_LESSTHANOREQUAL"></a>
 	<p></p>
 	<h4>OPERATOR_LESSTHANOREQUAL = <span class="value">&nbsp;'lessThanOrEqual'</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a67">67</a>]</p>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a52">52</a>]</p>
   
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constOPERATOR_NONE"></a>
 	<p></p>
 	<h4>OPERATOR_NONE = <span class="value">&nbsp;''</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a60">60</a>]</p>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a45">45</a>]</p>
   
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constOPERATOR_NOTCONTAINS"></a>
 	<p></p>
 	<h4>OPERATOR_NOTCONTAINS = <span class="value">&nbsp;'notContains'</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a70">70</a>]</p>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a55">55</a>]</p>
   
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="constOPERATOR_NOTEQUAL"></a>
 	<p></p>
 	<h4>OPERATOR_NOTEQUAL = <span class="value">&nbsp;'notEqual'</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a68">68</a>]</p>
+	<p>[line <a href="../__filesource/fsource_PHPExcel_Style__PHPExcelStyleConditional.php.html#a53">53</a>]</p>
   
   <br />
 	<div class="top">[ <a href="#top">Top</a> ]</div><br />
@@ -1045,7 +816,7 @@ $value = null])</code>
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Mon, 02 Nov 2009 08:38:55 +0100 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.1</a>
+		    Documentation generated on Tue, 01 Jun 2010 17:02:37 +0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>

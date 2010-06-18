@@ -14,7 +14,7 @@
     <td class="header_menu">
         
                                                                                                                                                                                 
-                                                                                                                                                                                                                                                                              		  [ <a href="../classtrees_PHPExcel_Reader.html" class="menu">class tree: PHPExcel_Reader</a> ]
+                                                                                                                                                                                                                                                                                                  		  [ <a href="../classtrees_PHPExcel_Reader.html" class="menu">class tree: PHPExcel_Reader</a> ]
 		  [ <a href="../elementindex_PHPExcel_Reader.html" class="menu">index: PHPExcel_Reader</a> ]
 		  	    [ <a href="../elementindex.html" class="menu">all elements</a> ]
     </td>
@@ -29,16 +29,17 @@
 			<p><a href="../todolist.html">Todo List</a></p>
 	</div>
       <b>Packages:</b><br />
-              <a href="../li_default.html">default</a><br />
+              <a href="../li_PHPExcel.html">PHPExcel</a><br />
               <a href="../li_com-tecnick-tcpdf.html">com-tecnick-tcpdf</a><br />
               <a href="../li_JAMA.html">JAMA</a><br />
               <a href="../li_Math_Stats.html">Math_Stats</a><br />
-              <a href="../li_PHPExcel.html">PHPExcel</a><br />
+              <a href="../li_PHPExcel_CachedObjectStorage.html">PHPExcel_CachedObjectStorage</a><br />
               <a href="../li_PHPExcel_Calculation.html">PHPExcel_Calculation</a><br />
               <a href="../li_PHPExcel_Cell.html">PHPExcel_Cell</a><br />
               <a href="../li_PHPExcel_Reader.html">PHPExcel_Reader</a><br />
               <a href="../li_PHPExcel_Reader_Excel5.html">PHPExcel_Reader_Excel5</a><br />
               <a href="../li_PHPExcel_RichText.html">PHPExcel_RichText</a><br />
+              <a href="../li_PHPExcel_Settings.html">PHPExcel_Settings</a><br />
               <a href="../li_PHPExcel_Shared.html">PHPExcel_Shared</a><br />
               <a href="../li_PHPExcel_Shared_Best_Fit.html">PHPExcel_Shared_Best_Fit</a><br />
               <a href="../li_PHPExcel_Shared_Escher.html">PHPExcel_Shared_Escher</a><br />
@@ -114,7 +115,7 @@ Source Location: /PHPExcel/Reader/OOCalc.php<br /><br />
 
 <h4>Copyright:</h4>
 <ul>
-  <li>Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)</li>
+  <li>Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)</li>
 </ul>
                 <p class="implements">
             Implements interfaces:
@@ -124,15 +125,6 @@ Source Location: /PHPExcel/Reader/OOCalc.php<br /><br />
         
 </td>
 
-<td valign="top">
-<h3><a href="#class_vars">Variables</a></h3>
-<ul>
-    <li><a href="../PHPExcel_Reader/PHPExcel_Reader_OOCalc.html#var$_inputEncoding">$_inputEncoding</a></li>
-    <li><a href="../PHPExcel_Reader/PHPExcel_Reader_OOCalc.html#var$_readFilter">$_readFilter</a></li>
-    <li><a href="../PHPExcel_Reader/PHPExcel_Reader_OOCalc.html#var$_sheetIndex">$_sheetIndex</a></li>
-    <li><a href="../PHPExcel_Reader/PHPExcel_Reader_OOCalc.html#var$_styles">$_styles</a></li>
-  </ul>
-</td>
 
 
 <td valign="top">
@@ -140,11 +132,15 @@ Source Location: /PHPExcel/Reader/OOCalc.php<br /><br />
 <ul>
     <li><a href="../PHPExcel_Reader/PHPExcel_Reader_OOCalc.html#method__construct">__construct</a></li>
     <li><a href="../PHPExcel_Reader/PHPExcel_Reader_OOCalc.html#methodcanRead">canRead</a></li>
+    <li><a href="../PHPExcel_Reader/PHPExcel_Reader_OOCalc.html#methodgetLoadSheetsOnly">getLoadSheetsOnly</a></li>
+    <li><a href="../PHPExcel_Reader/PHPExcel_Reader_OOCalc.html#methodgetReadDataOnly">getReadDataOnly</a></li>
     <li><a href="../PHPExcel_Reader/PHPExcel_Reader_OOCalc.html#methodgetReadFilter">getReadFilter</a></li>
     <li><a href="../PHPExcel_Reader/PHPExcel_Reader_OOCalc.html#methodgetSheetIndex">getSheetIndex</a></li>
-    <li><a href="../PHPExcel_Reader/PHPExcel_Reader_OOCalc.html#methodidentifyFixedStyleValue">identifyFixedStyleValue</a></li>
     <li><a href="../PHPExcel_Reader/PHPExcel_Reader_OOCalc.html#methodload">load</a></li>
     <li><a href="../PHPExcel_Reader/PHPExcel_Reader_OOCalc.html#methodloadIntoExisting">loadIntoExisting</a></li>
+    <li><a href="../PHPExcel_Reader/PHPExcel_Reader_OOCalc.html#methodsetLoadAllSheets">setLoadAllSheets</a></li>
+    <li><a href="../PHPExcel_Reader/PHPExcel_Reader_OOCalc.html#methodsetLoadSheetsOnly">setLoadSheetsOnly</a></li>
+    <li><a href="../PHPExcel_Reader/PHPExcel_Reader_OOCalc.html#methodsetReadDataOnly">setReadDataOnly</a></li>
     <li><a href="../PHPExcel_Reader/PHPExcel_Reader_OOCalc.html#methodsetReadFilter">setReadFilter</a></li>
     <li><a href="../PHPExcel_Reader/PHPExcel_Reader_OOCalc.html#methodsetSheetIndex">setSheetIndex</a></li>
   </ul>
@@ -166,171 +162,28 @@ Source Location: /PHPExcel/Reader/OOCalc.php<br /><br />
 <a name="class_details"></a>
 <h3>Class Details</h3>
 <div class="tags">
-[line <a href="../__filesource/fsource_PHPExcel_Reader__PHPExcelReaderOOCalc.php.html#a63">63</a>]<br />
-PHPExcel_Reader_OOCalc<br /><br /><p>PHPExcel_Reader_OOCalc</p><br /><br /><br />
+[line <a href="../__filesource/fsource_PHPExcel_Reader__PHPExcelReaderOOCalc.php.html#a51">51</a>]<br />
+PHPExcel_Reader_OOCalc<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td><b>copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2006 - 2009 PHPExcel (http://www.codeplex.com/PHPExcel)</td>
+    <td><b>copyright:</b>&nbsp;&nbsp;</td><td>Copyright (c) 2006 - 2010 PHPExcel (http://www.codeplex.com/PHPExcel)</td>
   </tr>
 </table>
 </div>
 </div><br /><br />
 <div class="top">[ <a href="#top">Top</a> ]</div><br />
 
-<hr />
-<a name="class_vars"></a>
-<h3>Class Variables</h3>
-<div class="tags">
-	<a name="var$_inputEncoding"></a>
-	<p></p>
-	<h4>$_inputEncoding = <span class="value"></span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Reader__PHPExcelReaderOOCalc.php.html#a70">70</a>]</p>
-  Input encoding<br /><br /><p>Input encoding</p><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
-  </tr>
-</table>
-</div>
-
-  <br />
-	<div class="tags">
-  <table border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td><b>Type:</b>&nbsp;&nbsp;</td>
-      <td>string</td>
-    </tr>
-      </table>
-	</div><br /><br />
-	<div class="top">[ <a href="#top">Top</a> ]</div><br />
-	<a name="var$_readFilter"></a>
-	<p></p>
-	<h4>$_readFilter = <span class="value">&nbsp;null</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Reader__PHPExcelReaderOOCalc.php.html#a91">91</a>]</p>
-  PHPExcel_Reader_IReadFilter instance<br /><br /><p>PHPExcel_Reader_IReadFilter instance</p><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
-  </tr>
-</table>
-</div>
-
-  <br />
-	<div class="tags">
-  <table border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td><b>Type:</b>&nbsp;&nbsp;</td>
-      <td><a href="../PHPExcel_Reader/PHPExcel_Reader_IReadFilter.html">PHPExcel_Reader_IReadFilter</a></td>
-    </tr>
-      </table>
-	</div><br /><br />
-	<div class="top">[ <a href="#top">Top</a> ]</div><br />
-	<a name="var$_sheetIndex"></a>
-	<p></p>
-	<h4>$_sheetIndex = <span class="value"></span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Reader__PHPExcelReaderOOCalc.php.html#a77">77</a>]</p>
-  Sheet index to read<br /><br /><p>Sheet index to read</p><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
-  </tr>
-</table>
-</div>
-
-  <br />
-	<div class="tags">
-  <table border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td><b>Type:</b>&nbsp;&nbsp;</td>
-      <td>int</td>
-    </tr>
-      </table>
-	</div><br /><br />
-	<div class="top">[ <a href="#top">Top</a> ]</div><br />
-	<a name="var$_styles"></a>
-	<p></p>
-	<h4>$_styles = <span class="value">array()</span></h4>
-	<p>[line <a href="../__filesource/fsource_PHPExcel_Reader__PHPExcelReaderOOCalc.php.html#a84">84</a>]</p>
-  Formats<br /><br /><p>Formats</p><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
-  </tr>
-</table>
-</div>
-
-  <br />
-	<div class="tags">
-  <table border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td><b>Type:</b>&nbsp;&nbsp;</td>
-      <td>array</td>
-    </tr>
-      </table>
-	</div><br /><br />
-	<div class="top">[ <a href="#top">Top</a> ]</div><br />
-</div><br />
 
 <hr />
 <a name="class_methods"></a>
 <h3>Class Methods</h3>
 <div class="tags">
-  <hr />
-	<a name="methodidentifyFixedStyleValue"></a>
-	<h3>static method identifyFixedStyleValue <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Reader__PHPExcelReaderOOCalc.php.html#a162">162</a>]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>static void identifyFixedStyleValue(
-
-$styleList, 
-&$styleAttributeValue)</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		<br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
-	
-        <h4>Parameters:</h4>
-    <div class="tags">
-    <table border="0" cellspacing="0" cellpadding="0">
-          <tr>
-        <td class="type">&nbsp;&nbsp;</td>
-        <td><b>$styleList</b>&nbsp;&nbsp;</td>
-        <td></td>
-      </tr>
-          <tr>
-        <td class="type">&nbsp;&nbsp;</td>
-        <td><b>&$styleAttributeValue</b>&nbsp;&nbsp;</td>
-        <td></td>
-      </tr>
-        </table>
-    </div><br />
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
 
   <hr />
 	<a name="method__construct"></a>
-	<h3>constructor __construct <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Reader__PHPExcelReaderOOCalc.php.html#a96">96</a>]</span></h3>
+	<h3>constructor __construct <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Reader__PHPExcelReaderOOCalc.php.html#a166">166</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -339,7 +192,7 @@ $styleList,
     </td></tr></table>
     </td></tr></table><br />
 	
-		Create a new PHPExcel_Reader_OOCalc<br /><br /><p>Create a new PHPExcel_Reader_OOCalc</p><br /><br /><br />
+		Create a new PHPExcel_Reader_OOCalc<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -355,7 +208,7 @@ $styleList,
   </div>
   <hr />
 	<a name="methodcanRead"></a>
-	<h3>method canRead <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Reader__PHPExcelReaderOOCalc.php.html#a107">107</a>]</span></h3>
+	<h3>method canRead <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Reader__PHPExcelReaderOOCalc.php.html#a177">177</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -366,7 +219,7 @@ $pFileName)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Can the current PHPExcel_Reader_IReader read the file?<br /><br /><p>Can the current PHPExcel_Reader_IReader read the file?</p><br /><br /><br />
+		Can the current PHPExcel_Reader_IReader read the file?<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -402,6 +255,56 @@ $pFileName)</code>
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
   <hr />
+	<a name="methodgetLoadSheetsOnly"></a>
+	<h3>method getLoadSheetsOnly <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Reader__PHPExcelReaderOOCalc.php.html#a114">114</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>mixed getLoadSheetsOnly(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Get which sheets to load<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodgetReadDataOnly"></a>
+	<h3>method getReadDataOnly <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Reader__PHPExcelReaderOOCalc.php.html#a94">94</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>boolean getReadDataOnly(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Read data only?<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
 	<a name="methodgetReadFilter"></a>
 	<h3>method getReadFilter <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Reader__PHPExcelReaderOOCalc.php.html#a148">148</a>]</span></h3>
 	<div class="function">
@@ -412,7 +315,7 @@ $pFileName)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Read filter<br /><br /><p>Read filter</p><br /><br /><br />
+		Read filter<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -428,7 +331,7 @@ $pFileName)</code>
   </div>
   <hr />
 	<a name="methodgetSheetIndex"></a>
-	<h3>method getSheetIndex <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Reader__PHPExcelReaderOOCalc.php.html#a398">398</a>]</span></h3>
+	<h3>method getSheetIndex <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Reader__PHPExcelReaderOOCalc.php.html#a484">484</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -437,7 +340,7 @@ $pFileName)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Get sheet index<br /><br /><p>Get sheet index</p><br /><br /><br />
+		Get sheet index<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -453,17 +356,17 @@ $pFileName)</code>
   </div>
   <hr />
 	<a name="methodload"></a>
-	<h3>method load <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Reader__PHPExcelReaderOOCalc.php.html#a134">134</a>]</span></h3>
+	<h3>method load <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Reader__PHPExcelReaderOOCalc.php.html#a210">210</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>void load(
+		<code><a href="../PHPExcel/PHPExcel.html">PHPExcel</a> load(
 string
 $pFilename)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Loads PHPExcel from file<br /><br /><p>Loads PHPExcel from file</p><br /><br /><br />
+		Loads PHPExcel from file<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -498,18 +401,18 @@ $pFilename)</code>
   </div>
   <hr />
 	<a name="methodloadIntoExisting"></a>
-	<h3>method loadIntoExisting <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Reader__PHPExcelReaderOOCalc.php.html#a180">180</a>]</span></h3>
+	<h3>method loadIntoExisting <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Reader__PHPExcelReaderOOCalc.php.html#a238">238</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>void loadIntoExisting(
+		<code><a href="../PHPExcel/PHPExcel.html">PHPExcel</a> loadIntoExisting(
 string
 $pFilename, 
 $objPHPExcel)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Loads PHPExcel from file into PHPExcel instance<br /><br /><p>Loads PHPExcel from file into PHPExcel instance</p><br /><br /><br />
+		Loads PHPExcel from file into PHPExcel instance<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -542,18 +445,115 @@ $objPHPExcel)</code>
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
   <hr />
-	<a name="methodsetReadFilter"></a>
-	<h3>method setReadFilter <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Reader__PHPExcelReaderOOCalc.php.html#a157">157</a>]</span></h3>
+	<a name="methodsetLoadAllSheets"></a>
+	<h3>method setLoadAllSheets <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Reader__PHPExcelReaderOOCalc.php.html#a137">137</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>void setReadFilter(
+		<code><a href="../PHPExcel_Reader/PHPExcel_Reader_Excel2007.html">PHPExcel_Reader_Excel2007</a> setLoadAllSheets(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Set all sheets to load<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodsetLoadSheetsOnly"></a>
+	<h3>method setLoadSheetsOnly <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Reader__PHPExcelReaderOOCalc.php.html#a125">125</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code><a href="../PHPExcel_Reader/PHPExcel_Reader_Excel2007.html">PHPExcel_Reader_Excel2007</a> setLoadSheetsOnly(
+[mixed
+$value = null])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Set which sheets to load<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">mixed&nbsp;&nbsp;</td>
+        <td><b>$value</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodsetReadDataOnly"></a>
+	<h3>method setReadDataOnly <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Reader__PHPExcelReaderOOCalc.php.html#a104">104</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code><a href="../PHPExcel_Reader/PHPExcel_Reader_Excel2007.html">PHPExcel_Reader_Excel2007</a> setReadDataOnly(
+[boolean
+$pValue = false])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Set read data only<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">boolean&nbsp;&nbsp;</td>
+        <td><b>$pValue</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodsetReadFilter"></a>
+	<h3>method setReadFilter <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Reader__PHPExcelReaderOOCalc.php.html#a158">158</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code><a href="../PHPExcel_Reader/PHPExcel_Reader_Excel2007.html">PHPExcel_Reader_Excel2007</a> setReadFilter(
 <a href="../PHPExcel_Reader/PHPExcel_Reader_IReadFilter.html">PHPExcel_Reader_IReadFilter</a>
 $pValue)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Set read filter<br /><br /><p>Set read filter</p><br /><br /><br />
+		Set read filter<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -579,7 +579,7 @@ $pValue)</code>
   </div>
   <hr />
 	<a name="methodsetSheetIndex"></a>
-	<h3>method setSheetIndex <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Reader__PHPExcelReaderOOCalc.php.html#a408">408</a>]</span></h3>
+	<h3>method setSheetIndex <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPExcel_Reader__PHPExcelReaderOOCalc.php.html#a494">494</a>]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -589,7 +589,7 @@ $pValue = 0])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Set sheet index<br /><br /><p>Set sheet index</p><br /><br /><br />
+		Set sheet index<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -618,7 +618,7 @@ $pValue = 0])</code>
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Mon, 02 Nov 2009 08:43:46 +0100 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.1</a>
+		    Documentation generated on Tue, 01 Jun 2010 17:05:27 +0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>
