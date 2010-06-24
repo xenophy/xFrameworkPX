@@ -164,12 +164,14 @@ extends xFrameworkPX_Controller_Component
      * init
      *  動的フィールド初期化メソッド
      *
-     * @param array $tags
+     * @param string $sessName
      * @return void
      */
-    public function init()
+    public function init($sessName = null)
     {
-        $this->_fields = $this->_session->read($this->_sessionName);
+        $sessionName = ($sessName) ? $sessName : $this->_sessionName;
+
+        $this->_fields = $this->_session->read($sessionName);
 
         if (is_null($this->_fields)) {
             $this->_fields = array();
@@ -181,10 +183,12 @@ extends xFrameworkPX_Controller_Component
      * gen
      *  動的フィールドタグ出力メソッド
      *
+     * @param string $sessName
      * @return void
      */
-    public function gen()
+    public function gen($sessName = null)
     {
+        $sessionName = ($sessName) ? $sessName : $this->_sessionName;
 
         if ($this->_fields) {
             $temp = array();
@@ -267,7 +271,7 @@ extends xFrameworkPX_Controller_Component
                 $this->_assignName, $temp
             );
 
-            $this->_session->write($this->_sessionName, $this->_fields);
+            $this->_session->write($sessionName, $this->_fields);
         }
 
     }
@@ -652,10 +656,11 @@ extends xFrameworkPX_Controller_Component
      * @param array $tags
      * @return void
      */
-    public function clear()
+    public function clear($sessName = null)
     {
+        $sessionName = ($sessName) ? $sessName : $this->_sessionName;
         $this->_fields = array();
-        $this->_session->remove($this->_sessionName);
+        $this->_session->remove($sessionName);
     }
 
     /**

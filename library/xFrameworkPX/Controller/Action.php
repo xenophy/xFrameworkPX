@@ -111,6 +111,43 @@ extends xFrameworkPX_Controller_Web
             instanceOf
             xFrameworkPX_Controller_Component_RapidDrive
         ) {
+            $sessName = sprintf(
+                '%s_%s',
+                $this->RapidDrive->sessName,
+                $this->getActionName()
+            );
+;
+            $this->Tag->init($sessName);
+            $rdSess = $this->Session->read($this->RapidDrive->sessName);
+            $prevActionPath = (isset($this->rapid['prevAction']))
+                            ? sprintf(
+                                '%s/%s',
+                                $this->getContentPath(),
+                                $this->rapid['prevAction']
+                            )
+                            : '';
+            $nextActionPath = (isset($this->rapid['nextAction']))
+                            ? sprintf(
+                                '%s/%s',
+                                $this->getContentPath(),
+                                $this->rapid['nextAction']
+                            )
+                            : '';
+
+            $lastActionPath = (!is_null($rdSess) && isset($rdSess['lastAction']))
+                            ? $rdSess['lastAction']
+                            : '';
+
+            // 実行コマンド取得
+            if (
+                $nextActionPath !== '' && $lastActionPath !== '' &&
+                $nextActionPath == $lastActionPath
+            ) {
+                $this->RapidDrive->cmd = 'back';
+            } else {
+                $this->RapidDrive->cmd = 'init';
+            }
+
             // アクション名設定
             $this->RapidDrive->actionName = $this->getActionName();
 
@@ -127,18 +164,60 @@ extends xFrameworkPX_Controller_Web
             } else {
                 $module = $this->modules[reset($this->modules)];
             }
+
             $ret = $this->RapidDrive->dispatch(
                 $this->rapid['mode'],
                 $this->rapid,
                 $module
             );
 
+            // WiseTag初期化
+            if ($this->RapidDrive->cmd == 'init') {
+                $this->Tag->clear($sessName);
+
+                if (isset($ret[0]['wiseTag'])) {
+
+                    // WiseTag設定
+                    $this->Tag->add($ret[0]['wiseTag']);
+
+                    unset($ret[0]['wiseTag']);
+                }
+
+            } else if ($this->RapidDrive->cmd == 'back') {
+
+                if (isset($ret[0]['wiseTag'])) {
+
+                    foreach ($ret[0]['wiseTag'] as $wiseTag) {
+
+                        if ($wiseTag['type'] !== 'form') {
+                            $editCond = array(
+                                'type' => $wiseTag['type'],
+                                'name' => $wiseTag['name']
+                            );
+
+                            // WiseTag再設定
+                            $this->Tag->edit($wiseTag, $editCond);
+                        }
+                    }
+
+                    unset($ret[0]['wiseTag']);
+                }
+
+            }
+
+            $this->Tag->gen($sessName);
+
             // 処理結果をViewに設定
             foreach ($ret as $moderet) {
+                $this->set('rd', $moderet);
+
+                /*
                 foreach ($moderet as $key => $value) {
                     $this->set($key, $value);
                 }
+                */
             }
+
         }
 
         if ($this->_conf->pxconf['DEBUG'] >= 2) {

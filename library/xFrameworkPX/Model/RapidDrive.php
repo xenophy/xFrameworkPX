@@ -59,72 +59,204 @@ class xFrameworkPX_Model_RapidDrive extends xFrameworkPX_Model
     /**
      * WHERE区生成メソッド
      *
-     * @param string $search 検索条件
      * @param array $fields 検索対象フィールド
-     * @param array $orders ソート対象列
-     * @return array WHERE区配列
+     * @param string $search 検索条件
+     * @return array conditions配列
      */
-    public function condition(
-        $search = '',
-        $fields = array(),
-        $orders = array()
-    )
+    public function condition($fields = array(), $search = null)
     {
-        $where = '';
-        $binds = array();
+        $cond = array();
         $fields = is_array($fields) ? $fields : array();
-        $orders = is_array($orders) ? $orders : array();
 
-        // WHERE句生成
         if (!empty($search) && !empty($fields)) {
+
             foreach ($fields as $key => $field) {
-                if ($key === 0) {
-                    $where = sprintf(
-                        '%s.%s like :%s',
-                        $this->usetable,
-                        $field,
-                        $field
-                    );
-                } else {
-                    $where .= sprintf(
-                        ' OR %s.%s like :%s',
-                        $this->usetable,
-                        $field,
-                        $field
-                    );
+
+                if (!isset($field['cond']) || !isset($field['target'])) {
+                    continue;
                 }
-                $binds[$field] = sprintf('%%%s%%', $search);
+
+                if (is_numeric($key)) {
+
+                    if (is_string($field) && preg_match('/^(and|or)$/i', $field)) {
+                        $cond[] = $field;
+                    }
+
+                } else if (isset($search[$key]) && is_array($field)) {
+
+                    switch (1) {
+
+                        case preg_match('/^=$/', $field['cond']):
+                            $temp = $this->_createCondtion(
+                                $key,
+                                $field['target'],
+                                $search,
+                                '',
+                                '%s%s',
+                                $cond
+                            );
+                            $cond = $temp;
+                            break;
+
+                        case preg_match('/^between$/i', $field['cond']):
+                        case preg_match('/^not between$/i', $field['cond']):
+
+                            foreach ($field['target'] as $colName) {
+
+                                if (
+                                    isset($search[$colName]) &&
+                                    is_array($search[$colName]) &&
+                                    count($search[$colName]) >= 2
+                                ) {
+                                    $search[$colName] = sprintf(
+                                        '%s AND %s',
+                                        $search[$colName][0],
+                                        $search[$colName][1]
+                                    );
+                                } else {
+                                    unset($search[$colName]);
+                                }
+
+                            }
+
+                        case preg_match('/^<>$/', $field['cond']):
+                        case preg_match('/^<$/', $field['cond']):
+                        case preg_match('/^<=$/', $field['cond']):
+                        case preg_match('/^>$/', $field['cond']):
+                        case preg_match('/^>=$/', $field['cond']):
+                        case preg_match('/^is$/i', $field['cond']):
+                        case preg_match('/^is not$/i', $field['cond']):
+                        case preg_match('/^in$/i', $field['cond']):
+                        case preg_match('/^not in$/i', $field['cond']):
+                            $temp = $this->_createCondtion(
+                                $key,
+                                $field['target'],
+                                $search,
+                                $field['cond'],
+                                '%s %s',
+                                $cond
+                            );
+                            $cond = $temp;
+                            break;
+
+                        // 部分一致
+                        case preg_match('/like/i', $field['cond']):
+                        case preg_match('/like part/i', $field['cond']):
+                        case preg_match('/like %*%/i', $field['cond']):
+                            $temp = $this->_createCondtion(
+                                $key,
+                                $field['target'],
+                                $search,
+                                'LIKE',
+                                '%s %%%s%%',
+                                $cond
+                            );
+                            $cond = $temp;
+                            break;
+
+                        // 前方一致
+                        case preg_match('/like front/i', $field['cond']):
+                        case preg_match('/like *%/i', $field['cond']):
+                            $temp = $this->_createCondtion(
+                                $key,
+                                $field['target'],
+                                $search,
+                                'LIKE',
+                                '%s %s%%',
+                                $cond
+                            );
+                            $cond = $temp;
+                            break;
+
+                        // 後方一致
+                        case preg_match('/like back/i', $field['cond']):
+                        case preg_match('/like %*/i', $field['cond']):
+                            $temp = $this->_createCondtion(
+                                $key,
+                                $field['target'],
+                                $search,
+                                'LIKE',
+                                '%s %%%s',
+                                $cond
+                            );
+                            $cond = $temp;
+                            break;
+                    }
+
+                }
+
             }
-            $where .= ' ';
+
         }
 
-        // Order By句生成
-        if (!empty($orders)) {
-            $index = 0;
-            foreach ($orders as $key => $order) {
-                $order = strtoupper($order);
-                $order = ($order == 'ASC' || $order == 'DESC')
-                            ? ' ' . $order
-                            : '';
-                if ($index === 0) {
-                    $where .= sprintf(
-                        'ORDER BY %s.%s%s',
-                        $this->usetable,
-                        $key,
-                        $order
-                    );
-                } else {
-                    $where .= sprintf(
-                        ', %s.%s%s',
-                        $this->usetable,
-                        $key,
-                        $order
-                    );
-                }
-            }
+        // 先頭要素のチェック
+        reset($cond);
+        if (current($cond) == 'AND' || current($cond) == 'OR') {
+            unset($cond[key($cond)]);
         }
 
-        return array('where' => trim($where), 'bind' => $binds);
+        // 末尾要素のチェック
+        end($cond);
+        if (current($cond) == 'AND' || current($cond) == 'OR') {
+            unset($cond[key($cond)]);
+        }
+
+        return $cond;
+    }
+
+    // }}}
+    // {{{ _createCondition
+
+    /**
+     * targetからconditions配列を生成するメソッド
+     *  conditionメソッド内部で使用
+     *
+     * @param array $fields
+     * @param array $values
+     * @param string $cond
+     * @param string $format,
+     * @param array $toAdd
+     * @return array
+     */
+    private function _createCondtion($field, $target, $values, $cond, $format, $toAdd = array())
+    {
+        $ret = $toAdd;
+
+        foreach ($target as $colName) {
+
+            if (preg_match('/^(and|or)$/i', $colName)) {
+                $ret[] = strtoupper($colName);
+            } else {
+
+                if (isset($values[$field]) && $values[$field] !== '') {
+
+                    if (isset($ret[$colName])) {
+                        $first = $ret[$colName];
+                        unset($ret[$colName]);
+                        $ret[] = array($colName => $first);
+
+                        $ret[] = array(
+                            $colName => sprintf(
+                                $format,
+                                $cond,
+                                $values[$key]
+                            )
+                        );
+                    } else {
+                        $ret[$colName] = sprintf(
+                            $format,
+                            $cond,
+                            $values[$field]
+                        );
+                    }
+
+                }
+
+            }
+
+        }
+
+        return $ret;
     }
 
     // }}}
@@ -142,6 +274,20 @@ class xFrameworkPX_Model_RapidDrive extends xFrameworkPX_Model
         $page = is_numeric($page)
                  ? (int)$page
                  : 0;
+
+        if (is_array($search)) {
+            $temp = array();
+
+            foreach ($search as $key => $value) {
+
+                if ($value !== '') {
+                    $temp[] = sprintf('%s=%s', $key, $value);
+                }
+
+            }
+
+            $search = implode('&amp;', $temp);
+        }
 
         // ページャー生成
         $pager = array();
@@ -173,18 +319,78 @@ class xFrameworkPX_Model_RapidDrive extends xFrameworkPX_Model
     public function findAll(
         $count = null,
         $pageNum = 0,
-        $search = '',
         $searchFields = array(),
+        $search = array(),
         $orders = array()
     )
     {
         $ret = array();
-        $conds = array('where' => null, 'bind' => null);
+        $conds = array();
         $pageNum = is_numeric($pageNum) ? (int)$pageNum : 0;
         $searchFields = is_array($searchFields)
                         ? $searchFields
                         : array();
         $orders = is_array($orders) ? $orders : array();
+
+        // スキーマ取得
+        $schemas = $this->getAllSchema();
+
+        // フィールド一覧生成
+        $fields = array();
+
+        foreach ($schemas as $tblName => $table) {
+
+            foreach ($table as $field) {
+                $fields[] = sprintf('%s.%s', $tblName, $field['Field']);
+            }
+
+        }
+
+        // conditions生成
+        $conds = $this->condition($searchFields, $search);
+
+        $conf = array();
+
+        $conf['fields'] = $fields;
+        $conf['conditions'] = $conds;
+
+        if ($orders) {
+            $conf['order'] = $orders;
+        }
+
+        if (!is_null($count)) {
+            $conf['limit'] = $count;
+            $conf['page'] = $pageNum;
+        }
+
+        // レコード取得
+        $ret['list'] = $this->get('all', $conf);
+
+        // 件数取得
+        $ret['count'] = $this->get('count', $conf);
+
+        return $ret;
+    }
+
+    // }}}
+    // {{{ find
+
+    /**
+     * レコード取得メソッド
+     *
+     * @param int $id 主キー
+     * @param string $keyName 主キーのフィールド名
+     * @return array レコード配列
+     * @access public
+     */
+    /*
+    public function find($id, $keyName = 'id')
+    {
+        $keyName = !is_null($keyName)
+                    ? (string)$keyName
+                    : 'id';
+        $binds = array();
+        $where = null;
 
         // スキーマ取得
         $schemas = $this->schema();
@@ -195,54 +401,67 @@ class xFrameworkPX_Model_RapidDrive extends xFrameworkPX_Model
         foreach ($schemas as $items) {
              $fields[] = $items['Field'];
         }
-
         $fields = implode(', ', $fields);
 
         // WHERE句生成
-        $conds = $this->condition($search, $searchFields, $orders);
+        $where = sprintf(
+            '%s = :%s ',
+            $keyName,
+            $keyName
+        );
 
-        // カウントクエリー取得
-        $queryCount = $this->count($conds, true);
-
-        // Limit句生成
-        if (!is_null($count)) {
-
-            $conds['where'] .= ' ';
-            $conds['where'] .= $this->adapter->getQueryLimit(
-                $count, $pageNum * $count
-            );
-
-            $this->_pageCount = $count;
-
-        }
+        $binds = array($keyName => $id);
 
         // クエリー定義
         $query = implode(
             PHP_EOL,
             array(
                 'SELECT',
-                '    %s,',
-                '    ( %s ) as count',
+                '    %s',
                 'FROM',
                 '    %s'
             )
         );
 
         // レコード取得
-        $ret = $this->rowAll(
+        $ret = $this->row(
             array(
                 'query' => sprintf(
                     $query,
                     $fields,
-                    $queryCount,
                     $this->usetable
                 ),
-                'where' => $conds['where'],
-                'bind' => $conds['bind']
+                'where' => $where,
+                'bind' => $binds
             )
         );
 
         return $ret;
+    }
+    */
+
+    public function find($cond = array(), $filter = array())
+    {
+        if (!is_array($filter)) {
+            $filter = array();
+        }
+
+        $schemas = $this->getAllSchema($filter);
+        $fields = array();
+
+        foreach ($schemas as $name => $table) {
+
+            foreach ($table as $field) {
+                $fields[] = sprintf('%s.%s', $name, $field['Field']);
+            }
+
+        }
+
+        $conf = array();
+        $conf['fields'] = $fields;
+        $conf['conditions'] = $cond;
+
+        return $this->get('first', $conf);
     }
 
     // }}}
@@ -255,55 +474,63 @@ class xFrameworkPX_Model_RapidDrive extends xFrameworkPX_Model
      * @return void
      * @access public
      */
-    public function add($data)
+    public function add($data, $trans = true, $lock = true)
     {
-        $fields = array();
-        $values = array();
-        $binds = array();
+        $setData = array();
 
-        // フィールド一覧生成
-        foreach ( $this->schema() as $schemas ) {
-            if ($schemas['Field'] == 'del') {
-                $dels = $schemas;
+        // スキーマ情報取得
+        $schemas = $this->schema();
+
+        foreach ($schemas as $schema) {
+
+            if ($schema['Field'] == 'created') {
+                $setData['created'] = (isset($data['created']))
+                                    ? $data['created']
+                                    : 'NOW()';
+            } else if ($schema['Field'] == 'modified') {
+                $setData['modified'] = (isset($data['created']))
+                                     ? $data['created']
+                                     : null;
+            } else if ($schema['Field'] == 'del') {
+                $delDefault = (isset($schema['Default']) && $schema['Default'] !== '')
+                            ? $schema['Default']
+                            : 0;
+                $setData['del'] = (isset($data['del']))
+                                ? $data['del']
+                                : $delDefault;
+            } else {
+
+                if (isset($data[$schema['Field']])) {
+                    $setData[$schema['Field']] = $data[$schema['Field']];
+                }
+
             }
-            $fields[] = $schemas[ 'Field' ];
-        }
-
-        // 値一覧生成
-        foreach ($fields as $field) {
-            $values[] = sprintf(':%s', $field);
-        }
-
-        // バインド一覧生成
-        foreach ($fields as $field) {
-            $binds[$field] = array_key_exists($field, $data)
-                                    ? $data[$field ]
-                                    : null;
 
         }
 
-        if (array_search('created', $fields) !== false) {
+        try {
 
-            // 作成日時セット
-            $binds['created'] = date('Y-m-d H:i:s');
-        }
-
-        if (array_search('modified', $fields) !== false) {
-
-            // 更新日時セット
-            $binds['modified'] = date('Y-m-d H:i:s');
-        }
-
-        if (array_search('del', $fields) !== false) {
-            if (isset($dels['Default'])) {
-                $binds['del'] = $dels['Default'];
+            if ($trans) {
+                $this->beginTrans();
             }
+
+            $this->set($setData, array(), $lock);
+
+            if ($trans) {
+                $this->commit();
+            }
+
+        } catch (Exception $ex) {
+
+            if ($trans) {
+                $this->rollback();
+            }
+
+            throw $ex;
+            return false;
         }
 
-        // インサート
-        $this->insert(
-            array('field' => $fields, 'value' => $values, 'bind' => $binds )
-        );
+        return true;
     }
 
     // }}}
@@ -379,88 +606,415 @@ class xFrameworkPX_Model_RapidDrive extends xFrameworkPX_Model
     }
 
     // }}}
-    // {{{ find
+    // {{{ getAllSchema()
 
     /**
-     * レコード取得メソッド
+     * アソシエーションも含めたすべてのテーブルスキーマ取得メソッド
+     *  フィルターの指定は
+     *      array(
+     *          'テーブル名' => array('カラム名'),
+     *          // または
+     *          'テーブル名' => 'カラム名',
+     *          ・・・,
+     *      )
      *
-     * @param int $id 主キー
-     * @param string $keyName 主キーのフィールド名
-     * @return array レコード配列
-     * @access public
+     * @param array $filters
+     * @return array
      */
-    public function find($id, $keyName = 'id')
+    public function getAllSchema($filters = array())
     {
-        $keyName = !is_null($keyName)
-                    ? (string)$keyName
-                    : 'id';
-        $binds = array();
-        $where = null;
+        $ret = array();
 
-        // スキーマ取得
-        $schemas = $this->schema();
+        // 使用するテーブル一覧生成
+        $useTables = array($this->usetable);
 
-        // フィールド一覧生成
-        $fields = array();
+        // hasOneで使用するテーブル取得
+        if (is_string($this->hasOne)) {
+            $useTables[] = $this->hasOne;
+        } else {
 
-        foreach ($schemas as $items) {
-             $fields[] = $items['Field'];
+            foreach ($this->hasOne as $key => $value) {
+
+                if (is_numeric($key)) {
+                    $useTables[] = $value;
+                } else {
+                    $useTables[] = $key;
+                }
+
+            }
+
         }
-        $fields = implode(', ', $fields);
 
-        // WHERE句生成
-        $where = sprintf(
-            '%s = :%s ',
-            $keyName,
-            $keyName
-        );
+        // belongsToで使用するテーブル取得
+        if (is_string($this->belongsTo)) {
+            $useTables[] = $this->belongsTo;
+        } else {
 
-        $binds = array($keyName => $id);
+            foreach ($this->belongsTo as $key => $value) {
 
-        // クエリー定義
-        $query = implode(
-            PHP_EOL,
-            array(
-                'SELECT',
-                '    %s',
-                'FROM',
-                '    %s'
-            )
-        );
+                if (is_numeric($key)) {
+                    $useTables[] = $value;
+                } else {
+                    $useTables[] = $key;
+                }
 
-        // レコード取得
-        $ret = $this->row(
-            array(
-                'query' => sprintf(
-                    $query,
-                    $fields,
-                    $this->usetable
-                ),
-                'where' => $where,
-                'bind' => $binds
-            )
-        );
+            }
+
+        }
+
+        // hasManyで使用するテーブル取得
+        if (is_string($this->hasMany)) {
+            $useTables[] = $this->hasMany;
+        } else {
+
+            foreach ($this->hasMany as $key => $value) {
+
+                if (is_numeric($key)) {
+                    $useTables[] = $value;
+                } else {
+                    $useTables[] = $key;
+                }
+
+            }
+
+        }
+
+        // スキーマのフィルター処理
+        foreach ($useTables as $tblName) {
+
+            if ($tblName == $this->usetable && !isset($filters[$tblName])) {
+                $filters[$tblName] = $filters;
+            }
+
+            if (!isset($filters[$tblName])) {
+                $filters[$tblName] = array();
+            } else if (!is_array($filters[$tblName])) {
+                $filters[$tblName] = array($filters[$tblName]);
+            }
+
+            $schema = $this->adapter->getSchema($this->pdo, $tblName);
+            $ret[$tblName] = array();
+
+            foreach ($schema['result'] as $value) {
+
+                if (!in_array($value['Field'], $filters[$tblName])) {
+                    $ret[$tblName][] = $value;
+                }
+
+            }
+
+        }
 
         return $ret;
     }
 
     // }}}
-    // {{{ getInputType
+    // {{{ getWiseTagConf
 
     /**
-     * インプットタイプ取得メソッド
+     * 入力フォーム WiseTag設定取得メソッド
+     */
+    public function getWiseTagConf($actionName, $fieldConf, $values = array())
+    {
+        $ret = array();
+        $fieldConf = (is_array($fieldConf)) ? $fieldConf : array();
+
+        foreach ($fieldConf as $name => $conf) {
+            $tag = array();
+
+            if (!is_numeric($name) && is_array($conf)) {
+                $tag['type'] = $conf['field_type'];
+                $tag['name'] = sprintf('%s[%s]', $actionName, $name);
+
+                switch (strtolower($conf['field_type'])) {
+
+                    case 'text':
+                    case 'password':
+
+                        if (isset($conf['options']) && is_array($conf['options'])) {
+
+                            foreach ($conf['options'] as $key => $value) {
+                                $tag[$key] = $value;
+                            }
+
+                        }
+
+                        if (isset($values[$name])) {
+                            $tag['value'] = $values[$name];
+                        }
+
+                        break;
+
+                    case 'textarea':
+
+                        if (isset($conf['options']) && is_array($conf['options'])) {
+
+                            foreach ($conf['options'] as $key => $value) {
+                                $tag[$key] = $value;
+                            }
+
+                        }
+
+                        if (isset($values[$name])) {
+                            $tag['intext'] = $values[$name];
+                        }
+
+                        break;
+
+                    case 'hidden':
+                    case 'submit':
+                    case 'reset':
+                    case 'button':
+                    case 'image':
+
+                        if (isset($conf['options']) && is_array($conf['options'])) {
+
+                            foreach ($conf['options'] as $key => $value) {
+                                $tag[$key] = $value;
+                            }
+
+                        }
+
+                        if (isset($values[$name])) {
+                            $tag['value'] = $values[$name];
+                        }
+
+                        break;
+
+                    case 'checkbox':
+                    case 'radio':
+
+                        // フィールド要素単一フラグ
+                        $hasOnly = true;
+
+                        if (isset($conf['options']) && is_array($conf['options'])) {
+
+                            foreach ($conf['options'] as $index => $item) {
+
+                                if (is_numeric($index)) {
+                                    $temp = $tag;
+                                    $wk = $tag;
+                                    $tag = array();
+                                    $hasOnly = false;
+
+                                    foreach ($item as $key => $value) {
+
+                                        if (!isset($values[$name]) || $key != 'checked') {
+                                            $temp[$key] = $value;
+                                        }
+
+                                    }
+
+                                    if (
+                                        isset($temp['value']) &&
+                                        isset($values[$name]) &&
+                                        $temp['value'] === $values[$name]
+                                    ) {
+                                        $temp['checked'] = 'checked';
+                                    } else {
+                                        $temp['checked'] = null;
+                                    }
+
+                                    $tag[] = $temp;
+                                    $temp = $wk;
+                                } else {
+
+                                    if (!isset($values[$name]) || $key != 'checked') {
+                                        $tag[$index] = $item;
+                                    }
+                                }
+
+                            }
+
+                        } else {
+                            $tag['id'] = $name;
+                            $tag['prelabel'] = $name;
+                        }
+
+                        if ($hasOnly) {
+
+                            if (
+                                isset($tag['value']) &&
+                                isset($values[$name]) &&
+                                $tag['value'] === $values[$name]
+                            ) {
+                                $tag['checked'] = 'checked';
+                            } else {
+                                $tag['checked'] = null;
+                            }
+
+                        }
+                        break;
+
+                    case 'select':
+
+                        if (isset($conf['options']) && is_array($conf['options'])) {
+
+                            foreach ($conf['options'] as $key => $value) {
+
+                                if ($key == 'options' && is_array($value)) {
+
+                                    foreach ($value as $index => $item) {
+
+                                        if (!isset($values[$name])) {
+                                            $value[$index] = $item;
+                                        } else {
+
+                                            if (
+                                                isset($item['value']) &&
+                                                $item['value'] === $values[$name]
+                                            ) {
+                                                $item['selected'] = 'selected';
+                                            } else {
+
+                                                if (isset($item['selected'])) {
+                                                    unset($item['selected']);
+                                                }
+
+                                            }
+
+                                            $value[$index] = $item;
+                                        }
+
+                                    }
+
+                                    $tag[$key] = $value;
+                                } else {
+                                    $tag[$key] = $value;
+                                }
+
+                            }
+
+                        }
+
+                        break;
+
+                    default:
+                        $tag = null;
+                        break;
+                }
+
+            } else if (is_array($conf)) {
+                $tag['type'] = (isset($conf['field_type']))
+                             ? strtolower($conf['field_type'])
+                             : '';
+
+                if ($tag['type'] == 'form') {
+
+                    if (isset($conf['options']) && is_array($conf['options'])) {
+
+                        foreach ($conf['options'] as $key => $value) {
+                            $tag[$key] = $value;
+                        }
+
+                    }
+
+                } else {
+                    unset($tag['type']);
+                }
+
+            }
+
+            if ($tag) {
+                $ret[] = $tag;
+            }
+
+        }
+
+        return $ret;
+    }
+
+    // }}}
+    // {{{ getForm
+
+    /**
+     * 入力フォーム設定取得メソッド
+     *    スキーマ情報を元に入力フォームの設定を取得するメソッド
      *
-     * @param
+     * @param array $schema スキーマ情報
      * @return
      */
-    public function getInputType($schemas)
+    public function getInputForm($schemas)
     {
         $ret = array();
 
         // インプットタイプの生成
         foreach ($schemas as $fields) {
             $key = $fields['Field'];
-            $ret[ $key] = $this->adapter->getType($fields);
+            $label = (isset($fields['Comment']) && $fields['Comment'] !== '')
+                   ? $fields['Comment']
+                   : $fields['Field'];
+            $temp = $this->adapter->getType($fields);
+            $type = $temp['type'];
+
+            switch ($type) {
+
+                // text, password
+                case 'text':
+                case 'password':
+                    $ret[$key] = array(
+                        'field_type' => $type,
+                        'options' => array(
+                            'id' => $key,
+                            'prelabel' => $label
+                        )
+                    );
+
+                    // 長さ設定
+                    if (isset($temp['length'])) {
+                        $ret[$key]['options']['length'] = $temp['length'];
+                    }
+
+                    break;
+
+                // textarea
+                case 'textarea':
+                    $ret[$key] = array(
+                        'field_type' => $type,
+                        'options' => array(
+                            'id' => $key,
+                            'prelabel' => $label,
+                            'cols' => '40',
+                            'rows' => '5'
+                        )
+                    );
+                    break;
+
+                // checkbox
+                case 'checkbox':
+                    $ret[$key] = array(
+                        'field_type' => $type,
+                        'options' => array(
+                            'id' => $key,
+                            'prelabel' => $label,
+                            'value' => '1'
+                        )
+                    );
+                    break;
+
+                // select_date, select_time, select_datetime
+                case 'select_date':
+                case 'select_datetime':
+                case 'select_time':
+                    $selectType = '';
+
+                    if ($type == 'select_date') {
+                        $selectType = 'date';
+                    } else if ($type == 'select_datetime') {
+                        $selectType = 'datetime';
+                    } else if ($type == 'select_time') {
+                        $selectType = 'time';
+                    }
+
+                    $select = $this->getDateSelect($key, $selectType, $label);
+
+                    foreach ($select as $fName => $conf) {
+                        $ret[$fName] = $conf;
+                    }
+
+                    break;
+            }
+
         }
 
         return $ret;
@@ -570,77 +1124,149 @@ class xFrameworkPX_Model_RapidDrive extends xFrameworkPX_Model
     // {{{ getDateSelectItem
 
     /**
-     * 日付セレクトボックス要素生成メソッド
+     * 日付セレクトボックス生成メソッド
      *
      * @param
      * @return
      * @access
      */
-    public function getDateSelectItem($date, $minYear = 0, $maxYear = 0)
+    public function getDateSelect($fieldName, $type, $label)
     {
         $ret = array();
-        $temp = null;
-        $year = 0;
 
-        // セレクトボックス要素生成
-        if (!is_null($date['year']) && ($date['year'] !== false)) {
+        if ($type == 'datetime' || $type == 'date') {
 
-            $year = $date['year'];
-            $temp = array();
+            // 年
+            $nameTemp = sprintf('%s_year', $fieldName);
+            $ret[$nameTemp] = array(
+                'field_type' => 'text',
+                'options' => array(
+                    'id' => $nameTemp,
+                    'prelabel' => $label,
+                    'label' => '年',
+                    'size' => 4,
+                    'length' => 4
+                )
+            );
 
-            $minYear = ($minYear === 0) ? $year - 10 : $minYear;
-            $maxYear = ($maxYear === 0) ? date('Y') : $maxYear;
+            // 月
+            $nameTemp = sprintf('%s_month', $fieldName);
+            $ret[$nameTemp] = array(
+                'field_type' => 'select',
+                'options' => array(
+                    'id' => $nameTemp,
+                    'label' => '月',
+                    'options' => array(
+                        array(
+                            'value' => '',
+                            'intext' => '--'
+                        )
+                    )
+                )
+            );
 
-            for ($i = $minYear; $i <= $maxYear; $i++) {
-                $temp[] = $i;
+            for ($i = 1; $i <= 12; $i++) {
+                $ret[$nameTemp]['options']['options'][] = array(
+                    'value' => $i,
+                    'intext' => sprintf('%02d', $i)
+                );
             }
 
-            $ret['year'] = $temp;
-        }
+            // 日
+            $nameTemp = sprintf('%s_day', $fieldName);
+            $ret[$nameTemp] = array(
+                'field_type' => 'select',
+                'options' => array(
+                    'id' => $nameTemp,
+                    'label' => '日',
+                    'options' => array(
+                        array(
+                            'value' => '',
+                            'intext' => '--'
+                        )
+                    )
+                )
+            );
 
-        if (!is_null($date['month']) && ($date['month'] !== false)) {
-        
-            $temp = array();
-
-            for ($i = 1; $i < 13; $i++) {
-                $temp[] = $i;
+            for ($i = 1; $i <= 31; $i++) {
+                $ret[$nameTemp]['options']['options'][] = array(
+                    'value' => $i,
+                    'intext' => sprintf('%02d', $i)
+                );
             }
 
-            $ret['month'] = $temp;
         }
 
-        if (!is_null($date['day']) && ($date['day'] !== false)) {
-            $temp = array();
+        if ($type == 'datetime' || $type == 'time') {
 
-            for ($i = 1; $i < 32; $i++) {
-                $temp[] = $i;
+            // 時
+            $nameTemp = sprintf('%s_hour', $fieldName);
+            $ret[$nameTemp] = array(
+                'field_type' => 'select',
+                'options' => array(
+                    'id' => $nameTemp,
+                    'label' => '時',
+                    'options' => array(
+                        array(
+                            'value' => '',
+                            'intext' => '--'
+                        )
+                    )
+                )
+            );
+
+            for ($i = 0; $i <= 23; $i++) {
+                $ret[$nameTemp]['options']['options'][] = array(
+                    'value' => $i,
+                    'intext' => sprintf('%02d', $i)
+                );
             }
 
-            $ret['day'] = $temp;
-        }
 
-        if (isset($data['hour'])) {
-            if (!is_null($date['hour']) && ($date['hour'] !== false)) {
-                $temp = array();
+            // 分
+            $nameTemp = sprintf('%s_minute', $fieldName);
+            $ret[$nameTemp] = array(
+                'field_type' => 'select',
+                'options' => array(
+                    'id' => $nameTemp,
+                    'label' => '分',
+                    'options' => array(
+                        array(
+                            'value' => '',
+                            'intext' => '--'
+                        )
+                    )
+                )
+            );
 
-                for ($i = 0; $i < 24; $i++) {
-                    $temp[] = $i;
-                }
-
-                $ret['hour'] = $temp;
+            for ($i = 0; $i <= 59; $i++) {
+                $ret[$nameTemp]['options']['options'][] = array(
+                    'value' => $i,
+                    'intext' => sprintf('%02d', $i)
+                );
             }
-        }
 
-        if (isset($data['minute'])) {
+            // 秒
+            $nameTemp = sprintf('%s_second', $fieldName);
+            $ret[$nameTemp] = array(
+                'field_type' => 'select',
+                'options' => array(
+                    'id' => $nameTemp,
+                    'label' => '秒',
+                    'options' => array(
+                        array(
+                            'value' => '',
+                            'intext' => '--'
+                        )
+                    )
+                )
+            );
 
-            if (!is_null($date['minute']) && ($date['minute'] !== false)) {
-                $temp = array();
-
-                for ($i = 0; $i < 60; $i++) {
-                    $temp[] = $i;
-                }
-
-                $ret['minute'] = $temp;
+            for ($i = 0; $i <= 59; $i++) {
+                $ret[$nameTemp]['options']['options'][] = array(
+                    'value' => $i,
+                    'intext' => sprintf('%02d', $i)
+                );
             }
 
         }

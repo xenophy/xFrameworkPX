@@ -108,6 +108,7 @@ class xFrameworkPX_Model_Adapter_MySQL extends xFrameworkPX_Model_Adapter
                     'Field' => $field['Field'],
                     'Type' => $field['Type'],
                     'Key' => $field['Key'],
+                    'Default' => $field['Default'],
                     'Extra' => $field['Extra'],
                     'Comment' => $field['Comment']
                 );
