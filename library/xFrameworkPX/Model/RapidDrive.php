@@ -465,18 +465,19 @@ class xFrameworkPX_Model_RapidDrive extends xFrameworkPX_Model
     }
 
     // }}}
-    // {{{ add
+    // {{{ save
 
     /**
-     * レコード追加メソッド
+     * レコード保存メソッド
      *
      * @param array $data 追加データ
      * @return void
      * @access public
      */
-    public function add($data, $trans = true, $lock = true)
+    public function save($data, $targetId = null, $trans = true, $lock = true)
     {
         $setData = array();
+        $cond = array();
 
         // スキーマ情報取得
         $schemas = $this->schema();
@@ -484,20 +485,36 @@ class xFrameworkPX_Model_RapidDrive extends xFrameworkPX_Model
         foreach ($schemas as $schema) {
 
             if ($schema['Field'] == 'created') {
-                $setData['created'] = (isset($data['created']))
-                                    ? $data['created']
-                                    : 'NOW()';
+
+                if (is_null($targetId)) {
+                    $setData['created'] = (isset($data['created']))
+                                        ? $data['created']
+                                        : 'NOW()';
+                }
+
             } else if ($schema['Field'] == 'modified') {
-                $setData['modified'] = (isset($data['created']))
-                                     ? $data['created']
-                                     : null;
+
+                if (is_null($targetId)) {
+                    $setData['modified'] = (isset($data['modified']))
+                                         ? $data['modified']
+                                         : null;
+                } else {
+                    $setData['modified'] = (isset($data['modified']))
+                                         ? $data['modified']
+                                         : 'NOW()';
+                }
+
             } else if ($schema['Field'] == 'del') {
-                $delDefault = (isset($schema['Default']) && $schema['Default'] !== '')
-                            ? $schema['Default']
-                            : 0;
-                $setData['del'] = (isset($data['del']))
-                                ? $data['del']
-                                : $delDefault;
+
+                if (is_null($targetId)) {
+                    $delDefault = (isset($schema['Default']) && $schema['Default'] !== '')
+                                ? $schema['Default']
+                                : 0;
+                    $setData['del'] = (isset($data['del']))
+                                    ? $data['del']
+                                    : $delDefault;
+                }
+
             } else {
 
                 if (isset($data[$schema['Field']])) {
@@ -508,13 +525,31 @@ class xFrameworkPX_Model_RapidDrive extends xFrameworkPX_Model
 
         }
 
+        if (is_null($targetId)) {
+
+            if (isset($setData[$this->primaryKey])) {
+                $cnt = $this->count(array(
+                    'where' => sprintf('%s = :id', $this->primaryKey),
+                    'bind' => array('id' => $setData[$this->primaryKey])
+                ));
+
+                if ($cnt > 0) {
+                    return false;
+                }
+
+            }
+
+        } else {
+            $cond['id'] = $targetId;
+        }
+
         try {
 
             if ($trans) {
                 $this->beginTrans();
             }
 
-            $this->set($setData, array(), $lock);
+            $this->set($setData, $cond, $lock);
 
             if ($trans) {
                 $this->commit();

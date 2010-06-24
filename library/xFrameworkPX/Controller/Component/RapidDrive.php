@@ -269,6 +269,230 @@ extends xFrameworkPX_Controller_Component
 
     public function onList($conf, $module)
     {
+
+        $ret            = $this->mix();
+        $list           = null;
+        $pager          = null;
+
+        // 1ページの表示件数
+        $count          = isset($conf['count']) ? $conf['count'] : null;
+
+        // 表示するページ番号のフィールド名
+        $pageNumKey     = isset($conf['page_num_key'])
+                          ? $conf['page_num_key']
+                          : 'p';
+
+        // 一覧を絞り込む条件のフィールド名
+        $searchKey      = isset($conf['search_key'])
+                        ? $conf['search_key']
+                        : 'q';
+
+        // ソートの対象となるフィールド名とソートの設定
+        $orderFields    = isset($conf['order_field'])
+                          ? $conf['order_field']
+                          : array($primaryKey);
+
+        // 非表示にするフィールド名
+        $fieldFilters   = isset($conf['field_filter'])
+                          ? $conf['field_filter']
+                          : array();
+
+        // 検索結果がなかった場合に表示するメッセージ
+        $noItemMessage  = isset($conf['no_item_message'])
+                          ? $conf['no_item_message']
+                          : '';
+
+        $search         = isset($conf['search'])
+                        ? $conf['search']
+                        : array();
+
+        // 初回実行時に検索を行うかどうかのフラグ
+        $init_search    = (isset($conf['init_search']) && $conf['init_search'] !== '')
+                          ? (bool)$conf['init_search']
+                          : false;
+
+        // 次画面アクション名
+        $nextAction = (isset($conf['nextAction']))
+                    ? $conf['nextAction']
+                    : 'detail';
+
+        // セッション取得
+        $sessTemp = $this->Session->read($this->sessName);
+
+        if (is_null($sessTemp)) {
+            $sessTemp = array();
+        }
+
+        if (!isset($sessTemp[$this->actionName])) {
+            $sessTemp[$this->actionName] = array();
+        }
+
+        // 検索条件
+        $condition = null;
+
+        if (isset($this->post[$this->actionName])) {
+            $condition = $this->post[$this->actionName];
+        } else if (isset($this->get[$this->actionName])) {
+            $condition = $this->get[$this->actionName];
+        } else if (isset($sessTemp[$this->actionName]['search_cond'])) {
+            $condition = $sessTemp[$this->actionName]['search_cond'];
+        }
+
+        $findSearch = (!is_null($condition))
+                    ? array_merge($condition, $search)
+                    : $search;
+
+        // ページ番号
+        $pageNum = (isset($condition[$pageNumKey]))
+                 ? (int)$condition[$pageNumKey]
+                 : 0;
+
+        // スキーマ取得
+        $schemas = $module->getAllSchema($fieldFilters);
+
+        // 検索条件設定の整形
+        $temp = array();
+
+        if (isset($conf['search_field']) && is_array($conf['search_field'])) {
+
+            foreach ($conf['search_field'] as $key => $value) {
+
+                if (is_array($value)) {
+                    $temp[$key] = array();
+
+                    // 入力フォームのフィールドタイプ設定
+                    if (isset($value['field_type'])) {
+                        $temp[$key]['field_type'] = ($value['field_type'] !== '')
+                                                  ? $value['field_type']
+                                                  : 'text';
+                    } else {
+
+                        // 入力フォーム無し
+                        $temp[$key]['field_type'] = 'none';
+                    }
+
+                    // 入力フォームその他設定
+                    if (isset($value['options'])) {
+                        $temp[$key]['options'] = (is_array($value['options']))
+                                               ? $value['options'] : array();
+                    }
+
+                    // 検索条件設定
+                    $temp[$key]['cond'] = (isset($value['cond']) && $value['cond'] !== '')
+                                        ? $value['cond'] : '=';
+
+                    // 検索対象カラム設定
+                    if (
+                        isset($value['target']) &&
+                        is_array($value['target']) &&
+                        count($value['target']) > 0
+                    ) {
+                        $temp[$key]['target'] = array();
+
+                        foreach ($value['target'] as $colName) {
+                            $temp[$key]['target'][] = $colName;
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        if (count($temp) <= 0) {
+            $temp = array();
+            $allSchema = $module->getAllSchema();
+
+            foreach ($allSchema as $tblName => $fields) {
+
+                foreach ($fields as $field) {
+                    $name = sprintf('%s.%s', $tblName, $field['Field']);
+                    $temp[str_replace('.', '_', $name)] = array(
+                        'field_type' => 'text',
+                        'options' => array(
+                            'id' => $name,
+                            'prelabel' => $name
+                        ),
+                        'cond' => '=',
+                        'target' => array($name)
+                    );
+                }
+
+            }
+
+            $name = 'btn_search';
+            $temp[$name] = array(
+                'field_type' => 'submit',
+                'options' => array(
+                    'id' => $name,
+                    'value' => '検索'
+                )
+            );
+        }
+
+        $searchFields = $temp;
+
+        // 最終実行アクション設定
+        $sessTemp['lastAction'] = sprintf(
+            '%s/%s',
+            $this->getContentPath(),
+            $this->actionName
+        );
+
+        if ($this->cmd == 'init') {
+            $find = null;
+
+            if (is_null($condition)) {
+
+                if ($init_search) {
+
+                    // リスト取得
+                    $find = $module->findAll(
+                        $count,
+                        $pageNum,
+                        $searchFields,
+                        $findSearch,
+                        $orderFields
+                    );
+                }
+
+            } else {
+
+                // リスト取得
+                $find = $module->findAll(
+                    $count,
+                    $pageNum,
+                    $searchFields,
+                    $findSearch,
+                    $orderFields
+                );
+            }
+
+            if ($find['list']) {
+                $list = $find['list'];
+
+                // ページャー情報取得
+                $pager = $module->pager(
+                    intval($find['count']),
+                    $pageNum,
+                    $search
+                );
+
+            }
+
+        } else if ($this->cmd == 'back') {
+
+        }
+
+        if ($list) {
+
+        }
+
+        return $ret;
+
+        /*
         $ret            = $this->mix();
         $list           = null;
         $sessTemp       = array();
@@ -526,6 +750,7 @@ extends xFrameworkPX_Controller_Component
         $ret->idkey = $primaryKey;
 
         return $ret;
+        */
     }
 
     // }}}
@@ -756,190 +981,234 @@ extends xFrameworkPX_Controller_Component
      * @param xFrameworkPX_Model $module モジュールオブジェクト
      * @return xFrameworkPX_Util_MixedCollection 処理結果
      */
-
-    /*
     public function onEdit($conf, $module)
     {
         // ローカル変数初期化
         $ret = $this->mix();
-        $idKey = $module->primaryKey;
+
+        // フィールド表示フィルタ
         $fieldFilters = isset($conf['field_filter'])
-                        ? $conf['field_filter']
-                        : array($idKey, 'created', 'modified');
+                      ? $conf['field_filter']
+                      : array(
+                            $module->primaryKey, 'created', 'modified', 'del'
+                        );
 
-        $id = null;
-        if (isset($this->get->{$idKey})) {
-            $id = $this->get->{$idKey};
-        } else if (isset($this->post->{$idKey})) {
-            $id = $this->post->{$idKey};
+        // ID指定フィールド名
+        $idKey = (isset($conf['idKey']) && $conf['idKey'] !== '')
+               ? $conf['idKey']
+               : $module->primaryKey;
+
+        // 次画面アクション名
+        $nextAction = (isset($conf['nextAction']))
+                    ? $conf['nextAction']
+                    : 'verify';
+
+        // 前画面アクション名
+        $prevAction = (isset($conf['prevAction']))
+                    ? $conf['prevAction']
+                    : 'index';
+
+        // フィールド設定
+        $fieldConf = null;
+
+        // フィールドデータ
+        $fieldData = null;
+
+        // セッション情報取得
+        $sessTemp = $this->Session->read($this->sessName);
+
+        if (is_null($sessTemp)) {
+            $sessTemp = array();
         }
 
-        // エラー時遷移先画面名
-        $errorRedirect = 'index';
-
-        if (isset($conf['errorRedirect'])) {
-            $errorRedirect = $conf['errorRedirect'];
-        }
-
-        $nextAction = isset($conf['next_action'])
-                        ? $conf['next_action']
-                        : 'verify';
-
-        $data = array();
-        $inputData = null;
-        $validErrors = null;
-
-        $refererMode = $this->Session->read('refererMode');
-
-        $requestURIPath = parse_url(
-            $this->env('REQUEST_URI'),
-            PHP_URL_PATH
+        // 最終実行アクション設定
+        $sessTemp['lastAction'] = sprintf(
+            '%s/%s',
+            $this->getContentPath(),
+            $this->actionName
         );
-        $httpRefererPath = parse_url(
-            $this->getReferer(),
-            PHP_URL_PATH
-        );
 
-        if (
-            !preg_match('/'.preg_quote($nextAction.'.html', '/').'$/', $httpRefererPath) &&
-            $requestURIPath != $httpRefererPath
-        ) {
-            $this->Session->remove('refererMode');
-            $refererMode = null;
+        if (!isset($sessTemp[$this->actionName])) {
+            $sessTemp[$this->actionName] = array();
         }
-
-        if ($requestURIPath !== '') {
-            $requestURIPath = pathinfo($requestURIPath, PATHINFO_DIRNAME);
-        }
-
-        if ($httpRefererPath !== '') {
-            $httpRefererPath = pathinfo($httpRefererPath, PATHINFO_DIRNAME);
-        }
-
-        // 遷移外からのアクセス時に初期化
-        if (
-            is_null($this->getReferer()) ||
-            $requestURIPath !== $httpRefererPath
-        ) {
-            $this->Session->remove('refererMode');
-            $refererMode = null;
-        }
-
-        if (
-            is_null($this->getReferer()) ||
-            $requestURIPath !== $httpRefererPath ||
-            ($refererMode !== 'edit' && $refererMode !== 'verify')
-        ) {
-            // セッション破棄
-            $this->Session->remove($this->_inputSessionName);
-            $this->Session->remove('validErrors');
-            $this->Session->remove('refererMode');
-        }
-
-        // 入力値取得
-        $actionName = $this->getActionName();
-
-        $inputData = $this->Session->read($this->_inputSessionName);
-
-        $inputData = !isset($inputData[$actionName])
-                     ? null
-                     : $inputData[$actionName][$module->toString()];
-
-        // 入力エラー内容取得
-        $validErrors = $this->Session->read('validErrors');
-        if (is_null($validErrors)) {
-            $validErrors = $this->mix();
-        }
-
-        // 保存チケット登録
-        $this->Session->write($module->toString() . '.save', true);
 
         // スキーマ取得
         $schemas = $module->schema($fieldFilters);
 
-        // データ取得
-        if (is_null($inputData)) {
-            $data = $module->find($id, $idKey);
-        } else {
-            $data[$idKey] = $inputData[$idKey];
+        if ($this->cmd == 'init') {
+            $id = null;
 
-            foreach ($schemas as $field) {
-                $data[$field['Field']] = null;
+            // ID取得
+            if (isset($this->post[$idKey])) {
+                $id = $this->post[$idKey];
+            } else if (isset($this->get[$idKey])) {
+                $id = $this->get[$idKey];
             }
 
-            foreach ($inputData as $key => $value) {
-                if ($value instanceof xFrameworkPX_Util_MixedCollection) {
-                    $data[$key] = $value->getArrayCopy();
-                } else {
-                    $data[$key] = $value;
-                }
+            // データ取得フィールド設定生成
+            $fields = array();
+
+            foreach ($schemas as $schema) {
+                $fields[] = $schema['Field'];
             }
 
-        }
+            if (!is_null($id)) {
+                $fieldData = $module->get(
+                    'first',
+                    array(
+                        'fields' => $fields,
+                        'conditions' => array($module->primaryKey => $id)
+                    )
+                );
 
-        if (empty($data)) {
-
-            // データが空の場合indexにリダイレクト
-            $this->redirect(sprintf('%s.html', $errorRedirect));
-        }
-
-        // 出力整形
-        $ret->label = array();
-        $ret->type = array();
-        $ret->outdata = array();
-
-        $ret->type = $module->getInputType($schemas);
-        $ret->type[$idKey] = array('type' => 'hidden');
-        $ret->outdata[$idKey] = $data[$idKey];
-        $ret->moduleName = $conf['module'];
-
-        foreach ($schemas as $field) {
-            $key = $field['Field'];
-
-            // ラベル生成
-            $ret->label[$key] = (!empty($field['Comment']))
-                                        ? $field['Comment']
-                                        : $key;
-
-            if (startsWith($ret->type[$key]['type'], 'select')) {
-
-                // 日付データ整形
-                if (is_string($data[$key])) {
-                    $data[$key] = $module->dateParse($data[$key]);
-                }
-
-                $ret->outdata[$key] = $data[$key];
-                // セレクトボックス要素生成
-                $ret->type[$key]['item'] =
-                    $module->getDateSelectItem($ret->outdata[$key]);
-
+                // 取得したIDをセッションに保存
+                $sessTemp[$this->actionName]['targetId'] = $id;
             } else {
-                $ret->outdata[$key] = $data[$key];
+
+                /* IDが取得できなかった場合は前画面にリダイレクト */
+
+                $firstUrl = sprintf('./%s.html', $prevAction);
+
+                foreach ($sessTemp as $key => $value) {
+
+                    if (is_array($value)) {
+                        $this->Session->remove(sprintf(
+                            '%s_%s', $this->sessName, $key
+                        ));
+                    }
+
+                }
+
+                // セッション初期化
+                $this->Session->remove($this->sessName);
+
+                // リダイレクト
+                $this->redirect($firstUrl);
             }
+
+            // 保存チケット発行
+            $sessTemp['ticket'] = sprintf('%s.save', $this->sessName);
+
+        } else if ($this->cmd == 'back') {
+
+            // 入力データ取得
+            $fieldData = (isset($sessTemp[$nextAction]['inputData']))
+                       ? $sessTemp[$nextAction]['inputData']
+                       : null;
+
+            // バリデーションエラー取得
+            $validError = null;
+
+            if (
+                isset($sessTemp[$nextAction]) &&
+                isset($sessTemp[$nextAction]['validError'])
+            ) {
+                $validError = $sessTemp[$nextAction]['validError'];
+            } else {
+                $validError = array();
+            }
+
+            if ($validError) {
+
+                // エラーメッセージ整形
+                $tempError = array();
+
+                foreach ($validError as $fieldName => $item) {
+                    $tempError[$fieldName] = $item['messages'];
+                }
+
+                $ret->validError = $tempError;
+            }
+
         }
 
-        // 入力エラー設定
-        $ret->validerror = $validErrors;
+        if (!isset($sessTemp[$this->actionName]['field_conf'])) {
+            $fieldConf = array();
 
-        // 遷移先アクションの設定
-        $ret->nextaction = $nextAction;
+            if (isset($conf['input_field']) && is_array($conf['input_field'])) {
 
-        // セッションに登録された入力データの破棄
-//        $this->Session->remove($this->_inputSessionName);
+                foreach ($conf['input_field'] as $key => $value) {
 
-        // refererModeをセッションに登録
-        $this->Session->write('refererMode', 'edit');
+                    if (!in_array($key, $fieldFilters) && is_array($value)) {
+                        $fieldConf[$key] = array();
 
-        // リファラー名を設定
-        $ret->refererName = $this->_refeterName;
+                        // 入力フォームのフィールドタイプ設定
+                        if (
+                            isset($value['field_type']) &&
+                            $value['field_type'] !== ''
+                        ) {
+                            $fieldConf[$key]['field_type'] = $value['field_type'];
+                        } else {
 
-        // リファラーを設定
-        $ret->{$this->_refeterName} = $this->env('REQUEST_URI');
+                            // 入力フォーム指定無し
+                            $fieldConf[$key]['field_type'] = 'text';
+                        }
+
+                        // 入力フォームその他設定
+                        if (isset($value['options'])) {
+                            $fieldConf[$key]['options'] = (is_array($value['options']))
+                                                   ? $value['options'] : array();
+                        }
+
+                    }
+
+                }
+
+            }
+
+            // 入力フィールドの設定がなかった場合自動生成
+            if (count($fieldConf) < 1) {
+                $fieldConf[] = array(
+                    'field_type' => 'form',
+                    'options' => array(
+                        'action' => sprintf('./%s.html', $nextAction),
+                        'method' => 'post'
+                    )
+                );
+
+                $temp = $module->getInputForm($schemas);
+
+                foreach ($temp as $key => $item) {
+                    $fieldConf[$key] = $item;
+                }
+
+                $fieldConf['btn_submit'] = array(
+                    'field_type' => 'submit',
+                    'options' => array(
+                        'value' => '登録'
+                    )
+                );
+            }
+
+            $sessTemp[$this->actionName]['field_conf'] = $fieldConf;
+        } else {
+
+            // セッションから設定情報読込
+            $fieldConf = $sessTemp[$this->actionName]['field_conf'];
+        }
+
+        // セッションデータ設定
+        $this->Session->write($this->sessName, $sessTemp);
+
+        // 戻り値設定
+        if ($fieldConf) {
+            $ret->wiseTag = $module->getWiseTagConf(
+                $this->actionName,
+                $fieldConf,
+                $fieldData
+            );
+        }
+
+        if ($nextAction) {
+            $ret->nextAction = sprintf('./%s.html', $nextAction);
+        }
+
+        if ($prevAction) {
+            $ret->prevAction = sprintf('./%s.html', $prevAction);
+        }
 
         return $ret;
-
     }
-    */
 
     // }}}
     // {{{ onAdd
@@ -1201,7 +1470,7 @@ extends xFrameworkPX_Controller_Component
 
                 if (is_array($value)) {
                     $this->Session->remove(sprintf(
-                        '%s/%s', $this->sessName, $key
+                        '%s_%s', $this->sessName, $key
                     ));
                 }
 
@@ -1255,7 +1524,7 @@ extends xFrameworkPX_Controller_Component
 
                 if (is_array($value)) {
                     $this->Session->remove(sprintf(
-                        '%s/%s', $this->sessName, $key
+                        '%s_%s', $this->sessName, $key
                     ));
                 }
 
@@ -1291,6 +1560,12 @@ extends xFrameworkPX_Controller_Component
                 unset($sessTemp[$this->actionName]['validError']);
             }
 
+            if (isset($sessTemp[$prevAction]['targetId'])) {
+
+                // targetIdセット
+                $sessTemp[$this->actionName]['targetId'] = $sessTemp[$prevAction]['targetId'];
+            }
+
             // セッション書込み
             $this->Session->write($this->sessName, $sessTemp);
 
@@ -1320,6 +1595,7 @@ extends xFrameworkPX_Controller_Component
      * @param xFrameworkPX_Model $module モジュールオブジェクト
      * @return xFrameworkPX_Util_MixedCollection 処理結果
      */
+    /*
     public function onAddVerify($conf, $module)
     {
 
@@ -1572,6 +1848,7 @@ extends xFrameworkPX_Controller_Component
         return $ret;
 
     }
+    */
 
     // }}}
     // {{{ onSave
@@ -1646,7 +1923,7 @@ extends xFrameworkPX_Controller_Component
 
                 if (is_array($value)) {
                     $this->Session->remove(sprintf(
-                        '%s/%s', $this->sessName, $key
+                        '%s_%s', $this->sessName, $key
                     ));
                 }
 
@@ -1668,8 +1945,13 @@ extends xFrameworkPX_Controller_Component
             // チケット破棄
             unset($sessTemp['ticket']);
 
+            // 編集対象条件取得
+            $target = (isset($sessTemp[$prevAction]['targetId']))
+                  ? $sessTemp[$prevAction]['targetId']
+                  : null;
+
             // 登録処理
-            $module->add($inputData, $trans, $lock);
+            $module->save($inputData, $target, $trans, $lock);
 
             $this->Session->write($this->sessName, $sessTemp);
 
@@ -1683,7 +1965,7 @@ extends xFrameworkPX_Controller_Component
 
                 if (is_array($value)) {
                     $this->Session->remove(sprintf(
-                        '%s/%s', $this->sessName, $key
+                        '%s_%s', $this->sessName, $key
                     ));
                 }
 
@@ -1730,7 +2012,7 @@ extends xFrameworkPX_Controller_Component
 
             if (is_array($value)) {
                 $this->Session->remove(sprintf(
-                    '%s/%s', $this->sessName, $key
+                    '%s_%s', $this->sessName, $key
                 ));
             }
 
@@ -1756,6 +2038,7 @@ extends xFrameworkPX_Controller_Component
      * @param $request 強制的に送信パラメータから取得するフラグ（default=false）
      * @return string リファラー
      */
+    /*
     public function getReferer($request = false)
     {
 
@@ -1791,6 +2074,7 @@ extends xFrameworkPX_Controller_Component
         return $ret;
 
     }
+    */
 
     // }}}
     // {{{ rapidRefererAction
@@ -1801,6 +2085,7 @@ extends xFrameworkPX_Controller_Component
      * @param string $default デフォルトファイル名
      * @return ファイル名
      */
+    /*
     public function rapidRefererAction($default = 'index.html')
     {
 
@@ -1821,7 +2106,7 @@ extends xFrameworkPX_Controller_Component
         // }}}
 
     }
-
+    */
     // }}}
 
 }
