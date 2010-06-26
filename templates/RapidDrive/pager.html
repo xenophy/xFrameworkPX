@@ -3,11 +3,15 @@
 
     <!--{foreach from=$rd.pager item=item key=key name="pager"}-->
 
-        <!--{if $smarty.foreach.pager.first && $item.current != true}-->
+        <!--{if $smarty.foreach.pager.first}-->
             <span>
-                <a href="./?<!--{$item.search}--><!--{if $item.search}-->&amp;<!--{/if}-->p=<!--{$item.prevpage}-->">
+                <!--{if !$item.current || $item.prev}-->
+                <a href="./?p=<!--{$item.prevpage}-->">
                     前のページ
                 </a>
+                <!--{else}-->
+                    前のページ
+                <!--{/if}-->
             </span>
         <!--{/if}-->
 
@@ -17,18 +21,21 @@
             </span>
         <!--{else}-->
             <span>
-                <a href="./?<!--{$item.search}--><!--{if $item.search}-->&amp;<!--{/if}-->p=<!--{$key}-->" class="adjust">
+                <a href="./?p=<!--{$key}-->" class="adjust">
                     <!--{$key+1}-->
                 </a>
             </span>
         <!--{/if}-->
-        <!--{if $item.next}--><!--{/if}-->
 
-        <!--{if $smarty.foreach.pager.last && $item.current != true}-->
+        <!--{if $smarty.foreach.pager.last}-->
             <span>
-                <a href="./?<!--{$item.search}--><!--{if $item.search}-->&amp;<!--{/if}-->p=<!--{$item.nextpage}-->">
+                <!--{if !$item.current || $item.next}-->
+                <a href="./?p=<!--{$item.nextpage}-->">
                     次のページ
                 </a>
+                <!--{else}-->
+                    次のページ
+                <!--{/if}-->
             </span>
         <!--{/if}-->
 

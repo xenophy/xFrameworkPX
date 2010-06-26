@@ -290,7 +290,7 @@ extends xFrameworkPX_Controller_Component
         // ソートの対象となるフィールド名とソートの設定
         $orderFields    = isset($conf['order_field'])
                           ? $conf['order_field']
-                          : array($primaryKey);
+                          : array($module->primaryKey);
 
         // 非表示にするフィールド名
         $fieldFilters   = isset($conf['field_filter'])
@@ -327,9 +327,25 @@ extends xFrameworkPX_Controller_Component
             $sessTemp[$this->actionName] = array();
         }
 
+        // ページ番号
+        $pageNum = 0;
+
+        if (isset($this->post[$pageNumKey])) {
+            $pageNum = (int)$this->post[$pageNumKey];
+        } else if (isset($this->get[$pageNumKey])) {
+            $pageNum = (int)$this->get[$pageNumKey];
+        } else {
+
+            if (isset($sessTemp[$this->actionName]['search_cond'])) {
+                unset($sessTemp[$this->actionName]['search_cond']);
+            }
+
+        }
+
         // 検索条件
         $condition = null;
 
+        // 入力データ取得
         if (isset($this->post[$this->actionName])) {
             $condition = $this->post[$this->actionName];
         } else if (isset($this->get[$this->actionName])) {
@@ -338,14 +354,9 @@ extends xFrameworkPX_Controller_Component
             $condition = $sessTemp[$this->actionName]['search_cond'];
         }
 
-        $findSearch = (!is_null($condition))
-                    ? array_merge($condition, $search)
-                    : $search;
-
-        // ページ番号
-        $pageNum = (isset($condition[$pageNumKey]))
-                 ? (int)$condition[$pageNumKey]
-                 : 0;
+        if ($condition instanceof xFrameworkPX_Util_MixedCollection) {
+            $condition = $condition->getArrayCopy();
+        }
 
         // スキーマ取得
         $schemas = $module->getAllSchema($fieldFilters);
@@ -393,6 +404,12 @@ extends xFrameworkPX_Controller_Component
                             $temp[$key]['target'][] = $colName;
                         }
 
+                    } else {
+
+                        if (isset($condition[$key])) {
+                            unset($condition[$key]);
+                        }
+
                     }
 
                 }
@@ -422,17 +439,19 @@ extends xFrameworkPX_Controller_Component
 
             }
 
-            $name = 'btn_search';
-            $temp[$name] = array(
-                'field_type' => 'submit',
-                'options' => array(
-                    'id' => $name,
-                    'value' => '検索'
-                )
-            );
         }
 
         $searchFields = $temp;
+        $sessTemp[$this->actionName]['field_conf'] = $temp;
+
+        // セッションに検索条件セット
+        if ($condition) {
+            $sessTemp[$this->actionName]['search_cond'] = $condition;
+        }
+
+        $findCond = (!is_null($condition))
+                  ? array_merge($condition, $search)
+                  : $search;
 
         // 最終実行アクション設定
         $sessTemp['lastAction'] = sprintf(
@@ -446,6 +465,10 @@ extends xFrameworkPX_Controller_Component
 
             if (is_null($condition)) {
 
+                if (isset($sessTemp[$this->actionName])) {
+                    $sessTemp[$this->actionName] = array();
+                }
+
                 if ($init_search) {
 
                     // リスト取得
@@ -453,7 +476,7 @@ extends xFrameworkPX_Controller_Component
                         $count,
                         $pageNum,
                         $searchFields,
-                        $findSearch,
+                        $findCond,
                         $orderFields
                     );
                 }
@@ -465,7 +488,7 @@ extends xFrameworkPX_Controller_Component
                     $count,
                     $pageNum,
                     $searchFields,
-                    $findSearch,
+                    $findCond,
                     $orderFields
                 );
             }
@@ -477,8 +500,21 @@ extends xFrameworkPX_Controller_Component
                 $pager = $module->pager(
                     intval($find['count']),
                     $pageNum,
-                    $search
+                    $condition
                 );
+
+                foreach ($pager as $key => $item) {
+
+                    if (isset($item['search']) && $item['search'] !== '') {
+                        $item['search'] = sprintf(
+                            $item['search'],
+                            $this->actionName
+                        );
+
+                        $pager[$key] = $item;
+                    }
+
+                }
 
             }
 
@@ -488,7 +524,59 @@ extends xFrameworkPX_Controller_Component
 
         if ($list) {
 
+            // 出力整形
+            $ret->outheader = null;
+            $ret->outlist = array();
+
+            foreach ($list as $index => $line) {
+                $headerTemp = array();
+                $listTemp = array();
+
+                foreach ($schemas as $fields) {
+
+                    foreach ($fields as $field) {
+                        $headerTemp[$field['Field']] = ($field['Comment'])
+                                                     ? $field['Comment']
+                                                     : $field['Field'];
+                        $listTemp[$field['Field']] = $line[$field['Field']];
+                    }
+
+                }
+
+                if ($index == 0) {
+                    $ret->outheader = $headerTemp;
+                }
+
+                $ret->outlist[$list[$index][$module->primaryKey]] = $listTemp;
+            }
+
+        } else {
+
+            if (!is_null($condition)) {
+
+                // 検索結果がない場合のエラーメッセージセット
+                $ret->noItemMessage = $noItemMessage;
+            }
+
         }
+
+        if ($pager) {
+            $ret->pager = $pager;
+        }
+
+        // WiseTag設定生成
+        $formConfigs = $module->getWiseTagConf(
+            $this->actionName,
+            $searchFields,
+            $condition
+        );
+
+        // 出力設定
+        if ($formConfigs) {
+            $ret->wiseTag = $formConfigs;
+        }
+
+        $this->Session->write($this->sessName, $sessTemp);
 
         return $ret;
 

@@ -280,8 +280,8 @@ class xFrameworkPX_Model_RapidDrive extends xFrameworkPX_Model
 
             foreach ($search as $key => $value) {
 
-                if ($value !== '') {
-                    $temp[] = sprintf('%s=%s', $key, $value);
+                if (!is_null($value)) {
+                    $temp[] = sprintf('%%1$s[%s]=%s', $key, $value);
                 }
 
             }
