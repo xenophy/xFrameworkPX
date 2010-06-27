@@ -151,128 +151,11 @@ extends xFrameworkPX_Controller_Component
      * @param xFrameworkPX_Model $module モジュールオブジェクト
      * @return xFrameworkPX_Util_MixedCollection 処理結果
      */
-    /*
-    public function onList($conf, $module)
-    {
-        $ret            = $this->mix();
-        $count          = isset($conf['count']) ? $conf['count'] : null;
-        $primaryKey     = $module->primaryKey;
-        $pageNumKey     = isset($conf['page_num_key'])
-                          ? $conf['page_num_key']
-                          : 'p';
-        $searchKey      = isset($conf['search_key'])
-                          ? $conf['search_key']
-                          : 'q';
-        $searchFields   = isset($conf['search_field'])
-                          ? $conf['search_field']
-                          : array('title', 'message');
-        $orderFields    = isset($conf['order_field'])
-                          ? $conf['order_field']
-                          : array($primaryKey => '');
-        $fieldFilters   = isset($conf['field_filter'])
-                          ? $conf['field_filter']
-                          : array();
-        $noItemMessage  = isset($conf['no_item_message'])
-                          ? $conf['no_item_message']
-                          : '';
-        $nextAction     = isset($conf['next_action'])
-                          ? $conf['next_action']
-                          : 'edit';
-        $pageNum        = isset($this->get[$pageNumKey])
-                          ? $this->get[$pageNumKey]
-                          : 0;
-        $search         = isset($this->get[$searchKey])
-                          ? $this->get[$searchKey]
-                          : '';
-
-        // スキーマ取得
-        $schemas = $module->schema($fieldFilters);
-
-        $temp = parse_url($this->env('REQUEST_URI'));
-        $query = '';
-        if (isset($temp['query'])) {
-            $query = $temp['query'];
-        }
-
-        // リスト取得
-        $ret->list = $this->mix();
-        $ret->list->import(
-            $module->findAll(
-                $count,
-                $pageNum,
-                $search,
-                $searchFields,
-                $orderFields
-            )
-        );
-
-        // ページャー情報取得
-        if ($ret->list->first()) {
-            $ret->pager = $module->pager(
-                intval($ret->list->first()->count),
-                $pageNum,
-                $search
-            );
-        }
-
-        // 出力整形
-        $ret->outlist = array();
-        $ret->outheader = array();
-
-        if ($ret->list->count() !== 0) {
-
-            // 検索結果セット
-            foreach ($ret->list as $key => $item) {
-                $list = array();
-                $headers = array();
-
-                foreach ($schemas as $field) {
-                    $list[$field['Field']] = $item[$field['Field']];
-                    $headers[$field['Field']] = $field['Comment'];
-                }
-
-                $ret->outlist[$ret->list[$key][$primaryKey]] = $list;
-                $ret->outheader[] = $headers;
-            }
-
-            $ret->outheader = $ret->outheader[0];
-        } else {
-
-            // 検索結果なしのメッセージ設定
-            $ret->listnomessage = $noItemMessage;
-        }
-
-        // 検索条件セット
-        $ret->{$searchKey} = $search;
-
-        // IDのキー名セット
-        $ret->idkey = $primaryKey;
-
-        // 遷移先アクションをセット
-        $ret->nextaction = $nextAction;
-
-        // refererModeをセッションに登録
-        $this->Session->write('refererMode', 'list');
-
-        // リファラー名を設定
-        $ret->refererName = $this->_refeterName;
-
-        // リファラーを設定
-        $ret->{$this->_refeterName} = $this->env('REQUEST_URI');
-
-        // クエリー設定
-        $ret->{'query'} = $query;
-
-        return $ret;
-    }
-    */
-
     public function onList($conf, $module)
     {
 
+        // ローカル変数初期化
         $ret            = $this->mix();
-        $list           = null;
-        $pager          = null;
 
         // 1ページの表示件数
         $count          = isset($conf['count']) ? $conf['count'] : null;
@@ -332,11 +215,20 @@ extends xFrameworkPX_Controller_Component
 
         if (isset($this->post[$pageNumKey])) {
             $pageNum = (int)$this->post[$pageNumKey];
+
+            // ページ番号をセッションに保存
+            $sessTemp[$this->actionName]['pageNum'] = $pageNum;
         } else if (isset($this->get[$pageNumKey])) {
             $pageNum = (int)$this->get[$pageNumKey];
+
+            // ページ番号をセッションに保存
+            $sessTemp[$this->actionName]['pageNum'] = $pageNum;
         } else {
 
-            if (isset($sessTemp[$this->actionName]['search_cond'])) {
+            if (
+                $this->cmd == 'init' &&
+                isset($sessTemp[$this->actionName]['search_cond'])
+            ) {
                 unset($sessTemp[$this->actionName]['search_cond']);
             }
 
@@ -460,8 +352,9 @@ extends xFrameworkPX_Controller_Component
             $this->actionName
         );
 
+        $find = array();
+
         if ($this->cmd == 'init') {
-            $find = null;
 
             if (is_null($condition)) {
 
@@ -493,42 +386,30 @@ extends xFrameworkPX_Controller_Component
                 );
             }
 
-            if ($find['list']) {
-                $list = $find['list'];
-
-                // ページャー情報取得
-                $pager = $module->pager(
-                    intval($find['count']),
-                    $pageNum,
-                    $condition
-                );
-
-                foreach ($pager as $key => $item) {
-
-                    if (isset($item['search']) && $item['search'] !== '') {
-                        $item['search'] = sprintf(
-                            $item['search'],
-                            $this->actionName
-                        );
-
-                        $pager[$key] = $item;
-                    }
-
-                }
-
-            }
-
         } else if ($this->cmd == 'back') {
 
+            // ページ番号再取得
+            $pageNum = (isset($sessTemp[$this->actionName]['pageNum']))
+                     ? (int)$sessTemp[$this->actionName]['pageNum']
+                     : 0;
+
+            // リスト取得
+            $find = $module->findAll(
+                $count,
+                $pageNum,
+                $searchFields,
+                $findCond,
+                $orderFields
+            );
         }
 
-        if ($list) {
+        if (isset($find['list']) && $find['list']) {
 
             // 出力整形
             $ret->outheader = null;
             $ret->outlist = array();
 
-            foreach ($list as $index => $line) {
+            foreach ($find['list'] as $index => $line) {
                 $headerTemp = array();
                 $listTemp = array();
 
@@ -547,9 +428,31 @@ extends xFrameworkPX_Controller_Component
                     $ret->outheader = $headerTemp;
                 }
 
-                $ret->outlist[$list[$index][$module->primaryKey]] = $listTemp;
+                $ret->outlist[$find['list'][$index][$module->primaryKey]]
+                    = $listTemp;
             }
 
+            // ページャー情報取得
+            $pager = $module->pager(
+                intval($find['count']),
+                $pageNum,
+                $condition
+            );
+
+            foreach ($pager as $key => $item) {
+
+                if (isset($item['search']) && $item['search'] !== '') {
+                    $item['search'] = sprintf(
+                        $item['search'],
+                        $this->actionName
+                    );
+
+                    $pager[$key] = $item;
+                }
+
+            }
+
+            $ret->pager = $pager;
         } else {
 
             if (!is_null($condition)) {
@@ -558,10 +461,6 @@ extends xFrameworkPX_Controller_Component
                 $ret->noItemMessage = $noItemMessage;
             }
 
-        }
-
-        if ($pager) {
-            $ret->pager = $pager;
         }
 
         // WiseTag設定生成
@@ -579,266 +478,6 @@ extends xFrameworkPX_Controller_Component
         $this->Session->write($this->sessName, $sessTemp);
 
         return $ret;
-
-        /*
-        $ret            = $this->mix();
-        $list           = null;
-        $sessTemp       = array();
-
-        // 1ページの表示件数
-        $count          = isset($conf['count']) ? $conf['count'] : null;
-
-        // 参照するテーブルの主キー
-        $primaryKey     = $module->primaryKey;
-
-        // 表示するページ番号のフィールド名
-        $pageNumKey     = isset($conf['page_num_key'])
-                          ? $conf['page_num_key']
-                          : 'p';
-
-        // ソートの対象となるフィールド名とソートの設定
-        $orderFields    = isset($conf['order_field'])
-                          ? $conf['order_field']
-                          : array($primaryKey);
-
-        // 非表示にするフィールド名
-        $fieldFilters   = isset($conf['field_filter'])
-                          ? $conf['field_filter']
-                          : array();
-
-        // 検索結果がなかった場合に表示するメッセージ
-        $noItemMessage  = isset($conf['no_item_message'])
-                          ? $conf['no_item_message']
-                          : '';
-
-        // 初回実行時に検索を行うかどうかのフラグ
-        $init_search    = (isset($conf['init_search']) && $conf['init_search'] !== '')
-                          ? (bool)$conf['init_search']
-                          : false;
-        $backCond = array();
-        if (isset($this->get[$pageNumKey])) {
-            $pageNum = ($this->get[$pageNumKey])
-                     ? $this->get[$pageNumKey]
-                     : 0;
-            $backCond[$pageNumKey] = $pageNum;
-        } else if (isset($this->post[$pageNumKey])) {
-            $pageNum = ($this->post[$pageNumKey])
-                     ? $this->post[$pageNumKey]
-                     : 0;
-            $backCond[$pageNumKey] = $pageNum;
-        } else {
-            $pageNum = 0;
-        }
-
-        // スキーマ取得
-        $schemas = $module->getAllSchema($fieldFilters);
-
-        // 検索条件設定の整形
-        $temp = array();
-
-        if (isset($conf['search_field']) && is_array($conf['search_field'])) {
-
-            foreach ($conf['search_field'] as $key => $value) {
-
-                if (is_array($value)) {
-                    $temp[$key] = array();
-
-                    // 入力フォームのフィールドタイプ設定
-                    if (isset($value['field_type'])) {
-                        $temp[$key]['field_type'] = ($value['field_type'] !== '')
-                                                  ? $value['field_type']
-                                                  : 'text';
-                    } else {
-
-                        // 入力フォーム無し
-                        $temp[$key]['field_type'] = 'none';
-                    }
-
-                    // 入力フォームその他設定
-                    if (isset($value['options'])) {
-                        $temp[$key]['options'] = (is_array($value['options']))
-                                               ? $value['options'] : array();
-                    }
-
-                    // 検索条件設定
-                    $temp[$key]['cond'] = (isset($value['cond']) && $value['cond'] !== '')
-                                        ? $value['cond'] : '=';
-
-                    // 検索対象カラム設定
-                    if (
-                        isset($value['target']) &&
-                        is_array($value['target']) &&
-                        count($value['target']) > 0
-                    ) {
-                        $temp[$key]['target'] = array();
-
-                        foreach ($value['target'] as $colName) {
-                            $temp[$key]['target'][] = $colName;
-                        }
-
-                    }
-
-                }
-
-            }
-
-        }
-
-        if (count($temp) <= 0) {
-            $temp = array();
-            $allSchema = $module->getAllSchema();
-
-            foreach ($allSchema as $tblName => $fields) {
-
-                foreach ($fields as $field) {
-                    $name = sprintf('%s.%s', $tblName, $field['Field']);
-                    $temp[str_replace('.', '_', $name)] = array(
-                        'field_type' => 'text',
-                        'options' => array(
-                            'id' => $name,
-                            'prelabel' => $name
-                        ),
-                        'cond' => '=',
-                        'target' => array($name)
-                    );
-                }
-
-            }
-
-            $name = 'btn_search';
-            $temp[$name] = array(
-                'field_type' => 'submit',
-                'options' => array(
-                    'id' => $name,
-                    'value' => '検索'
-                )
-            );
-        }
-
-        $searchFields = $temp;
-
-        // 検索値取得
-        $search = array();
-
-        foreach (array_keys($searchFields) as $keyVal) {
-            $type = strtolower($searchFields[$keyVal]['field_type']);
-            $keyVal = str_replace('.', '_', $keyVal);
-            
-            if (
-                $type != 'submit' &&
-                $type != 'reset' &&
-                $type != 'button' &&
-                $type != 'image'
-            ) {
-
-                if (isset($this->post[$keyVal])) {
-                    $search[$keyVal] = $this->post->{$keyVal};
-                    $backCond[$keyVal] = $this->post->{$keyVal};
-                } else if (isset($this->get[$keyVal])) {
-                    $search[$keyVal] = $this->get->{$keyVal};
-                    $backCond[$keyVal] = $this->get->{$keyVal};
-                }
-
-            }
-
-        }
-
-        if ($this->cmd == 'init') {
-            $this->Session->remove('rd');
-            $ret->wiseTag = array(
-                array(
-                    'type' => 'form',
-                    'action' => sprintf('./%s.html', $this->actionName),
-                    'method' => 'post'
-                )
-            );
-
-            // WiseTag設定生成
-            $formConfigs = $module->getWiseTagConf($searchFields, $search);
-        } else if ($this->cmd == 'exec' || $this->cmd == 'back') {
-            $ret->wiseTag = array();
-
-            // 検索条件バックアップ
-            if ($backCond) {
-                $sessTemp['backCond'] = $backCond;
-            }
-
-            // WiseTag設定生成
-            $formConfigs = $module->getWiseTagConf($searchFields, $search);
-        }
-
-        // WiseTag設定登録
-        foreach ($formConfigs as $formConfig) {
-            $ret->wiseTag[] = $formConfig;
-        }
-
-        if ($this->cmd != 'init' || $init_search) {
-
-            $findSearch = array_merge($search, $conf['search']);
-
-            // リスト取得
-            $find = $module->findAll(
-                $count,
-                $pageNum,
-                $searchFields,
-                $findSearch,
-                $orderFields
-            );
-
-            if ($find['list']) {
-
-                // ページャー情報取得
-                $ret->pager = $module->pager(
-                    intval($find['count']),
-                    $pageNum,
-                    $search
-                );
-
-                // 出力整形
-                $ret->outheader = null;
-                $ret->outlist = array();
-
-                foreach ($find['list'] as $index => $line) {
-                    $headerTemp = array();
-                    $listTemp = array();
-
-                    foreach ($schemas as $fields) {
-
-                        foreach ($fields as $field) {
-                            $headerTemp[$field['Field']] = ($field['Comment'])
-                                                         ? $field['Comment']
-                                                         : $field['Field'];
-                            $listTemp[$field['Field']] = $line[$field['Field']];
-                        }
-
-                    }
-
-                    if ($index == 0) {
-                        $ret->outheader = $headerTemp;
-                    }
-
-                    $ret->outlist[$find['list'][$index][$primaryKey]] = $listTemp;
-                }
-
-            } else {
-
-                // 検索結果なしのメッセージ設定
-                $ret->noListMessage = $noItemMessage;
-            }
-
-        }
-
-        // アクション名保存
-        $sessTemp['prevAction'] = $this->actionName;
-
-        // セッションに保存
-        $this->Session->write('rd', $sessTemp);
-
-        // IDのキー名セット
-        $ret->idkey = $primaryKey;
-
-        return $ret;
-        */
     }
 
     // }}}
@@ -851,159 +490,65 @@ extends xFrameworkPX_Controller_Component
      * @param xFrameworkPX_Model $module モジュールオブジェクト
      * @return xFrameworkPX_Util_MixedCollection 処理結果
      */
-
-    /*
-    public function onDetail($conf, $module)
-    {
-        // ローカル変数初期化
-        $ret = $this->mix();
-        $idKey = $module->primaryKey;
-        $pageNumKey     = isset($conf['page_num_key'])
-                          ? $conf['page_num_key']
-                          : 'p';
-        $searchKey      = isset($conf['search_key'])
-                          ? $conf['search_key']
-                          : 'q';
-        $fieldFilters = isset($conf['field_filter'])
-                        ? $conf['field_filter']
-                        : array($idKey);
-        $id = null;
-        if (isset($this->get->{$idKey})) {
-            $id = $this->get->{$idKey};
-        } else if (isset($this->post->{$idKey})) {
-            $id = $this->post->{$idKey};
-        }
-
-        $data = null;
-
-        // エラー時遷移先画面名
-        $errorRedirect = 'index';
-
-        if (isset($conf['errorRedirect'])) {
-            $errorRedirect = $conf['errorRedirect'];
-        }
-
-        // データ取得
-        if (isset($id)) {
-            $data = $module->find($id, $idKey);
-        }
-
-        if (empty($data)) {
-
-            // データが空の場合indexにリダイレクト
-            $this->redirect(sprintf('%s.html', $errorRedirect));
-        }
-
-        // スキーマ取得
-        $schemas = $module->schema($fieldFilters);
-
-        // 出力整形
-        $ret->label = array();
-        $ret->outdata = array();
-
-        foreach ($schemas as $field) {
-            $key = $field['Field'];
-            $ret->label[$key] = (!empty($field['Comment']))
-                                        ? $field['Comment']
-                                        : $key;
-
-            $ret->outdata[$key] = $data[$key];
-        }
-
-        // refererModeをセッションに登録
-        $this->Session->write('refererMode', 'detail');
-
-        // リファラー名を設定
-        $ret->refererName = $this->_refeterName;
-
-        // リファラーを設定
-        $ret->{$this->_refeterName} = $this->env('REQUEST_URI');
-
-
-        $temp = parse_url($this->env('REQUEST_URI'));
-        $query = '';
-        if(isset($temp['query'])) {
-            $query = '?';
-            $temp = explode('&', $temp['query']);
-            foreach ($temp as $i => $value) {
-                $q = explode('=', $value);
-                $key = '';
-                if (isset($q[0])) {
-                    $key = $q[0];
-                }
-                if (isset($q[1])) {
-                    $value = $q[1];
-                }
-
-                if ($pageNumKey === $key) {
-                    if ($i > 0) {
-                        $query .= '&';
-                    }
-                    $query .= $pageNumKey . '=' . $value;
-                } else if($searchKey === $key) {
-                    if ($i > 0) {
-                        $query .= '&';
-                    }
-                    $query .= $searchKey . '=' . $value;
-                }
-            }
-        }
-
-        $ret->{'listquery'} = $query;
-
-        return $ret;
-    }
-    */
-
     public function onDetail($conf, $module)
     {
 
         // ローカル変数初期化
         $ret = $this->mix();
-
-        // 主キーのカラム名
-        $idKey = $module->primaryKey;
 
         // 非表示カラム名一覧
         $fieldFilters = isset($conf['field_filter'])
                         ? $conf['field_filter']
-                        : array($idKey);
+                        : array($module->primaryKey);
 
         $nodataMessage  = isset($conf['no_data_message'])
                           ? $conf['no_data_message']
                           : '';
 
-        $id = null;
+        // 前画面アクション名
+        $prevAction = (isset($conf['prevAction']))
+                    ? $conf['prevAction']
+                    : 'list';
 
-        $param = (isset($conf['param_name_id']) && $conf['param_name_id'] !== '')
-                 ? $conf['param_name_id'] : $idKey;
+        // セッションデータ取得
+        $sessTemp = $this->Session->read($this->sessName);
 
-        if (isset($this->get->{$param})) {
-            $id = $this->get->{$param};
-        } else if (isset($this->post->{$param})) {
-            $id = $this->post->{$param};
+        if (is_null($sessTemp)) {
+            $sessTemp = array();
         }
 
-        $backCond = null;
-        $param = (isset($conf['param_name_backCond']) && $conf['param_name_backCond'] !== '')
-               ? $conf['param_name_backCond'] : 'bc';
+        if (!isset($sessTemp[$this->actionName])) {
+            $sessTemp[$this->actionName] = array();
+        }
 
-        $sessData = $this->Session->read('rd');
-        $backCond = (isset($sessData['backCond']))
-                  ? $sessData['backCond'] : null;
+        // 表示対象ID取得
+        $id = null;
 
+        // 表示対象ID パラメータ名
+        $idKey = (isset($conf['id_key']) && $conf['id_key'] !== '')
+                 ? $conf['id_key'] : $module->primaryKey;
+
+        if (isset($this->get[$idKey])) {
+            $id = $this->get[$idKey];
+        } else if (isset($this->post[$idKey])) {
+            $id = $this->post[$idKey];
+        }
+
+        // 最終実行アクション設定
+        $sessTemp['lastAction'] = sprintf(
+            '%s/%s',
+            $this->getContentPath(),
+            $this->actionName
+        );
+
+        // 詳細表示データ検索用の条件取得
         $cond = (isset($conf['search']) && is_array($conf['search']))
               ? $conf['search'] : array();
         $cond[$idKey] = $id;
 
         $data = null;
 
-        if ($this->cmd == 'init' || $this->cmd == 'exec') {
-
-            if (!is_null($backCond)) {
-                $ret->{$param} = $backCond;
-                unset($sessData['backCond']);
-            }
+        if ($this->cmd == 'init') {
 
             // データ取得
             $data = $module->find($cond, $fieldFilters);
@@ -1036,25 +581,10 @@ extends xFrameworkPX_Controller_Component
                 $ret->noDataMessage = $nodataMessage;
             }
 
-            $ret->wiseTag = array(
-                array(
-                    'type' => 'form',
-                    'action' => sprintf('./%s.html', $sessData['prevAction']),
-                    'method' => 'post'
-                ),
-                array(
-                    'type' => 'submit',
-                    'name' => 'btn_back',
-                    'value' => '戻る'
-                )
-            );
         }
 
-        // アクション名保存
-        $sessTemp['prevAction'] = $this->actionName;
-
         // セッションに保存
-        $this->Session->write('rd', $sessTemp);
+        $this->Session->write($this->sessName, $sessTemp);
 
         return $ret;
     }
