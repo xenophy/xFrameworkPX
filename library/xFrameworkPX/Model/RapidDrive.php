@@ -1063,6 +1063,7 @@ class xFrameworkPX_Model_RapidDrive extends xFrameworkPX_Model
                 case 'select_date':
                 case 'select_datetime':
                 case 'select_time':
+                    /*
                     $selectType = '';
 
                     if ($type == 'select_date') {
@@ -1078,7 +1079,34 @@ class xFrameworkPX_Model_RapidDrive extends xFrameworkPX_Model
                     foreach ($select as $fName => $conf) {
                         $ret[$fName] = $conf;
                     }
+                    */
 
+                    $conf = array();
+
+                    if ($type == 'select_date') {
+                        $conf['field_type'] = 'text';
+                        $conf['options'] = array(
+                            'id' => $key,
+                            'prelabel' => $label,
+                            'length' => 10
+                        );
+                    } else if ($type == 'select_datetime') {
+                        $conf['field_type'] = 'text';
+                        $conf['options'] = array(
+                            'id' => $key,
+                            'prelabel' => $label,
+                            'length' => 19
+                        );
+                    } else if ($type == 'select_time') {
+                        $conf['field_type'] = 'text';
+                        $conf['options'] = array(
+                            'id' => $key,
+                            'prelabel' => $label,
+                            'length' => 8
+                        );
+                    }
+
+                    $ret[$key] = $conf;
                     break;
             }
 
