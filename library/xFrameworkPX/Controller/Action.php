@@ -116,7 +116,7 @@ extends xFrameworkPX_Controller_Web
                 $this->RapidDrive->sessName,
                 $this->getActionName()
             );
-;
+
             $this->Tag->init($sessName);
             $rdSess = $this->Session->read($this->RapidDrive->sessName);
             $prevActionPath = (isset($this->rapid['prevAction']))
@@ -189,15 +189,40 @@ extends xFrameworkPX_Controller_Web
 
                     foreach ($ret[0]['wiseTag'] as $wiseTag) {
 
-                        if ($wiseTag['type'] !== 'form') {
-                            $editCond = array(
-                                'type' => $wiseTag['type'],
-                                'name' => $wiseTag['name']
-                            );
+                        if (isset($wiseTag['type']) && $wiseTag['type'] !== 'form') {
+                            $editCond = array();
+
+                            if (isset($wiseTag['type'])) {
+                                $editCond['type'] = $wiseTag['type'];
+                            }
+
+                            if (isset($wiseTag['name'])) {
+                                $editCond['name'] = $wiseTag['name'];
+                            }
 
                             // WiseTag再設定
                             $this->Tag->edit($wiseTag, $editCond);
+                        } else if (isset($wiseTag[0])) {
+
+                            foreach($wiseTag as $key => $data) {
+                                $editCond = array();
+
+                                if (isset($data['type'])) {
+                                    $editCond['type'] = $data['type'];
+                                }
+
+                                if (isset($wiseTag['name'])) {
+                                    $editCond['name'] = $data['name'];
+                                }
+
+                                $editCond['count'] = $key + 1;
+
+                                // WiseTag再設定
+                                $this->Tag->edit($data, $editCond);
+                            }
+
                         }
+
                     }
 
                     unset($ret[0]['wiseTag']);

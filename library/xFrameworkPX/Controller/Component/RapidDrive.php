@@ -199,6 +199,11 @@ extends xFrameworkPX_Controller_Component
                     ? $conf['nextAction']
                     : 'detail';
 
+        // 前画面アクション名
+        $prevAction = (isset($conf['prevAction']))
+                    ? $conf['prevAction']
+                    : null;
+
         // セッション取得
         $sessTemp = $this->Session->read($this->sessName);
 
@@ -477,6 +482,14 @@ extends xFrameworkPX_Controller_Component
 
         $this->Session->write($this->sessName, $sessTemp);
 
+        if ($nextAction) {
+            $ret->nextAction = sprintf('./%s.html', $nextAction);
+        }
+
+        if ($prevAction) {
+            $ret->prevAction = sprintf('./%s.html', $prevAction);
+        }
+
         return $ret;
     }
 
@@ -504,6 +517,11 @@ extends xFrameworkPX_Controller_Component
         $nodataMessage  = isset($conf['no_data_message'])
                           ? $conf['no_data_message']
                           : '';
+
+        // 次画面アクション名
+        $nextAction = (isset($conf['nextAction']))
+                    ? $conf['nextAction']
+                    : null;
 
         // 前画面アクション名
         $prevAction = (isset($conf['prevAction']))
@@ -585,6 +603,14 @@ extends xFrameworkPX_Controller_Component
 
         // セッションに保存
         $this->Session->write($this->sessName, $sessTemp);
+
+        if ($nextAction) {
+            $ret->nextAction = sprintf('./%s.html', $nextAction);
+        }
+
+        if ($prevAction) {
+            $ret->prevAction = sprintf('./%s.html', $prevAction);
+        }
 
         return $ret;
     }
@@ -678,6 +704,23 @@ extends xFrameworkPX_Controller_Component
                         'conditions' => array($module->primaryKey => $id)
                     )
                 );
+
+                // checkboxによって入力されたデータのパース
+                if (isset($conf['input_field']) && is_array($conf['input_field'])) {
+
+                    foreach ($conf['input_field'] as $fn => $vals) {
+
+                        if ($vals['field_type'] == 'checkbox') {
+
+                            if (isset($fieldData[$fn])) {
+                                $fieldData[$fn] = explode(',', $fieldData[$fn]);
+                            }
+
+                        }
+
+                    }
+
+                }
 
                 // 取得したIDをセッションに保存
                 $sessTemp[$this->actionName]['targetId'] = $id;
@@ -858,6 +901,10 @@ extends xFrameworkPX_Controller_Component
         $fieldConf = null;
 
         // セッション情報取得
+        if ($this->cmd == 'init') {
+            $this->Session->remove($this->sessName);
+        }
+
         $sessTemp = $this->Session->read($this->sessName);
 
         if (is_null($sessTemp)) {

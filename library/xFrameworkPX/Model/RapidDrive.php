@@ -518,6 +518,11 @@ class xFrameworkPX_Model_RapidDrive extends xFrameworkPX_Model
             } else {
 
                 if (isset($data[$schema['Field']])) {
+
+                    if (($data[$schema['Field']] instanceof xFrameworkPX_Util_MixedCollection)) {
+                        $data[$schema['Field']] = implode(',', $data[$schema['Field']]->getArrayCopy());
+                    }
+
                     $setData[$schema['Field']] = $data[$schema['Field']];
                 }
 
@@ -540,7 +545,7 @@ class xFrameworkPX_Model_RapidDrive extends xFrameworkPX_Model
             }
 
         } else {
-            $cond['id'] = $targetId;
+            $cond[$this->primaryKey] = $targetId;
         }
 
         try {
@@ -548,7 +553,6 @@ class xFrameworkPX_Model_RapidDrive extends xFrameworkPX_Model
             if ($trans) {
                 $this->beginTrans();
             }
-
             $this->set($setData, $cond, $lock);
 
             if ($trans) {
@@ -823,13 +827,12 @@ class xFrameworkPX_Model_RapidDrive extends xFrameworkPX_Model
                         $hasOnly = true;
 
                         if (isset($conf['options']) && is_array($conf['options'])) {
+                            $tags = array();
 
                             foreach ($conf['options'] as $index => $item) {
 
                                 if (is_numeric($index)) {
                                     $temp = $tag;
-                                    $wk = $tag;
-                                    $tag = array();
                                     $hasOnly = false;
 
                                     foreach ($item as $key => $value) {
@@ -840,30 +843,58 @@ class xFrameworkPX_Model_RapidDrive extends xFrameworkPX_Model
 
                                     }
 
-                                    if (
-                                        isset($temp['value']) &&
-                                        isset($values[$name]) &&
-                                        $temp['value'] === $values[$name]
-                                    ) {
-                                        $temp['checked'] = 'checked';
-                                    } else {
-                                        $temp['checked'] = null;
+                                    if (isset($temp['value']) && isset($values[$name])) {
+
+                                        if ($values[$name] instanceof xFrameworkPX_Util_MixedCollection) {
+                                            $values[$name] = $values[$name]->getArrayCopy();
+                                        }
+
+                                        if (is_array($values[$name])) {
+                                            $temp['checked'] = (in_array($temp['value'], $values[$name]))
+                                                             ? 'checked'
+                                                             : null;
+                                        } else {
+                                            $temp['checked'] = ($temp['value'] === $values[$name])
+                                                             ? 'checked'
+                                                             : null;
+                                        }
+
                                     }
 
-                                    $tag[] = $temp;
-                                    $temp = $wk;
+                                    $tags[] = $temp;
                                 } else {
 
                                     if (!isset($values[$name]) || $key != 'checked') {
                                         $tag[$index] = $item;
                                     }
+
                                 }
 
                             }
 
+                            $tag = $tags;
                         } else {
                             $tag['id'] = $name;
                             $tag['prelabel'] = $name;
+                        }
+
+                        if (count($tag) > 1) {
+
+                            if (strtolower($conf['field_type']) == 'checkbox') {
+                                foreach ($tag as $key => $value) {
+
+                                    if (!endsWith($value['name'], '[]')) {
+                                        $value['name'] = $value['name'] . '[]';
+                                        $tag[$key] = $value;
+                                    }
+
+                                }
+
+                            }
+
+                        } else if (count($tag) == 1) {
+                            $tag = $tag[0];
+                            $hasOnly = true;
                         }
 
                         if ($hasOnly) {
@@ -879,6 +910,7 @@ class xFrameworkPX_Model_RapidDrive extends xFrameworkPX_Model
                             }
 
                         }
+
                         break;
 
                     case 'select':
