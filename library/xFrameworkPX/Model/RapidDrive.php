@@ -66,123 +66,123 @@ class xFrameworkPX_Model_RapidDrive extends xFrameworkPX_Model
     public function condition($fields = array(), $search = null)
     {
         $cond = array();
-        $fields = is_array($fields) ? $fields : array();
+        $fields = (is_array($fields)) ? $fields : array();
+        $search = (is_array($search)) ? $search : array();
 
-        if (!empty($search) && !empty($fields)) {
+        foreach ($fields as $key => $field) {
 
-            foreach ($fields as $key => $field) {
+            if (isset($field['field_type']) && $field['field_type'] == 'none') {
 
-                if (!isset($field['cond']) || !isset($field['target'])) {
-                    continue;
+                if (isset($field['value'])) {
+                    $search[$key] = $field['value'];
                 }
 
-                if (is_numeric($key)) {
+            }
 
-                    if (is_string($field) && preg_match('/^(and|or)$/i', $field)) {
-                        $cond[] = $field;
-                    }
+            if (!isset($field['cond']) || !isset($field['target'])) {
+                continue;
+            }
 
-                } else if (isset($search[$key]) && is_array($field)) {
+            if (is_numeric($key)) {
 
-                    switch (1) {
+                if (is_string($field) && preg_match('/^(and|or)$/i', $field)) {
+                    $cond[] = $field;
+                }
 
-                        case preg_match('/^=$/', $field['cond']):
-                            $temp = $this->_createCondtion(
-                                $key,
-                                $field['target'],
-                                $search,
-                                '',
-                                '%s%s',
-                                $cond
-                            );
-                            $cond = $temp;
-                            break;
+            } else if (isset($search[$key])) {
 
-                        case preg_match('/^between$/i', $field['cond']):
-                        case preg_match('/^not between$/i', $field['cond']):
+                switch (1) {
 
-                            foreach ($field['target'] as $colName) {
+                    case preg_match('/^=$/', $field['cond']):
+                        $temp = $this->_createCondtion(
+                            $key,
+                            $field['target'],
+                            $search,
+                            '',
+                            '%s%s',
+                            $cond
+                        );
+                        $cond = $temp;
+                        break;
 
-                                if (
-                                    isset($search[$colName]) &&
-                                    is_array($search[$colName]) &&
-                                    count($search[$colName]) >= 2
-                                ) {
-                                    $search[$colName] = sprintf(
-                                        '%s AND %s',
-                                        $search[$colName][0],
-                                        $search[$colName][1]
-                                    );
-                                } else {
-                                    unset($search[$colName]);
-                                }
+                    case preg_match('/^between$/i', $field['cond']):
+                    case preg_match('/^not between$/i', $field['cond']):
 
+                        foreach ($field['target'] as $colName) {
+
+                            if (
+                                isset($search[$colName]) &&
+                                is_array($search[$colName]) &&
+                                count($search[$colName]) >= 2
+                            ) {
+                                $search[$colName] = sprintf(
+                                    '%s AND %s',
+                                    $search[$colName][0],
+                                    $search[$colName][1]
+                                );
+                            } else {
+                                unset($search[$colName]);
                             }
 
-                        case preg_match('/^<>$/', $field['cond']):
-                        case preg_match('/^<$/', $field['cond']):
-                        case preg_match('/^<=$/', $field['cond']):
-                        case preg_match('/^>$/', $field['cond']):
-                        case preg_match('/^>=$/', $field['cond']):
-                        case preg_match('/^is$/i', $field['cond']):
-                        case preg_match('/^is not$/i', $field['cond']):
-                        case preg_match('/^in$/i', $field['cond']):
-                        case preg_match('/^not in$/i', $field['cond']):
-                            $temp = $this->_createCondtion(
-                                $key,
-                                $field['target'],
-                                $search,
-                                $field['cond'],
-                                '%s %s',
-                                $cond
-                            );
-                            $cond = $temp;
-                            break;
+                        }
 
-                        // 部分一致
-                        case preg_match('/like/i', $field['cond']):
-                        case preg_match('/like part/i', $field['cond']):
-                        case preg_match('/like %*%/i', $field['cond']):
-                            $temp = $this->_createCondtion(
-                                $key,
-                                $field['target'],
-                                $search,
-                                'LIKE',
-                                '%s %%%s%%',
-                                $cond
-                            );
-                            $cond = $temp;
-                            break;
+                    case preg_match('/^<>$/', $field['cond']):
+                    case preg_match('/^<$/', $field['cond']):
+                    case preg_match('/^<=$/', $field['cond']):
+                    case preg_match('/^>$/', $field['cond']):
+                    case preg_match('/^>=$/', $field['cond']):
+                    case preg_match('/^is$/i', $field['cond']):
+                    case preg_match('/^is not$/i', $field['cond']):
+                        $temp = $this->_createCondtion(
+                            $key,
+                            $field['target'],
+                            $search,
+                            $field['cond'],
+                            '%s %s',
+                            $cond
+                        );
+                        $cond = $temp;
+                        break;
 
-                        // 前方一致
-                        case preg_match('/like front/i', $field['cond']):
-                        case preg_match('/like *%/i', $field['cond']):
-                            $temp = $this->_createCondtion(
-                                $key,
-                                $field['target'],
-                                $search,
-                                'LIKE',
-                                '%s %s%%',
-                                $cond
-                            );
-                            $cond = $temp;
-                            break;
+                    // 部分一致
+                    case preg_match('/like/i', $field['cond']):
+                    case preg_match('/like part/i', $field['cond']):
+                        $temp = $this->_createCondtion(
+                            $key,
+                            $field['target'],
+                            $search,
+                            'LIKE',
+                            '%s %%%s%%',
+                            $cond
+                        );
+                        $cond = $temp;
+                        break;
 
-                        // 後方一致
-                        case preg_match('/like back/i', $field['cond']):
-                        case preg_match('/like %*/i', $field['cond']):
-                            $temp = $this->_createCondtion(
-                                $key,
-                                $field['target'],
-                                $search,
-                                'LIKE',
-                                '%s %%%s',
-                                $cond
-                            );
-                            $cond = $temp;
-                            break;
-                    }
+                    // 前方一致
+                    case preg_match('/like front/i', $field['cond']):
+                        $temp = $this->_createCondtion(
+                            $key,
+                            $field['target'],
+                            $search,
+                            'LIKE',
+                            '%s %s%%',
+                            $cond
+                        );
+                        $cond = $temp;
+                        break;
 
+                    // 後方一致
+                    case preg_match('/like back/i', $field['cond']):
+                        $temp = $this->_createCondtion(
+                            $key,
+                            $field['target'],
+                            $search,
+                            'LIKE',
+                            '%s %%%s',
+                            $cond
+                        );
+                        $cond = $temp;
+                        break;
                 }
 
             }
@@ -281,7 +281,20 @@ class xFrameworkPX_Model_RapidDrive extends xFrameworkPX_Model
             foreach ($search as $key => $value) {
 
                 if (!is_null($value)) {
-                    $temp[] = sprintf('%%1$s[%s]=%s', $key, $value);
+
+                    if (
+                        $value instanceof xFrameworkPX_Util_MixedCollection ||
+                        is_array($value)
+                    ) {
+
+                        foreach ($value as $val) {
+                            $temp[] = sprintf('%%1$s[%s]=%s', $key, $val);
+                        }
+
+                    } else {
+                        $temp[] = sprintf('%%1$s[%s]=%s', $key, $value);
+                    }
+
                 }
 
             }

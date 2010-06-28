@@ -165,11 +165,6 @@ extends xFrameworkPX_Controller_Component
                           ? $conf['page_num_key']
                           : 'p';
 
-        // 一覧を絞り込む条件のフィールド名
-        $searchKey      = isset($conf['search_key'])
-                        ? $conf['search_key']
-                        : 'q';
-
         // ソートの対象となるフィールド名とソートの設定
         $orderFields    = isset($conf['order_field'])
                           ? $conf['order_field']
@@ -184,10 +179,6 @@ extends xFrameworkPX_Controller_Component
         $noItemMessage  = isset($conf['no_item_message'])
                           ? $conf['no_item_message']
                           : '';
-
-        $search         = isset($conf['search'])
-                        ? $conf['search']
-                        : array();
 
         // 初回実行時に検索を行うかどうかのフラグ
         $init_search    = (isset($conf['init_search']) && $conf['init_search'] !== '')
@@ -289,6 +280,10 @@ extends xFrameworkPX_Controller_Component
                     $temp[$key]['cond'] = (isset($value['cond']) && $value['cond'] !== '')
                                         ? $value['cond'] : '=';
 
+                    if ($temp[$key]['field_type'] == 'none' && isset($value['value'])) {
+                        $temp[$key]['value'] = $value['value'];
+                    }
+
                     // 検索対象カラム設定
                     if (
                         isset($value['target']) &&
@@ -299,12 +294,6 @@ extends xFrameworkPX_Controller_Component
 
                         foreach ($value['target'] as $colName) {
                             $temp[$key]['target'][] = $colName;
-                        }
-
-                    } else {
-
-                        if (isset($condition[$key])) {
-                            unset($condition[$key]);
                         }
 
                     }
@@ -346,10 +335,6 @@ extends xFrameworkPX_Controller_Component
             $sessTemp[$this->actionName]['search_cond'] = $condition;
         }
 
-        $findCond = (!is_null($condition))
-                  ? array_merge($condition, $search)
-                  : $search;
-
         // 最終実行アクション設定
         $sessTemp['lastAction'] = sprintf(
             '%s/%s',
@@ -374,7 +359,7 @@ extends xFrameworkPX_Controller_Component
                         $count,
                         $pageNum,
                         $searchFields,
-                        $findCond,
+                        $condition,
                         $orderFields
                     );
                 }
@@ -386,7 +371,7 @@ extends xFrameworkPX_Controller_Component
                     $count,
                     $pageNum,
                     $searchFields,
-                    $findCond,
+                    $condition,
                     $orderFields
                 );
             }
@@ -403,7 +388,7 @@ extends xFrameworkPX_Controller_Component
                 $count,
                 $pageNum,
                 $searchFields,
-                $findCond,
+                $condition,
                 $orderFields
             );
         }
