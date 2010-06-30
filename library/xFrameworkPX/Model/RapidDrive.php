@@ -32,13 +32,6 @@ class xFrameworkPX_Model_RapidDrive extends xFrameworkPX_Model
 {
     // {{{ props
 
-    /**
-     * 表示ページ数
-     *
-     * @var int
-     */
-    protected $_pageCount = 5;
-
     // }}}
     // {{{ __construct
 
@@ -265,11 +258,12 @@ class xFrameworkPX_Model_RapidDrive extends xFrameworkPX_Model
     /**
      * ページャー生成メソッド
      *
-     * @param int $count 1ページの表示件数
+     * @param int $count データ件数
      * @param string $search 検索条件
+     * @param int $pageCount 1ページあたりの表示件数
      * @return array ページャー配列
      */
-    public function pager($count, $page = 0, $search = '')
+    public function pager($count, $page = 0, $search = '', $pageCount = 5)
     {
         $page = is_numeric($page)
                  ? (int)$page
@@ -304,9 +298,9 @@ class xFrameworkPX_Model_RapidDrive extends xFrameworkPX_Model
 
         // ページャー生成
         $pager = array();
-        for ($i = 0; $i < ($count / $this->_pageCount); ++$i) {
+        for ($i = 0; $i < ($count / $pageCount); ++$i) {
             $pager[$i] = array(
-                'next' => (($count / $this->_pageCount) - 1 > $i),
+                'next' => (($count / $pageCount) - 1 > $i),
                 'current' => ($page === $i),
                 'prev' => ($i > 0),
                 'prevpage' => $page - 1,
@@ -733,6 +727,48 @@ class xFrameworkPX_Model_RapidDrive extends xFrameworkPX_Model
 
         // スキーマのフィルター処理
         foreach ($useTables as $tblName) {
+            $filter = null;
+
+            if ($tblName == $this->usetable) {
+                $filter = (isset($filters[$tblName]))
+                        ? $filters[$tblName]
+                        : array();
+
+                if (empty($filter)) {
+
+                    foreach ($filters as $key => $value) {
+
+                        if (is_numeric($key) && !is_array($value)) {
+                            $filter[] = $value;
+                        }
+
+                    }
+
+                }
+
+            } else {
+                $filter = (isset($filters[$tblName]))
+                        ? $filters[$tblName]
+                        : array();
+            }
+
+            $schema = $this->adapter->getSchema($this->pdo, $tblName);
+
+            if (!isset($ret[$tblName])) {
+                $ret[$tblName] = array();
+            }
+
+            foreach ($schema['result'] as $value) {
+
+                if (!in_array($value['Field'], $filter)) {
+                    $ret[$tblName][] = $value;
+                }
+
+            }
+
+        }
+/*
+        foreach ($useTables as $tblName) {
 
             if ($tblName == $this->usetable && !isset($filters[$tblName])) {
                 $filters[$tblName] = $filters;
@@ -756,7 +792,7 @@ class xFrameworkPX_Model_RapidDrive extends xFrameworkPX_Model
             }
 
         }
-
+*/
         return $ret;
     }
 

@@ -426,7 +426,8 @@ extends xFrameworkPX_Controller_Component
             $pager = $module->pager(
                 intval($find['count']),
                 $pageNum,
-                $condition
+                $condition,
+                $count
             );
 
             foreach ($pager as $key => $item) {
