@@ -2101,19 +2101,19 @@ extends xFrameworkPX_Model_Behavior
             return '<';
         } else if (startsWith(trim($text), '>')) {
             return '>';
-        } else if (startsWith(trim(strtoupper($text)), 'LIKE')) {
+        } else if (startsWith(trim(strtoupper($text)), 'LIKE ')) {
             return 'LIKE';
-        } else if (startsWith(trim(strtoupper($text)), 'IS')) {
+        } else if (startsWith(trim(strtoupper($text)), 'IS ')) {
             return 'IS';
-        } else if (startsWith(trim(strtoupper($text)), 'IS NOT')) {
+        } else if (startsWith(trim(strtoupper($text)), 'IS NOT ')) {
             return 'IS NOT';
-        } else if (startsWith(trim(strtoupper($text)), 'BETWEEN')) {
+        } else if (startsWith(trim(strtoupper($text)), 'BETWEEN ')) {
             return 'BETWEEN';
-        } else if (startsWith(trim(strtoupper($text)), 'NOT BETWEEN')) {
+        } else if (startsWith(trim(strtoupper($text)), 'NOT BETWEEN ')) {
             return 'NOT BETWEEN';
-        } else if (startsWith(trim(strtoupper($text)), 'IN')) {
+        } else if (startsWith(trim(strtoupper($text)), 'IN ')) {
             return 'IN';
-        } else if (startsWith(trim(strtoupper($text)), 'NOT IN')) {
+        } else if (startsWith(trim(strtoupper($text)), 'NOT IN ')) {
             return 'NOT IN';
         }
 
