@@ -559,9 +559,9 @@ extends xFrameworkPX_Controller_Component
 
                 if (isset($this->_fields[$type])) {
 
-                    foreach ($this->_fields as $name => $field) {
+                    foreach ($this->_fields[$type] as $name => $field) {
 
-                        foreach ($fields as $key => $value) {
+                        foreach ($field as $key => $value) {
 
                             if (is_numeric($key)) {
 
@@ -586,7 +586,7 @@ extends xFrameworkPX_Controller_Component
 
                                 if ($this->_isMatchField($other, $field)) {
 
-                                    // 設定マージ
+                                    // 設定削除
                                     unset($this->_fields[$type][$name]);
                                 }
 
