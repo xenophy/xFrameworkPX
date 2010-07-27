@@ -146,15 +146,26 @@ class xFrameworkPX_Loader_Auto
                     $controllerExtension = self::$conf['CONTROLLER_EXTENSION'];
                 }
 
-                $path = str_replace('_', DS, $class);
                 $controllerPath = realpath($controllerPath);
-                if ($controllerPath) {
+                $path = str_replace('_', DS, $class);
+                $filename = implode(
+                    '',
+                    array(
+                        $controllerPreffix,
+                        get_filename($path),
+                        $controllerExtension
+                    )
+                );
 
-                    $controllerPath = $controllerPath
-                                    . DS
-                                    . $controllerPreffix
-                                    . $path
-                                    . $controllerExtension;
+                if ($controllerPath) {
+                    $controllerPath = implode(
+                        DS,
+                        array(
+                            $controllerPath,
+                            dirname($path),
+                            $filename
+                        )
+                    );
 
                     if (file_exists($controllerPath)) {
                         include_once $controllerPath;

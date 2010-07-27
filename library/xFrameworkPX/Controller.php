@@ -302,7 +302,7 @@ abstract class xFrameworkPX_Controller extends xFrameworkPX_Util_Observable
 
         // コンポーネント生成
         foreach ($this->_components as $components) {
-            $clsName = str_replace('_', '/', $components['clsName']);
+            $clsName = $components['clsName'];
             $bind = $components['bindName'];
 
             if (isset($components['args'])) {
@@ -312,7 +312,6 @@ abstract class xFrameworkPX_Controller extends xFrameworkPX_Util_Observable
             }
 
             // コンポーネントオブジェクト生成
-            $clsName = $components['clsName'];
             $cls = new $clsName($args);
 
             //  コンポーネントアクセスオブジェクト設定
