@@ -60,19 +60,55 @@ class Docs_tree extends xFrameworkPX_Model
             foreach (glob($path . "/*") as $filename) {
                 if (is_dir($filename)) {
                     $leaf = false;
-                    $ret[] = array(
-                        'id' => $id . '_' . end(explode('/', $filename)),
-                        'text' => end(explode('/', $filename)),
-                        'leaf' => $leaf
-                    );
+
+                    if (mb_detect_encoding($filename, array('ascii', 'utf-8', 'sjis'), true) == 'SJIS') {
+                        $temp = mb_convert_encoding_deep($filename, 'utf-8', 'sjis');
+                    } else {
+                        $temp = $filename;
+                    }
+
+                    $idTemp = $id . '_' . end(explode('/', $temp));
+                    $text = end(explode(
+                        '/', preg_replace('/[0-9]+\./', '', $temp)
+                    ));
+                } else {
+                    $leaf = true;
+                    $idTemp = $id . '_' . get_filename($filename);
+                    $handle = @fopen($filename, "r");
+
+                    if ($handle) {
+                        $text = fgets($handle, 4096);
+                        fclose($handle);
+                    }
+
+                    preg_match('/\* (.*)/', $text, $match);
+
+                    if(isset($match[1])) {
+                        $text = $match[1];
+                    } else {
+                        $text = '';
+                    }
+
                 }
+
+                $ret[] = array(
+                    'id' => $idTemp,
+                    'text' => $text,
+                    'leaf' => $leaf
+                );
             }
 
         } else {
             $path = $basepath . str_replace('_', DS, $id);
-            $files = get_filelist($path);
+
+            if ($this->_checkOS('win')) {
+                $files = get_filelist(mb_convert_encoding_deep($path, 'sjis', 'utf-8'));
+            } else {
+                $files = get_filelist($path);
+            }
 
             sort($files);
+
             foreach ($files as $file) {
 
                 if(matchesIn($file, '.svn')) {
@@ -123,7 +159,7 @@ class Docs_tree extends xFrameworkPX_Model
                 'text' => 'コントローラー',
             ),
             array(
-                'id' => 'model',
+                'id' => 'module',
                 'text' => 'モジュール(モデル)',
             ),
             array(
@@ -135,28 +171,34 @@ class Docs_tree extends xFrameworkPX_Model
                 'text' => 'ユーティリティー',
             ),
             array(
-                'id' => 'tutorial',
-                'text' => 'チュートリアル',
+                'id' => 'config',
+                'text' => '設定'
             ),
             array(
-                'id' => 'unittest',
-                'text' => 'ユニットテスト',
-            ),
+                'id' => 'tutorial',
+                'text' => 'チュートリアル',
+            )
+            /*
             array(
                 'id' => 'api',
                 'text' => 'クラスリファレンス',
-            ),
-            array(
-                'id' => 'code',
-                'text' => 'コーディング規約',
-                'leaf' => true,
-            ),
-            array(
-                'id' => 'legal',
-                'text' => '著作権に関する情報',
-                'leaf' => true,
-            ),
+            )
+            */
         );
+    }
+
+    // }}}
+    // {{{ checkOS
+
+    private function _checkOS($osName)
+    {
+        $ret = false;
+
+        if (preg_match(sprintf('/%s/i', $osName), PHP_OS)) {
+            $ret = true;
+        }
+
+        return $ret;
     }
 
     // }}}
