@@ -1,2 +1,0 @@
-* Ext.form.FormPanel
-

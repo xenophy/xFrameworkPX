@@ -52,7 +52,12 @@ class wiki extends xFrameworkPX_Controller_Action
                 $id . '.wiki'
             )
         );
+
         $path = str_replace('_', DS, $path);
+
+        if ($this->_checkOS('win')) {
+            $path = mb_convert_encoding_deep($path, 'sjis', 'utf-8');
+        }
 
         if (file_exists($path)) {
             $wiki = new xFrameworkPX_Wiki();
@@ -62,7 +67,20 @@ class wiki extends xFrameworkPX_Controller_Action
     }
 
     // }}}
+    // {{{ checkOS
 
+    private function _checkOS($osName)
+    {
+        $ret = false;
+
+        if (preg_match(sprintf('/%s/i', $osName), PHP_OS)) {
+            $ret = true;
+        }
+
+        return $ret;
+    }
+
+    // }}}
 }
 
 // }}}
