@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-script-Type" content="text/javascript" />
+    <meta http-equiv="content-style-type" content="text/css" />
+    <title>RapidDriveの基本操作(2) - 一覧画面</title>
+    <style>
+
+    table {
+        border-top: solid #222 1px;
+        border-left: solid #222 1px;
+    }
+    th,td {
+        border-right: solid #222 1px;
+        border-bottom: solid #222 1px;
+        padding: 5px;
+    }
+    th {
+        background-color: #efefef;
+    }
+
+    div {
+        margin-bottom: 20px;
+    }
+
+    </style>
+</head>
+<body>
+    <h1>RapidDriveの基本操作(2) - 一覧画面</h1>
+
+    <form method="get" action="./" id="mainform">
+        <div>
+            <table border="0" cellspacing="0" cellpadding="0" class="tablelayout">
+                <tr>
+                    <th>氏名</th>
+                    <td><!--{$wt.index.name}--></td>
+                </tr>
+                <tr>
+                    <th>年齢</th>
+                    <td><!--{$wt.index.age}--></td>
+                </tr>
+                <tr>
+                    <th>性別</th>
+                    <td><!--{$wt.index.sex}--></td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <!--{$wt.index.btn_submit}-->
+        </div>
+    </form>
+
+    <div>
+        <form id="listForm" method="get" action="<!--{$rd.nextAction}-->">
+            <table border="0" cellspacing="0" cellpadding="0" class="tablelayout">
+        <!--{foreach from=$rd.outlist key=key item=item name="uList"}-->
+            <!--{if $smarty.foreach.uList.first}-->
+                <tr>
+                    <th>ID</th>
+                    <th>氏名</th>
+                    <th>年齢</th>
+                    <th>性別</th>
+                    <th></th>
+                </tr>
+            <!--{/if}-->
+                <tr>
+                    <td><!--{$item.id|escape}--></td>
+                    <td><!--{$item.name|escape}--></td>
+                    <td><!--{$item.age|escape}--></td>
+                    <td><!--{$item.sex|escape|replace:'1':'男性'|replace:'2':'女性'}--></td>
+                    <td><input type="submit" value="詳細" onclick="document.getElementById('uid').setAttribute('value', <!--{$item.id}-->);" /></td>
+                </tr>
+        <!--{foreachelse}-->
+            <tr><td><!--{$rd.noItemMessage}--></td></tr>
+        <!--{/foreach}-->
+            </table>
+            <input type="hidden" name="id" id="uid" value="" />
+        </form>
+    </div>
+
+
+    <p class="pager">
+        <!--{foreach from=$rd.pager item=item key=key name="pager"}-->
+            <!--{if $smarty.foreach.pager.first}-->
+                <!--{if $item.current != true}-->
+        <a href="./index.html?p=<!--{$item.prevpage}--><!--{if $item.search}-->&amp;<!--{$item.search}--><!--{/if}-->">
+        &lt;&lt;&nbsp;&nbsp;<span>前のページへ</span>&nbsp;
+        </a>&nbsp;
+                <!--{else}-->
+        &lt;&lt;&nbsp;&nbsp;<span>前のページへ</span>&nbsp;
+                <!--{/if}-->
+            <!--{/if}-->
+                <!--{if $item.current}-->
+                &nbsp;<!--{$key+1}-->&nbsp;
+                <!--{else}-->
+                <span><a href="./index.html?p=<!--{$key}--><!--{if $item.search}-->&amp;<!--{$item.search}--><!--{/if}-->">
+                    &nbsp;<!--{$key+1}-->&nbsp;
+                </a></span>
+                <!--{/if}-->
+            <!--{if $smarty.foreach.pager.last}-->
+                <!--{if $item.current != true}-->
+                <a href="./index.html?p=<!--{$item.nextpage}--><!--{if $item.search}-->&amp;<!--{$item.search}--><!--{/if}-->">
+                &nbsp;&nbsp;<span>次のページへ</span>&nbsp;&nbsp;&gt;&gt;
+                </a>
+                <!--{else}-->
+                &nbsp;&nbsp;<span>次のページへ</span>&nbsp;&nbsp;&gt;&gt;
+                <!--{/if}-->
+            <!--{/if}-->
+        <!--{/foreach}-->
+    </p>
+
+</body>
+</html>

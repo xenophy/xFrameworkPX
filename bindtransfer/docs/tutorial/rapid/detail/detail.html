@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-script-Type" content="text/javascript" />
+    <meta http-equiv="content-style-type" content="text/css" />
+    <link rel="stylesheet" type="text/css" href="../css/sample.css" />
+    <title>RapidDriveの基本操作(2) - 詳細画面</title>
+    <style>
+
+    table {
+        border-top: solid #222 1px;
+        border-left: solid #222 1px;
+    }
+    th,td {
+        border-right: solid #222 1px;
+        border-bottom: solid #222 1px;
+        padding: 5px;
+    }
+    th {
+        background-color: #efefef;
+    }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>RapidDriveの基本操作(2) - 詳細画面</h1>
+        <table border="0" cellspacing="0" cellpadding="0">
+            <!--{foreach from=$rd.header key=key item=head}-->
+            <tr>
+                <th><!--{$head}--></th>
+                <td>
+                <!--{if $key == sex}-->
+                    <!--{if $rd.data.$key == 1}-->
+                    男性
+                    <!--{elseif $rd.data.$key == 2}-->
+                    女性
+                    <!--{/if}-->
+                <!--{else}-->
+                    <!--{$rd.data.$key}-->
+                <!--{/if}-->
+                </td>
+            </tr>
+            <!--{/foreach}-->
+        </table>
+        <form action="<!--{$rd.prevAction}-->" method="get">
+            <input type="submit" value="戻る" />
+        </form>
+    </div>
+</body>
+</html>

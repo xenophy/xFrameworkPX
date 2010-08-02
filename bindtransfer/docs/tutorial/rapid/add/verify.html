@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-script-Type" content="text/javascript" />
+    <meta http-equiv="content-style-type" content="text/css" />
+    <title>RapidDriveの基本操作(3) - 確認画面</title>
+    <style>
+
+    table {
+        border-top: solid #222 1px;
+        border-left: solid #222 1px;
+    }
+    th,td {
+        border-right: solid #222 1px;
+        border-bottom: solid #222 1px;
+        padding: 5px;
+    }
+    th {
+        background-color: #efefef;
+    }
+
+    div {
+        margin-bottom: 20px;
+    }
+
+    </style>
+</head>
+<body>
+    <div id="content">
+        <h1>RapidDriveの基本操作(3) - 確認画面</h1>
+<br>
+<br>
+<br>
+<br>
+<br>
+        <table border="0" cellspacing="0" cellpadding="0" class="tablelayout">
+            <tr>
+                <th>氏名</th>
+                <td><!--{$rd.inputData.name|escape}--></td>
+            </tr>
+            <tr>
+                <th>年齢</th>
+                <td><!--{$rd.inputData.age|escape}--></td>
+            </tr>
+            <tr>
+                <th>性別</th>
+                <td>
+                <!--{if $rd.inputData.sex eq '1'}-->
+                男性
+                <!--{elseif $rd.inputData.sex eq '2'}-->
+                女性
+                <!--{/if}-->
+                </td>
+            </tr>
+        </table>
+
+    </div>
+
+    <div>
+        <form action="<!--{$rd.nextAction}-->" method="post">
+            <input type="submit" value="登録" />
+            <input type="button" value="戻る" onclick="javascript:location.href = '<!--{$rd.prevAction}-->'; return false;" onkeypress="" />
+        </form>
+    </div>
+
+</body>
+</html>

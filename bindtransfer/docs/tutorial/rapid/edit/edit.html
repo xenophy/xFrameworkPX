@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-script-Type" content="text/javascript" />
+    <meta http-equiv="content-style-type" content="text/css" />
+    <title>RapidDriveの基本操作(4) - 編集画面</title>
+    <style>
+
+    table {
+        border-top: solid #222 1px;
+        border-left: solid #222 1px;
+    }
+    th,td {
+        border-right: solid #222 1px;
+        border-bottom: solid #222 1px;
+        padding: 5px;
+    }
+    th {
+        background-color: #efefef;
+    }
+
+    div {
+        margin-bottom: 20px;
+    }
+
+    .err {
+        color: #FF0000;
+    }
+
+    </style>
+</head>
+<body>
+    <h1>RapidDriveの基本操作(4) - 編集画面</h1>
+
+
+    <form action="<!--{$rd.nextAction}-->" method="post">
+        <div id="content">
+
+<br>
+<br>
+<br>
+<br>
+<br>
+            <table border="0" cellspacing="0" cellpadding="0" class="tablelayout">
+                <tr>
+                    <th>氏名</th>
+                    <td>
+                        <!--{$wt.edit.name}-->
+                        <!--{foreach from=$rd.validError.name item=message}-->
+                        <p class="err"><!--{$message}--></p>
+                        <!--{/foreach}-->
+                    </td>
+                </tr>
+                <tr>
+                    <th>年齢</th>
+                    <td>
+                        <!--{$wt.edit.age}-->
+                        <!--{foreach from=$rd.validError.age item=message}-->
+                        <p class="err"><!--{$message}--></p>
+                        <!--{/foreach}-->
+                    </td>
+                </tr>
+                <tr>
+                    <th>性別</th>
+                    <td>
+                        <!--{foreach from=$wt.edit.sex key=sKey item=sItem name="sList"}-->
+                        <!--{$sItem}-->
+                        <!--{/foreach}-->
+                        <!--{foreach from=$rd.validError.sex item=message}-->
+                        <p class="err"><!--{$message}--></p>
+                        <!--{/foreach}-->
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <!--{$wt.btnSubmit}-->
+            <input type="button" name="btnBack" value="一覧へ戻る" onclick="location.href='<!--{$rd.prevAction}-->'; return false;" onkeypress="" />
+        </div>
+    </form>
+
+</body>
+</html>

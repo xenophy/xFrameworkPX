@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--{strip}--><!--{clean}-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+
+<!-- head -->
+<head>
+
+    <!-- content-type -->
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-script-Type" content="text/javascript" />
+    <meta http-equiv="content-style-type" content="text/css" />
+    <!-- /content-type -->
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="<!--{$relpath}-->examples/resources/images/favicon.ico" />
+    <link rel="icon" href="<!--{$relpath}-->examples/resources/images/favicon.ico" />
+    <!-- /Favicon -->
+
+    <!-- Title -->
+    <title>内部結合のネスト</title>
+    <!-- /Title -->
+
+</head>
+<!-- /head -->
+
+<!-- body -->
+<body>
+
+    <h1>内部結合のネスト</h1>
+
+    <table border="1">
+    <tr>
+        <th>日付</th>
+        <th>商品名</th>
+        <th>単価</th>
+        <th>数量</th>
+    </tr>
+    <!--{foreach from=$test item=item key=key}-->
+    <tr>
+        <td><!--{$item.date}--></td>
+        <td><!--{$item.name}--></td>
+        <td><!--{$item.price}--></td>
+        <td><!--{$item.count}--></td>
+    </tr>
+    <!--{/foreach}-->
+    </table>
+
+</body>
+<!-- /body -->
+
+</html>
+<!--{/clean}--><!--{/strip}-->

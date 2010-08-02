@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-script-Type" content="text/javascript" />
+    <meta http-equiv="content-style-type" content="text/css" />
+    <title>WiseTagの基本的な操作(1)</title>
+</head>
+<body>
+    <h1>WiseTagの基本的な操作(1)</h1>
+
+    <h2>フォーム部品選択</h2>
+    <form action="./" method="post">
+        <input type="checkbox" name="gen[]" value="text" id="gen1" /><label for="gen1">テキストボックス</label><br />
+        <input type="checkbox" name="gen[]" value="password" id="gen2" /><label for="gen2">テキストボックス(パスワード)</label><br />
+        <input type="checkbox" name="gen[]" value="radio" id="gen3" /><label for="gen3">ラジオボタン</label><br />
+        <input type="checkbox" name="gen[]" value="check" id="gen4" /><label for="gen4">チェックボックス</label><br />
+        <input type="checkbox" name="gen[]" value="select" id="gen5" /><label for="gen5">セレクトボックス</label><br />
+        <input type="checkbox" name="gen[]" value="textarea" id="gen6" /><label for="gen6">テキストエリア</label><br />
+        <input type="checkbox" name="gen[]" value="file" id="gen7" /><label for="gen7">ファイル送信ボックス</label><br />
+        <input type="checkbox" name="gen[]" value="hidden" id="gen8" /><label for="gen8">隠しフィールド</label><br />
+        <input type="checkbox" name="gen[]" value="submit" id="gen9" /><label for="gen9">送信ボタン</label><br />
+        <input type="checkbox" name="gen[]" value="reset" id="gen10" /><label for="gen10">リセットボタン</label><br />
+        <input type="checkbox" name="gen[]" value="button" id="gen11" /><label for="gen11">汎用ボタン</label><br />
+        <input type="checkbox" name="gen[]" value="image" id="gen12" /><label for="gen12">画像ボタン</label><br />
+        <input type="submit" value="生成">
+    </form>
+
+    <!--{if $wt}-->
+    <h2>生成したフォーム</h2>
+    <form<!--{$wt.form}-->>
+    <!--{foreach from=$wt key=key item=field}-->
+        <!--{if $key != 'form'}-->
+            <!--{if $key == 'radio' || $key == 'check'}-->
+            <!--{foreach from=$wt.$key item=item}-->
+                <!--{$item}-->
+            <!--{/foreach}-->
+            <!--{else}-->
+                <!--{$field}-->
+            <!--{/if}-->
+            <br />
+        <!--{/if}-->
+    <!--{/foreach}-->
+    </form>
+    <!--{/if}-->
+</body>
+</html>
