@@ -341,13 +341,13 @@ abstract class xFrameworkPX_Model extends xFrameworkPX_Util_Observable
 
             // MySQLキャラセット設定
             if (strtolower($this->conn->{$this->conf->conn}->driver) === 'mysql') {
-                $chaeset = strtolower((string)$xmlConn->charset);
+                $charset = strtolower((string)$this->conn->{$this->conf->conn}->charset);
 
-                if (isset($this->_charasetmap[$chaeset])) {
+                if (isset($this->_charasetmap[$charset])) {
                     $this->pdo->exec(
                         sprintf(
                             'SET NAMES %s',
-                            $this->_charasetmap[$chaeset]
+                            $this->_charasetmap[$charset]
                         )
                     );
                 }
