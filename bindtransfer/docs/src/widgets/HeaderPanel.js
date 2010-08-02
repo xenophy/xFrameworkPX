@@ -58,7 +58,7 @@ Docs.HeaderPanel = Ext.extend(Ext.Panel, {
                     href: Ext.app.RELATIVE_PATH + 'docs/',
 
                     // HTML設定
-                    html: 'xFrameworkPX 3.5.1 Documentation',
+                    html: 'xFrameworkPX 3.5.2 Documentation',
                 }]
             }
         });
