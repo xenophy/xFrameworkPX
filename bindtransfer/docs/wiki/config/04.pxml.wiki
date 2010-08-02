@@ -1,0 +1,164 @@
+* pxmlファイルによる設定
+xFrameworkPXには、ディスパッチャーで行う設定の他に、pxmlファイルと呼ばれるXML形式で記述された設定ファイルを使用して行う設定があります。
+
+ここでは、以下の設定について説明します。
+log.pxmlについては、「'''ユーティリティー/ロギング設定'''」を参照ください。
+
+
+|~設定項目|~設定ファイル名|
+|データベース設定|database.pxml|
+|サイト設定|site.pxml|
+|スーパーコントローラー設定|super.pxml|
+|グローバルコントローラー設定|global.pxml|
+
+* データベース設定
+データベースへの接続は、「''configs/database.pxml''」で設定します。
+
+&br;
+
+** 対応データベースシステム
+xFrameworkPXが接続できるデータベースシステムは、MySQL、Oracle、PostgreSQLの3つです。
+いずれも、PDOにより接続します。
+
+&br;
+
+** 共通の設定
+database.pxmlはxml宣言から始まり、<px><database>タグ内に設定を行います。
+設定は複数設定することができ、それぞれの設定は<connection>タグで設定されます。
+
+{{{
+<?xml version="1.0" encoding="utf-8"?>
+<px>
+    <database>
+        <connection name="default">
+            <!-- ここに設定 -->
+        </connection>
+        <connection name="example">
+            <!-- ここに設定 -->
+        </connection>
+    </database>
+</px>
+}}}
+
+また、複数設定する場合、connectionタグのname属性には、それぞれユニークな名前を設定する必要があります。
+
+&br;
+
+** MySQL
+MySQLに接続するための設定をするタグの一覧は、下記の通りです。
+
+|~タグ名|~説明|
+|type|使用するRDBMSの名前（MySQLを使用する場合は「''mysql''」と指定）|
+|charset|文字コード（キャラセットテーブルを参照）|
+|adapter|アダプター（mysqlを指定）|
+|driver|ドライバー（mysqlを指定）|
+|host|ホスト名|
+|user|接続ユーザー名|
+|password|接続パスワード|
+|database|接続データーベース名|
+|port|使用するポート（省略可能）|
+|socket|unix_socketの指定（省略可。これを指定する場合、hostタグを指定しないでください）|
+
+&br;
+
+** PostgreSQL
+PostgreSQLに接続するための設定をするタグの一覧は、下記の通りです。
+
+|~タグ名|~説明|
+|type|使用するRDBMSの名前（PostgreSQLを使用する場合は「''pgsql''」または「''postgresql''」と指定）|
+|charset|文字コード（キャラセットテーブルを参照）|
+|adapter|アダプター（pgsqlを指定）|
+|driver|ドライバー（pgsqlを指定）|
+|host|ホスト名|
+|user|接続ユーザー名|
+|password|接続パスワード|
+|database|接続データーベース名|
+|port|使用するポート（省略可能）|
+
+&br;
+
+** Oracle
+Oracleに接続するための設定をするタグの一覧は、下記の通りです。
+
+|~タグ名|~説明|
+|type|使用するRDBMSの名前（Oracleを使用する場合は「''oracle''」と指定）|
+|charset|文字コード（キャラセットテーブルを参照）|
+|adapter|アダプター（oracleを指定）|
+|driver|ドライバー（ociを指定）|
+|host|ホスト名|
+|user|接続ユーザー名|
+|password|接続パスワード|
+|database|接続データーベース名|
+|port|使用するポート（省略可能）|
+|nls|NLS_DATE_FORMAT,NLS_TIMESTAMP_FORMATを指定します。|
+|date_format|NLS_DATE_FORMATを指定します（nlsタグ内で設定）|
+|timestamp_format|NLS_TIMESTAMP_FORMATを指定します（nlsタグ内で設定）|
+
+
+* サイト設定
+サイト設定とは、アプリケーション内で共通のパラメータを設定する際に便利な設定です。
+サイトのtitleやdescriptionを設定する場合などに適しています。
+
+この設定は、Smartyに自動的にアサインされるため、テンプレート上で取得可能です。
+コントローラー内では''$this->conf->site''で参照することができます。
+
+設定場所はwebapp直下で、ファイル名はsite.pxmlです。
+
+下記は、site.pxmlの設定例です。
+{{{
+<?xml version="1.0" encoding="utf-8"?>
+<px>
+    <site>
+        <title>ページタイトル</title>
+        <description>文章の説明<description>
+    </site>
+</px>
+}}}
+
+site.pxmlはxml宣言から始まり、<px><site>タグ内に設定を行います。
+タグ名がパラメータ名、タグの値がパラメータ値として、SimpleXMLElementで参照できます。
+Smartyへのアサイン名は「''site''」です。
+
+{{{
+// コントローラ内での参照方法
+$this->conf->site->site->title
+
+// テンプレート内での参照方法
+<!--{$site.title}-->
+}}}
+
+
+* スーパーコントローラー設定
+スーパーコントローラを設定すると、仮想コンテンツすべてにおいて、このコントローラが一番最初に処理されます。
+このスーパーコントローラーは、複数設定することもできます。
+設置場所はwebapp直下で、ファイル名はsuper.pxmlです。
+
+下記はsuper.pxmlの設定例です。
+{{{
+<?xml version="1.0" encoding="utf-8"?>
+<px>
+    <controller>super01</controller>
+    <controller>super02</controller>
+</px>
+}}}
+
+この設定では、controllers/.super01.php、controllers/.super02.phpが順に実行されます。
+
+
+* グローバルコントローラー設定
+グローバルコントローラーは、設定された仮想コンテンツの範囲に対して実行されるコントローラです。
+ログインチェックやSSLチェックなどの実装に適しています。
+
+ファイル名は「''global.pxml''」です。Webルート下の任意の階層に複数設置できます。
+スーパーコントローラが設定されている場合、スーパーコントローラの実行が終わった後に実行されます。
+また、設置したディレクトリ以下に、別のglobal.pxmlがある場合、そのディレクトリ以下の設定はより下にあるglobal.pxmlのもので上書きされます。
+
+{{{
+<?xml version="1.0" encoding="utf-8"?>
+<px>
+    <controller>global01</controller>
+    <controller>global02</controller>
+</px>
+}}}
+
+この設定では、controllers/.global01.php、controllers/.global02.phpが順に実行されます。
