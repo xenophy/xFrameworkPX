@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>xFrameworkPX Release Notes for 3.5.0 Beta</title>
+    <title>xFrameworkPX Release Notes for 3.5.2</title>
     <style>
         * {
             font-family: 'helvetica', tahoma, verdana, sans-serif;
@@ -13,78 +13,232 @@
         li { padding: 2px 0; }
         code { font-style: oblique; }
         p { color: #555555; }
+        table {
+            margin: 0px;
+            padding: 0px;
+            background: #FFFFFF;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: #1A5C9A;
+            padding-left: 10px;
+            color: #FFFFFF;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        th, td {
+            border: solid 1px #666666;
+        }
     </style>
 </head>
 
 <body>
 
-<h1>xFrameworkPX Release Notes for 3.5.0 Release Candidate</h1>
+    <h1>xFrameworkPX Release Notes for 3.5.2</h1>
 
-<p>
-    Release Date: 2009/02/15<br/>
-    Current Version: 3.5.0 Release Candidate(rev xxx) <br/>
-    Previous Version: 3.5.0 Beta (rev 1331)</p>
+    <p>
+        Release Date: 2010/08/xx<br/>
+        Current Version: 3.5.2<br/>
+        Previous Version: 3.5.1
+    </p>
 
-<h2>Overview</h2>
-<ul>
-    <li>xFrameworkPX Debug Tools 1.0.2
-        <ul>
-            <li>セッションタブの追加</li>
-            <li>クッキータブの追加</li>
-            <li>コンテンツにより表示されないバグ修正</li>
-        </ul>
-    </li>
-    <li>xFrameworkPX 3.5 Documentation
-        <ul>
-            <li>ダイレクトリンク機能実装</li>
-            <li>ローディングCSS修正</li>
-            <li>コンテンツ追加＆修正</li>
-        </ul>
-    </li>
-</ul>
+    <br />
 
-<h2>Change Log</h2>
-<ul>
-    <li><strong>ディスパッチャー</strong>
-        <ul>
-            <li>正規化されたURLで無い場合は、正規化してリダイレクトするようになりました。</li>
-            <li>パスの末尾が/でない場合で404エラーになる場合は、/を付加してリダイレクトするようになりました。</li>
-        </ul>
-    </li>
-    <li><strong>コントローラー</strong>
-        <ul>
-            <li>xFrameworkPX_Mail
-                <ul>
-                    <li>引数に渡す値をxFrameworkPX_Util_MixedCollection以外に配列でも指定できるようになりました。</li>
-                </ul>
-            </li>
-            <li>xFrameworkPX_Controller_Action
-                <ul>
-                    <li>RapidDriveのmodule指定を行わない場合、モジュール指定されている一番最初のモジュールが自動的に利用されるようになりました。</li>
-                </ul>
-            </li>
-            <li>xFrameworkPX_Controller_Component_RapidDrive
-                <ul>
-                    <li>detailモード時、<em>listquery</em>をユーザーデータとして自動的に登録するようになりました。<br>
-                    このパラメータは、詳細画面表示時に渡される検索文字列とページャー番号を含んでいます。<br>
-                    list画面へ戻る際のリンクに使用します。</li>
-                </ul>
-            </li>
-        </ul>
-    </li>
-    <li><strong>モデル</strong></li>
-    <li><strong>ビュー</strong></li>
-    <li><strong>ビルトインバリデーション</strong></li>
-    <li><strong>バグ情報</strong></li>
+    <h2>Overview</h2>
     <ul>
-        <li>xFrameworkPX_Wiki</li>
-        <ul>
-            <li>
-            <strong>FIX000003</strong>&nbsp;&nbsp;underlineクラスが存在しない場合、下線が表示されないバグを修正。
-            下線出力時&lt;span class=&quot;underline&quot;&gt;&lt;/span&gt;を&lt;u&gt;&lt;/u&gt;に変更しました。             </li>
-        </ul>
+        <li><strong>ディレクトリ構成</strong>
+            <ul>
+                <li>controllersディレクトリが消えていたので、追加しなおしました。</li>
+            </ul>
+        </li>
+        <li><strong>クラスのオートロード</strong>
+            <ul>
+                <li>継承元クラスを自動的にロードする機能にあったバグを修正しました。</li>
+            </ul>
+        </li>
+        <li><strong>WiseTag</strong>
+            <ul>
+                <li>editメソッドにあったバグを修正しました。</li>
+            </ul>
+        </li>
+        <li><strong>データベース接続処理</strong>
+            <ul>
+                <li>指定された文字コードが正しく設定されていなかったバグを修正しました。</li>
+            </ul>
+        </li>
+        <li><strong>ドキュメント</strong>
+            <ul>
+                <li>ドキュメントを大幅に加筆修正しました。</li>
+                <li>チュートリアルを大幅に加筆修正しました。</li>
+            </ul>
+        </li>
     </ul>
-    <li><strong>その他</strong></li>
-    </ul>
+
+    <br />
+
+    <h2>Change Log</h2>
+    <table>
+        <tr>
+            <th>xFrameworkPX Ver. 3.5.1</th>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    <li><strong>STRICTモード対応</strong>
+                        <ul>
+                            <li>エラーレベルがSTRICTモードで実行したとき、xFrameworkPX本体でエラーが起こらないように対応しました。</li>
+                        </ul>
+                    </li>
+                    <li><strong>データベース接続処理</strong>
+                        <ul>
+                            <li>ポート番号が指定できるようになりました。</li>
+                            <li>データベース接続時に例外が発生したとき、表示されていたExceptionの画面で出ていたNoticeに対応しました。</li>
+                        </ul>
+                    </li>
+                    <li><strong>LiveRecord</strong>
+                        <ul>
+                            <li>getメソッドのwhere句を指定するパラメータで、「IS NULL」と「IS NOT NULL」が指定できるようになりました。</li>
+                            <li>LiveRecordのメソッド実行時にデータベースに接続されていなかった場合、Exceptionが発生するようになりました。</li>
+                        </ul>
+                    </li>
+                    <li><strong>WiseTag</strong>
+                        <ul>
+                            <li>入力フォームを動的に生成する「WiseTag」の機能が実装されました。</li>
+                        </ul>
+                    </li>
+                    <li><strong>Library</strong>
+                        <ul>
+                            <li>xFrameworkPXに組み込まれているPDFを操作するためのライブラリとExcelファイルを操作するためのライブラリをアップデートしました。</li>
+                        </ul>
+                    </li>
+                    <li><strong>RapidDrive</strong>
+                        <ul>
+                            <li>WiseTagを組み込むため、大幅に仕様を変更しました。</li>
+                            <li>ver 3.5.0までにあったバグや問題を改修しました。</li>
+                        </ul>
+                    </li>
+                    <li><strong>拡張メソッド</strong>
+                        <ul>
+                            <li>base_nameメソッドにポート番号を取得する機能が追加されました。</li>
+                            <li>SSL接続判定メソッドにあったバグを修正しました。</li>
+                        </ul>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <th>xFrameworkPX Ver. 3.5.0</th>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    <li><strong>ディスパッチャー</strong>
+                        <ul>
+                            <li>コントローラーがない場合でも、スーパーアクション、グローバルアクションのみを実行させることができるようになりました。</li>
+                        </ul>
+                    </li>
+                    <li><strong>クラスのオートロード</strong>
+                        <ul>
+                            <li>コントローラーとモジュールクラスの継承もとクラスを、自動的にロードする機能が追加されました。</li>
+                        </ul>
+                    </li>
+                    <li><strong>データベース接続処理</strong>
+                        <ul>
+                            <li>接続設定を切り替えられるようになりました。</li>
+                            <li>データベースの接続設定が未指定時に、xFrameworkPXが自動的に選択する接続設定を指定できるようになりました。</li>
+                            <li>データベースの接続設定が複数あった場合に、設定を正しくロードできていなかったバグを修正しました。</li>
+                        </ul>
+                    </li>
+                    <li><strong>LiveRecord</strong>
+                        <ul>
+                            <li>getメソッドでSQLの関数が使えるようになりました。</li>
+                            <li>getメソッドにGROUP BY句、HAVING句の指定をするためのパラメータが追加されました。</li>
+                            <li>LiveRecordがOracleに対応しました。</li>
+                            <li>LiveRecordがPostgreSQLに対応しました。</li>
+                        </ul>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <th>xFrameworkPX Ver. 3.5.0 Release Candidate</th>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    <li><strong>xFrameworkPX Debug Tools 1.0.2</strong>
+                        <ul>
+                            <li>セッションタブを追加しました。</li>
+                            <li>クッキータブを追加しました。</li>
+                            <li>コンテンツにより表示されないバグを修正しました。</li>
+                        </ul>
+                    </li>
+                    <li><strong>xFrameworkPX 3.5 Documentation</strong>
+                        <ul>
+                            <li>ダイレクトリンク機能を実装しました。</li>
+                            <li>ローディングCSSを修正しました。</li>
+                            <li>コンテンツの追加＆修正しました。</li>
+                        </ul>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <th>xFrameworkPX Ver. 3.5.0 Beta</th>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    <li><strong>ディスパッチャー</strong>
+                        <ul>
+                            <li>正規化されたURLで無い場合は、正規化してリダイレクトするようになりました。</li>
+                            <li>パスの末尾が/でない場合で404エラーになる場合は、/を付加してリダイレクトするようになりました。</li>
+                        </ul>
+                    </li>
+                    <li><strong>コントローラー</strong>
+                        <ul>
+                            <li>xFrameworkPX_Mail
+                                <ul>
+                                    <li>引数に渡す値をxFrameworkPX_Util_MixedCollection以外に配列でも指定できるようになりました。</li>
+                                </ul>
+                            </li>
+                            <li>xFrameworkPX_Controller_Action
+                                <ul>
+                                    <li>RapidDriveのmodule指定を行わない場合、モジュール指定されている一番最初のモジュールが自動的に利用されるようになりました。</li>
+                                </ul>
+                            </li>
+                            <li>xFrameworkPX_Controller_Component_RapidDrive
+                                <ul>
+                                    <li>
+                                        detailモード時、<em>listquery</em>をユーザーデータとして自動的に登録するようになりました。<br>
+                                        このパラメータは、詳細画面表示時に渡される検索文字列とページャー番号を含んでいます。<br>
+                                        list画面へ戻る際のリンクに使用します。
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><strong>モデル</strong></li>
+                    <li><strong>ビュー</strong></li>
+                    <li><strong>ビルトインバリデーション</strong></li>
+                    <li><strong>バグ情報</strong>
+                        <ul>
+                            <li>xFrameworkPX_Wiki
+                                <ul>
+                                    <li>
+                                        <strong>FIX000003</strong>&nbsp;&nbsp;underlineクラスが存在しない場合、下線が表示されないバグを修正。
+                                        下線出力時&lt;span class=&quot;underline&quot;&gt;&lt;/span&gt;を&lt;u&gt;&lt;/u&gt;に変更しました。
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><strong>その他</strong></li>
+                </ul>
+            </td>
+        </tr>
+    </table>
 </body>
 </html>
