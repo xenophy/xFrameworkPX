@@ -1,0 +1,86 @@
+* 二つのテーブルのINNER JOIN(3)
+
+hasOneでtbl_uriageとtbl_customerを内部結合します。
+「'''二つのテーブルのINNER JOIN(1)'''」で行った操作と同じ結果になりますが、hasOneの指定方法が異なります。
+ここでは、tbl_customer用のモジュールは作成せずに、hasOneに直接テーブル名を指定します。
+
+
+&img(./resources/images/tutorial/hasOne3.png){二つのテーブルのINNER JOIN(3)};
+
+このチュートリアルでは、次の操作を行います。
+
++ アプリケーションディレクトリにHTMLファイルを設置する
++ アプリケーションディレクトリにコントローラーを設置する
++ モジュールディレクトリにモジュールを設置する
++ 仮想スクリーンの動作を確認する
++ サンプル実行
+
+
+* アプリケーションディレクトリにHTMLファイルを設置する
+
+hasOne3.htmlを設置します。
+ソースコードや設置方法については、「'''二つのテーブルのINNER JOIN(1)'''」と同じなので、そちらを参照してください。
+
+
+* アプリケーションディレクトリにコントローラーを設置する
+
+.hasOne3.phpを設置します。
+コントローラーのクラス名は''hasOne3''になります。
+クラス名以外のソースコードや設置方法については、「'''二つのテーブルのINNER JOIN(1)'''」と同じなので、そちらを参考してください。
+
+
+* モジュールディレクトリにモジュールを設置する
+
+modules下に、次のuriage.phpを設置します。
+
+** uriage.php
+{{{
+<?php
+
+class uriage extends xFrameworkPX_Model
+{
+    public $hasOne = 'tbl_customer';
+
+    public function test()
+    {
+        return $this->get('all',array(
+            'fields' => array(
+                'tbl_uriage.id as id',
+                'tbl_uriage.date as date',
+                'tbl_uriage.customer_id as customer_id',
+                'tbl_customer.id as customer_id_org',
+                'tbl_customer.name as customer_name',
+            )
+        ));
+    }
+
+}
+
+}}}
+
+「'''二つのテーブルのINNER JOIN(2)'''」のようにforeignKeyを指定する場合は、$hasOneプロパティを配列で指定します。
+{{{
+public $hasOne = array(
+    'tbl_customer' => array(
+        'foreignKey' => 'customer_id'
+    )
+);
+}}}
+
+
+* 仮想スクリーンの動作を確認する
+
+ブラウザで'''''http://yourdomain/hasOne3.html'''''にアクセスします。
+
+「'''二つのテーブルのINNER JOIN(1)'''」と同じ結果が、仮想スクリーンに表示されます。
+
+
+* サンプル実行
+
+下記のボタンから、ここまでのサンプルを実行することができます。
+
+[[&img(./resources/images/demo.gif){サンプル画像};>./tutorial/db/association/hasOne3.html>external]]
+
+** サンプル格納位置
+
+'''bindtransfer/docs/tutorial/db/association/'''

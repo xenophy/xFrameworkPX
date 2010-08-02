@@ -1,0 +1,388 @@
+* 使用方法
+モジュールを作成するときの記述方法を順を追って説明していきます。
+
+* 新規モジュールの作成
+
+まずモジュールのクラスは必ず「''xFrameworkPX_Model''」か「''xFrameworkPX_Model_RapidDrive''」クラスを継承して実装します。
+このときモジュールクラスのファイル名は、モジュール名と同じになります。
+クラスを格納する場所は「''modules''」ディレクトリ下になります。
+
+ユーザーは、このモジュールクラスに対して下記の各設定をしていきます。((モジュールに対する各設定は、それぞれ省略することができます。))
+:テーブルの設定|モジュールで使用するデータベースのテーブル名を設定します。
+:バリデーション設定用配列の定義|モジュールで使用するバリデーションを配列で設定します。
+:ビヘイビア設定用配列の定義|使用するビヘイビアを配列で設定します。
+:メインロジックの実装|ユーザーが自由にメインロジックのメソッドを実装できます。
+
+* モジュールクラスの宣言
+モジュールのクラス名には、モジュール名として任意の名前を付けることができます。
+また、クラス名を「(ディレクトリの階層を_(アンダースコア)で区切ったもの)_モジュール名」とすることで　、
+modulesディレクトリ下に作った階層にクラスファイルを設置できます。
+
+モジュールクラスの宣言は以下の様になります。
+
+{{{
+/**
+ * 通常のモジュールクラス
+ */
+class example extends xFrameworkPX_Model
+{
+}
+
+/**
+ * RapidDrive用のモジュールクラス
+ */
+class example extends xFrameworkPX_Model_RapidDrive
+{
+}
+
+/**
+ * module/hoge下にモジュールクラスを作る場合
+ */
+class hoge_example extends xFrameworkPX_Model
+{
+}
+}}}
+
+* テーブルの設定
+
+** usetable設定
+モジュールで使用するデータベースのテーブルの定義はモジュールクラスの'''usetable'''プロパティに使用するテーブル名を設定します。
+使用テーブルを定義することでLiveRecordを使用して定義したテーブルに簡単にアクセスすることができます。
+~
+データベースを使用しないモジュールはusetableプロパティにfalseを指定します。
+usetableが未設定の場合は、モジュールのクラス名からテーブル名を生成して、自動的にusetableプロパティへ設定します。
+
+{{{
+class example extends xFrameworkPX_Model
+{
+    /**
+     * テーブル設定
+     *
+     * falseを指定すると接続情報を自動で生成しません。
+     */
+    public $usetable = false;
+}
+
+class example extends xFrameworkPX_Model
+{
+    /**
+     * テーブル設定
+     *
+     * モジュールと'tbl_example'テーブルを紐づけます。
+     */
+    public $usetable = 'tbl_example';
+}
+}}}
+
+&br;
+
+** primaryKey設定
+「''primaryKey''」プロパティには使用するテーブルの主キーのカラム名を指定します。
+もし設定しなかった場合は、自動的に「''id''」というカラム名が設定されます。
+
+{{{
+class example extends xFrameworkPX_Model
+{
+    /**
+     * テーブル設定
+     *
+     * モジュールと'tbl_example'テーブルを紐づけます。
+     */
+    public $usetable = 'tbl_example';
+
+    /**
+     * 主キー設定
+     */
+    public $primaryKey = 'no';
+}
+}}}
+
+&br;
+
+** hasOne設定
+
+モジュールはusetabaleの設定だけではひとつのテーブルからしかデータを取得することができません。
+''hasOne''のプロパティを設定することで、複数のテーブルを結合させてデータの取得することができます。
+hasOneを使うとデータは1対1の結合になります。
+
+hasOneプロパティは、文字列か配列で定義します。
+文字列で指定する場合は、結合するテーブルの名前、またはそのテーブルを使用するモジュールのクラス名を指定します。
+配列で指定する場合は、上記の文字列で指定したものを要素にするか、それをキー名にして、要素に設定配列を指定します。
+
+&br;
+
+以下は、hasOneプロパティを配列定義した際に使用できる、パラメータ一覧です。
+
+|~キー名|~説明|
+|type|テーブル結合をするときのJOINの種類を指定します。&br;タイプは'''LEFT'''、'''RIGHT'''、'''INNER'''から選択します。&br;省略可。省略した場合は「INNER」になります。|
+|primaryKey|結合するテーブルの主キーになるカラムの名前を指定します。&br;省略可。省略した場合は「''id''」になります。|
+|foreignKey|usetableに設定したテーブルの中で、外部キーになるカラムのカラム名を指定します。&br;省略可。省略した場合は「''テーブル名_id''」になります。|
+
+{{{
+class example extends xFrameworkPX_Model
+{
+    /**
+     * 使用するテーブルの設定
+     */
+    public $usetable = 'tbl_example';
+
+    /**
+     * hasOne設定（配列による指定）
+     */
+    public $hasOne = array(
+
+        // テーブルの設定
+        'ExampleJoinModule' => array(
+
+            // JOINのタイプ指定
+            'type' => 'INNER',
+
+            // 主キーの設定
+            'primaryKey' => 'id',
+
+            // 外部キーの設定
+            'foreignKey' => 'example_id'
+        )
+    );
+}
+
+class example extends xFrameworkPX_Model
+{
+    /**
+     * 使用するテーブルの設定
+     */
+    public $usetable = 'tbl_example';
+
+    /**
+     * hasOne設定（文字列による指定）
+     *
+     * この記述例の場合、usetableの外部キーは
+     * 「ExampleJoinModuleで使用するテーブル名_ExampleJoinModuleで使用するテーブル名の主キー名」
+     * というカラム名である必要があります。
+     */
+    public $hasOne = 'ExampleJoinModule';
+}
+}}}
+
+&br;
+
+** belongsTo設定
+複数のテーブルを結合させてデータを取得するための設定として、''belongsTo''のプロパティがあります。
+belongsToプロパティを指定した場合、設定したテーブルは1対多の結合を行います。
+指定の書式はhasOneと同じです。
+
+{{{
+class example extends xFrameworkPX_Model
+{
+    /**
+     * 使用するテーブルの設定
+     */
+    public $usetable = 'tbl_example';
+
+    /**
+     * JOINするテーブル設定（配列による指定）
+     */
+    public $belongsTo = array(
+
+        // テーブルの設定
+        'tbl_exampleJoin' => array(
+
+            // JOINのタイプ指定
+            'type' => 'INNER',
+
+            // 主キーの設定
+            'primaryKey' => 'id',
+
+            // 外部キーの設定
+            'foreignKey' => 'tbl_exampleJoin_id'
+        )
+    );
+}
+}}}
+
+&br;
+
+** hasMany設定
+hasManyも1体多の結合を行います。
+belongToとの違いは、結果を多重配列で返すという点です。
+
+設定はbelognsToと同じく、文字列か配列で指定します。
+
+&br;
+
+以下は、hasManyプロパティを配列で指定したときの設定配列で指定できるキーの一覧です。
+
+|~キー名|~説明|
+|type|hasOneのものと同じ設定を行います。詳しくはhasOneの項目を参照してください。|
+|primaryKey|hasOneのものと同じ設定を行います。詳しくはhasOneの項目を参照してください。|
+|foreignKey|hasOneのものと同じ設定を行います。詳しくはhasOneの項目を参照してください。|
+|order|結合するテーブルの対象データをソートする場合に設定します。&br;ソートの設定を配列にして指定します。|
+
+{{{
+class example extends xFrameworkPX_Model
+{
+    /**
+     * 使用するテーブルの設定
+     */
+    public $usetable = 'tbl_example';
+
+    /**
+     * JOINするテーブルの設定（配列による指定）
+     */
+    public $hasMany = array(
+        'tbl_exampleJoin' => array(
+
+            // 結合するテーブルの主キー設定
+            'primaryKey' => id,
+
+            // usetableの外部キー設定
+            'foreignKey' => tbl_exampleJoin_id,
+
+            /*
+             取り出したデータのソート設定
+                指定の仕方は配列の要素に
+                「ソートするカラム名」か「ソートするカラム名 ソートの順序」
+                と指定します。
+             */
+            'order' => array('example_seq', 'example_cnt desc')
+        )
+    );
+}
+}}}
+
+belongsToとhasManyの具体的な違いについては、チュートリアルにある「'''Association'''」の項を参照してください。
+
+&br;
+
+
+** autoConnプロパティ
+xFrameworkPXでは、モジュールの生成時に、データベースへ自動的に接続します。
+そのデータベースへの自動接続を行うかどうかを設定するのが、「''autoConn''」プロパティです。
+このプロパティが'''true'''の場合は自動接続を行い、'''false'''の場合は自動接続を行いません。
+
+&br;
+
+** connectionメソッド
+データベースの接続を行います。
+既に接続されていても、このメソッドを呼ぶことで、データベースの接続先を変更することができます。
+接続先はメソッドの引数で設定できます。((引数を省略すると、database.pxmlの設定を使用してデータベースに接続します。))
+
+以下は、connectionメソッドに引数として渡すことのできる接続設定用配列のキー名の一覧になります。
+|~キー名|~説明|
+|charset|データベースの文字コードを指定します。|
+|adapter|使用するアダプターを指定します。&br;このアダプターは、使用するRDBMSに合ったものを指定します。|
+|driver|使用するRDBMSに合ったデータベース接続用のドライバを指定します。|
+|host|接続先のURIを指定します。|
+|user|データベースへの接続時に使用するDBのユーザーを指定します。|
+|password|データベースへの接続時に使用するDBのパスワードを指定します。|
+|database|接続するデータベースの名前を指定します。|
+|port|接続するポート番号を指定します。|
+|socket|UNIXソケットを使用する場合に指定します。|
+
+以下は記述例です。
+
+{{{
+class exampleModule extends xFrameworkPX_Model
+{
+    /**
+     * 自動接続設定
+     *
+     * この場合、自動的にデータベースへ接続されることはありません。
+     */
+    public $autoConn = false;
+
+    /**
+     * データベースへの接続(接続情報は設定ファイルのものを使用)
+     *
+     * メソッド内でデータベースへの接続処理を行うことができます。
+     */
+    public function connTest1()
+    {
+        $this->connection();
+    }
+
+    /**
+     * データベースへの接続(接続情報を指定)
+     *
+     * メソッド内でデータベースへの接続処理を行うことができます。
+     */
+    public function connTest1()
+    {
+        $this->connection(array(
+
+            // 文字コード設定
+            'charset' => 'UTF8',
+
+            // アダプター設定（設定する値については下記の対応表を参照）
+            'adapter' => 'mysql',
+
+            // ドライバー設定（設定する値については下記の対応表を参照）
+            'driver' => 'mysql',
+
+            // 接続先設定
+            'host' => 'localhost',
+
+            // 接続ユーザー
+            'user' => 'hogeUser',
+
+            // パスワード
+            'password' => 'hogepass',
+
+            // データベース名
+            'database' => 'hoge_db',
+
+            // ポート設定
+            'port' => 3306
+        ));
+    }
+}
+}}}
+
+以下は、使用するRDBMSとアダプターとドライバーの設定で指定する値の対応表です。
+|~使用するRDBMS|~アダプターの設定値|~ドライバーの設定値|
+|MySQL|mysql|mysql|
+|PostgreSQL|pgsql または postgresql|pgsql|
+|Oracle|oracle|oci|
+
+&br;
+
+* ビヘイビアの設定
+
+モジュールで使用するビヘイビアの設定は、モジュールの''behaviors''プロパティを定義して行います。
+このプロパティには、使用したいビヘイビアクラス名を配列にして設定します。
+ビヘイビアの設定をすることで、設定したビヘイビアクラスの中にあるモジュール拡張用のメソッドを、モジュールクラス自身のメソッドのように呼び出せるようになります。
+
+{{{
+class exampleModule extends xFrameworkPX_Model
+{
+    /**
+     * ビヘイビアの設定
+     */
+    public $behaviors = array('exampleBehavior');
+
+    public function hoge()
+    {
+        // exampleBehaviorクラスの拡張用メソッドを呼び出す場合
+        $this->foo();
+    }
+}
+}}}
+
+なお、ビルトインビヘイビアを使用する際は、設定の必要がありません。
+
+ユーザービヘイビアクラスの作成方法については、「'''ユーザービヘイビア'''」の項を参照してください。
+また、LiveRecordの詳細については「'''LiveRecord'''」の項を参照してください。
+
+
+
+
+* バリデーションの設定
+
+入力フォームからのデータを入力チェックしたい場合、モジュールに''validators''プロパティを定義して、バリデータ設定用の配列を指定します。
+バリデータ設定用の配列は連想配列になります。
+
+バリデーションについて、設定などの詳細は「'''バリデーション'''」の項を参照してください。
+
+&br;
+
+----

@@ -1,0 +1,295 @@
+* 使用方法
+
+コントローラーの作成や設定の記述について説明していきます。
+
+&br;
+
+* コントローラークラスの作成
+仮想スクリーンを表示する際に何らかの処理を行いたいとき、ユーザーはアクションコントローラークラスを作成する必要があります。
+このとき作成するクラスファイルの名前は、「''.アクション名.php''」という形式にします。((ファイル名に付ける接頭辞の「''.''」と、拡張子の「''.php''」はディスパッチャーの設定で変更可能です。))
+作成したコントローラークラスの設置場所は、作成するコントローラークラスの種類によって異なります。
+
+|~コントローラーの種類|~クラスファイルの設置場所|
+|仮想スクリーンで使用するアクションコントローラー|Webルートディレクトリ下 もしくは bindtransferディレクトリ下|
+|Ajaxを使用するためのコントローラー|^|
+|ExtDirectを使用するためのコントローラー|^|
+|スーパーアクションコントローラー|controllersディレクトリ下|
+|グローバルアクションコントローラー|^|
+|コンソール実行時に使用するコントローラー|^|
+
+ユーザーは、作成したコントローラークラスに対して、アクションの各設定をしていきます。
+:モジュール定義用配列の設定|コントローラーで使用するモジュール((モジュールについては「モジュール(モデル)」の項目を参照してください。))を配列で設定します。
+:コンポーネント定義用配列の設定|コントローラーで使用するコンポーネントを配列で設定します。
+:executeメソッドの実装|各アクションコントローラークラスや、Ajaxを使用するためのコントローラークラスを使用する場合、&br;親クラスのexecuteメソッドをオーバーライドし、コントローラーで行うメインの処理を記述します。&br;一方、ExtDirectを使用する場合のコントローラーでは、executeメソッドを実装する必要はありません。
+
+ここで説明した、設置場所以外のコントローラークラスを作成する手順は、コントローラーの種類に関わらず共通です。
+
+
+* コントローラークラスの宣言
+ユーザが作成するコントローラークラスは、そのコントローラーの用途に合わせて適切なクラスを継承して作成します。
+通常のアクションコントローラークラスは、「''xFrameworkPX_Controller_Action''」クラスを継承して作ります。
+また、Ajaxのリクエストを受け付けて、JSONで結果を返すコントローラーは、「''xFrameworkPX_Controller_Ajax''」クラスを継承して作成し、
+ExtDirectを使用する場合は、「''xFrameworkPX_Controller_ExtDirect''」クラスを継承して作成します。
+
+これらのコントローラーに付けるクラス名は、アクション名と同じか、またはアクション名に接尾辞「''Action''」をつけたものにします。
+
+また、controllersディレクトリ下に設置するクラスに関しては、クラス名を''_''(アンダースコア)を使って区切ることで、
+クラスファイルが設置されるcontorollers下のディレクトリ階層を指定できます。
+
+例えば、controllers下にhogeというディレクトリを作り、その下に.foo.phpというコントローラークラスを作成した場合、
+そのコントローラークラスの名前は「'''hoge_foo'''」となります。
+~
+以下はコントローラークラスを宣言するときの記述例です。
+{{{
+/**
+ * 接尾辞のないクラス名でアクションコントローラークラスを宣言
+ */
+class example extends xFrameworkPX_Controller_Action
+{
+}
+
+/**
+ * 接尾辞のあるクラス名でアクションコントローラークラスを宣言
+ */
+class exampleAction extends xFrameworkPX_Controller_Action
+{
+}
+
+/**
+ * Ajaxを使用するアクションコントローラークラスを宣言
+ */
+class exampleAjax extends xFrameworkPX_Controller_Ajax
+{
+}
+
+/**
+ * ExtDirectを使用するアクションコントローラークラスを宣言
+ */
+class exampleExtDirect extends xFrameworkPX_Controller_ExtDirect
+{
+}
+}}}
+
+&br;
+
+* モジュールの設定
+
+コントローラーで使用するモジュールの設定は、コントローラーに'''modules'''という名前のプロパティを定義して行います。
+このプロパティには、以下の二つのうちどちらかの形式の配列で設定を記述します。
+
+モジュールのクラス名のみを指定した場合、データベースのコネクションに使用される設定は「default」のものが選択されます。
+modulesプロパティの配列の要素を複数定義することで、そのコントローラーで複数のモジュールを使用することができます。
+
+以下は記述例です。
+{{{
+class example extends xFrameworkPX_Controller_Action
+{
+
+    /**
+     * モジュール設定配列
+     *
+     * 形式：
+     * array(
+     *     モジュールのクラス名 => 設定パラメータ配列,
+     *     ...,
+     *     ...
+     * )
+     */
+    public $modules = array(
+        'ExampleModule' => array(
+            'conn' => 'default'
+        )
+    );
+}
+
+class example extends xFrameworkPX_Controller_Action
+{
+
+    /**
+     * モジュール設定配列
+     *
+     * 形式：
+     * array(
+     *     モジュールのクラス名, ..., ...
+     * )
+     */
+    public $modules = array(
+        ExampleModule
+    );
+}
+
+class example extends xFrameworkPX_Controller_Action
+{
+
+    /**
+     * モジュール設定配列
+     *
+     * 以下のように設定の記述形式を混在させたり
+     * 複数記述することも可能です。
+     */
+    public $modules = array(
+        'ExampleModule1' => array(
+            'conn' => 'default'
+        ),
+        'ExampleModule2' => array(
+            'conn' => 'default'
+        ),
+        'ExampleModule3',
+        'ExampleModule4'
+    );
+}
+}}}
+
+ここで設定したモジュールクラスのインスタンスは、設定を定義したコントローラークラスのプロパティのように振る舞います。
+そのため、コントローラークラスのメソッド内でモジュールを使用するには、以下のように記述します。
+
+ExtDirectを使うためのコントローラーでは、この設定をするだけで、JavaScript側からモジュール名でアクセスできるようになります。
+ExtDirectの具体的な使い方については、ExtJSのドキュメントを参照してください。
+
+{{{
+
+/**
+ * 通常のアクションクラス
+ */
+class example extends xFrameworkPX_Controller_Action
+{
+
+    /**
+     * モジュール設定配列
+     */
+    public $modules = array(ExampleModule);
+
+    public function execute()
+    {
+        // モジュールのメソッド使用例
+        $this->ExampleModule->method();
+    }
+}
+
+/**
+ * ExtDirectのアクションクラス
+ */
+class example extends xFrameworkPX_Controller_ExtDirect
+{
+
+    /**
+     * モジュール設定配列
+     */
+    public $modules = array(ExampleModule);
+}
+}}}
+
+&br;
+
+* コンポーネントの設定
+
+使用するコンポーネントの設定もモジュールと同様に、配列のプロパティを定義します。
+「''_components''」という名前で、コンポーネントを使用するために必要な設定を配列にして定義します。
+コンポーネントについても複数設定することができます。
+
+定義したコンポーネントをコントローラー内で使用する場合は、''$this->バインド名''と記述することでコンポーネントクラスのオブジェクトを呼び出すことができるので、
+あとはそのオブジェクトを使用してコンポーネントの機能を使用します。
+
+{{{
+class example extends xFrameworkPX_Controller_Action
+{
+    protected $_components = array(
+        array(
+
+            // コンポーネントクラス名
+            'clsName' => 'ExampleComponent',
+
+            // バインド名
+            'bindName' => 'Example',
+
+            // コンポーネントクラスのオブジェクト生成時に渡されるパラメータの配列(省略可)
+            'args' => array()
+        )
+    );
+
+    public function execute()
+    {
+        // コンポーネントのメソッド使用例
+        $this->Example->method();
+    }
+}
+}}}
+
+以下はxFrameworkPXが標準で提供しているビルトインコンポーネントと、そのバインド名の一覧です。
+それぞれの具体的な使用方法については、別ページにて解説しているのでそちらを参照してください。
+|~コンポーネント名|~バインド名|
+|Mail|Mail|
+|PhpSession|Session|
+|WiseTag|Tag|
+
+ユーザコンポーネントの使用方法については、「'''ユーザコンポーネント'''」の項を参照してください。
+
+&br;
+
+* 入力データ(POST・GET・FILE値)の参照
+コントローラー内で、POSTやGET、FILEといったWebブラウザから渡されてくるデータを使用する場合、
+以下の方法でそれぞれのデータを参照することができます。((それぞれのデータはMixedCollectionのオブジェクトとして格納されています。))
+
+{{{
+class example extends xFrameworkPX_Controller_Action
+{
+    public function execute()
+    {
+        // POSTデータの参照
+        $this->post;
+
+        // GETデータの参照
+        $this->get;
+
+        // FILEデータの参照
+        $this->files;
+    }
+}
+}}}
+
+&br;
+
+* ビューの操作
+コントローラーからビューへ処理結果などのデータを渡したり、逆にビューに渡したデータを取得したりする方法を説明します。
+
+** データを渡す
+アクションコントローラークラス内で以下のメソッドを実行すると、そのアクションの仮想スクリーンのテンプレートにデータをアサインすることができます。
+また、Ajaxを使用するコントローラーでは、結果の値を「''ajax''」というアサイン名でアサインすることで、
+コントローラークラスが、その値をJSON形式に変換して返します。
+
+
+{{{
+class example extends xFrameworkPX_Controller_Action
+{
+    public function execute()
+    {
+        // 通常のコントローラーでのデータアサイン
+        $this->set('アサイン名', データ);
+    }
+}
+
+class exampleAction extends xFrameworkPX_Controller_Action
+{
+    public function execute()
+    {
+        // AJAXを使用するクラスでのデータアサイン
+        $this->set('ajax', データ);
+    }
+}
+}}}
+
+テンプレートには参照名に設定した名前でデータがアサインされています。((アサインされたデータを参照する方法については「ビュー」の項目を参照してください。))
+
+
+&br;
+
+** ビューに渡したデータを取得する
+アクションコントローラークラス内で以下のメソッドを実行すると、ビューに渡したデータを取得することができます。
+
+{{{$this->get('参照名')}}}
+
+これで、引数に指定した参照名でビューに登録されているデータを取得することができます。
+
+&br;
+
+----

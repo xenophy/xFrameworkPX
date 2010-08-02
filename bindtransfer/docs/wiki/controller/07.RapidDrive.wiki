@@ -1,0 +1,514 @@
+* RapidDrive
+
+* RapidDriveの概要
+Webアプリケーションにはよく見られる基本的な画面のパターンが存在します。
+RapidDriveはそれらの画面を表示するための処理を、ユーザーが指定した設定をもとに自動的に行ってくれる機能です。
+~
+この機能が実装されているのがRapidDriveコンポーネントです。
+
+&br;
+
+** 動作モードについて
+RapidDriveが生成できるWebアプリケーションの画面は7種類あります。
+RapidDriveは、ユーザーによって指定された動作モードによって7種類のうち対応した画面の処理を行います。
+~
+以下の表はRapidDriveの動作モードの一覧です。
+|~動作モード|~設定時の指定|~表示される画面|
+|Listモード|list|テーブルに登録されているデータの一覧画面|
+|Detailモード|detail|テーブル中の指定されたデータの詳細画面|
+|Addモード|add|テーブルへのデータ追加画面|
+|Editモード|edit|テーブルのデータ編集画面|
+|Verifyモード|verify|追加や編集時画面からの入力確認画面|
+|Saveモード|save|入力されたデータをテーブルへ書き込む画面&br;(実際は画面の表示はなくテーブルへの書き込み処理を行うだけ)|
+|Finモード|fin|テーブルへのデータ書き込み処理完了画面|
+
+** RapidDriveの処理フロー
+まず、RapidDriveは実行されたアクションのコントローラーに定義してあるRapidDrive設定用プロパティを参照します。
+次に設定用プロパティで指定ある動作モードの処理を実行します。
+最後にRapidDriveは動作モードに対応した画面の表示に必要なデータを生成し、ビューのテンプレートにそのデータをアサインします。
+
+&br;
+
+** WiseTagとの連携
+RapidDriveは内部でWiseTagを使用しています。
+追加画面や編集画面、一覧画面にある入力フォームに関してはWiseTagを使用して生成しています。
+
+
+* RapidDriveの使用方法
+ユーザーはまずモジュールを作成します。
+RapidDriveで使用するモジュールは通常のモジュールとは違い、「''xFrameworkPX_Model_RapidDrive''」クラスを継承して作ります。
+それ以外は通常のモジュールと同じように、必要な設定を記述してコントローラーの「modules」プロパティに設定してください。
+ここで作成したモジュールには特にメソッドを定義する必要はありません。
+~
+次にRapidDriveを使用したいコントローラーにRapidDrive設定用のプロパティ「''rapid''」を定義します。
+このrapidには動作モードの指定と使用するモジュールの指定、そして指定した動作モードに必要な設定を連想配列で指定して記述します。
+動作モードの指定は「''mode''」というキー名で指定します。また「''module''」というキー名で先ほど作成したモジュールのクラス名を指定します。
+その他の各動作モードの設定については「RapidDrive 各動作モードの詳細」の項を参照してください。
+~
+あとはビューのテンプレートにアサインされたデータの表示をする処理を記述するだけです。
+ここでRapidDriveがアサインするデータは「''rd''」という名前の配列でテンプレートにアサインされています。
+ただし、WiseTagで生成した入力フォームのデータは含まれません。
+WiseTagで生成したデータは「''wt''」という名前でアサインされます。
+
+** 記述例
+{{{
+class example extends xFrameworkPX_Controller_Action
+{
+    // 使用モジュールの設定
+    public $modules = array('sampleRD');
+
+    // RapidDriveの設定
+    public $rapid = array(
+        'mode' => 'list',
+        'count' => 10,
+        'module' => 'sampleRD',
+        'field_filter' => array(
+            'tbl_sample' => array('created', 'modified', 'del')
+        ),
+        'init_search' => true,
+        'no_item_message' => '検索結果なし',
+        'nextAction' => 'edit'
+    );
+
+}
+}}}
+
+* RapidDrive 各動作モードの詳細
+ここではRapidDriveの各動作モードについて、その動作や使い方について詳しく説明します。
+
+* Listモード
+RapidDriveはListモードで実行されたとき、テーブルに登録されているデータの一覧画面を表示するための処理を行います。
+~
+Listモードで実行するには設定配列の「''mode''」に「''list''」と記述します。
+mode以外のListモード固有の設定には以下のものがあります。
+|~キー名|~説明|
+|count|表示するデータ件数を指定します。&br;一覧で表示するデータの件数がここで指定した件数以上あった場合、&br;データの一覧がページ分けされます。|
+|page_num_key|一覧の表示するページ番号が渡されるパラメータのキー名を設定します。省略可。&br;省略時はデフォルトで'p'が設定されます。|
+|order_field|表示するデータ一覧のソートに関する設定をします。&br;設定はソートに使用するカラム名と並び順（ASCまたはDESC）の文字列を配列にして指定します。&br;並び順は省略でき、省略するとASCを設定したときと同じく昇順になります。|
+|field_filter|データの一覧で非表示にしたいカラムを指定します。&br;field_filterの配列の中でテーブル名をキーにしてカラム名の配列を指定することで、&br;結合されたテーブルのカラムを非表示にすることができます。&br;テーブル名を省略した場合はusetableに指定されているテーブルのカラムとして扱われます。&br;（この設定は表示するデータの件数には影響しません。）|
+|no_item_message|表示する一覧データの件数が0件だったときに表示するエラーメッセージを設定します。|
+|init_search|初回実行時にデータの一覧を表示するかを設定します。&br;true（検索実行）かfalse（検索しない）を指定します。|
+|search_field|一覧で表示したデータの絞り込みをするときに使用する入力フォームの設定をします。この指定は省略可。&br;省略するとテーブルのカラムに対応したテキストボックスで構成された入力フォームが自動生成されます。|
+|nextAction|遷移先の画面のアクション名を指定します。|
+|prevAction|遷移元の画面のアクション名を指定します。|
+
+** 記述例
+{{{
+class example extends xFrameworkPX_Controller_Action
+{
+    // 使用モジュールの設定
+    public $modules = array('sampleRD');
+
+    // RapidDriveの設定
+    public $rapid = array(
+        'mode' => 'list',
+        'count' => 10,
+        'module' => 'sampleRD',
+        'field_filter' => array(
+            'tbl_sample' => array('created', 'modified', 'del')
+        ),
+        'search_field' => array(
+
+            // '入力フィールド名' => 設定配列
+            'hoge' => array(
+
+                // 入力フォームのタイプ
+                'field_type' => 'text',
+
+                // WiseTagのその他の設定
+                'options' => array(
+                    'length' => 10,
+                    'id' => 'txt1',
+                    'prelabel' => 'hoge'
+                ),
+
+                // 検索条件
+                'cond' => '=',
+
+                // 検索対象カラム
+                'target' => array('hoge')
+            ),
+
+            'foo' => array(
+                'field_type' => 'radio',
+                'options' => array(
+
+                    // optionを複数指定した場合
+                    array(
+                        'id' => 'foo1',
+                        'label' => 'Foo1',
+                        'value' => '1'
+                    ),
+                    array(
+                        'id' => 'foo2',
+                        'label' => 'Foo2',
+                        'value' => '2'
+                    )
+                ),
+                'cond' => '<>',
+                'target' => array('hoge')
+            ),
+
+            'bar' => array(
+                'field_type' => 'none',
+                'cond' => 'like',
+                'value' => 'test',
+                'target' => array('bar')
+            )
+        ),
+        'init_search' => true,
+        'no_item_message' => '検索結果なし',
+        'nextAction' => 'edit'
+    );
+
+}
+}}}
+
+&br;
+
+** アサインされるデータ
+Listモード実行後、ビューのテンプレートにアサインされる処理結果のデータについて以下の一覧にまとめました。
+この一覧のデータは「''rd''」配列の要素としてアサインされます。
+RapidDriveがアサインするデータには、この他にWiseTagのデータがあります。
+
+|~キー名|~説明|
+|outheader|データ一覧の見出しの配列。データがない場合はアサインされない。&br;配列の中身は使用しているテーブルのうち表示するカラムのカラム名、&br;またはそのカラムに付けられているコメント。|
+|outlist|一覧として表示するデータの配列。データがない場合はアサインされない。|
+|pager|一覧のページャーを表示するために使用するデータの配列。データがない場合はアサインされない。|
+|noItemMessage|表示するデータがない場合に表示するメッセージの文字列。&br;データがある場合はアサインされない。|
+|nextAction|遷移先アクションのURI。「./nextActionに設定されたアクション名.html」|
+|prevAction|遷移元アクションのURI。「./prevActionに設定されたアクション名.html」|
+
+* Detailモード
+RapidDriveがDetailモードで実行されたとき指定されたIDのデータを表示するための処理を行います。
+このモードは、例えば一覧画面からひとつデータを選択してその詳細情報を表示する画面を作るときに使います。
+~
+Detailモードで実行するには設定配列の「''mode''」に「''detail''」と記述します。
+mode以外のDetailモード固有の設定には以下のものがあります。
+|~キー名|~説明|
+|field_filter|表示するデータのうち非表示にしたいカラムの設定をします。&br;設定は非表示にしたいカラムの名前を配列にして指定します。|
+|id_key|表示対象データのIDを指定するときIDの入力を受け付けるパラメータのキー名を設定します。&br;省略可。省略時はデフォルトで使用するテーブルの主キーのカラム名が設定されます。|
+|search|ID以外でデータの検索条件を設定したい場合に指定します。|
+|no_data_message|表示させる詳細データがなかった場合に表示するメッセージを設定する。|
+|nextAction|遷移先の画面のアクション名を指定します。|
+|lastAction|遷移元の画面のアクション名を指定します。|
+
+** 記述例
+{{{
+class sample {
+
+    // 使用モジュールの設定
+    public $modules = array('sampleRD');
+
+    public $rapid = array(
+        'mode' => 'detail',
+        'module' => 'sampleRD',
+        'field_filter' => array(col1, col2),
+        'id_key' => 'id',
+        'search' => array(
+
+            // このときの条件は「del = '0'」になる
+            'del' => '0'
+        ),
+        'no_data_message' => '詳細データが存在しません。',
+        'nextAction' => 'edit',
+        'prevAction' => 'list'
+    );
+}
+}}}
+
+&br;
+
+** アサインされるデータ
+Detailモード実行後、ビューのテンプレートにアサインされる処理結果のデータについて以下の一覧にまとめました。
+この一覧のデータは「''rd''」配列の要素としてアサインされます。
+|~キー名|~説明|
+|header|詳細情報見出しの配列。データがない場合はアサインされない。&br;配列の中身は使用しているテーブルのうち表示するカラムのカラム名、&br;またはそのカラムに付けられているコメント。|
+|data|詳細情報として表示するデータの配列。データがない場合はアサインされない。|
+|noDataMessage|表示するデータがない場合に表示するメッセージの文字列。&br;データがある場合はアサインされない。|
+|nextAction|遷移先アクションのURI。「./nextActionに設定されたアクション名.html」|
+|prevAction|遷移元アクションのURI。「./prevActionに設定されたアクション名.html」|
+
+* Addモード
+RapidDriveがAddモードで実行されたときテーブルにデータを追加する入力画面を表示するための処理を行います。
+~
+Addモードで実行するには設定配列の「''mode''」に「''add''」と記述します。
+mode以外のAddモード固有の設定には以下のものがあります。
+|~キー名|~説明|
+|input_field|入力フォームの設定を行う項目です。設定を連想配列の形式にして指定します。&br;省略可。省略するとテーブル定義を元に入力フィールドが自動生成されます。|
+|field_filter|入力フィールドの自動生成で自動生成の対象外にするカラムの設定をする。&br;生成したくないカラムの名前を配列にして指定する。|
+|nextAction|遷移先の画面のアクション名を指定します。|
+|lastAction|遷移元の画面のアクション名を指定します。|
+
+** 記述例
+{{{
+class sample {
+
+    // 使用モジュールの設定
+    public $modules = array('sampleRD');
+
+    public $rapid = array(
+        'mode' => 'add',
+        'module' => 'sampleRD',
+        'field_filter' => array(col1, col2),
+        'input_field' => array(
+
+            // 'カラム名' => 設定配列
+            'col1' => array(
+                'field_type' => 'text',
+                'options' => array(
+                    'id' => 'col1',
+                    'prelabel' => 'col1'
+                )
+            ),
+            'col2' => array(
+                'field_type' => 'select',
+                'options' => array(
+                    'id' => 'col2',
+                    'prelabel' => 'col2',
+                    'options' => array(
+                        array(
+                            'value' => '',
+                            'intext' => '----'
+                        ),
+                        array(
+                            'value' => '2010-01-01',
+                            'intext' => '2010/01'
+                        ),
+                        array(
+                            'value' => '2010-02-01',
+                            'intext' => '2010/02'
+                        ),
+                        array(
+                            'value' => '2010-03-01',
+                            'intext' => '2010/03'
+                        )
+                    )
+                )
+            )
+        ),
+        'nextAction' => 'verify',
+        'prevAction' => 'list'
+    );
+}
+}}}
+
+&br;
+
+** アサインされるデータ
+Addモード実行後、ビューのテンプレートにアサインされる処理結果のデータについて以下の一覧にまとめました。
+この一覧のデータは「''rd''」配列の要素としてアサインされます。
+RapidDriveがアサインするデータには、この他にWiseTagのデータがあります。
+
+|~キー名|~説明|
+|validError|入力エラーメッセージの情報配列。入力エラーがない場合はアサインされない。&br;形式： array('フィールド名' => 'エラーメッセージ')|
+|nextAction|遷移先アクションのURI。「./nextActionに設定されたアクション名.html」|
+|prevAction|遷移元アクションのURI。「./prevActionに設定されたアクション名.html」|
+
+* Editモード
+RapidDriveがEditモードで実行されたときテーブルのデータを編集する入力画面を表示するための処理を行います。
+Editモードでは入力フォームを生成するだけですが、Editモードでは入力フォームの初期値として指定された編集対象のデータをセットします。
+~
+Editモードで実行するには設定配列の「''mode''」に「''edit''」と記述します。
+mode以外のEditモード固有の設定には以下のものがあります。
+|~キー名|~説明|
+|idKey|編修対象データのIDを指定するときIDの入力を受け付けるパラメータのキー名を設定します。&br;省略可。省略時はデフォルトで使用するテーブルの主キーのカラム名が設定されます。|
+|input_field|入力フォームの設定を行う項目です。設定を連想配列の形式にして指定します。&br;省略可。省略するとテーブル定義を元に入力フィールドが自動生成されます。|
+|field_filter|入力フィールドの自動生成で自動生成の対象外にするカラムの設定をする。&br;生成したくないカラムの名前を配列にして指定する。|
+|nextAction|遷移先の画面のアクション名を指定します。|
+|lastAction|遷移元の画面のアクション名を指定します。|
+
+** 記述例
+{{{
+class sample {
+
+    // 使用モジュールの設定
+    public $modules = array('sampleRD');
+
+    public $rapid = array(
+        'mode' => 'edit',
+        'module' => 'sampleRD',
+        'idKey' => 'id',
+        'input_field' => array(
+            'hoge' => array(
+                'field_type' => 'text',
+                'options' => array(
+                    'id' => 'hoge',
+                    'prelabel' => 'hoge', 
+                    'length' => '10',
+                    'maxlength' => '20'
+                )
+            ),
+            'foo' => array(
+                'field_type' => 'checkbox',
+                'options' => array(
+                    array(
+                        'id' => 'foo1',
+                        'pretext' => 'foo',
+                        'label' => '1',
+                        'value' => '1'
+                    ),
+                    array(
+                        'id' => 'foo2',
+                        'label' => '2',
+                        'value' => '2'
+                    )
+                )
+            ),
+            'bar' => array(
+                'field_type' => 'select',
+                'options' => array(
+                    'id' => 'bar',
+                    'prelabel' => 'bar',
+                    'options' => array(
+                        array(
+                            'value' => '1',
+                            'intext' => 'bar1',
+                            'selected' => 'selected'
+                        ),
+                        array(
+                            'value' => '2',
+                            'intext' => 'bar2'
+                        ),
+                        array(
+                            'value' => '3',
+                            'intext' => 'bar3'
+                        )
+                    )
+                )
+            )
+        ),
+        'nextAction' => 'detail',
+        'prevAction' => 'save'
+    );
+}
+}}}
+
+&br;
+
+** アサインされるデータ
+Editモード実行後、ビューのテンプレートにアサインされる処理結果のデータについて以下の一覧にまとめました。
+この一覧のデータは「''rd''」配列の要素としてアサインされます。
+RapidDriveがアサインするデータには、この他にWiseTagのデータがあります。
+
+|~キー名|~説明|
+|validError|入力エラーメッセージの情報配列。入力エラーがない場合はアサインされない。&br;形式： array('フィールド名' => 'エラーメッセージ')|
+|nextAction|遷移先アクションのURI。「./nextActionに設定されたアクション名.html」|
+|prevAction|遷移元アクションのURI。「./prevActionに設定されたアクション名.html」|
+
+* Verifyモード
+RapidDriveがVerifyモードで実行されたとき、データ登録の確認画面を表示するための処理を行います。
+確認画面では入力画面から受け取ったデータの入力チェックを行い、データが正しければ確認画面を表示します。
+もし入力されたデータが正しくなければ、エラーメッセージとともに入力画面にリダイレクトします。
+~
+Verifyモードで実行するには設定配列の「''mode''」に「''verify''」と記述します。
+mode以外のVerifyモード固有の設定には以下のものがあります。
+|~キー名|~説明|
+|nextAction|遷移先の画面のアクション名を指定します。|
+|prevAction|遷移元の画面のアクション名を指定します。|
+
+** 記述例
+{{{
+class sample {
+
+    // 使用モジュールの設定
+    public $modules = array('sampleRD');
+
+    public $rapid = array(
+        'mode' => 'verify',
+        'module' => 'sampleRD',
+        'nextAction' => 'save',
+        'prevAction' => 'add'
+    );
+}
+}}}
+
+&br;
+
+** アサインされるデータ
+Verifyモード実行後、ビューのテンプレートにアサインされる処理結果のデータについて以下の一覧にまとめました。
+この一覧のデータは「''rd''」配列の要素としてアサインされます。
+
+|~キー名|~説明|
+|inputData|入力されたデータの配列。入力エラーがある場合はアサインされない。|
+|validError|入力エラーメッセージの情報配列。入力エラーがない場合はアサインされない。&br;形式： array('フィールド名' => 'エラーメッセージ')|
+|nextAction|遷移先アクションのURI。「./nextActionに設定されたアクション名.html」|
+|prevAction|遷移元アクションのURI。「./prevActionに設定されたアクション名.html」|
+
+* Saveモード
+RapidDriveがSaveモードで実行されたとき、入力画面や確認画面から渡されたデータをデータベースに登録する処理を行います。
+この処理は画面表示の処理を行いません。データベースに登録が完了するとそのまま完了画面にリダイレクトします。
+またRapidDriveのSaveモードでは登録前に入力チェック処理も行っています。
+入力チェックにエラーがあれば、Verifyモードと同様に前の画面にリダイレクトします。
+~
+Detailモードで実行するには設定配列の「''mode''」に「''detail''」と記述します。
+mode以外のDetailモード固有の設定には以下のものがあります。
+|~キー名|~説明|
+|transaction|データベースへの登録処理時にトランザクション制御を行うかどうかの設定をします。&br;トランザクション制御をする場合はtrue、しない場合はfalseを設定します。|
+|lock|データベースへの登録処理時にテーブルのロックを行うかどうかの設定をします。&br;ロックする場合はtrue、しない場合はfalseを設定します。|
+|nextAction|遷移先の画面のアクション名を指定します。|
+|prevAction|遷移元の画面のアクション名を指定します。|
+
+** 記述例
+{{{
+class sample {
+
+    // 使用モジュールの設定
+    public $modules = array('sampleRD');
+
+    public $rapid = array(
+        'mode' => 'save',
+        'module' => 'sampleRD',
+        'transaction' => true,
+        'lock' => true,
+        'nextAction' => 'fin',
+        'prevAction' => 'verify',
+    );
+}
+}}}
+
+&br;
+
+** アサインされるデータ
+RapidDriveのSaveモードでは画面出力を行わないため、アサインされるデータはありません。
+
+* Finモード
+RapidDriveがFinモードで実行されたとき登録完了画面を表示するための処理を行います。
+このモードが実行されたとき、RapidDriveで生成した画面のセッションが全て初期化されます。
+~
+Finモードで実行するには設定配列の「''mode''」に「''fin''」と記述します。
+mode以外のFinモード固有の設定には以下のものがあります。
+|~キー名|~説明|
+|nextAction|遷移先の画面のアクション名を指定します。|
+
+** 記述例
+{{{
+class sample {
+
+    // 使用モジュールの設定
+    public $modules = array('sampleRD');
+
+    public $rapid = array(
+        'mode' => 'fin',
+        'module' => 'sampleRD',
+        'nextAction' => 'index',
+        'prevAction' => ''
+    );
+}
+}}}
+
+&br;
+
+** アサインされるデータ
+Finモード実行後、ビューのテンプレートにアサインされる処理結果のデータについて以下の一覧にまとめました。
+この一覧のデータは「''rd''」配列の要素としてアサインされます。
+
+|~キー名|~説明|
+|nextAction|遷移先アクションのURI。「./nextActionに設定されたアクション名.html」|
+
+&br;
+
+** 注意事項
+現バージョンのRapidDriveでは、入力フォーム出力の設定を変更した際、すぐに変更が反映されないことがあります。
+その場合は、セッション情報を削除することで変更が反映されます。
+この問題に関しては、これからのバージョンアップで対応していく予定です。

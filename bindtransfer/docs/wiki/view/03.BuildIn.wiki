@@ -1,0 +1,61 @@
+* ビルトイン変数
+以下はxFrameworkPXがビューの表示時に自動的にアサインするビルトイン変数の一覧です。
+
+* PX変数
+|~変数名|~データ型|>|~説明|
+|px|array|>|xFrameworkPXの設定の一部を配列化してアサインしたデータです。&br;配列化されている設定には以下のものがあります。|
+|^|^|webroot|Webルートディレクトリのパス|
+* OS・ブラウザ判定フラグ
+このビルトイン変数は現在xFrameworkPXが稼働しているサーバのOS判定や、リクエストしてきたブラウザの種類を判定するためのフラグデータです。
+
+&br;
+
+** OS判定フラグ
+|~変数名|~データ型|~説明|
+|isMac|bool|xFrameworkPXが稼働しているサーバーの種類がMacかどうかの判定を行うためのフラグ。&br;Macだった場合はTrueに、それ以外だった場合はfalseになる。|
+|isWindows|^|xFrameworkPXが稼働しているサーバーの種類がWindowsかどうかの判定を行うためのフラグ。&br;Windowsだった場合はTrueに、それ以外だった場合はfalseになる。|
+|isLinux|^|xFrameworkPXが稼働しているサーバーの種類がLinuxかどうかの判定を行うためのフラグ。&br;Linuxだった場合はTrueに、それ以外だった場合はfalseになる。|
+
+&br;
+
+** ブラウザ判定フラグ
+|~変数名|~データ型|~説明|
+|isOpera|bool|リクエストしたWebブラウザの種類がOperaかどうかの判定を行うためのフラグ。&br;Operaだった場合はTrueに、それ以外だった場合はfalseになる。|
+|isChrome|^|リクエストしたWebブラウザの種類がChromeかどうかの判定を行うためのフラグ。&br;Chromeだった場合はTrueに、それ以外だった場合はfalseになる。|
+|isWebKit|^|リクエストしたWebブラウザの種類がWebKit系のブラウザかどうかの判定を行うためのフラグ。&br;WebKit系のブラウザだった場合はTrueに、それ以外だった場合はfalseになる。|
+|isSafari|^|リクエストしたWebブラウザの種類がSafariかどうかの判定を行うためのフラグ。&br;Safariだった場合はTrueに、それ以外だった場合はfalseになる。|
+|isSafari2|^|リクエストしたWebブラウザの種類がSafari2かどうかの判定を行うためのフラグ。&br;Safari2だった場合はTrueに、それ以外だった場合はfalseになる。|
+|isSafari3|^|リクエストしたWebブラウザの種類がSafari3かどうかの判定を行うためのフラグ。&br;Safari3だった場合はTrueに、それ以外だった場合はfalseになる。|
+|isSafari4|^|リクエストしたWebブラウザの種類がSafari4かどうかの判定を行うためのフラグ。&br;Safari4だった場合はTrueに、それ以外だった場合はfalseになる。|
+|isIE|^|リクエストしたWebブラウザの種類がInternetExplorerかどうかの判定を行うためのフラグ。&br;InternetExplorerだった場合はTrueに、それ以外だった場合はfalseになる。|
+|isIE6|^|リクエストしたWebブラウザの種類がInternetExplorer6かどうかの判定を行うためのフラグ。&br;InternetExplorer6だった場合はTrueに、それ以外だった場合はfalseになる。|
+|isIE7|^|リクエストしたWebブラウザの種類がInternetExplorer7かどうかの判定を行うためのフラグ。&br;InternetExplorer7だった場合はTrueに、それ以外だった場合はfalseになる。|
+|isIE8|^|リクエストしたWebブラウザの種類がInternetExplorer8かどうかの判定を行うためのフラグ。&br;InternetExplorer8だった場合はTrueに、それ以外だった場合はfalseになる。|
+|isGecko|^|リクエストしたWebブラウザの種類がGecko系のブラウザかどうかの判定を行うためのフラグ。&br;Gecko系のブラウザだった場合はTrueに、それ以外だった場合はfalseになる。|
+|isGecko2|^|リクエストしたWebブラウザの種類がGecko2系のブラウザかどうかの判定を行うためのフラグ。&br;Gecko2系のブラウザだった場合はTrueに、それ以外だった場合はfalseになる。|
+|isGecko3|^|リクエストしたWebブラウザの種類がGecko3系のブラウザかどうかの判定を行うためのフラグ。&br;Gecko3系のブラウザだった場合はTrueに、それ以外だった場合はfalseになる。|
+|isiPod|^|リクエストしたWebブラウザの種類がiPodに搭載されたブラウザかどうかの判定を行うためのフラグ。&br;iPodに搭載されたブラウザだった場合はTrueに、それ以外だった場合はfalseになる。|
+|isiPhone|^|リクエストしたWebブラウザの種類がiPhoneに搭載されたブラウザかどうかの判定を行うためのフラグ。&br;iPhoneに搭載されたブラウザだった場合はTrueに、それ以外だった場合はfalseになる。|
+|isiPad|^|リクエストしたWebブラウザの種類がiPadに搭載されたブラウザかどうかの判定を行うためのフラグ。&br;iPadに搭載されたブラウザだった場合はTrueに、それ以外だった場合はfalseになる。|
+|isAndroid|^|リクエストしたWebブラウザの種類がAndroid系の端末に搭載されたブラウザかどうかの判定を行うためのフラグ。&br;Android系の端末に搭載されたブラウザだった場合はTrueに、それ以外だった場合はfalseになる。|
+|isXperia|^|リクエストしたWebブラウザの種類がXperiaに搭載されたブラウザかどうかの判定を行うためのフラグ。&br;Xperiaに搭載されたブラウザだった場合はTrueに、それ以外だった場合はfalseになる。|
+
+* site変数
+xFrameworkPXで作成したコンテンツのサイト情報をアサインしたものがsite変数です。
+この設定はユーザーがWebルートディレクトリ直下に置かれた設定ファイル((ここでいう設定ファイルとはsite.pxmlのことを指します。))を編集することで設定を変更することができます。
+|~変数名|~データ型|>|~説明|
+|site|array|>|xFrameworkPXのサイト設定を配列化してアサインしたデータです。&br;参照できる設定には以下のものがあります。|
+|^|^|title|サイトのタイトル|
+|^|^|title_separator|サイトのタイトルセパレータ|
+|^|^|description|サイトの概要|
+|^|^|keywords|サイトの検索用キーワード|
+
+
+* その他
+上記のデータの他に以下のデータもアサインされます。
+
+|~変数名|~データ型|>|~説明|
+|relpath|string|Webルートへの相対パス|
+&br;
+
+----

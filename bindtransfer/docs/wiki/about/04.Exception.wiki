@@ -1,0 +1,52 @@
+* 例外処理
+
+xFrameworkPXには、独自の例外クラスがあります。
+xFrameworkPXの動作に関係するエラーが発声した場合、xFrameworkPXは対応した例外をスローします。
+
+&br;
+
+** 例外クラス一覧
+xFrameworkPXには以下のExceptionクラスがあります。
+
+|~クラス名|~概要|
+|xFrameworkPX_Exception|xFrameworkPXが実装している全Exceptionの基底となる例外です。|
+|xFrameworkPX_Config_Exception|xFrameworkPXが設定を読み込むときに発生する例外です。|
+|xFrameworkPX_Controller_Exception|コントローラーの動作中に発生する例外です。|
+|xFrameworkPX_Controller_Component_Exception|コンポーネントの動作中に発生する例外です。|
+|xFrameworkPX_Model_Exception|モジュールの動作中に発生する例外です。|
+|xFrameworkPX_Util_Exception|ユーティリティクラスの動作中に発生する例外です。|
+|xFrameworkPX_Util_Serializer_Exception|ユーティリティのSerializerクラスの動作中に発生する例外です。|
+|xFrameworkPX_Util_Observable_Exception|ユーティリティのObservableクラスの動作中に発生する例外です。|
+|xFrameworkPX_Validation_Exception|バリデーション機能の動作中に発生する例外です。|
+|xFrameworkPX_View_Exception|ビューの動作中に発生する例外です。|
+
+各クラスのメソッドには共通して、以下のメソッドがあります。
+|~メソッド名|~戻り値|~パラメータ|~説明|
+|コンストラクタ|void|エラーメッセージ :string|newするときに引数でエラーメッセージを渡すことで、&br;生成したExceptionに任意のエラーメッセージを設定できます。|
+|getStackTrace|スタックトレースメッセージ :string|void|発生した例外に対するxFrameworkPX独自のスタックトレースメッセージを返します。|
+|printStackTrace|void|Exceptionのクラス名 :string|xFrameworkPX独自のスタックトレース画面を表示します。&br;引数にExeptionクラスのクラス名を指定することで、任意の例外クラスの名前を使って、&br;スタックトレースの画面を表示できます。&br;省略した場合は実行したクラス名でスタックトレース画面が表示されます。|
+
+例外処理を実装するとき、必要に応じて例外をキャッチすることでこれらのメソッドが使用できます。
+
+xFrameworkPXのExceptionクラスは、PHP標準のExceptionクラスを継承して実装されています。
+そのため、ここに挙げたメソッドの他にも、PHP標準のExceptionクラスに実装されているメソッドが使用可能です。
+それらの詳しい使い方については、PHPのマニュアルを参照してください。
+
+&br;
+
+** 使用例
+{{{
+class example extends xFrameworkPX_Controller_Action
+{
+
+    public function execute()
+    {
+        if (isset($this->post['testData'])) {
+            $this->set('testData', $this->post['testData']);
+        } else {
+            throw new xFrameworkPX_Exception('Empty Need Data');
+        }
+    }
+
+}
+}}}

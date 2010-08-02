@@ -1,0 +1,117 @@
+* 検索条件を指定してレコードを取得する(2)
+
+hasOneでtbl_uriageとtbl_customerを内部結合し、条件を指定してレコードを取得します。
+「''検索条件を指定してレコードを取得する(1)''」で指定した条件より、より高度な条件設定（優先設定）を行います。
+
+&img(./resources/images/tutorial/hasOne6.png){検索条件を指定してレコードを取得する(2)};
+
+
+このチュートリアルでは、次の操作を行います。
+
++ アプリケーションディレクトリにHTMLファイルを設置する
++ アプリケーションディレクトリにコントローラーを設置する
++ モジュールディレクトリにモジュールを設置する
++ 仮想スクリーンの動作を確認する
++ サンプル実行
+
+
+* アプリケーションディレクトリにHTMLファイルを設置する
+
+hasOne6.htmlを設置します。
+ソースコードや設置方法については、「'''検索条件を指定してレコードを取得する(1)'''」と同じなので、そちらを参照してください。
+
+
+* アプリケーションディレクトリにコントローラーを設置する
+
+.hasOne6.phpを設置します。
+コントローラーのクラス名は''hasOne6''になります。
+クラス名以外のソースコードや設置方法については、「'''検索条件を指定してレコードを取得する(1)'''」と同じなので、そちらを参考してください。
+
+
+* モジュールディレクトリにモジュールを設置する
+
+modules下に、次のuriage.phpを設置します。
+
+** uriage.php
+{{{
+<?php
+
+class uriage extends xFrameworkPX_Model
+{
+    public $hasOne = 'tbl_customer';
+
+    public function test()
+    {
+        return $this->get('all',array(
+            'fields' => array(
+                'tbl_uriage.id as id',
+                'tbl_uriage.date as date',
+                'tbl_uriage.customer_id as customer_id',
+                'tbl_customer.id as customer_id_org',
+                'tbl_customer.name as customer_name',
+            ),
+            'conditions' => array(
+                array(
+                    'tbl_customer.id' => '>= 103',
+                    array(
+                        array(
+                            'tbl_customer.name' => '福岡商事'
+                        ),
+                        'OR',
+                        array(
+                            'tbl_customer.name' => '姫路商事'
+                        )
+                    )
+                ),
+                'OR',
+                array(
+                    'tbl_customer.name' => '二島商店'
+                )
+            )
+        ));
+    }
+}
+
+}}}
+
+
+* 仮想スクリーンの動作を確認する
+
+ブラウザで'''''http://yourdomain/hasOne6.html'''''にアクセスします。
+
+２つのテーブルを結合した結果のうち条件に合うデータが、仮想スクリーンに表示されます。
+
+このアソシエーション設定により実行されるSQLは下記の通りです。
+
+{{{
+SELECT
+    tbl_uriage.id AS id,
+    tbl_uriage.date AS DATE,
+    tbl_uriage.customer_id AS customer_id,
+    tbl_customer.id AS customer_id_org,
+    tbl_customer.name AS customer_name
+FROM
+    tbl_uriage
+    INNER JOIN
+    tbl_customer ON
+    tbl_uriage.customer_id = tbl_customer.id
+WHERE
+    (tbl_customer.id >= 103 AND ((tbl_customer.name = '福岡商事') OR (tbl_customer.name = '姫路商事'))) OR
+    (tbl_customer.name = '二島商店')
+}}}
+
+また、期待される結果は次の通りです。
+|~売上No|~日付|~売上表.顧客CD|~顧客表.顧客CD|~顧客名|
+|1|2001-05-27 00:00:00|105|105|福岡商事|
+|2|2001-05-27 00:00:00|101|101|二島商店|
+
+
+* サンプル実行
+
+下記のボタンから、ここまでのサンプルを実行することができます。
+
+[[&img(./resources/images/demo.gif){サンプル画像};>./tutorial/db/association/hasOne6.html>external]]
+
+** サンプル格納位置
+
+'''bindtransfer/docs/tutorial/db/association/'''

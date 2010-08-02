@@ -1,0 +1,104 @@
+* モジュールの作成
+    
+次のチュートリアルでは、xFrameworkPXでモデルの役割をするモジュールクラスを作成します。
+モジュールでは、データベースの操作や、ビジネスロジックの実装を行うことができます。
+
+しかし、モデルは本来、ビジネスロジックを実装するものであって、必ずしもデータベースのテーブルとリンクしているとは限りません。
+そこで今回のチュートリアルでは、テーブルとリンクしないタイプのモジュールを作成する手順を説明します。
+
+このチュートリアルでは、次の操作を行います。
+
++ アプリケーションディレクトリにHTMLファイルを設置する
++ アプリケーションディレクトリにコントローラーを設置する
++ モジュールディレクトリにモジュールを設置する
++ 仮想スクリーンの動作を確認する
++ サンプル実行
+
+
+* アプリケーションディレクトリにHTMLファイルを設置する
+
+webapp下に、仮想スクリーンのテンプレートファイルとして、次のindex.htmlを設置します。
+保存する文字コードは、''UTF-8''、改行コードは''LF''です。
+
+{{{
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-script-Type" content="text/javascript" />
+    <meta http-equiv="content-style-type" content="text/css" />
+    <title>モジュールの作成</title>
+</head>
+<body>
+    <h1>モジュールの作成</h1>
+    このモジュールは<!--{$module_data}-->
+</body>
+</html>
+}}}
+
+
+* アプリケーションディレクトリにコントローラーを設置する
+
+webapp下に、次の.index.phpを設置します。
+保存する文字コードは、''UTF-8''、改行コードは''LF''です。
+
+{{{
+<?php
+
+class index extends xFrameworkPX_Controller_Action
+{
+    public $modules = array('sample');
+
+    public function execute()
+    {
+        $this->set('module_data', $this->sample->testMethod());
+    }
+}
+}}}
+
+$modulesプロパティに、配列で利用したいモジュールクラス名を記述します。
+ここでは、以下で作成する''sample''モジュールを指定します。
+
+
+* モジュールディレクトリにモジュールを設置する
+
+modules下に、次のsample.phpを設置します。
+ポイントは、''$usetable''というプロパティに''false''を設定する点です。
+$usetableにfalseを設定すると、そのモジュールはデータベースへの接続を行いません。
+ただし、あとからこのプロパティを設定することで、任意のテーブルに接続できるようになります。
+
+{{{
+<?php
+
+class sample extends xFrameworkPX_Model
+{
+    public $usetable = false;
+
+    public function testMethod()
+    {
+        return 'データベースと接続していません。';
+    }
+}
+}}}
+
+
+
+
+* 仮想スクリーンの動作を確認する
+
+ブラウザで'''''http://yourdomain/index.html'''''にアクセスします。
+
+仮想スクリーンが表示され、モジュールのメソッドが返す値が出力されていることが確認できます。
+このモジュールは、データベースと接続していないので、このままではテーブルの操作は行えません。
+
+
+* サンプル実行
+
+下記のボタンから、ここまでのサンプルを実行することができます。
+
+[[&img(./resources/images/demo.gif){サンプル画像};>./tutorial/basic/model/>external]]
+
+** サンプル格納位置
+
+'''bindtransfer/docs/tutorial/basic/model/'''

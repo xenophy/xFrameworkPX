@@ -1,0 +1,120 @@
+* ユーザーコンポーネント
+ユーザコンポーネントの作成方法について説明します。
+
+* コンポーネントクラスの作成
+
+** クラスの宣言
+ユーザコンポーネントのクラスは「''xFrameworkPX_Controller_Component''」クラスを継承して作成します。
+作成するクラスファイルは、ファイル名を「''.コンポーネント名.php''」とし、「''controllers''」ディレクトリ下に設置します。
+
+また、クラス名を「ディレクトリ名_(アンダースコア)コントローラー名」とすることで、
+「''controllers/ディレクトリ名/コンポーネントクラスファイル''」、のような階層に設置することができます。
+
+&br;
+
+** 記述例
+{{{
+/**
+ * hogeコンポーネントクラス
+ *  このコンポーネントクラスのクラスファイルは
+ *  controllersディレクトリ直下に「.hoge.php」というファイル名で作成します。
+ */
+class hoge extends xFrameworkPX_Controller_Component
+{
+}
+
+/**
+ * hogeコンポーネントクラス
+ *  このコンポーネントクラスのクラスファイルは
+ *  /controllers/foo/barに「.hoge.php」というファイル名で作成します。
+ */
+class foo_bar_hoge extends xFrameworkPX_Controller_Component
+{
+}
+}}}
+
+* コンストラクタの定義
+コンポーネントクラスは、引数を持ったコンストラクタを定義することで、
+クラス生成時に、コンポーネントの設定で指定した「'args'」の値をパラメータとして受け取り、
+任意の処理を行うことができます。
+
+{{{
+/**
+ * コンポーネントクラス
+ */
+class hoge extends xFrameworkPX_Controller_Component
+{
+
+    // 設定1
+    private $_conf1;
+
+    // 設定2
+    private $_conf2;
+
+    // 設定3
+    private $_conf3;
+
+    public $__construct($args)
+    {
+        $this->_conf1 = (isset($args['conf1'])) ? $args['conf1'] : false;
+        $this->_conf2 = (isset($args['conf2'])) ? $args['conf2'] : false;
+        $this->_conf3 = (isset($args['conf3'])) ? $args['conf3'] : false;
+    }
+}
+
+/**
+ * コントローラークラス
+ */
+class example extends xFrameworkPX_Controller_Action
+{
+    protected $_components = array(
+        array(
+            'clsName' => 'hoge',
+            'bindName' => 'Hoge',
+            'args' => array(
+                'conf1' => true,
+                'conf2' => 1,
+                'conf3' => 'save'
+            )
+        )
+    );
+}
+}}}
+
+* メソッドの実装
+メソッド名には、任意の名前を付けることができます。
+作成したメソッドを、コントローラークラスから呼び出す場合は、
+「''$this->バインド名->メソッド名''」になります。
+
+{{{
+/**
+ * コンポーネントクラス
+ */
+class hoge extends xFrameworkPX_Controller_Component
+{
+    public function exeHoge($param)
+    {
+        return sprintf('input data is "%s"', $param);
+    }
+}
+
+/**
+ * コントローラークラス
+ */
+class example extends xFrameworkPX_Controller_Action
+{
+    protected $_components = array(
+        array(
+            'clsName' => 'hoge',
+            'bindName' => 'Hoge'
+        )
+    );
+
+    public function execute()
+    {
+        $this->set(
+            'inData', $this->Hoge->exeHoge($post['hoge'])
+        );
+    }
+}
+}}}

@@ -1,0 +1,76 @@
+* ユーザービヘイビア
+ユーザービヘイビアとして使用する、ビヘイビアクラスの作成方法について説明します。
+
+* ビヘイビアクラスの作成
+
+** クラスの宣言
+ビヘイビアクラスは、「''xFrameworkPX_Model_Behavior''」クラスを継承して作成します。
+作成するクラスファイルは、ファイル名を「''ビヘイビア名.php''」とし、「''behaviors''」ディレクトリ下に設置します。
+
+また、クラス名を「ディレクトリ名_(アンダースコア)ビヘイビア名」とすることで、
+「''behabiors/ディレクトリ名/ビヘイビアクラスファイル''」、のような階層に設置することができます。
+
+&br;
+
+** 記述例
+{{{
+/**
+ * hogeビヘイビアクラス
+ *  このビヘイビアクラスのクラスファイルは
+ *  behabiorsディレクトリ直下に「hoge.php」というファイル名で作成します。
+ */
+class hoge extends xFrameworkPX_Model_Behavior
+{
+}
+
+/**
+ * hogeビヘイビアクラス
+ *  このビヘイビアクラスのクラスファイルは
+ *  /behabiors/foo/barに「hoge.php」というファイル名で作成します。
+ */
+class foo_bar_hoge extends xFrameworkPX_Model_Behavior
+{
+}
+}}}
+
+
+* メソッドの作成
+メソッド名は、「''bind''」で始めて、bindの後の1文字目は大文字にしてください。
+このビヘイビアのメソッドを、モジュールクラスから呼び出す場合は、
+メソッド名から'bind'を除いて、さらに先頭1文字目を小文字にした名前を使用します。
+
+{{{
+/**
+ * ビヘイビアクラス
+ */
+class hoge extends xFrameworkPX_Model_Behavior
+{
+
+    /**
+     * 拡張用メソッド foo
+     */
+    public function bindFoo($param)
+    {
+        return $param;
+    }
+
+}
+
+
+/**
+ * モジュールクラス
+ */
+class example extends xFrameworkPX_Model
+{
+    /**
+     * ビヘイビアの設定
+     */
+    public $behaviors = array('hoge');
+
+    public function test()
+    {
+        $this->foo('test');
+    }
+}
+}}}
+

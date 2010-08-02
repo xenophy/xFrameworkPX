@@ -1,0 +1,657 @@
+* LiveRecord
+LiveRecordは、xFrameworkPXに実装されているビルトインビヘイビアです。
+
+* テーブルのデータを検索する(SELECT)
+データベースのテーブルに対してSELECT文を発行してデータの検索を行い、その結果を取得する各種メソッドについて説明します。
+
+&br;
+
+** row(array, bool)
+テーブルから検索を行い、単一行の検索結果を取得するメソッドです。
+検索結果が複数ある場合は先頭1件目のデータを取得します。
+
+以下は、rowメソッドの仕様一覧です。
+|~戻り値|>|>|検索結果の配列。&br;戻り値の動作は引数のfetchに指定された値によって変わります。|
+|~引数|options|>|検索に関する設定配列。ここでは以下の要素の連想配列を指定します。|
+|^|^|query|実行するクエリを文字列で指定します。((後述するwhere, group, having, orderの設定をせず、ここでWHERE句、GROUP BY句、HAVING句、ORDER BY句を記述することができます。&br;なおLIMIT句は記述することはできません。))|
+|^|^|bind|クエリで使用するバインドデータの配列を指定します。このパラメータは省略可能です。|
+|^|^|fetch|フェッチモードを指定します。&br;この引数を省略した場合、デフォルトでModuleクラスの&br;fetchmodeプロパティの値が設定されます。|
+|^|^|where|WHERE句の設定を文字列か配列で指定します。このパラメータは省略可能です。|
+|^|^|group|GROUP BY句の設定を文字列で指定します。このパラメータは省略可能です。|
+|^|^|having|HAVING句の設定を文字列で指定します。このパラメータは省略可能です。|
+|^|^|order|ORDER BY句の設定を文字列で指定します。このパラメータは省略可能です。|
+|^|onlyQuery|>|trueを指定するとSQLを実行せず実行するSQLの文字列を返します。&br;このパラメータは省略可能です。省略した場合は初期値としてfalseが指定されます。|
+
+&br;
+
+** rowAll(array, bool)
+テーブルから検索を行い、検索結果を全行取得するメソッドです。
+
+以下は、rowAllメソッドの仕様一覧です。
+|~戻り値|>|>|検索結果の配列。&br;戻り値の動作は引数のfetchに指定された値によって変わります。|
+|~引数|options|>|検索に関する設定配列。ここでは以下の要素の連想配列を指定します。|
+|^|^|query|実行するクエリを文字列で指定します。((後述するwhere, group, having, orderの設定をせず、ここでWHERE句、GROUP BY句、HAVING句、ORDER BY句を記述することができます。&br;このメソッドではLIMIT句を記述することができます。))|
+|^|^|bind|クエリで使用するバインドデータの配列を指定します。このパラメータは省略可能です。|
+|^|^|fetch|フェッチモードを指定します。&br;このパラメータを省略した場合、デフォルトでModuleクラスの&br;fetchmodeプロパティの値が設定されます。|
+|^|^|where|WHERE句の設定を文字列か配列で指定します。このパラメータは省略可能です。|
+|^|^|group|GROUP BY句の設定を文字列で指定します。このパラメータは省略可能です。|
+|^|^|having|HAVING句の設定を文字列で指定します。このパラメータは省略可能です。|
+|^|^|order|ORDER BY句の設定を文字列で指定します。このパラメータは省略可能です。|
+|^|^|limit|検索結果に対して指定された件数毎にページ分けを行い、指定されたページのみを返します。&br;limitは1ページあたりのデータの件数を指定し、&br;pageはページ分けを行ったあと結果として返すページ番号を指定します。|
+|^|^|page|^|
+|^|onlyQuery|>|trueを指定するとSQLを実行せず実行するSQLの文字列を返します。&br;このパラメータは省略可能です。省略した場合は初期値としてfalseが指定されます。|
+
+&br;
+
+** count(array, bool)
+テーブルから検索を行い、SQLのCOUNT関数を使用して検索結果の件数を取得するメソッドです。
+
+以下は、countメソッドの仕様一覧です。
+|~戻り値|>|>|検索結果の配列。&br;戻り値の動作は引数のfetchに指定された値によって変わります。|
+|~引数|options|>|ここでは以下の要素の連想配列を指定します。|
+|^|^|select|COUNT関数の記述を文字列で行います。&br;このパラメータを省略した場合'COUNT(*)'がデフォルトで設定されます。|
+|^|^|where|WHERE句の設定を文字列か配列で指定します。このパラメータは省略可能です。|
+|^|^|bind|クエリで使用するバインドデータの配列を指定します。このパラメータは省略可能です。|
+|^|onlyQuery|>|trueを指定するとSQLを実行せず実行するSQLの文字列を返します。&br;このパラメータは省略可能です。省略した場合は初期値としてfalseが指定されます。|
+
+&br;
+
+** get(string, array)
+テーブルから検索を行い検索結果を取得するメソッドです。
+rowやrowAllなどのメソッドとの違いは、まずSQLの指定をすることなく検索することができる点です。
+また、hasOneやbelongsToなどのプロパティの情報をもとにテーブルの結合についても自動的に行ってくれます。
+
+以下は、getメソッドの仕様一覧です。
+|~戻り値|>|>|検索結果の配列。&br;戻り値の動作はModuleクラスのfetchmodeに指定された値によって変わります。|
+|~引数|type|>|メソッドの実行タイプを文字列で指定します。&br;all: 検索結果を全件取得します。typeのパラメータを省略した場合の、デフォルト設定もこれになります。&br;first: 検索結果のうち1件を取得します。&br;count: 検索結果のレコード件数を取得します。|
+|^|config|>|検索に関する設定配列。ここでは以下の要素の連想配列を指定します。|
+|^|^|fields|取得する検索結果のカラム名を配列で指定します。このパラメータは省略可能です。&br;省略した場合「''*''」が設定されます。|
+|^|^|conditions|WHERE句に指定する検索条件を、連想配列で指定します。&br;このパラメータの詳細については後述します。このパラメータは省略可能です。|
+|^|^|group|GROUP BY句の設定を配列で指定します。このパラメータは省略可能です。|
+|^|^|having|HAVING句の設定を配列で指定します。このパラメータは省略可能です。|
+|^|^|order|ORDER BY句の設定を配列で指定します。このパラメータは省略可能です。|
+|^|^|limit|検索結果に対して指定された件数毎にページ分けを行い、指定されたページのみを返します。&br;limitは1ページあたりのデータの件数を指定し、&br;pageはページ分けを行ったあと結果として返すページ番号を指定します。|
+|^|^|page|^|
+
+*** conditionsの指定方法
+conditionsはテーブルのカラム名をキー名として、要素にそのカラムに対する条件の値を指定します。
+また、値の先頭に比較演算子を付加して配列の要素にすると、カラムに対して様々な条件を設定することができます。
+
+以下は、conditionsの要素で指定できる比較演算子の一覧です。
+|~演算子|~指定例|~条件式|~説明|
+|なし|array('カラム' => 'データ')|カラム = データ|「カラム名 = 値」の条件で検索します。((「カラム名 = 値」の検索を行う場合、次のような指定はできません。&br;「array('カラム' => '= データ')」))|
+|<>|array('カラム' => '<> データ')|カラム <> データ|「カラム名 <> 値」の条件で検索します。|
+|<=|array('カラム' => '<= データ')|カラム <= データ|「カラム名 <= 値」の条件で検索します。|
+|>=|array('カラム' => '>= データ')|カラム >= データ|「カラム名 >= 値」の条件で検索します。|
+|<|array('カラム' => '< データ')|カラム < データ|「カラム名 < 値」の条件で検索します。|
+| >|array('カラム' => '> データ')|カラム > データ|「カラム名 > 値」の条件で検索します。|
+|LIKE |array('カラム' => 'LIKE %データ%')|カラム LIKE '%データ%'|「カラム名 LIKE 値」の条件で検索します。|
+|IS NULL|array('カラム' => 'IS NULL')|カラム IS NULL|「カラム名 IS NULL」の条件で検索します。|
+|IS NOT NULL|array('カラム' => 'IS NOT NULL')|カラム IS NOT NULL|「カラム名 IS NOT NULL」の条件で検索します。|
+|BETWEEN AND|array('カラム' => 'BETWEEN データ1 AND データ2')|カラム BETWEEN データ1 AND データ2|「カラム名 BETWEEN 値1 AND 値2」の条件で検索します。|
+|NOT BETWEEN AND|array('カラム' => 'NOT BETWEEN データ1 AND データ2')|カラム NOT BETWEEN データ1 AND データ2|「カラム名 NOT BETWEEN 値1 AND 値2」の条件で検索します。|
+|IN |array('カラム' => 'IN データ1,データ2,データ3'|カラム IN (データ1, データ2, データ3)|「カラム名 IN (値1, 値2,...)」の条件で検索します。|
+|NOT IN |array('カラム' => 'NOT IN データ1,データ2,データ3'|カラム NOT IN (データ1, データ2, データ3)|「カラム名 NOT IN (値1, 値2,...)」の条件で検索します。|
+
+&br;
+
+複数の条件を指定した場合は、それら全てのAND条件になります。
+conditionsに、スカラー配列の要素として、「''AND''」もしくは「''OR''」を指定することで、AND条件やOR条件の指定をすることができます。
+
+同一のカラムに対して条件を指定する場合は、条件の設定を配列として指定する必要があります。
+
+以下は、conditionsの記述例です。
+{{{
+
+// 一般的な指定
+$this->get(
+    'all',
+    array(
+        'conditions' => array(
+            'name' => 'LIKE Tanaka%',
+            'sex' => '1',
+            'age' => '>= 20'
+        )
+    )
+);
+
+// OR条件の指定
+$this->get(
+    'all',
+    array(
+        'conditions' => array(
+            'name' => 'LIKE Tanaka%',
+            'OR',
+            'sex' => '1',
+            'OR',
+            'age' => '>= 20'
+        )
+    )
+);
+
+// 同じカラムへの条件指定
+$this->get(
+    'all',
+    array(
+        'conditions' => array(
+            'name' => 'LIKE Tanaka%',
+            'sex' => '1',
+            array('age' => '>= 20'),
+            'AND',
+            array('age' => '< 30')
+        )
+    )
+);
+}}}
+
+&br;
+
+** lastId()
+usetableプロパティに設定されているテーブルに対して最後に登録されたレコードの主キーを返すメソッドです。
+
+以下は、setメソッドの仕様一覧です。
+|~戻り値|結果として返ってくる主キーの値|
+|~引数|なし|
+
+&br;
+
+** 使用例
+
+{{{
+class example extends xFrameworkPX_Model
+{
+    /**
+     * 使用するテーブルの設定
+     */
+    public $usetable = 'tbl_example';
+
+    /**
+     * rowメソッドの使用例
+     *
+     * 主キーの値が引数で渡したデータと同じレコードを検索
+     */
+    public function rowTest($id)
+    {
+        return $this->row(array(
+            'query' => 'SELECT * FROM ' . $this->usetable,
+            'where' => 'id = :user_id',
+            'order' => 'id ASC',
+            'bind' => array('user_id' => $id)
+        ));
+    }
+
+    /**
+     * rowAllメソッドの使用例
+     *
+     * 引数で渡した文字列に部分一致するレコードを検索
+     */
+    public function rowAllTest($name)
+    {
+        return $this->row(array(
+            'query' => 'SELECT name, sex, age, note FROM ' . $this->usetable,
+            'where' => 'naem LIKE :user_name',
+            'order' => 'id ASC',
+            'bind' => array('user_id' => sprintf('%%%s%%', $name))
+        ));
+    }
+
+    /**
+     * countメソッドの使用例
+     *
+     * 指定した条件に一致するレコードの件数を集計
+     */
+    public function countTest($sex)
+    {
+        return $this->count(array(
+            'where' => 'sex = :user_sex',
+            'bind' => array('user_sex' => $sex)
+        ));
+    }
+
+    /**
+     * getメソッドの使用例
+     *
+     * 上記の三つをgetで行った場合
+     */
+    public function getTest($param)
+    {
+        $ret = array();
+
+        $ret['row'] = $this->get(
+            'first',
+            array(
+                'conditions' => array(
+                    'id' => $param['id']
+                ),
+                'order' => array('id ASC')
+            )
+        );
+
+        $ret['rowAll'] = $this->get(
+            'all',
+            array(
+                'fields' => array('name', 'sex', 'age', 'note'),
+                'conditions' => array(
+                    'name' => sprintf('LIKE %%%s%%', $param['name'])
+                ),
+                'order' => array('id ASC')
+            )
+        );
+
+        $ret['count'] = $this->get(
+            'count',
+            array(
+                'conditions' => array('sex' => $param['sex'])
+            )
+        );
+
+        return $ret;
+    }
+}
+}}}
+
+&br;
+
+* テーブルにデータを書き込む
+
+** insert(array, bool)
+設定に基づいてINSERT文を発行し、テーブルに対してデータを挿入するメソッドです。
+
+以下は、insertメソッドの仕様一覧です。
+|~戻り値|>|>|テーブルへレコードの挿入が成功した場合はtrue、失敗した場合はfalseを返します。|
+|~引数|options|>|挿入に関する設定配列。ここでは以下の要素の連想配列を指定します。|
+|^|^|field|データを挿入するテーブルのカラム名の配列を指定します。|
+|^|^|value|挿入するデータの配列を指定します。&br;データバインドを使用する場合はこの配列の要素にバインド変数を指定します。|
+|^|^|bind|バインドデータの配列を指定します。このパラメータは省略可能です。|
+|^|onlyQuery|>|trueを指定するとSQLを実行せず実行するSQLの文字列を返します。&br;このパラメータは省略可能です。。省略した場合は初期値としてfalseが指定されます。|
+
+&br;
+
+** update(array, bool)
+設定に基づいてUPDATE文を発行し、テーブルのデータを更新するメソッドです。
+
+以下は、updateメソッドの仕様一覧です。
+|~戻り値|>|>|レコードの更新に成功した場合はtrue、失敗した場合はfalseを返します。|
+|~引数|options|>|更新に関する設定配列。ここでは以下の要素の連想配列を指定します。|
+|^|^|field|データを更新するテーブルのカラム名の配列を指定します。|
+|^|^|value|更新に使用するデータの配列を指定します。&br;データバインドを使用する場合はこの配列の要素にバインド変数を指定します。|
+|^|^|bind|バインドデータの配列を指定します。このパラメータは省略可能です。|
+|^|^|where|UPDATE文のWHERE句の設定を文字列か配列で指定します。このパラメータは省略可能です。|
+|^|onlyQuery|>|trueを指定するとSQLを実行せず実行するSQLの文字列を返します。&br;このパラメータは省略可能です。省略した場合は初期値としてfalseが指定されます。|
+
+&br;
+
+** set(array, array, bool)
+指定されたデータを書き込むメソッドです。
+このメソッドはデータを書き込む際に、同じ主キーのデータが存在している場合や条件が指定された場合はデータの更新を行い、
+そうでなければデータの挿入を行います。
+
+以下は、setメソッドの仕様一覧です。
+|~戻り値|>|なし|
+|~引数|data|テーブルに対して書き込むデータの配列。array('カラム名' => 'データ')の形式の連想配列を指定します。|
+|^|primaryCond|更新する場合に指定する更新対象の条件設定配列|
+|^|lock|テーブルのロック処理フラグ。テーブルにレコードを書き込む際にロックを行いたい場合、''true''を指定する。&br;このパラメータは省略可能です。省略した場合、trueが設定されます。|
+
+** 使用例
+
+{{{
+class example extends xFrameworkPX_Model
+{
+    /**
+     * 使用するテーブルの設定
+     */
+    public $usetable = 'tbl_example';
+
+    /**
+     * insertメソッドの使用例
+     *
+     * 引数で渡したデータを挿入
+     */
+    public function insertTest($data)
+    {
+        $this->insert(array(
+            'field' => array('name', 'sex', 'age', 'note'),
+            'value' => array(':user_name', 'user_sex', 'user_age', 'user_note'),
+            'bind' => array(
+                'user_name' => $data['name'],
+                'user_sex' => $data['sex'],
+                'user_age' => $data['age'],
+                'user_note' => $data['note']
+            )
+        ));
+    }
+
+    /**
+     * updateメソッドの使用例
+     *
+     * 主キーの値が引数で渡したデータと同じレコードを更新
+     */
+    public function updateTest($data)
+    {
+        $this->update(array(
+            'field' => array('name', 'sex', 'age', 'note'),
+            'value' => array(':user_name', 'user_sex', 'user_age', 'user_note'),
+            'where' => 'id = :user_id',
+            'bind' => array(
+                'user_id' => $data['id'],
+                'user_name' => $data['name'],
+                'user_sex' => $data['sex'],
+                'user_age' => $data['age'],
+                'user_note' => $data['note']
+            )
+        ));
+    }
+
+    /**
+     * setメソッドの使用例
+     *
+     * 上記二つをsetで行った場合
+     */
+    public function setTest($data)
+    {
+
+        if (isset($data['id'])) {
+            $this->set(
+                array(
+                    'name' => $data['name'],
+                    'sex' => $data['sex'],
+                    'age' => $data['age'],
+                    'note' => $data['note']
+                ),
+                array('id' => $data['id'])
+            );
+        } else {
+            $this->set(
+                array(
+                    'name' => $data['name'],
+                    'sex' => $data['sex'],
+                    'age' => $data['age'],
+                    'note' => $data['note']
+                )
+            );
+        }
+    }
+
+
+}
+}}}
+
+&br;
+
+* テーブルのデータを削除する
+
+** delete(array, bool)
+指定した条件と一致するデータをテーブルから削除します。
+
+以下は、deleteメソッドの仕様一覧です。
+|~戻り値|>|>|レコードの削除に成功した場合はture、失敗した場合はfalseを返します。|
+|~引数|options|>|削除に関する設定配列。ここでは以下の要素の連想配列を指定します。|
+|^|^|where|DELETE文のWHERE句の設定を文字列か配列で指定します。このパラメータは省略可能です。|
+|^|^|bind|バインドデータの配列を指定します。このパラメータは省略可能です。|
+|^|onlyQuery|>|trueを指定するとSQLを実行せず実行するSQLの文字列を返します。&br;このパラメータは省略可能です。省略した場合は初期値としてfalseが指定されます。|
+
+&br;
+
+** remove(array)
+指定した条件と一致するデータをテーブルから削除します。
+
+以下は、removeメソッドの仕様一覧です。
+|~戻り値|>|>|なし|
+|~引数|cond|>|削除するデータの条件配列。配列の形式は以下の二通りです。|
+|^|^|conditions|conditionsをキーに条件設定の配列を指定します。|
+|^|^|キーなし|スカラー配列の要素として削除したい主キーの値を指定します。|
+
+&br;
+
+** truncate(bool)
+TRUNCATE文を発行してテーブルに登録されているデータを全て消去し初期化します。
+
+以下は、truncateメソッドの仕様一覧です。
+|~戻り値|>|引数にtrueが指定された場合のみ、発行するクエリの文字列を返します。|
+|~引数|onlyQuery|trueを指定するとSQLを実行せず実行するSQLの文字列を返します。&br;このパラメータは省略可能です。省略した場合は初期値としてfalseが指定されます。|
+
+** 使用例
+
+{{{
+class example extends xFrameworkPX_Model
+{
+    /**
+     * 使用するテーブルの設定
+     */
+    public $usetable = 'tbl_example';
+
+    /**
+     * deleteメソッドの使用例
+     *
+     * 主キーの値が引数で渡したデータと同じレコードを削除
+     */
+    public function deleteTest($id)
+    {
+        $this->delete(array(
+            'where' => 'id = :user_id',
+            'bind' => array('user_id' => $id)
+        ));
+    }
+
+    /**
+     * truncateメソッドの使用例
+     *
+     * テーブルのデータを全て消去し、初期化する
+     */
+    public function truncateTest()
+    {
+        $this->truncate();
+    }
+
+    /**
+     * removeメソッドの使用例
+     *
+     * deleteの使用例と同じ処理をremoveで行った場合
+     */
+    public function removeTest($id)
+    {
+        $this->delete(array($id));
+    }
+}
+}}}
+
+&br;
+
+* その他
+** connection()
+このメソッドはPDOオブジェクトによるコネクションを取得します。
+
+&br;
+
+** driver()
+このメソッドはPDOオブジェクトに設定されているドライバーの名前を取得するときに使用します。
+
+&br;
+
+** schema(array)
+これはModelのusetableプロパティに定義されているテーブルのスキーマ情報を取得するメソッドです。
+また、引数にカラム名の配列を渡すことで取得するスキーマ情報から配列に記述してあるカラム名の情報を除くことができます。
+
+&br;
+
+** database()
+databaseメソッドは使用するデータベースの名前を取得します。
+
+&br;
+
+** getTableInfo()
+このメソッドを使用するとModelのusetableプロパティに定義されているテーブルの情報を取得できます。
+ここで取得できる情報はschema情報とは別のものになります。
+
+&br;
+
+** exec(array, bool), query(array, bool), execute(array, bool)
+これらのメソッドは引数で渡されたクエリを実行するメソッドです。
+
+:exec|PDOのexecメソッドを使用してクエリを実行します。((このメソッドはSELECT以外のDMLのクエリ(INSERT、UPDATE、DELETE等)を実行するときに使用します。))&br;戻り値として実行した''SQL文が作用した行数''を返します。
+:query| PDOのqueryメソッドを使用してクエリを実行します。((このメソッドはSELECTのクエリを実行するときに使用します。))&br;戻り値として実行に成功した場合は結果セットの''PDOStatementオブジェクト''を、失敗した場合は''false''を返します。
+:execute|PDOStatementのexecuteメソッドを使用してクエリを実行します。&br;戻り値として実行に成功した場合は''true'', 失敗した場合は''false''を返します。
+
+
+以下はそれぞれのメソッドの引数についての一覧です。
+|~メソッド名|~引数名|~型|~説明|
+|exec,&br;query|option|array|実行するクエリ設定配列。下記のキー名と要素を持つ連想配列を指定します。&br;query: 実行するクエリ|
+|^|onlyQuery|bool|trueを指定するとSQLを実行せず実行するSQLの文字列を返します。&br;このパラメータは省略可能です。&br;省略した場合は初期値としてfalseが指定されます。|
+|execute|option|array|実行するクエリ設定配列。下記のキー名と要素を持つ連想配列を指定します。。&br;query: 実行するクエリ&br;bind: データバインド用の配列。データバインドを使用しない場合は省略可。&br;fetch: フェッチモード設定。このパラメータは省略可能です。省略した場合'''PDO::FETCH_ASSOC'''がデフォルトで設定されます。|
+|^|onlyQuery|bool|trueを指定するとSQLを実行せず実行するSQLの文字列を返します。&br;このパラメータは省略可能です。&br;省略した場合は初期値としてfalseが指定されます。|
+
+{{{
+class example extends xFrameworkPX_Model
+{
+    /**
+     * 使用するテーブルの設定
+     */
+    public $usetable = 'tbl_example';
+
+    /**
+     * execメソッドの使用例
+     */
+    public function execTest($data)
+    {
+        $this->delete(array(
+            'query' => sprintf(
+                'INSERT INTO %s (name, sex, age, note) VALUE('%s', %s, %s, '%s')',
+                $this->usetable,
+                $data['name'],
+                $data['sex'],
+                $data['age'],
+                $data['note']
+            )
+        ));
+    }
+
+    /**
+     * queryメソッドの使用例
+     */
+    public function queryTest($id)
+    {
+        $this->query(array(
+            'query' => sprintf(
+                'SELECT name, sex, age FROM %s WHERE id = %s',
+                $this->usetable,
+                $id
+            )
+        ));
+    }
+
+    /**
+     * executeメソッドの使用例
+     */
+    public function executeTest($name)
+    {
+        $this->execute(array(
+            'query' => sprintf(
+                'SELECT * FROM %s WHERE name LIKE :user_name',
+                $this->usetable
+            )
+            'bind' => array('user_name' => sprintf('%%%s%%', $name))
+        ));
+    }
+}
+}}}
+
+&br;
+
+** beginTrans(), commit(), rollback()
+これらのメソッドはトランザクション制御に関するメソッドです。
+それぞれのメソッドの詳細について以下に示します。
+:beginTransメソッド|トランザクションを開始するメソッドです。&br;内部でPDOのbeginTransactionメソッドを使用します。
+:commitメソッド|このメソッドはトランザクションをコミットします。&br;内部でPDOのcommitメソッドを使用します。
+:rollbackメソッド|トランザクションをロールバックします。&br;内部でPDOのrollBackメソッドを使用します。
+
+&br;
+
+** bind(array), unbind(array)
+これら二つのメソッドはモジュールの処理中にhasOneやbelognsToなどのプロパティの設定を、
+動的に変更するためのメソッドです。
+二つとも戻り値はありません。
+
+以下は、各メソッドの仕様一覧です。
+|~メソッド名|~引数名|~型|>|~説明|
+|bind|config|array|>|以下のキーを持つ連想配列になります。|
+|^|^|^|hasOne|hasOne設定に追加したいテーブルとその結合設定の配列を指定します。&br;このパラメータは省略可能です。|
+|^|^|^|belongsTo|belongsTo設定に追加したいテーブルとその結合設定の配列を指定します。&br;このパラメータは省略可能です。|
+|^|^|^|hasMany|hasMany設定に追加したいテーブルとその結合設定の配列を指定します。&br;このパラメータは省略可能です。|
+|unbind|config|array|>|以下のキーを持つ連想配列になります。|
+|^|^|^|hasOne|hasOneから削除したいテーブルの名前の配列を指定します。&br;このパラメータは省略可能です。|
+|^|^|^|belongsTo|belongsToから削除したいテーブルの名前の配列を指定します。&br;このパラメータは省略可能です。|
+|^|^|^|hasMany|hasManyから削除したいテーブルの名前の配列を指定します。&br;このパラメータは省略可能です。|
+
+{{{
+class example extends xFrameworkPX_Model
+{
+    /**
+     * 使用するテーブルの設定
+     */
+    public $usetable = 'tbl_example';
+
+    /**
+     * bindの使用例(hasOne設定時)
+     */
+    public function bindHasOneTest()
+    {
+        $this->bind(array(
+            'hasOne' => array(
+                'tbl_hoge' => array(
+                    'type' => 'LEFT',
+                    'primaryKey' => 'id',
+                    'foreignKey' => 'hoge_id'
+                )
+            )
+        ));
+    }
+
+
+    /**
+     * bindの使用例(belongsTo設定時)
+     */
+    public function bindBelongsToTest()
+    {
+        $this->bind(array(
+            'belongsTo' => array(
+                'tbl_foo' => array(
+                    'type' => 'RIGHT',
+                    'primaryKey' => 'id',
+                    'foreignKey' => 'foo_id'
+                )
+            )
+        ));
+    }
+
+
+    /**
+     * bindの使用例(hasMany設定時)
+     */
+    public function bindHasManyTest()
+    {
+        $this->bind(array(
+            'hasMany' => array(
+                'tbl_bar' => array(
+                    'type' => 'RIGHT',
+                    'primaryKey' => 'id',
+                    'foreignKey' => 'bar_id'
+                )
+            )
+        ));
+    }
+
+    /**
+     * unbind
+     */
+    public function unbindTest()
+    {
+        $this->unbind(array(
+            'hasOne' => array('tbl_hoge'),
+            'belongsTo' => array('tbl_foo'),
+            'hasMany' => array('tbl_bar')
+        ));
+    }
+}
+}}}
+
+----

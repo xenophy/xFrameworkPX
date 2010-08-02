@@ -1,0 +1,296 @@
+* RapidDriveの基本操作(4)
+
+
+ここでは、「RapidDriveの基本操作(2)」で作成した詳細画面にデータの編集機能を追加します。
+
+このチュートリアルでは、次の操作を行います。
+
++ アプリケーションディレクトリにHTMLファイルを設置する
++ アプリケーションディレクトリにコントローラーを設置する
++ モジュールディレクトリにモジュールを設置する
++ 仮想スクリーンの動作を確認する
++ サンプル実行
+
+
+* アプリケーションディレクトリにHTMLファイルを設置する
+webapp下に、次のindex.html、detail.html、edit.html、verify.html、fin.htmlを設置します。
+保存する文字コードは、''UTF-8''、改行コードは''LF''です。
+
+&br;
+
+** index.html
+「'''RapidDriveの基本操作(2)'''」で作成したindex.htmlと同じものを設置します。
+ソースコードは、「'''bindtransfer/docs/tutorial/rapid/edit/'''」にあるチュートリアルのサンプルを参考にしてください。
+
+&br;
+
+** detail.html
+「'''RapidDriveの基本操作(2)'''」で作成したdetail.htmlに、編集ボタンを追加します。
+ソースコードは、「'''bindtransfer/docs/tutorial/rapid/edit/'''」にあるチュートリアルのサンプルを参考にしてください。
+
+&br;
+
+** edit.html
+データの編集をするための入力画面です。
+ソースコードは以下の通りです。
+{{{
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-script-Type" content="text/javascript" />
+    <meta http-equiv="content-style-type" content="text/css" />
+    <title>RapidDriveの基本操作(4) - 一覧画面</title>
+    <style>
+
+    table {
+        border-top: solid #222 1px;
+        border-left: solid #222 1px;
+    }
+    th,td {
+        border-right: solid #222 1px;
+        border-bottom: solid #222 1px;
+        padding: 5px;
+    }
+    th {
+        background-color: #efefef;
+    }
+
+    div {
+        margin-bottom: 20px;
+    }
+
+    </style>
+</head>
+<body>
+    <h1>RapidDriveの基本操作(4) - 一覧画面</h1>
+
+    <form method="get" action="./" id="mainform">
+        <div>
+            <table border="0" cellspacing="0" cellpadding="0" class="tablelayout">
+                <tr>
+                    <th>氏名</th>
+                    <td><!--{$wt.index.name}--></td>
+                </tr>
+                <tr>
+                    <th>年齢</th>
+                    <td><!--{$wt.index.age}--></td>
+                </tr>
+                <tr>
+                    <th>性別</th>
+                    <td><!--{$wt.index.sex}--></td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <!--{$wt.index.btn_submit}-->
+        </div>
+    </form>
+
+    <div>
+        <form id="listForm" method="get" action="<!--{$rd.nextAction}-->">
+            <table border="0" cellspacing="0" cellpadding="0" class="tablelayout">
+        <!--{foreach from=$rd.outlist key=key item=item name="uList"}-->
+            <!--{if $smarty.foreach.uList.first}-->
+                <tr>
+                    <th>ID</th>
+                    <th>氏名</th>
+                    <th>年齢</th>
+                    <th>性別</th>
+                    <th></th>
+                </tr>
+            <!--{/if}-->
+                <tr>
+                    <td><!--{$item.id|escape}--></td>
+                    <td><!--{$item.name|escape}--></td>
+                    <td><!--{$item.age|escape}--></td>
+                    <td><!--{$item.sex|escape|replace:'1':'男性'|replace:'2':'女性'}--></td>
+                    <td><input type="submit" value="詳細" onclick="document.getElementById('uid').setAttribute('value', <!--{$item.id}-->);" /></td>
+                </tr>
+        <!--{foreachelse}-->
+            <tr><td><!--{$rd.noItemMessage}--></td></tr>
+        <!--{/foreach}-->
+            </table>
+            <input type="hidden" name="id" id="uid" value="" />
+        </form>
+    </div>
+
+
+    <p class="pager">
+        <!--{foreach from=$rd.pager item=item key=key name="pager"}-->
+            <!--{if $smarty.foreach.pager.first}-->
+                <!--{if $item.current != true}-->
+        <a href="./index.html?p=<!--{$item.prevpage}--><!--{if $item.search}-->&amp;<!--{$item.search}--><!--{/if}-->">
+        &lt;&lt;&nbsp;&nbsp;<span>前のページへ</span>&nbsp;
+        </a>&nbsp;
+                <!--{else}-->
+        &lt;&lt;&nbsp;&nbsp;<span>前のページへ</span>&nbsp;
+                <!--{/if}-->
+            <!--{/if}-->
+                <!--{if $item.current}-->
+                &nbsp;<!--{$key+1}-->&nbsp;
+                <!--{else}-->
+                <span><a href="./index.html?p=<!--{$key}--><!--{if $item.search}-->&amp;<!--{$item.search}--><!--{/if}-->">
+                    &nbsp;<!--{$key+1}-->&nbsp;
+                </a></span>
+                <!--{/if}-->
+            <!--{if $smarty.foreach.pager.last}-->
+                <!--{if $item.current != true}-->
+                <a href="./index.html?p=<!--{$item.nextpage}--><!--{if $item.search}-->&amp;<!--{$item.search}--><!--{/if}-->">
+                &nbsp;&nbsp;<span>次のページへ</span>&nbsp;&nbsp;&gt;&gt;
+                </a>
+                <!--{else}-->
+                &nbsp;&nbsp;<span>次のページへ</span>&nbsp;&nbsp;&gt;&gt;
+                <!--{/if}-->
+            <!--{/if}-->
+        <!--{/foreach}-->
+    </p>
+
+</body>
+</html>
+}}}
+
+&br;
+
+** verify.html
+「'''RapidDriveの基本操作(3)'''」で作成したverify.htmlと同様の画面を作成します。
+ソースコードは、「'''bindtransfer/docs/tutorial/rapid/edit/'''」にあるチュートリアルのサンプルを参考にしてください。
+
+&br;
+
+** fin.html
+「'''RapidDriveの基本操作(3)'''」で作成したfin.htmlと同様の画面を作成します。
+ソースコードは、「'''bindtransfer/docs/tutorial/rapid/edit/'''」にあるチュートリアルのサンプルを参考にしてください。
+
+
+* アプリケーションディレクトリにコントローラーを設置する
+
+webapp下に、.index.php、.detail.php、.edit.php、.verify.php、.save.php、.fin.phpを設置します。
+保存する文字コードは、''UTF-8''、改行コードは''LF''です。
+
+&br;
+
+**.index.php
+「'''RapidDriveの基本操作(2)'''」で作成した.index.phpと同じものを設置します。
+全体のソースコードについては、「'''bindtransfer/docs/tutorial/rapid/edit/'''」にあるチュートリアルのサンプルを参考にしてください。
+
+&br;
+
+** .detail.php
+「'''RapidDriveの基本操作(2)'''」で作成した.detail.phpと同じものに、nextActionの設定を追加したものを設置します。
+ここでは、nextActionを設定する部分だけを示します。
+全体のソースコードについては、「'''bindtransfer/docs/tutorial/rapid/edit/'''」にあるチュートリアルのサンプルを参考にしてください。
+
+{{{'nextAction' => 'edit'}}}
+
+
+&br;
+
+** .edit.php
+ソースは以下の通りです。
+
+{{{
+<?php
+
+class edit extends xFrameworkPX_Controller_Action
+{
+    public $modules = array(
+        'user'
+    );
+
+    public $rapid = array(
+        'mode' => 'edit',
+        'module' => 'user',
+        'field_filter' => array('id', 'del'),
+        'prevAction' => 'index',
+        'nextAction' => 'verify',
+        'input_field' => array(
+
+            'name' => array(
+                'field_type' => 'text',
+                'options' => array(
+                    'id' => 'name',
+                    'maxlength' => '50',
+                )
+            ),
+            'age' => array(
+                'field_type' => 'text',
+                'options' => array(
+                    'id' => 'age',
+                    'maxlength' => '3',
+                    'size' => '4',
+                ),
+            ),
+            'sex' => array(
+                'field_type' => 'radio',
+                'options' => array(
+                    array(
+                        'id' => 'male',
+                        'value' => '1',
+                        'label' => '男性',
+                    ),
+                    array(
+                        'id' => 'female',
+                        'value' => '2',
+                        'label' => '女性',
+                    ),
+                ),
+            ),
+
+            'btn_submit' => array(
+                'field_type' => 'submit',
+                'options' => array(
+                    'value' => '確認',
+                    'name' => 'btnSubmit',
+                )
+            )
+        )
+    );
+}
+}}}
+
+編集画面を表示させる場合は、「''Editモード''」で動作させます。
+Editモードの各設定については、「'''コントローラー > RapidDrive'''」の項を参照してください。
+
+&br;
+
+**.verify.php
+「'''RapidDriveの基本操作(3)'''」で作成した.verify.phpと同じものを設置します。
+全体のソースコードについては、「'''bindtransfer/docs/tutorial/rapid/edit/'''」にあるチュートリアルのサンプルを参考にしてください。
+
+&br;
+
+**.save.php
+「'''RapidDriveの基本操作(3)'''」で作成した.save.phpと同じものを設置します。
+全体のソースコードについては、「'''bindtransfer/docs/tutorial/rapid/edit/'''」にあるチュートリアルのサンプルを参考にしてください。
+
+&br;
+
+**.fin.php
+「'''RapidDriveの基本操作(3)'''」で作成した.fin.phpと同じものを設置します。
+全体のソースコードについては、「'''bindtransfer/docs/tutorial/rapid/edit/'''」にあるチュートリアルのサンプルを参考にしてください。
+
+
+* モジュールディレクトリにモジュールを設置する
+設置するモジュールは、「'''RapidDriveの基本操作(3)'''」で作成したモジュールと同じものになります。
+作成方法については「'''RapidDriveの基本操作(3)'''」の項を参照してください。
+
+
+* 仮想スクリーンの動作を確認する
+
+ブラウザで'''''http://yourdomain/index.html'''''にアクセスします。
+
+「'''RapidDriveの基本操作(2)'''」のときと同様の画面が表示されます。
+詳細画面の編集ボタンを押下することで、詳細画面に表示されているデータの編集画面が表示されます。
+
+
+* サンプル実行
+
+下記のボタンから、ここまでのサンプルを実行することができます。
+
+[[&img(./resources/images/demo.gif){サンプル画像};>./tutorial/rapid/edit/index.html>external]]
+
+** サンプル格納位置
+
+'''bindtransfer/docs/tutorial/rapid/edit/'''

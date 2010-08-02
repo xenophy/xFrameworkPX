@@ -1,0 +1,74 @@
+* 使用方法
+ビューの具体的な使用方法について説明します。
+* ユーザーデータのアサイン
+ユーザーデータのアサインはコントローラーで行います。
+コントローラーには、以下の二つのビュークラスのデータを受け渡すためのメソッドが用意されています。
+
+|~メソッド名|~戻り値|~引数|~説明|
+|set|なし|string アサイン名,&br;mixed アサインデータ|ビューに対して指定したアサイン名でデータをアサインします。|
+|get|mixed アサインデータ|string アサイン名|ビューに指定したアサイン名でアサインされているデータを取得します。|
+
+以下の記述例のように、setメソッドを使うことで、ユーザーデータをアサインすることができます。
+
+{{{
+class example extends xFrameworkPX_Controller_Action
+{
+    public function execute()
+    {
+        // ビューへデータのアサイン
+        $this->set('hoge', 'hoge data');
+        $this->set('foo', 'foo data');
+        $this->set('bar', 'bar data');
+    }
+}
+}}}
+
+&br;
+
+* テンプレートの設置
+ユーザーは画面表示を行うために、出力の記述をしたテンプレートファイルを作成し、適切な場所に設置しなければなりません。
+テンプレート名は、初期設定では「ファイル名.html」((テンプレート名に使用できる拡張子は、ディスパッチャーの設定で変更できます。))です。
+また、コントローラーを使用する場合、テンプレートのファイル名はアクション名として使用されます。
+このとき、テンプレートファイルは、コントローラーのクラスファイルと同じ場所に設置します。
+
+使用するテンプレートエンジンはSmartyなので、テンプレートの書式はSmartyのものでなければなりません。
+Smartyの場合、Smartyタグと呼ばれる特殊なタグによって、アサインされたデータの表示など、動的に表示する箇所の記述を行います。
+xFrameworkPXは、デフォルトで「''<!--{''」と「''}-->''」で囲まれたものをSmartyタグとして設定しています。((この設定はディスパッチャーの設定で変更することができます。))
+
+以下は、テンプレートファイルの記述例になります。
+{{{
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta http-equiv="content-script-Type" content="text/javascript" />
+        <meta http-equiv="content-style-type" content="text/css" />
+        <title>サンプル</title>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <th>アサイン名</th><th>データ</th>
+            </tr>
+            <tr>
+                <td>hoge</td><td><!--{$hoge}--></td>
+            </tr>
+            <tr>
+                <td>foo</td><td><!--{$foo}--></td>
+            </tr>
+            <tr>
+                <td>bar</td><td><!--{$bar}--></td>
+            </tr>
+        </table>
+    </body>
+</html>
+}}}
+
+Smartyのテンプレートについて、その他の具体的な文法等はSmartyのマニュアルを参照してください
+
+
+
+&br;
+
+----

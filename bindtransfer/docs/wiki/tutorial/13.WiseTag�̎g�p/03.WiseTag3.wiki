@@ -1,0 +1,248 @@
+* WiseTagの基本的な操作(3)
+このチュートリアルでは、WiseTagによる入力フォームのフィールドを削除する方法を学びます。
+
+登録されているフィールドの設定から、任意のフィールドに対する設定を全て削除することで、
+そのフィールドは、それ以降genメソッドによって生成されなくなります。
+
+このチュートリアルでは以下の操作を行います。
++ アプリケーションディレクトリにHTMLファイルを設置する
++ アプリケーションディレクトリにコントローラーを設置する
++ 仮想スクリーンの動作を確認する
++ サンプル実行
+
+
+* アプリケーションディレクトリにHTMLファイルを設置する
+webapp下に、仮想スクリーンのテンプレートファイルとして、次のindex.htmlを設置します。
+保存する文字コードは、UTF-8、改行コードはLFです。
+
+{{{
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-script-Type" content="text/javascript" />
+    <meta http-equiv="content-style-type" content="text/css" />
+    <title>WiseTagの基本的な操作(3)</title>
+</head>
+<body>
+    <h1>WiseTagの基本的な操作(3)</h1>
+
+    <!--{if $wt}-->
+    <h2>生成したフォーム</h2>
+    <form<!--{$wt.form}-->>
+        <!--{$wt.txt}--><br />
+        <!--{$wt.pass}--><br />
+        <!--{foreach from=$wt.radio item=item}-->
+        <!--{$item}-->
+        <!--{/foreach}-->
+        <br />
+        <!--{foreach from=$wt.check item=item}-->
+        <!--{$item}-->
+        <!--{/foreach}-->
+        <br />
+        <!--{$wt.sel}--><br />
+        <!--{$wt.txtarea}--><br />
+        <!--{$wt.delField}--><!--{$wt.del}-->
+    </form>
+    <!--{/if}-->
+</body>
+</html>
+}}}
+
+
+* アプリケーションディレクトリにコントローラーを設置する
+webapp下に、次の.index.phpを設置します。
+保存する文字コードは、''UTF-8''、改行コードは''LF''です。
+
+{{{
+<?php
+
+class index extends xFrameworkPX_Controller_Action
+{
+    public function execute()
+    {
+        if (isset($this->post['delField'])) {
+
+            switch ($this->post['delField']) {
+
+                case 'txt':
+                    $this->Tag->remove(array(
+                        'type' => 'text',
+                        'name' => $this->post['delField']
+                    ));
+                    break;
+
+                case 'pass':
+                    $this->Tag->remove(array(
+                        'type' => 'password',
+                        'name' => $this->post['delField']
+                    ));
+                    break;
+
+                case 'radio':
+                    $this->Tag->remove(array(
+                        'type' => 'radio',
+                        'name' => $this->post['delField']
+                    ));
+                    break;
+
+                case 'check':
+                    $this->Tag->remove(array(
+                        'type' => 'checkbox',
+                        'name' => $this->post['delField'] . '[]'
+                    ));
+                    break;
+
+                case 'sel':
+                    $this->Tag->remove(array(
+                        'type' => 'select',
+                        'name' => $this->post['delField']
+                    ));
+                    break;
+
+                case 'txtarea':
+                    $this->Tag->remove(array(
+                        'type' => 'textarea',
+                        'name' => $this->post['delField']
+                    ));
+                    break;
+            }
+
+        } else {
+
+            // 設定消去
+            $this->Tag->clear();
+
+            // 設定追加
+            $this->Tag->add($this->_getInitConfig());
+        }
+
+        //タグ生成
+        $this->Tag->gen();
+    }
+
+    /**
+     * 初期設定取得メソッド
+     */
+    private function _getInitConfig()
+    {
+        return array(
+            array(
+                'type' => 'form',
+                'action' => './',
+                'method' => 'post'
+            ),
+            array(
+                'type' => 'text',
+                'name' => 'txt',
+                'id' => 'txt',
+                'value' => '',
+                'size' => '20',
+                'maxsize' => '10',
+                'prelabel' => 'テキストボックス'
+            ),
+            array(
+                'type' => 'password',
+                'name' => 'pass',
+                'id' => 'pass',
+                'value' => '',
+                'size' => '20',
+                'maxsize' => '15',
+                'prelabel' => 'パスワード'
+            ),
+            array(
+                'type' => 'radio',
+                'name' => 'radio',
+                'id' => 'radio1',
+                'value' => 'a',
+                'label' => 'A',
+                'checked' => 'checked'
+            ),
+            array(
+                'type' => 'radio',
+                'name' => 'radio',
+                'id' => 'radio2',
+                'value' => 'b',
+                'label' => 'B'
+            ),
+            array(
+                'type' => 'checkbox',
+                'name' => 'check[]',
+                'id' => 'check1',
+                'value' => '1',
+                'label' => '1'
+            ),
+            array(
+                'type' => 'checkbox',
+                'name' => 'check[]',
+                'id' => 'check2',
+                'value' => '2',
+                'label' => '2'
+            ),
+            array(
+                'type' => 'checkbox',
+                'name' => 'check[]',
+                'id' => 'check3',
+                'value' => '3',
+                'label' => '3'
+            ),
+            array(
+                'type' => 'select',
+                'name' => 'sel',
+                'id' => 'sel',
+                'prelabel' => 'セレクトボックス',
+                'options' => array(
+                    array(
+                        'value' => '',
+                        'intext' => '選択してください',
+                        'selected' => 'selected'
+                    ),
+                    array(
+                        'value' => '1-1',
+                        'intext' => '1-1'
+                    ),
+                    array(
+                        'value' => '1-2',
+                        'intext' => '1-2'
+                    ),
+                    array(
+                        'value' => '1-3',
+                        'intext' => '1-3'
+                    )
+                )
+            ),
+            array(
+                'type' => 'textarea',
+                'name' => 'txtarea',
+                'id' => 'txtarea',
+                'cols' => '50',
+                'rows' => '5',
+                'intext' => '',
+                'prelabel' => 'テキストエリア',
+                'style' => 'vertical-align: top;'
+            ),
+            array(
+                'type' => 'submit',
+                'name' => 'send',
+                'value' => '送信'
+            )
+        );
+    }
+}
+}}}
+
+
+* 仮想スクリーンの動作を確認する
+ブラウザで'''''http://yourdomain/index.html'''''にアクセスします。
+
+
+* サンプル実行
+下記のボタンから、ここまでのサンプルを実行することができます。
+セレクトボックスから削除したいフィールドを選択して、削除ボタンを押下すると、対象のフォーム部品が削除されます。
+
+[[&img(./resources/images/demo.gif){サンプル画像};>./tutorial/wisetag/wisetag3/index.html>external]]
+
+
+** サンプル格納位置
+'''bindtransfer/docs/tutorial/wisetag/wisetag3/'''

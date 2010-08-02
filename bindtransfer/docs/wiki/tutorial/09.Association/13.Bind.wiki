@@ -1,0 +1,96 @@
+* 動的アソシエーション
+
+今までのアソシエーション設定は、プロパティで行っていましたが、ユーザーがロジックによりアソシエーションの設定を動的に切り替える方法を学びます。
+
+&img(./resources/images/tutorial/hasMany1.png){1対多の結合をする(2)};
+
+
+このチュートリアルでは、次の操作を行います。
+
++ アプリケーションディレクトリにHTMLファイルを設置する
++ アプリケーションディレクトリにコントローラーを設置する
++ モジュールディレクトリにモジュールを設置する
++ 仮想スクリーンの動作を確認する
++ サンプル実行
+
+
+* アプリケーションディレクトリにHTMLファイルを設置する
+
+bind.htmlを設置します。
+ソースコードや設置方法については、「''1対多の結合をする(2)''」と同じなので、そちらを参照してください。
+
+
+* アプリケーションディレクトリにコントローラーを設置する
+
+.bind.phpを設置します。
+コントローラーのクラス名は''bind''になります。
+クラス名以外のソースコードや設置方法については、「''1対多の結合をする(2)''」と同じなので、そちらを参考してください。
+
+
+* モジュールディレクトリにモジュールを設置する
+
+modules下に、次のuriage.phpを設置します。
+
+** item.php
+{{{
+<?php
+
+class item extends xFrameworkPX_Model
+{
+    // プロパティでのアソシエーションは行わない
+
+    public function test()
+    {
+
+        // 動的アソシエーション設定
+        $this->bind(
+            array(
+                'hasMany' => array(
+                    'tbl_meisai' => array(
+                        'order' => array(
+                            'tbl_meisai.id'
+                        )
+                    )
+                )
+            )
+        );
+
+        $ret = $this->get(
+            'all',
+            array(
+                'order' => array(
+                    'tbl_item.id'
+                )
+            )
+        );
+
+        // 動的アソシエーション解除
+        $this->unbind(
+            array(
+                'hasMany' => array('tbl_meisai')
+            )
+        );
+
+        return $ret;
+    }
+
+}
+}}}
+
+
+* 仮想スクリーンの動作を確認する
+
+ブラウザで'''''http://yourdomain/bind.html'''''にアクセスします。
+
+仮想スクリーンに表示される内容は、「''1対多の結合をする(2)''」と同じものになります。
+
+
+* サンプル実行
+
+下記のボタンから、ここまでのサンプルを実行することができます。
+
+[[&img(./resources/images/demo.gif){サンプル画像};>./tutorial/db/association/bind.html>external]]
+
+** サンプル格納位置
+
+'''bindtransfer/docs/tutorial/db/association/'''

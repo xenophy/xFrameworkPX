@@ -1,0 +1,210 @@
+* 1対多の結合をする(2)
+
+hasManyでtbl_itemとtbl_meisaiを結合します。
+hasManyは、1対多の結合を行うために使用します。ここでは、「1」がtbl_item、「多」がtbl_meisaiにあたります。
+さらに、belongsToと違い、結果を多重配列で取得することができます。
+
+&img(./resources/images/tutorial/hasMany1.png){1対多の結合をする(2)};
+
+
+このチュートリアルでは、次の操作を行います。
+
++ アプリケーションディレクトリにHTMLファイルを設置する
++ アプリケーションディレクトリにコントローラーを設置する
++ モジュールディレクトリにモジュールを設置する
++ 仮想スクリーンの動作を確認する
++ サンプル実行
+
+
+* アプリケーションディレクトリにHTMLファイルを設置する
+
+webapp下に、仮想スクリーンのテンプレートファイルとして、次のhasMany.htmlを設置します。
+保存する文字コードは、''UTF-8''、改行コードは''LF''です。
+
+{{{
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-script-Type" content="text/javascript" />
+    <meta http-equiv="content-style-type" content="text/css" />
+    <title>1対多の結合をする(2)</title>
+</head>
+<body>
+
+    <h1>1対多の結合をする(2)</h1>
+
+    <table border="1">
+    <tr>
+        <th>商品ID</th>
+        <th>商品名</th>
+        <th>価格</th>
+        <th>明細</th>
+    </tr>
+    <!--{foreach from=$test item=item key=key}-->
+    <tr>
+        <td><!--{$item.tbl_item.id}--></td>
+        <td><!--{$item.tbl_item.name}--></td>
+        <td><!--{$item.tbl_item.price}--></td>
+        <td>
+            <table border="1">
+            <tr>
+                <th>明細ID</th>
+                <th>明細SEQ</th>
+                <th>個数</th>
+            </tr>
+            <!--{foreach from=$item.tbl_meisai item=meisai key=mkey}-->
+            <tr>
+                <td><!--{$meisai.id}--></td>
+                <td><!--{$meisai.seq}--></td>
+                <td><!--{$meisai.count}--></td>
+            </tr>
+            <!--{/foreach}-->
+            </table>
+        </td>
+    </tr>
+    <!--{/foreach}-->
+    </table>
+
+</body>
+</html>
+}}}
+
+
+* アプリケーションディレクトリにコントローラーを設置する
+
+webapp下に、次の.hasMany.phpを設置します。
+保存する文字コードは、''UTF-8''、改行コードは''LF''です。
+
+{{{
+<?php
+
+class hasMany extends xFrameworkPX_Controller_Action
+{
+
+    public $modules = array(
+        'item'
+    );
+
+    public function execute() {
+
+        // テストした結果（配列）を格納
+        $this->set('test', $this->item->test());
+
+    }
+
+}
+}}}
+
+
+* モジュールディレクトリにモジュールを設置する
+
+modules下に、次のitem.phpを設置します。
+
+** item.php
+
+{{{
+<?php
+
+class item extends xFrameworkPX_Model
+{
+    public $hasMany = array(
+        'tbl_meisai' => array(
+            'order' => array(
+                'tbl_meisai.id'
+            )
+        )
+    );
+
+    public function test()
+    {
+        return $this->get(
+            'all',
+            array(
+                'order' => array(
+                    'tbl_item.id'
+                )
+            )
+        );
+    }
+}
+}}}
+
+
+* 仮想スクリーンの動作を確認する
+
+ブラウザで'''''http://yourdomain/hasMany.html'''''にアクセスします。
+
+このアソシエーション設定により実行されるSQLは下記の通りです。
+
+{{{
+SELECT
+    tbl_item.id,
+    tbl_item.name,
+    tbl_item.price
+FROM
+    tbl_item
+ORDER BY
+    tbl_item.id
+}}}
+
+{{{
+SELECT
+    *
+FROM
+    tbl_meisai
+WHERE
+        tbl_meisai.item_id IN ( 10,20,30,40,50,60 )
+ORDER BY
+    tbl_meisai.id
+}}}
+
+
+また、期待される結果は次の通りです。((「'''1対多の結合をする(1)'''」の結果との違いを分かりやすくするため、色分けしています。))
+|~商品ID|~商品名|~価格|~明細ID|~明細SEQ|~個数|
+|bgcolor(#66CC99):10|bgcolor(#66CC99):鉛筆|bgcolor(#66CC99):30|bgcolor(#66CC99):1|bgcolor(#66CC99):1|bgcolor(#66CC99):10|
+|^|^|^|bgcolor(#66CC99):5|bgcolor(#66CC99):1|bgcolor(#66CC99):17|
+|bgcolor(#6699CC):20|bgcolor(#6699CC):消しゴム|bgcolor(#6699CC):50|bgcolor(#6699CC):2|bgcolor(#6699CC):1|bgcolor(#6699CC):15|
+|^|^|^|bgcolor(#6699CC):4|bgcolor(#6699CC):1|bgcolor(#6699CC):9|
+|^|^|^|bgcolor(#6699CC):5|bgcolor(#6699CC):2|bgcolor(#6699CC):5|
+|bgcolor(#FF9966):30|bgcolor(#FF9966):シャープペン|bgcolor(#FF9966):250|bgcolor(#FF9966):1|bgcolor(#FF9966):2|bgcolor(#FF9966):7|
+|^|^|^|bgcolor(#FF9966):3|bgcolor(#FF9966):1|bgcolor(#FF9966):8|
+|bgcolor(#FF6699):40|bgcolor(#FF6699):ボールペン|bgcolor(#FF6699):150|bgcolor(#FF6699):2|bgcolor(#FF6699):2|bgcolor(#FF6699):3|
+|^|^|^|bgcolor(#FF6699):3|bgcolor(#FF6699):2|bgcolor(#FF6699):30|
+|^|^|^|bgcolor(#FF6699):4|bgcolor(#FF6699):2|bgcolor(#FF6699):21|
+|bgcolor(#FFCC66):50|bgcolor(#FFCC66):色鉛筆|bgcolor(#FFCC66):700|bgcolor(#FFCC66):3|bgcolor(#FFCC66):3|bgcolor(#FFCC66):12|
+|60|ノート|100|1|3|25|
+|^|^|^|3|4|50|
+
+「'''1対多の結合をする(1)'''」の結果との違いを対比するため、以下に「1対多の結合をする(1)」の結果を示します。
+|~明細No|~商品名|~価格|~個数|~明細連番|
+|bgcolor(#66CC99):1|bgcolor(#66CC99):鉛筆|bgcolor(#66CC99):30|bgcolor(#66CC99):10|bgcolor(#66CC99):1|
+|bgcolor(#FF9966):1|bgcolor(#FF9966):シャープペン|bgcolor(#FF9966):250|bgcolor(#FF9966):7|bgcolor(#FF9966):2|
+|1|ノート|100|25|3|
+|bgcolor(#6699CC):2|bgcolor(#6699CC):消しゴム|bgcolor(#6699CC):50|bgcolor(#6699CC):15|bgcolor(#6699CC):1|
+|bgcolor(#FF6699):2|bgcolor(#FF6699):ボールペン|bgcolor(#FF6699):150|bgcolor(#FF6699):3|bgcolor(#FF6699):2|
+|bgcolor(#FF9966):3|bgcolor(#FF9966):シャープペン|bgcolor(#FF9966):250|bgcolor(#FF9966):8|bgcolor(#FF9966):1|
+|bgcolor(#FF6699):3|bgcolor(#FF6699):ボールペン|bgcolor(#FF6699):150|bgcolor(#FF6699):30|bgcolor(#FF6699):2|
+|bgcolor(#FFCC66):3|bgcolor(#FFCC66):色鉛筆|bgcolor(#FFCC66):700|bgcolor(#FFCC66):12|bgcolor(#FFCC66):3|
+|3|ノート|100|50|4|
+|bgcolor(#6699CC):4|bgcolor(#6699CC):消しゴム|bgcolor(#6699CC):50|bgcolor(#6699CC):9|bgcolor(#6699CC):1|
+|bgcolor(#FF6699):4|bgcolor(#FF6699):ボールペン|bgcolor(#FF6699):150|bgcolor(#FF6699):21|bgcolor(#FF6699):2|
+|bgcolor(#66CC99):5|bgcolor(#66CC99):鉛筆|bgcolor(#66CC99):30|bgcolor(#66CC99):17|bgcolor(#66CC99):1|
+|bgcolor(#6699CC):5|bgcolor(#6699CC):消しゴム|bgcolor(#6699CC):50|bgcolor(#6699CC):5|bgcolor(#6699CC):2|
+
+
+* サンプル実行
+
+下記のボタンから、ここまでのサンプルを実行することができます。
+
+[[&img(./resources/images/demo.gif){サンプル画像};>./tutorial/db/association/hasMany.html>external]]
+
+** サンプル格納位置
+
+'''bindtransfer/docs/tutorial/db/association/'''
+
+&br;
+
+----
+

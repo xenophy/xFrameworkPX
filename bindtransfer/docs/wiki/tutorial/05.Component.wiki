@@ -1,0 +1,105 @@
+* コンポーネントによるコントローラーの拡張
+コンポーネントとは、コントローラーを拡張するための仕組みです。
+ここでは、コンポーネントの基本的な設定の仕方を学びます。
+
+コントローラーに対して共通・再利用性のある拡張を行う場合に利用します。
+
+コンポーネントによるコントローラーの拡張は簡単にできます。
+コントローラーディレクトリ(controllers)以下に、「''xFrameworkPX_Controller_Component''」を継承したクラスを作成し、コントローラーに設定を行うだけです。
+
+コントローラーから、コンポーネントのメソッドを呼び出すには、コントローラーに設定するコンポーネントのバインド名を使います。
+
+例)
+     バインド名 Test
+     メソッド名 hoge
+{{{
+$this->Test->hoge();
+}}}
+
+このチュートリアルでは、次の操作を行います。
++アプリケーションディレクトリにHTMLファイルを設置する。
++アプリケーションディレクトリにコントローラーを設置する。
++コントローラーディレクトリにコンポーネントを設置する。
++仮想スクリーンの動作を確認する。
++サンプル実行
+
+* アプリケーションディレクトリにHTMLファイルを設置する。
+webapp下に、仮想スクリーンのテンプレートファイルとして、次のindex.htmlを設置します。
+保存する文字コードは、UTF-8、改行コードはLFです。
+
+{{{
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-script-Type" content="text/javascript" />
+    <meta http-equiv="content-style-type" content="text/css" />
+    <title>コンポーネントによるコントローラー拡張</title>
+</head>
+<body>
+    <h1>コンポーネントによるコントローラー拡張</h1>
+
+    <p><!--{$data}--></p>
+
+</body>
+</html>
+}}}
+
+
+* アプリケーションディレクトリにコントローラーを設置する。
+webapp下に、次の.index.phpを設置します。
+保存する文字コードは、UTF-8、改行コードはLFです。
+
+{{{
+<?php
+
+class index extends xFrameworkPX_Controller_Action
+{
+    protected $_components = array(
+        array(
+            'clsName' => 'comp',
+            'bindName' => 'Comp'
+        )
+    );
+
+    public function execute()
+    {
+        $this->set('data', $this->Comp->getTestData());
+    }
+}
+}}}
+
+
+* コントローラーディレクトリにコンポーネントを設置する。
+controllers下に、次のcomp.phpを設置します。
+
+{{{
+<?php
+
+class comp extends xFrameworkPX_Controller_Component
+{
+    public function getTestData()
+    {
+        return 'テストデータです。';
+    }
+}
+}}}
+
+
+* 仮想スクリーンの動作を確認する。
+
+ブラウザで'''''http://yourdomain/index.html'''''にアクセスします。
+
+仮想スクリーンが表示され、コンポーネントのメソッドが返す値が出力されていることが確認できます。
+
+
+* サンプル実行
+
+下記のボタンから、ここまでのサンプルを実行することができます。
+
+[[&img(./resources/images/demo.gif){サンプル画像};>./tutorial/basic/component/index.html>external]]
+
+** サンプル格納位置
+
+'''bindtransfer/docs/tutorial/basic/component/'''
