@@ -62,6 +62,40 @@ abstract class xFrameworkPX_Model extends xFrameworkPX_Util_Observable
     );
 
     /**
+     * 変換キャラセット配列(PostgreSQL用)
+     *
+     * @var array
+     */
+    protected $_charsetmap_pgsql = array(
+        'shift-jis' => 'sjis',
+        'shift_jis' => 'sjis',
+        'shiftjis'  => 'sjis',
+        'sjis'      => 'sjis',
+        'eucjp'     => 'euc_jp',
+        'euc-jp'    => 'euc_jp',
+        'euc_jp'    => 'euc_jp',
+        'utf_8'     => 'utf8',
+        'utf-8'     => 'utf8',
+        'utf8'      => 'utf8'
+    );
+
+    protected $_charasetmap_orcl = array (
+        'shift-jis' => 'ja16sjis',
+        'shift_jis' => 'ja16sjis',
+        'shiftjis'  => 'ja16sjis',
+        'sjis'      => 'ja16sjis',
+        'ja16sjis'  => 'ja16sjis',
+        'eucjp'     => 'ja16euc',
+        'euc-jp'    => 'ja16euc',
+        'euc_jp'    => 'ja16euc',
+        'ja16euc'   => 'ja16euc',
+        'utf_8'     => 'utf8',
+        'utf-8'     => 'utf8',
+        'utf8'      => 'utf8',
+        'al32utf8'  => 'al32utf8'
+    );
+
+    /**
      * ビヘイビア配列
      *
      * @var array
@@ -316,6 +350,7 @@ abstract class xFrameworkPX_Model extends xFrameworkPX_Util_Observable
             }
 
             $this->adapter = new $clsName();
+
             // PDOオブジェクト生成
             $this->pdo = @new PDO(
 
@@ -325,7 +360,8 @@ abstract class xFrameworkPX_Model extends xFrameworkPX_Util_Observable
                     $this->conn->{$this->conf->conn}->host,
                     $this->conn->{$this->conf->conn}->port,
                     $this->conn->{$this->conf->conn}->database,
-                    $this->conn->{$this->conf->conn}->socket
+                    $this->conn->{$this->conf->conn}->socket,
+                    $this->conn->{$this->conf->conn}->charset
                 ),
 
                 // ユーザー設定
@@ -339,43 +375,63 @@ abstract class xFrameworkPX_Model extends xFrameworkPX_Util_Observable
                 PDO::ERRMODE_EXCEPTION
             );
 
-            // MySQLキャラセット設定
-            if (strtolower($this->conn->{$this->conf->conn}->driver) === 'mysql') {
-                $charset = strtolower((string)$this->conn->{$this->conf->conn}->charset);
+            switch (strtolower($this->conn->{$this->conf->conn}->driver)) {
 
-                if (isset($this->_charasetmap[$charset])) {
-                    $this->pdo->exec(
-                        sprintf(
-                            'SET NAMES %s',
-                            $this->_charasetmap[$charset]
-                        )
-                    );
-                }
+                case 'mysql':
 
-            } else if (strtolower($this->conn->{$this->conf->conn}->driver) === 'oci') {
+                    // MySQLキャラセット設定
+                    $charset = strtolower((string)$this->conn->{$this->conf->conn}->charset);
 
-                if (isset($this->conn->{$this->conf->conn}->nls)) {
-
-                    if (isset($this->conn->{$this->conf->conn}->nls->date_format)) {
+                    if (isset($this->_charasetmap[$charset])) {
                         $this->pdo->exec(
                             sprintf(
-                                "ALTER SESSION SET NLS_DATE_FORMAT = '%s'",
-                                $this->conn->{$this->conf->conn}->nls['date_format']
+                                'SET NAMES %s',
+                                $this->_charasetmap[$charset]
                             )
                         );
                     }
 
-                    if (isset($this->conn->{$this->conf->conn}->nls->timestamp_format)) {
+                    break;
+
+                case 'pgsql':
+                    $charset = strtolower((string)$this->conn->{$this->conf->conn}->charset);
+
+                    if (isset($this->_charsetmap_pgsql[$charset])) {
                         $this->pdo->exec(
                             sprintf(
-                                "ALTER SESSION SET NLS_TIMESTAMP_FORMAT = '%s'",
-                                $this->conn->{$this->conf->conn}->nls['timestamp_format']
+                                "SET NAMES '%s'",
+                                $this->_charsetmap_pgsql[$charset]
                             )
                         );
                     }
 
-                }
+                    break;
 
+                case 'oci':
+
+                    if (isset($this->conn->{$this->conf->conn}->nls)) {
+
+                        if (isset($this->conn->{$this->conf->conn}->nls->date_format)) {
+                            $this->pdo->exec(
+                                sprintf(
+                                    "ALTER SESSION SET NLS_DATE_FORMAT = '%s'",
+                                    $this->conn->{$this->conf->conn}->nls['date_format']
+                                )
+                            );
+                        }
+
+                        if (isset($this->conn->{$this->conf->conn}->nls->timestamp_format)) {
+                            $this->pdo->exec(
+                                sprintf(
+                                    "ALTER SESSION SET NLS_TIMESTAMP_FORMAT = '%s'",
+                                    $this->conn->{$this->conf->conn}->nls['timestamp_format']
+                                )
+                            );
+                        }
+
+                    }
+
+                    break;
             }
 
         }
@@ -392,9 +448,12 @@ abstract class xFrameworkPX_Model extends xFrameworkPX_Util_Observable
      * @param $host
      * @param $database
      * @param $unixScoket
+     * @param $charset
      * @return
      */
-    public function getDSN($type, $host, $port, $database, $unixScoket = null)
+    public function getDSN(
+        $type, $host, $port, $database, $unixSocket = null, $charset = null
+    )
     {
         // デバッグ用計測開始
         if ($this->conf['px']['DEBUG'] >= 2) {
@@ -433,6 +492,12 @@ abstract class xFrameworkPX_Model extends xFrameworkPX_Util_Observable
                 }
 
                 $temp[] = sprintf('dbname=%s', $database);
+
+                if ($charset) {
+                    $charset = $this->_charasetmap_orcl[strtolower($charset)];
+                    $temp[] = sprintf('charset=%s', $charset);
+                }
+
                 break;
 
             case 'pgsql':
@@ -470,7 +535,9 @@ abstract class xFrameworkPX_Model extends xFrameworkPX_Util_Observable
                 microtime(true) - $startTime
             );
         }
-
+require_once "Var_Dump.php";
+Var_Dump::displayInit(array('display_mode' => 'HTML4_Table'));
+Var_Dump::display( $dsn );
         return $dsn;
     }
 
