@@ -535,9 +535,7 @@ abstract class xFrameworkPX_Model extends xFrameworkPX_Util_Observable
                 microtime(true) - $startTime
             );
         }
-require_once "Var_Dump.php";
-Var_Dump::displayInit(array('display_mode' => 'HTML4_Table'));
-Var_Dump::display( $dsn );
+
         return $dsn;
     }
 
