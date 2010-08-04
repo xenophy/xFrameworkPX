@@ -411,7 +411,7 @@ abstract class xFrameworkPX_Model extends xFrameworkPX_Util_Observable
 
                     if (isset($this->conn->{$this->conf->conn}->nls)) {
 
-                        if (isset($this->conn->{$this->conf->conn}->nls->date_format)) {
+                        if (isset($this->conn->{$this->conf->conn}->nls['date_format'])) {
                             $this->pdo->exec(
                                 sprintf(
                                     "ALTER SESSION SET NLS_DATE_FORMAT = '%s'",
@@ -420,7 +420,7 @@ abstract class xFrameworkPX_Model extends xFrameworkPX_Util_Observable
                             );
                         }
 
-                        if (isset($this->conn->{$this->conf->conn}->nls->timestamp_format)) {
+                        if (isset($this->conn->{$this->conf->conn}->nls['timestamp_format'])) {
                             $this->pdo->exec(
                                 sprintf(
                                     "ALTER SESSION SET NLS_TIMESTAMP_FORMAT = '%s'",
