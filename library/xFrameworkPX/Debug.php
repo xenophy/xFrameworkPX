@@ -284,7 +284,7 @@ class xFrameworkPX_Debug extends xFrameworkPX_Object
                     $short = 'false';
                 }
             }
-            $temp = str_replace('    ', '&nbsp;&nbsp;&nbsp;&nbsp;', nl2br($temp));
+            $temp = str_replace('    ', '&nbsp;&nbsp;&nbsp;&nbsp;', nl2br(htmlspecialchars($temp)));
             if ($bool) {
                 if ($orgVal === true){
                     $temp = 'true';
@@ -324,7 +324,7 @@ class xFrameworkPX_Debug extends xFrameworkPX_Object
                 count($this->_parameter) + 1,
                 $name,
                 mb_strimwidth($short, 0, 50, '...'),
-                str_replace('    ', '&nbsp;&nbsp;&nbsp;&nbsp;', nl2br($temp)),
+                str_replace('    ', '&nbsp;&nbsp;&nbsp;&nbsp;', nl2br(htmlspecialchars($temp))),
                 $type
             );
         }
@@ -383,7 +383,7 @@ class xFrameworkPX_Debug extends xFrameworkPX_Object
                 $line,
                 $tag,
                 mb_strimwidth($short, 0, 50, '...'),
-                str_replace('    ', '&nbsp;&nbsp;&nbsp;&nbsp;', nl2br($var))
+                str_replace('    ', '&nbsp;&nbsp;&nbsp;&nbsp;', nl2br(htmlspecialchars($var)))
             );
         }
     }
@@ -417,7 +417,7 @@ class xFrameworkPX_Debug extends xFrameworkPX_Object
                 $session[] = array(
                     $i,
                     $key,
-                    str_replace('    ', '&nbsp;&nbsp;&nbsp;&nbsp;', nl2br($value)),
+                    str_replace('    ', '&nbsp;&nbsp;&nbsp;&nbsp;', nl2br(htmlspecialchars($value))),
                     mb_strimwidth($short, 0, 50, '...'),
                 );
                 $i++;
@@ -443,7 +443,7 @@ class xFrameworkPX_Debug extends xFrameworkPX_Object
                 $cookie[] = array(
                     $i,
                     $key,
-                    str_replace('    ', '&nbsp;&nbsp;&nbsp;&nbsp;', nl2br($value)),
+                    str_replace('    ', '&nbsp;&nbsp;&nbsp;&nbsp;', nl2br(htmlspecialchars($value))),
                     mb_strimwidth($short, 0, 50, '...'),
                 );
                 $i++;
@@ -471,7 +471,7 @@ class xFrameworkPX_Debug extends xFrameworkPX_Object
     public function setLastQuery($query)
     {
         if ($this->level >= 1) {
-            $this->_lasyQuery = $query;
+            $this->_lastQuery = $query;
         }
     }
 
@@ -481,7 +481,7 @@ class xFrameworkPX_Debug extends xFrameworkPX_Object
     public function setLastBinds($binds)
     {
         if ($this->level >= 1) {
-            $this->_lasyBinds = $binds;
+            $this->_lastBinds = $binds;
         }
     }
 
@@ -491,7 +491,7 @@ class xFrameworkPX_Debug extends xFrameworkPX_Object
     public function getLastQuery()
     {
         if ($this->level >= 1) {
-            return $this->_lasyQuery;
+            return $this->_lastQuery;
         }
         return null;
     }
@@ -502,7 +502,7 @@ class xFrameworkPX_Debug extends xFrameworkPX_Object
     public function getLastBinds()
     {
         if ($this->level >= 1) {
-            return $this->_lasyBinds;
+            return $this->_lastBinds;
         }
         return null;
     }
