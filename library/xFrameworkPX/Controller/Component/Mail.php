@@ -37,12 +37,12 @@ extends xFrameworkPX_Controller_Component
      * 送信メソッド
      *
      * @param xFrameworkPX_util_MixedCollection $conf 設定オブジェクト
-     * @return void
+     * @return boolean
      */
     public function send($conf)
     {
         $mail = new xFrameworkPX_Mail();
-        $mail->send($conf);
+        return $mail->send($conf);
     }
 
     // }}}
