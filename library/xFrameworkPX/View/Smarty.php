@@ -226,7 +226,10 @@ class xFrameworkPX_View_Smarty extends xFrameworkPX_View
         $isIE8      = $isIE && $this->_checkUA('/msie 8/i')
                       ? true
                       : false;
-        $isIE6      = $isIE && !$isIE7 && !$isIE8
+        $isIE9      = $isIE && $this->_checkUA('/msie 9/i')
+                      ? true
+                      : false;
+        $isIE6      = $isIE && !$isIE7 && !$isIE8 && !$isIE9
                       ? true
                       : false;
         $isGecko    = !$isWebKit && $this->_checkUA('/gecko/i')
