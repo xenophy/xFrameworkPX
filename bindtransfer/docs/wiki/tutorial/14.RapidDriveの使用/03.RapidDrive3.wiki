@@ -1,0 +1,469 @@
+* RapidDriveの基本操作(3)
+
+ここでは、「'''RapidDriveの基本操作(1)'''」で作成した一覧画面に、新規登録の機能を追加します。
+
+
+このチュートリアルでは、次の操作を行います。
+
++ アプリケーションディレクトリにHTMLファイルを設置する
++ アプリケーションディレクトリにコントローラーを設置する
++ モジュールディレクトリにモジュールを設置する
++ 仮想スクリーンの動作を確認する
++ サンプル実行
+
+* アプリケーションディレクトリにHTMLファイルを設置する
+
+webapp下に、次のindex.html、add.html、verify.html、fin.htmlを設置します。
+保存する文字コードは、''UTF-8''、改行コードは''LF''です。
+
+&br;
+
+** index.html
+「'''RapidDriveの基本操作(1)'''」で作成したindex.htmlに、新規登録ボタンを追加します。
+ソースコードは、「'''bindtransfer/docs/tutorial/rapid/add/'''」にあるチュートリアルのサンプルを参考にしてください。
+
+&br;
+
+** add.html
+新規登録するデータを入力するための画面です。
+ソースコードは以下の通りです。
+
+{{{
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-script-Type" content="text/javascript" />
+    <meta http-equiv="content-style-type" content="text/css" />
+    <title>RapidDriveの基本操作(3) - 新規登録画面</title>
+    <style>
+
+    table {
+        border-top: solid #222 1px;
+        border-left: solid #222 1px;
+    }
+    th,td {
+        border-right: solid #222 1px;
+        border-bottom: solid #222 1px;
+        padding: 5px;
+    }
+    th {
+        background-color: #efefef;
+    }
+
+    div {
+        margin-bottom: 20px;
+    }
+
+    .err {
+        color: #FF0000;
+    }
+
+    </style>
+</head>
+<body>
+    <h1>RapidDriveの基本操作(3) - 新規登録画面</h1>
+
+
+    <form action="<!--{$rd.nextAction}-->" method="post">
+        <div id="content">
+
+<br>
+<br>
+<br>
+            <table border="0" cellspacing="0" cellpadding="0" class="tablelayout">
+                <tr>
+                    <th>氏名</th>
+                    <td>
+                        <!--{$wt.add.name}-->
+                        <!--{foreach from=$rd.validError.name item=message}-->
+                        <p class="err"><!--{$message}--></p>
+                        <!--{/foreach}-->
+                    </td>
+                </tr>
+                <tr>
+                    <th>年齢</th>
+                    <td>
+                        <!--{$wt.add.age}-->
+                        <!--{foreach from=$rd.validError.age item=message}-->
+                        <p class="err"><!--{$message}--></p>
+                        <!--{/foreach}-->
+                    </td>
+                </tr>
+                <tr>
+                    <th>性別</th>
+                    <td>
+                        <!--{foreach from=$wt.add.sex key=sKey item=sItem name="sList"}-->
+                        <!--{$sItem}-->
+                        <!--{/foreach}-->
+                        <!--{foreach from=$rd.validError.sex item=message}-->
+                        <p class="err"><!--{$message}--></p>
+                        <!--{/foreach}-->
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <!--{$wt.btnSubmit}-->
+            <input type="button" name="btnBack" value="一覧へ戻る" onclick="location.href='<!--{$rd.prevAction}-->'; return false;" onkeypress="" />
+        </div>
+    </form>
+
+</body>
+</html>
+}}}
+
+&br;
+
+** verify.html
+入力確認をする画面です。
+ソースコードは以下の通りです。
+
+{{{
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-script-Type" content="text/javascript" />
+    <meta http-equiv="content-style-type" content="text/css" />
+    <title>RapidDriveの基本操作(3) - 確認画面</title>
+    <style>
+
+    table {
+        border-top: solid #222 1px;
+        border-left: solid #222 1px;
+    }
+    th,td {
+        border-right: solid #222 1px;
+        border-bottom: solid #222 1px;
+        padding: 5px;
+    }
+    th {
+        background-color: #efefef;
+    }
+
+    div {
+        margin-bottom: 20px;
+    }
+
+    </style>
+</head>
+<body>
+    <div id="content">
+        <h1>RapidDriveの基本操作(3) - 確認画面</h1>
+<br>
+<br>
+<br>
+<br>
+<br>
+        <table border="0" cellspacing="0" cellpadding="0" class="tablelayout">
+            <tr>
+                <th>氏名</th>
+                <td><!--{$rd.inputData.name|escape}--></td>
+            </tr>
+            <tr>
+                <th>年齢</th>
+                <td><!--{$rd.inputData.age|escape}--></td>
+            </tr>
+            <tr>
+                <th>性別</th>
+                <td>
+                <!--{if $rd.inputData.sex eq '1'}-->
+                男性
+                <!--{elseif $rd.inputData.sex eq '2'}-->
+                女性
+                <!--{/if}-->
+                </td>
+            </tr>
+        </table>
+
+    </div>
+
+    <div>
+        <form action="<!--{$rd.nextAction}-->" method="post">
+            <input type="submit" value="登録" />
+            <input type="button" value="戻る" onclick="javascript:location.href = '<!--{$rd.prevAction}-->'; return false;" onkeypress="" />
+        </form>
+    </div>
+
+</body>
+</html>
+}}}
+
+&br;
+
+** fin.html
+入力完了のメッセージを表示する画面です。
+ソースコードは以下の通りです。
+
+{{{
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-script-Type" content="text/javascript" />
+    <meta http-equiv="content-style-type" content="text/css" />
+    <title>RapidDriveの基本操作(3) - 完了画面</title>
+    <style>
+
+    table {
+        border-top: solid #222 1px;
+        border-left: solid #222 1px;
+    }
+    th,td {
+        border-right: solid #222 1px;
+        border-bottom: solid #222 1px;
+        padding: 5px;
+    }
+    th {
+        background-color: #efefef;
+    }
+
+    div {
+        margin-bottom: 20px;
+    }
+
+    </style>
+</head>
+<body>
+    <h1>RapidDriveの基本操作(3) - 完了画面</h1>
+
+        <div id="content">
+            <h2>登録完了しました。</h2>
+            <form action="<!--{$rd.nextAction}-->" method="post">
+                <input type="submit" value="トップへ戻る" />
+            </form>
+        </div>
+</body>
+</html>
+}}}
+
+
+* アプリケーションディレクトリにコントローラーを設置する
+
+webapp下に、.index.php、.add.php、.verify.php、.save.php、.fin.phpを設置します。
+保存する文字コードは、''UTF-8''、改行コードは''LF''です。
+
+&br;
+
+**.index.php
+「'''RapidDriveの基本操作(1)'''」で作成した.index.phpと同じものを設置します。
+全体のソースコードについては、「'''bindtransfer/docs/tutorial/rapid/detail/'''」にあるチュートリアルのサンプルを参考にしてください。
+
+&br;
+
+** .add.php
+ソースコードは以下の通りです。
+
+{{{
+<?php
+
+class add extends xFrameworkPX_Controller_Action
+{
+    public $modules = array(
+        'user'
+    );
+
+    public $rapid = array(
+        'mode' => 'add',
+        'module' => 'user',
+        'field_filter' => array('id', 'del'),
+        'input_field' => array(
+
+            'name' => array(
+                'field_type' => 'text',
+                'options' => array(
+                    'id' => 'title',
+                    'maxlength' => '50',
+                )
+            ),
+            'age' => array(
+                'field_type' => 'text',
+                'options' => array(
+                    'id' => 'age',
+                    'maxlength' => '3',
+                    'size' => '4',
+                ),
+            ),
+            'sex' => array(
+                'field_type' => 'radio',
+                'options' => array(
+                    array(
+                        'id' => 'male',
+                        'value' => '1',
+                        'label' => '男性',
+                    ),
+                    array(
+                        'id' => 'female',
+                        'value' => '2',
+                        'label' => '女性',
+                    ),
+                ),
+            ),
+
+            'btn_submit' => array(
+                'field_type' => 'submit',
+                'options' => array(
+                    'value' => '確認',
+                    'name' => 'btnSubmit',
+                )
+            )
+        ),
+
+        'nextAction' => 'verify',
+        'prevAction' => 'index'
+    );
+}
+}}}
+
+入力画面を表示させる場合は、「''Addモード''」で動作させます。
+Addモードの各設定については、「'''コントローラー > RapidDrive'''」の項を参照してください。
+
+&br;
+
+** .verify.php
+ソースコードは以下の通りです。
+
+{{{
+<?php
+
+class verify extends xFrameworkPX_Controller_Action
+{
+    public $modules = array(
+        'user'
+    );
+
+    public $rapid = array(
+        'mode' => 'verify',
+        'prevAction' => 'add',
+        'nextAction' => 'save'
+    );
+}
+}}}
+
+確認画面を表示させる場合は、「''Verifyモード''」で動作させます。
+Verifyモードの各設定については、「'''コントローラー > RapidDrive'''」の項を参照してください。
+
+&br;
+
+** .save.php
+ソースコードは以下の通りです。
+{{{
+<?php
+
+class save extends xFrameworkPX_Controller_Action
+{
+    public $modules = array(
+        'user'
+    );
+
+    public $rapid = array(
+        'mode' => 'save',
+        'transaction' => true,
+        'lock' => true,
+        'prevAction' => 'verify',
+        'nextAction' => 'fin'
+    );
+}
+}}}
+データベースへの書き込みを行う場合は、「''Saveモード''」で動作させます。
+Saveモードの各設定については、「'''コントローラー > RapidDrive'''」の項を参照してください。
+
+&br;
+
+** .fin.php
+ソースコードは以下の通りです。
+{{{
+<?php
+
+class fin extends xFrameworkPX_Controller_Action
+{
+    public $modules = array(
+        'user'
+    );
+
+    public $rapid = array(
+        'mode' => 'fin',
+        'nextAction' => 'index'
+    );
+}
+}}}
+完了画面を表示させる場合は、「''Finモード''」で動作させます。
+Finモードの各設定については、「'''コントローラー > RapidDrive'''」の項を参照してください。
+
+
+* モジュールディレクトリにモジュールを設置する
+
+modules下に、次のuser.phpを設置します。
+
+{{{
+<?php
+
+class Docs_Tutorial_Rapid_Valid_user extends xFrameworkPX_Model_RapidDrive
+{
+    public $validators = array(
+        'name' => array(
+            array(
+                'rule'    => 'NotEmpty',
+                'message' => '氏名を入力してください。'
+            ),
+        ),
+        'age' => array(
+            array(
+                'rule'    => 'NotEmpty',
+                'message' => '年齢を入力してください。'
+            ),
+            array(
+                'rule'    => 'validateInt',
+                'message' => '年齢は半角数字で入力してください。'
+            ),
+        ),
+        'sex' => array(
+            array(
+                'rule'    => 'NotEmpty',
+                'message' => '性別を選択してください。'
+            ),
+        )
+    );
+
+    public function validateInt($target)
+    {
+
+        if (!preg_match('/^[0-9]+$/', $target)) {
+            return false;
+        }
+
+        if (strlen($target) > 1 && preg_match('/^0/', $target)) {
+            return false;
+        }
+
+        return true;
+
+    }
+
+}
+}}}
+
+入力チェックを行うため、「'''RapidDriveの基本操作(1)'''」で使用したモジュールに、バリデーションの設定が追加してあります。
+
+
+* 仮想スクリーンの動作を確認する
+
+ブラウザで'''''http://yourdomain/index.html'''''にアクセスします。
+
+「'''RapidDriveの基本操作(1)'''」のときと同様の画面が表示されます。
+新規登録ボタンを押下すると、新規登録の入力画面が表示されます。
+
+
+* サンプル実行
+
+下記のボタンから、ここまでのサンプルを実行することができます。
+
+[[&img(./resources/images/demo.gif){サンプル画像};>./tutorial/rapid/add/index.html>external]]
+
+** サンプル格納位置
+
+'''bindtransfer/docs/tutorial/rapid/add/'''

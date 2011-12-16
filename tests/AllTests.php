@@ -21,6 +21,7 @@ if (!defined('PHPUnit_MAIN_METHOD')) {
 
 // {{{ requires
 
+set_include_path(get_include_path() . PATH_SEPARATOR . getcwd().'/../library/');
 set_include_path(get_include_path() . PATH_SEPARATOR . '../');
 
 /**

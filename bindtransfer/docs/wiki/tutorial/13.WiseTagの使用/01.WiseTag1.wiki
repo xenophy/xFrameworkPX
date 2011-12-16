@@ -1,0 +1,293 @@
+* WiseTagの基本的な操作(1)
+
+WiseTagとは、xFrameworkPXがビューに対して、入力フォームを動的に生成する機能です。
+ここでは、WiseTagの設定の追加と入力フォームの生成、表示の方法を学びます。
+
+WiseTagに対する操作はコントローラーから行います。
+
+このチュートリアルでは以下の操作を行います。
++ アプリケーションディレクトリにHTMLファイルを設置する
++ アプリケーションディレクトリにコントローラーを設置する
++ 仮想スクリーンの動作を確認する
++ サンプル実行
+
+
+* アプリケーションディレクトリにHTMLファイルを設置する
+webapp下に、仮想スクリーンのテンプレートファイルとして、次のindex.htmlを設置します。
+保存する文字コードは、UTF-8、改行コードはLFです。
+
+{{{
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-script-Type" content="text/javascript" />
+    <meta http-equiv="content-style-type" content="text/css" />
+    <title>WiseTagの基本的な操作(1)</title>
+</head>
+<body>
+    <h1>WiseTagの基本的な操作(1)</h1>
+
+    <h2>フォーム部品選択</h2>
+    <form action="./" method="post">
+        <input type="checkbox" name="gen[]" value="text" id="gen1" /><label for="gen1">テキストボックス</label><br />
+        <input type="checkbox" name="gen[]" value="password" id="gen2" /><label for="gen2">テキストボックス(パスワード)</label><br />
+        <input type="checkbox" name="gen[]" value="radio" id="gen3" /><label for="gen3">ラジオボタン</label><br />
+        <input type="checkbox" name="gen[]" value="check" id="gen4" /><label for="gen4">チェックボックス</label><br />
+        <input type="checkbox" name="gen[]" value="select" id="gen5" /><label for="gen5">セレクトボックス</label><br />
+        <input type="checkbox" name="gen[]" value="textarea" id="gen6" /><label for="gen6">テキストエリア</label><br />
+        <input type="checkbox" name="gen[]" value="file" id="gen7" /><label for="gen7">ファイル送信ボックス</label><br />
+        <input type="checkbox" name="gen[]" value="hidden" id="gen8" /><label for="gen8">隠しフィールド</label><br />
+        <input type="checkbox" name="gen[]" value="submit" id="gen9" /><label for="gen9">送信ボタン</label><br />
+        <input type="checkbox" name="gen[]" value="reset" id="gen10" /><label for="gen10">リセットボタン</label><br />
+        <input type="checkbox" name="gen[]" value="button" id="gen11" /><label for="gen11">汎用ボタン</label><br />
+        <input type="checkbox" name="gen[]" value="image" id="gen12" /><label for="gen12">画像ボタン</label><br />
+        <input type="submit" value="生成">
+    </form>
+
+    <!--{if $wt}-->
+    <h2>生成したフォーム</h2>
+    <form<!--{$wt.form}-->>
+    <!--{foreach from=$wt key=key item=field}-->
+        <!--{if $key != 'form'}-->
+            <!--{if $key == 'radio' || $key == 'check'}-->
+            <!--{foreach from=$wt.$key item=item}-->
+                <!--{$item}-->
+            <!--{/foreach}-->
+            <!--{else}-->
+                <!--{$field}-->
+            <!--{/if}-->
+            <br />
+        <!--{/if}-->
+    <!--{/foreach}-->
+    </form>
+    <!--{/if}-->
+</body>
+</html>
+}}}
+
+
+* アプリケーションディレクトリにコントローラーを設置する
+webapp下に、次の.index.phpを設置します。
+保存する文字コードは、''UTF-8''、改行コードは''LF''です。
+
+コントローラーではWiseTagの設定が終わった後、必ず「''genメソッド''」を実行させてください。
+genメソッドを実行した時点で、WiseTagは入力フォームの生成とビューへのアサインを行います。
+
+{{{
+<?php
+
+class index extends xFrameworkPX_Controller_Action
+{
+    public function execute()
+    {
+        // WiseTag設定クリア
+        $this->Tag->clear();
+
+        if (isset($this->post['gen'])) {
+            $config = array();
+
+            $config[] = array(
+                'type' => 'form',
+                'action' => './',
+                'method' => 'post',
+                'enctype' => 'multipart/form-data'
+            );
+
+            foreach ($this->post['gen'] as $field) {
+
+                switch ($field) {
+
+                    case 'text':
+                        $config[] = array(
+                            'type' => 'text',
+                            'name' => 'txtbox',
+                            'id' => 'txtbox',
+                            'value' => 'blank',
+                            'size' => '20',
+                            'maxsize' => '10',
+                            'prelabel' => 'テキストボックス'
+                        );
+                        break;
+
+                    case 'password':
+                        $config[] = array(
+                            'type' => 'password',
+                            'name' => 'pass',
+                            'id' => 'pass',
+                            'value' => '',
+                            'size' => '20',
+                            'maxsize' => '15',
+                            'prelabel' => 'パスワード'
+                        );
+                        break;
+
+                    case 'radio':
+                        $config[] = array(
+                            'type' => 'radio',
+                            'name' => 'radio',
+                            'id' => 'radio1',
+                            'value' => 'a',
+                            'label' => 'A',
+                            'checked' => 'checked'
+                        );
+                        $config[] = array(
+                            'type' => 'radio',
+                            'name' => 'radio',
+                            'id' => 'radio2',
+                            'value' => 'b',
+                            'label' => 'B'
+                        );
+                        break;
+
+                    case 'check':
+                        $config[] = array(
+                            'type' => 'checkbox',
+                            'name' => 'check',
+                            'id' => 'check1',
+                            'value' => '1',
+                            'label' => '1'
+                        );
+                        $config[] = array(
+                            'type' => 'checkbox',
+                            'name' => 'check',
+                            'id' => 'check2',
+                            'value' => '2',
+                            'label' => '2'
+                        );
+                        $config[] = array(
+                            'type' => 'checkbox',
+                            'name' => 'check',
+                            'id' => 'check3',
+                            'value' => '3',
+                            'label' => '3'
+                        );
+                        break;
+
+                    case 'select':
+                        $config[] = array(
+                            'type' => 'select',
+                            'name' => 'select',
+                            'id' => 'select',
+                            'prelabel' => 'セレクトボックス',
+                            'options' => array(
+                                array(
+                                    'value' => '',
+                                    'intext' => '選択してください',
+                                    'selected' => 'selected'
+                                ),
+                                array(
+                                    'value' => '1-1',
+                                    'intext' => '1-1'
+                                ),
+                                array(
+                                    'value' => '1-2',
+                                    'intext' => '1-2'
+                                ),
+                                array(
+                                    'value' => '1-3',
+                                    'intext' => '1-3'
+                                )
+                            )
+                        );
+                        break;
+
+                    case 'textarea':
+                        $config[] = array(
+                            'type' => 'textarea',
+                            'name' => 'txtarea',
+                            'id' => 'txtarea',
+                            'cols' => '50',
+                            'rows' => '5',
+                            'intext' => 'blank',
+                            'prelabel' => 'テキストエリア',
+                            'style' => 'vertical-align: top;'
+                        );
+                        break;
+
+                    case 'file':
+                        $config[] = array(
+                            'type' => 'file',
+                            'name' => 'file',
+                            'id' => 'file',
+                            'size' => '50',
+                            'prelabel' => 'ファイル送信'
+                        );
+                        break;
+
+                    case 'hidden':
+                        $config[] = array(
+                            'type' => 'hidden',
+                            'name' => 'hidden',
+                            'value' => 'hidden value',
+                            'pretext' => '隠しパラメータ -&gt;'
+                        );
+                        break;
+
+                    case 'submit':
+                        $config[] = array(
+                            'type' => 'submit',
+                            'name' => 'submit',
+                            'value' => '実行'
+                        );
+                        break;
+
+                    case 'reset':
+                        $config[] = array(
+                            'type' => 'reset',
+                            'name' => 'clear',
+                            'value' => 'クリア'
+                        );
+                        break;
+
+                    case 'button':
+                        $config[] = array(
+                            'type' => 'button',
+                            'name' => 'btn',
+                            'value' => '汎用ボタン'
+                        );
+                        break;
+
+                    case 'image':
+                        $config[] = array(
+                            'type' => 'image',
+                            'name' => 'img',
+                            'id' => 'img',
+                            'src' => './logo.png',
+                            'alt' => 'xFrameworkPX'
+                        );
+                        break;
+                }
+
+            }
+
+            if (count($this->post['gen']) > 0) {
+
+                // 設定追加
+                $this->Tag->add($config);
+
+                // フォーム生成
+                $this->Tag->gen();
+            }
+
+        }
+    }
+}
+}}}
+
+
+* 仮想スクリーンの動作を確認する
+ブラウザで'''''http://yourdomain/index.html'''''にアクセスします。
+生成するフォームの部品のチェックボックスを選択し、生成ボタンを押下すると、
+コントローラーに記述した設定に合わせて、それぞれのフォームの部品が表示されます。
+
+
+* サンプル実行
+下記のボタンから、ここまでのサンプルを実行することができます。
+
+[[&img(./resources/images/demo.gif){サンプル画像};>./tutorial/wisetag/wisetag1/index.html>external]]
+
+
+** サンプル格納位置
+'''bindtransfer/docs/tutorial/wisetag/wisetag1/'''

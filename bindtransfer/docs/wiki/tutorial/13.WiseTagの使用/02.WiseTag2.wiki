@@ -1,0 +1,373 @@
+* WiseTagの基本的な操作(2)
+このチュートリアルでは、WiseTagによる入力フォームの設定を編集する方法を学びます。
+
+WiseTagは、セッションに設定情報を保存しており、毎回コントローラーの実行時にその設定を自動的にロードするため、
+同一のフォームを表示する時には、改めてフィールドの設定をし直す必要はありません。
+また、登録されているフィールドの設定に対して、編集を行うことができます。
+
+このチュートリアルでは以下の操作を行います。
++ アプリケーションディレクトリにHTMLファイルを設置する
++ アプリケーションディレクトリにコントローラーを設置する
++ 仮想スクリーンの動作を確認する
++ サンプル実行
+
+
+* アプリケーションディレクトリにHTMLファイルを設置する
+webapp下に、仮想スクリーンのテンプレートファイルとして、次のindex.htmlを設置します。
+保存する文字コードは、UTF-8、改行コードはLFです。
+
+{{{
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-script-Type" content="text/javascript" />
+    <meta http-equiv="content-style-type" content="text/css" />
+    <title>WiseTagの基本的な操作(2)</title>
+</head>
+<body>
+    <h1>WiseTagの基本的な操作(2)</h1>
+
+    <!--{if $wt}-->
+    <h2>生成したフォーム</h2>
+    <form<!--{$wt.form}-->>
+        <!--{$wt.txt}--><br />
+        <!--{$wt.pass}--><br />
+        <!--{foreach from=$wt.radio item=item}-->
+        <!--{$item}-->
+        <!--{/foreach}-->
+        <br />
+        <!--{foreach from=$wt.check item=item}-->
+        <!--{$item}-->
+        <!--{/foreach}-->
+        <br />
+        <!--{$wt.sel}--><br />
+        <!--{$wt.txtarea}--><br />
+        <!--{$wt.save}-->
+    </form>
+    <!--{/if}-->
+</body>
+</html>
+}}}
+
+
+* アプリケーションディレクトリにコントローラーを設置する
+webapp下に、次の.index.phpを設置します。
+保存する文字コードは、''UTF-8''、改行コードは''LF''です。
+
+編集時も追加時と同様、genメソッドの実行を忘れないように注意してください。
+genメソッドを実行しなかった場合、変更した内容は反映されません。
+
+{{{
+<?php
+
+class index extends xFrameworkPX_Controller_Action
+{
+    public function execute()
+    {
+        if (is_null($this->Session->read('WiseTagConfig'))) {
+            $this->Tag->add($this->_getInitConfig());
+        } else {
+
+            if (isset($this->post['txt'])) {
+                $this->Tag->edit(
+                    array('value' => $this->post['txt']),
+                    array(
+                        'type' => 'text',
+                        'name' => 'txt'
+                    )
+                );
+            } else {
+                $this->Tag->edit(
+                    array('value' => ''),
+                    array(
+                        'type' => 'text',
+                        'name' => 'txt'
+                    )
+                );
+            }
+
+            if (isset($this->post['pass'])) {
+                $this->Tag->edit(
+                    array('value' => $this->post['pass']),
+                    array(
+                        'type' => 'password',
+                        'name' => 'pass'
+                    )
+                );
+            } else {
+                $this->Tag->edit(
+                    array('value' => ''),
+                    array(
+                        'type' => 'password',
+                        'name' => 'pass'
+                    )
+                );
+            }
+
+            if (isset($this->post['radio'])) {
+                $this->Tag->edit(
+                    array('checked' => null),
+                    array(
+                        'type' => 'radio',
+                        'name' => 'radio'
+                    )
+                );
+
+                $this->Tag->edit(
+                    array('checked' => 'checked'),
+                    array(
+                        'type' => 'radio',
+                        'name' => 'radio',
+                        'value' => $this->post['radio']
+                    )
+                );
+            } else {
+                $this->Tag->edit(
+                    array('checked' => null),
+                    array(
+                        'type' => 'radio',
+                        'name' => 'radio'
+                    )
+                );
+
+                $this->Tag->edit(
+                    array('checked' => 'checked'),
+                    array(
+                        'type' => 'radio',
+                        'name' => 'radio',
+                        'count' => '1'
+                    )
+                );
+            }
+
+            if (isset($this->post['check'])) {
+                $this->Tag->edit(
+                    array('checked' => null),
+                    array(
+                        'type' => 'checkbox',
+                        'name' => 'check[]'
+                    )
+                );
+
+                foreach ($this->post['check'] as $item) {
+                    $this->Tag->edit(
+                        array('checked' => 'check'),
+                        array(
+                            'type' => 'checkbox',
+                            'name' => 'check[]',
+                            'value' => $item
+                        )
+                    );
+                }
+            } else {
+                $this->Tag->edit(
+                    array('checked' => null),
+                    array(
+                        'type' => 'checkbox',
+                        'name' => 'check[]'
+                    )
+                );
+            }
+
+            if (isset($this->post['sel'])) {
+                $initOpt = array(
+                    array(
+                        'value' => '',
+                        'intext' => '選択してください'
+                    ),
+                    array(
+                        'value' => '1-1',
+                        'intext' => '1-1'
+                    ),
+                    array(
+                        'value' => '1-2',
+                        'intext' => '1-2'
+                    ),
+                    array(
+                        'value' => '1-3',
+                        'intext' => '1-3'
+                    )
+                );
+
+                foreach ($initOpt as $key => $conf) {
+
+                    if ($conf['value'] == $this->post['sel']) {
+                        $conf['selected'] = 'selected';
+                        $initOpt[$key] = $conf;
+                    }
+
+                }
+
+                $this->Tag->edit(
+                    array('options' => $initOpt),
+                    array('type' => 'select', 'name' => 'sel')
+                );
+            } else {
+                $this->Tag->edit(
+                    array('options' => array(
+                        array(
+                            'value' => '',
+                            'intext' => '選択してください',
+                            'selected' => 'selected'
+                        ),
+                        array(
+                            'value' => '1-1',
+                            'intext' => '1-1'
+                        ),
+                        array(
+                            'value' => '1-2',
+                            'intext' => '1-2'
+                        ),
+                        array(
+                            'value' => '1-3',
+                            'intext' => '1-3'
+                        )
+                    )),
+                    array('type' => 'select', 'name' => 'sel')
+                );
+            }
+
+            if (isset($this->post['txtarea'])) {
+                $this->Tag->edit(
+                    array('intext' => $this->post['txtarea']),
+                    array('type' => 'textarea', 'name' => 'txtarea')
+                );
+            } else {
+                $this->Tag->edit(
+                    array('intext' => ''),
+                    array('type' => 'textarea', 'name' => 'txtarea')
+                );
+            }
+
+        }
+
+        //タグ生成
+        $this->Tag->gen();
+    }
+
+    /**
+     * 初期設定取得メソッド
+     */
+    private function _getInitConfig()
+    {
+        return array(
+            array(
+                'type' => 'form',
+                'action' => './',
+                'method' => 'post'
+            ),
+            array(
+                'type' => 'text',
+                'name' => 'txt',
+                'id' => 'txt',
+                'value' => '',
+                'size' => '20',
+                'maxsize' => '10',
+                'prelabel' => 'テキストボックス'
+            ),
+            array(
+                'type' => 'password',
+                'name' => 'pass',
+                'id' => 'pass',
+                'value' => '',
+                'size' => '20',
+                'maxsize' => '15',
+                'prelabel' => 'パスワード'
+            ),
+            array(
+                'type' => 'radio',
+                'name' => 'radio',
+                'id' => 'radio1',
+                'value' => 'a',
+                'label' => 'A',
+                'checked' => 'checked'
+            ),
+            array(
+                'type' => 'radio',
+                'name' => 'radio',
+                'id' => 'radio2',
+                'value' => 'b',
+                'label' => 'B'
+            ),
+            array(
+                'type' => 'checkbox',
+                'name' => 'check[]',
+                'id' => 'check1',
+                'value' => '1',
+                'label' => '1'
+            ),
+            array(
+                'type' => 'checkbox',
+                'name' => 'check[]',
+                'id' => 'check2',
+                'value' => '2',
+                'label' => '2'
+            ),
+            array(
+                'type' => 'checkbox',
+                'name' => 'check[]',
+                'id' => 'check3',
+                'value' => '3',
+                'label' => '3'
+            ),
+            array(
+                'type' => 'select',
+                'name' => 'sel',
+                'id' => 'sel',
+                'prelabel' => 'セレクトボックス',
+                'options' => array(
+                    array(
+                        'value' => '',
+                        'intext' => '選択してください',
+                        'selected' => 'selected'
+                    ),
+                    array(
+                        'value' => '1-1',
+                        'intext' => '1-1'
+                    ),
+                    array(
+                        'value' => '1-2',
+                        'intext' => '1-2'
+                    ),
+                    array(
+                        'value' => '1-3',
+                        'intext' => '1-3'
+                    )
+                )
+            ),
+            array(
+                'type' => 'textarea',
+                'name' => 'txtarea',
+                'id' => 'txtarea',
+                'cols' => '50',
+                'rows' => '5',
+                'intext' => '',
+                'prelabel' => 'テキストエリア',
+                'style' => 'vertical-align: top;'
+            ),
+            array(
+                'type' => 'submit',
+                'name' => 'save',
+                'value' => '保存'
+            )
+        );
+    }
+}
+}}}
+
+
+* 仮想スクリーンの動作を確認する
+ブラウザで'''''http://yourdomain/index.html'''''にアクセスします。
+
+
+* サンプル実行
+下記のボタンから、ここまでのサンプルを実行することができます。
+表示されるフォームに値を入力して保存ボタンを押下すると、入力した値がその入力フォームの初期値として保存されます。
+
+[[&img(./resources/images/demo.gif){サンプル画像};>./tutorial/wisetag/wisetag2/index.html>external]]
+
+
+** サンプル格納位置
+'''bindtransfer/docs/tutorial/wisetag/wisetag2/'''

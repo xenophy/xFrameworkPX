@@ -258,6 +258,7 @@ class xFrameworkPX_View_Smarty extends xFrameworkPX_View
         $this->smarty->assign('isIE', $isIE);
         $this->smarty->assign('isIE7', $isIE7);
         $this->smarty->assign('isIE8', $isIE8);
+        $this->smarty->assign('isIE9', $isIE9);
         $this->smarty->assign('isIE6', $isIE6);
         $this->smarty->assign('isGecko', $isGecko);
         $this->smarty->assign('isGecko2', $isGecko2);
@@ -280,6 +281,7 @@ class xFrameworkPX_View_Smarty extends xFrameworkPX_View
         xFrameworkPX_Debug::getInstance()->addUserData('isIE6', $isIE6);
         xFrameworkPX_Debug::getInstance()->addUserData('isIE7', $isIE7);
         xFrameworkPX_Debug::getInstance()->addUserData('isIE8', $isIE8);
+        xFrameworkPX_Debug::getInstance()->addUserData('isIE9', $isIE9);
         xFrameworkPX_Debug::getInstance()->addUserData('isGecko', $isGecko);
         xFrameworkPX_Debug::getInstance()->addUserData('isGecko2', $isGecko2);
         xFrameworkPX_Debug::getInstance()->addUserData('isGecko3', $isGecko3);

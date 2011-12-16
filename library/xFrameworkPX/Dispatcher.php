@@ -329,36 +329,12 @@ class xFrameworkPX_Dispatcher extends xFrameworkPX_Object
         }
 
         // 仮想スクリーン
-        if (!$this->isVirtualScreen() && $this->_conf['FORCE_CONTROLLER_EXECUTE'] === false) {
+        if (PHP_SAPI !== 'cli') {
 
-            if (PHP_SAPI === 'cli') {
-
-                $controllername = implode(
-                    '',
-                    array(
-                        $this->_conf['CONTROLLER_PREFIX'],
-                        $this->getActionName(),
-                        $this->_conf['CONTROLLER_EXTENSION']
-                    )
-                );
-
-                $controllerpath = normalize_path(
-                    implode(
-                        DS,
-                        array(
-                            $this->_conf['WEBROOT_DIR'],
-                            $this->getContentPath()
-                        )
-                    )
-                );
-
-                printf(
-                    '%1$s Controller was not found in %2$s',
-                    $this->getActionName(),
-                    $controllerpath.$controllername
-                );
-
-            } else {
+            if (
+                !$this->isVirtualScreen() && 
+                $this->_conf['FORCE_CONTROLLER_EXECUTE'] === false
+            ) {
 
                 // パスの末尾が/でない場合で404エラーになる場合は、/を付加してリダイレクト
                 if (
@@ -385,9 +361,50 @@ class xFrameworkPX_Dispatcher extends xFrameworkPX_Object
                         $this->_conf['ERROR404']
                     )
                 );
+
+                return false;
             }
 
-            return false;
+        } else {
+            // パラメータ取得
+            $params = $this->getParams()->args;
+            if (!isset($params->app) || !$params->app) {
+                throw new xFrameworkPX_Controller_Exception(PX_ERR10005);
+            }
+
+            // パス解析
+            $clipath = normalize_path($this->_conf['CONTROLLER_DIR']);
+            $filename = implode(
+                array(
+                    dirname(
+                       str_replace('_', '/', $params->app)
+                    ),
+                    DS,
+                    $this->_conf['CONTROLLER_PREFIX'],
+                    get_filename(
+                        str_replace('_', '/', $params->app)
+                    ),
+                    $this->_conf['CONTROLLER_EXTENSION']
+                )
+            );
+
+            // 読み込みクラスファイル名取得
+            $includefilename = normalize_path(
+                implode(
+                    DS,
+                    array($clipath, $filename)
+                )
+            );
+
+            if (!file_exists($includefilename)) {
+                throw new xFrameworkPX_Controller_Exception(
+                    sprintf(
+                        PX_ERR10006,
+                        $includefilename
+                    )
+                );
+            }
+
         }
 
         // ログファイル設定読み込み

@@ -192,6 +192,13 @@ abstract class xFrameworkPX_Model extends xFrameworkPX_Util_Observable
 
     public $controller;
 
+    /**
+     * 入力チェック値
+     *
+     * @var xFramework_Util_MixedCollection
+     */
+    public $validData = null;
+
     // }}}
     // {{{ __construct
 
@@ -221,12 +228,11 @@ abstract class xFrameworkPX_Model extends xFrameworkPX_Util_Observable
         // コネクション設定
         if ($this->usetable !== false && $this->autoConn) {
             $this->connection();
+            // ビヘイビア設定
+            $this->behaviors = array_merge(
+                $this->behaviors, array('LiveRecord')
+            );
         }
-
-        // ビヘイビア設定
-        $this->behaviors = array_merge(
-            $this->behaviors, array('LiveRecord')
-        );
 
         // ビヘイビアバインド
         $this->_bindBehavior();
@@ -592,6 +598,10 @@ abstract class xFrameworkPX_Model extends xFrameworkPX_Util_Observable
      */
     public function isValid($data)
     {
+
+        // チェック対象データをプロパティに保存
+        $this->validData = $data;
+
         return $this->validation($this->mix(
             array(
                 $this->toString() => $data
@@ -1064,6 +1074,19 @@ abstract class xFrameworkPX_Model extends xFrameworkPX_Util_Observable
         }
 
         return $eventName;
+    }
+
+    // }}}
+    // {{{ getTargetDatas
+
+    /**
+     * バリデーションクラス読み込みメソッド
+     *
+     * @return xFramework_Util_MixedCollection
+     */
+    public function getTargetDatas()
+    {
+        return $this->validData;
     }
 
     // }}}
