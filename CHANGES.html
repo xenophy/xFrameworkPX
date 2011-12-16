@@ -1,5 +1,6 @@
 <html>
 <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>xFrameworkPX Release Notes for 3.5.2</title>
     <style>
         * {
@@ -36,42 +37,33 @@
 
 <body>
 
-    <h1>xFrameworkPX Release Notes for 3.5.2</h1>
+    <h1>xFrameworkPX Release Notes for 3.5.4</h1>
 
     <p>
-        Release Date: 2010/08/xx<br/>
-        Current Version: 3.5.2<br/>
-        Previous Version: 3.5.1
+        Release Date: 2010/12/16<br/>
+        Current Version: 3.5.4<br/>
+        Previous Version: 3.5.2
     </p>
 
     <br />
 
     <h2>Overview</h2>
     <ul>
-        <li><strong>ディレクトリ構成</strong>
+        <li><strong>consoleの不具合を修正</strong>
             <ul>
-                <li>controllersディレクトリが消えていたので、追加しなおしました。</li>
+                <li>webapp/index.htmlがないとエラーとなってしまう不具合を修正しました。</li>
+                <li>対象コントローラがない場合にエラーにならない不具合を修正しました。</li>
             </ul>
         </li>
-        <li><strong>クラスのオートロード</strong>
+        <li><strong>isIE9の実装</strong>
             <ul>
-                <li>継承元クラスを自動的にロードする機能にあったバグを修正しました。</li>
+                <li>テンプレート上でisIE9が使用できるようになりました。</li>
             </ul>
         </li>
-        <li><strong>WiseTag</strong>
+        <li><strong>isValidの改修</strong>
             <ul>
-                <li>editメソッドにあったバグを修正しました。</li>
-            </ul>
-        </li>
-        <li><strong>データベース接続処理</strong>
-            <ul>
-                <li>指定された文字コードが正しく設定されていなかったバグを修正しました。</li>
-            </ul>
-        </li>
-        <li><strong>ドキュメント</strong>
-            <ul>
-                <li>ドキュメントを大幅に加筆修正しました。</li>
-                <li>チュートリアルを大幅に加筆修正しました。</li>
+                <li>引数を保持するプロパティを設置しました。</li>
+                <li>ユーザーバリデーション内で、上記プロパティを取得できるgetTargetDatasメソッドを実装しました。</li>
             </ul>
         </li>
     </ul>
@@ -80,6 +72,41 @@
 
     <h2>Change Log</h2>
     <table>
+        <tr>
+            <th>xFrameworkPX Ver. 3.5.2</th>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                <li><strong>ディレクトリ構成</strong>
+                    <ul>
+                        <li>controllersディレクトリが消えていたので、追加しなおしました。</li>
+                    </ul>
+                </li>
+                <li><strong>クラスのオートロード</strong>
+                    <ul>
+                        <li>継承元クラスを自動的にロードする機能にあったバグを修正しました。</li>
+                    </ul>
+                </li>
+                <li><strong>WiseTag</strong>
+                    <ul>
+                        <li>editメソッドにあったバグを修正しました。</li>
+                    </ul>
+                </li>
+                <li><strong>データベース接続処理</strong>
+                    <ul>
+                        <li>指定された文字コードが正しく設定されていなかったバグを修正しました。</li>
+                    </ul>
+                </li>
+                <li><strong>ドキュメント</strong>
+                    <ul>
+                        <li>ドキュメントを大幅に加筆修正しました。</li>
+                        <li>チュートリアルを大幅に加筆修正しました。</li>
+                    </ul>
+                </li>
+            </ul>
+            </td>
+        </tr>
         <tr>
             <th>xFrameworkPX Ver. 3.5.1</th>
         </tr>
