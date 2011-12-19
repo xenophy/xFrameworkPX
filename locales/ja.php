@@ -12,6 +12,8 @@ if( !defined( 'PX_ERR10001' ) ) define( 'PX_ERR10001', '.pxファイルにコン
 if( !defined( 'PX_ERR10002' ) ) define( 'PX_ERR10002', '.pxファイルにモジュールの指定がありません。' );
 if( !defined( 'PX_ERR10003' ) ) define( 'PX_ERR10003', 'Webルート( %s )ディレクトリが存在しません。' );
 if( !defined( 'PX_ERR10004' ) ) define( 'PX_ERR10004', '.pxが存在します、削除してアクセスしてください。' );
+if( !defined( 'PX_ERR10005' ) ) define( 'PX_ERR10005', '実行アクションを設定してください。' );
+if( !defined( 'PX_ERR10006' ) ) define( 'PX_ERR10006', '%sが存在しません。' );
 if( !defined( 'PX_ERR90001' ) ) define( 'PX_ERR90001', 'Cloneの使用は、%sによって許可されていません。' );
 
 // }}}
